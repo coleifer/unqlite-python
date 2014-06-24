@@ -208,8 +208,10 @@ class TestJx9(BaseTestCase):
             self.assertEqual(vm['something'], 'hello world')
 
             users = vm['users']
-            self.assertEqual(users, [])
-
+            self.assertEqual(users, [
+                {'__id': 0, 'age': 3, 'username': 'huey'},
+                {'__id': 1, 'age': 5, 'username': 'mickey'},
+            ])
 
 if __name__ == '__main__':
     unittest.main(argv=sys.argv)

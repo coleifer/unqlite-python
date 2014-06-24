@@ -353,7 +353,7 @@ class VM(object):
     def extract(self, name):
         ptr = unqlite_vm_extract_variable(self._vm, name)
         try:
-            return convert_value(ptr)
+            return _convert_value(ptr)
         finally:
             unqlite_vm_release_value(self._vm, ptr)
 
@@ -375,18 +375,39 @@ def _value_to_string(ptr):
     res = unqlite_value_to_string(ptr, pointer(nbytes))
     return res.raw[:nbytes.value]
 
-def convert_value(ptr):
-    if unqlite_value_is_json_array(ptr):
-        return []
-        accum = []
-        while True:
-            item = unqlite_array_next_elem(value)
-            if not item:
-                break
-            accum.append(_convert_value(item))
-        return accum
-    elif unqlite_value_is_json_object(ptr):
-        return {}
+def _value_to_list(ptr):
+    accum = []
+    def cb(key_ptr, value_ptr, user_data_ptr):
+        accum.append(_convert_value(value_ptr))
+        return UNQLITE_OK
+
+    c_callback = CFUNCTYPE(
+        UNCHECKED(c_int),
+        POINTER(unqlite_value),
+        POINTER(unqlite_value),
+        POINTER(None))(cb)
+    unqlite_array_walk(ptr, c_callback, None)
+    return accum
+
+def _value_to_dict(ptr):
+    accum = {}
+    def cb(key_ptr, value_ptr, user_data_ptr):
+        accum[_convert_value(key_ptr)] = _convert_value(value_ptr)
+        return UNQLITE_OK
+
+    c_callback = CFUNCTYPE(
+        UNCHECKED(c_int),
+        POINTER(unqlite_value),
+        POINTER(unqlite_value),
+        POINTER(None))(cb)
+    unqlite_array_walk(ptr, c_callback, None)
+    return accum
+
+def _convert_value(ptr):
+    if unqlite_value_is_json_object(ptr):
+        return _value_to_dict(ptr)
+    elif unqlite_value_is_json_array(ptr):
+        return _value_to_list(ptr)
     elif unqlite_value_is_string(ptr):
         return _value_to_string(ptr)
     elif unqlite_value_is_int(ptr):
