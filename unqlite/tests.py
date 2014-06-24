@@ -80,6 +80,7 @@ class TestKeyValueStorage(BaseTestCase):
 
         self.assertRaises(KeyError, lambda: self.db.fetch_cb('kx', cb))
 
+
 class TestTransaction(BaseTestCase):
     """
     These tests do not behave as I expect, but I am documenting the behavior
@@ -183,6 +184,31 @@ class TestCursor(BaseTestCase):
 
             self.assertEqual(keys, ['k09'])
             self.assertEqual(values, ['9', '8'])
+
+
+class TestJx9(BaseTestCase):
+    script = """
+        $collection = 'users';
+        if (!db_exists($collection)) {
+            db_create($collection);
+        }
+        db_store('users', {"username": "huey", "age": 3});
+        $huey_id = db_last_record_id('users');
+        db_store('users', {"username": "mickey", "age": 5});
+        $mickey_id = db_last_record_id('users');
+        $something = 'hello world';
+        $users = db_fetch_all('users');
+    """
+
+    def test_simple_compilation(self):
+        with self.db.compile_script(self.script) as vm:
+            vm.execute()
+            self.assertEqual(vm['huey_id'], 0)
+            self.assertEqual(vm['mickey_id'], 1)
+            self.assertEqual(vm['something'], 'hello world')
+
+            users = vm['users']
+            self.assertEqual(users, [])
 
 
 if __name__ == '__main__':

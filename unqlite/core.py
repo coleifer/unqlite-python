@@ -341,11 +341,27 @@ class VM(object):
         # `create_array()`.
         pass
 
-    def create_scalar(self, value):
-        scalar = Value(self, unqlite_vm_new_scalar(self._vm))
+    def set_value(self, name, value):
+        if isinstance(value, (list, tuple)):
+            ptr = unqlite_vm_new_array(self._vm)
+        else:
+            ptr = unqlite_vm_new_scalar(self._vm)
 
-    def create_array(self, value):
-        arr = Value(self, unqlite_vm_new_array(self._vm))
+        self.config(UNQLITE_VM_CONFIG_CREATE_VAR, name, ptr)
+        unqlite_vm_release_value(self._vm, ptr)
+
+    def extract(self, name):
+        ptr = unqlite_vm_extract_variable(self._vm, name)
+        try:
+            return convert_value(ptr)
+        finally:
+            unqlite_vm_release_value(self._vm, ptr)
+
+    def __getitem__(self, name):
+        return self.extract(name)
+
+    def __setitem__(self, name, value):
+        self.set_value(name, value)
 
     def __enter__(self):
         return self
@@ -354,12 +370,59 @@ class VM(object):
         if self._vm is not None:
             self.close()
 
-class Value(object):
-    def __init__(self, vm, value_ptr):
-        self.vm = vm
-        self.value_ptr = value_ptr
+def _value_to_string(ptr):
+    nbytes = c_int()
+    res = unqlite_value_to_string(ptr, pointer(nbytes))
+    return res.raw[:nbytes.value]
 
+def convert_value(ptr):
+    if unqlite_value_is_json_array(ptr):
+        return []
+        accum = []
+        while True:
+            item = unqlite_array_next_elem(value)
+            if not item:
+                break
+            accum.append(_convert_value(item))
+        return accum
+    elif unqlite_value_is_json_object(ptr):
+        return {}
+    elif unqlite_value_is_string(ptr):
+        return _value_to_string(ptr)
+    elif unqlite_value_is_int(ptr):
+        return unqlite_value_to_int(ptr)
+    elif unqlite_value_is_float(ptr):
+        return unqlite_value_to_float(ptr)
+    elif unqlite_value_is_bool(ptr):
+        return bool(unqlite_value_to_bool(ptr))
+    elif unqlite_value_is_null(ptr):
+        return None
+    raise TypeError('Unrecognized type: %s' % ptr)
 
+def _create_array(context, items):
+    #arr = vedis_context_new_array(context)
+    #for item in items:
+    #    if isinstance(item, (list, tuple)):
+    #        vedis_val = _create_array(context, item)
+    #    else:
+    #        vedis_val = vedis_context_new_scalar(context)
+    #        _set_value(vedis_val, item)
+    #    vedis_array_insert(arr, vedis_val)
+    #return arr
+    pass
+
+def _set_value(value, python_value):
+    #if isinstance(python_value, basestring):
+    #    vedis_value_string(value, python_value, -1)
+    #elif isinstance(python_value, (int, long)):
+    #    vedis_value_int(value, python_value)
+    #elif isinstance(python_value, bool):
+    #    vedis_value_bool(value, python_value)
+    #elif isinstance(python_value, float):
+    #    vedis_value_double(value, python_value)
+    #else:
+    #    vedis_value_null(value)
+    pass
 
 class transaction(object):
     def __init__(self, unqlite):
