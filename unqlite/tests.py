@@ -141,47 +141,48 @@ class TestCursor(BaseTestCase):
         self.assertIndex(cursor, 0)
         cursor.delete()
         self.assertIndex(cursor, 1)
+        cursor.close()
 
     def test_cursor_iteration(self):
-        cursor = self.db.cursor()
-        cursor.seek('k04')
-        cursor.delete()
-        cursor.reset()
-        results = [item for item in cursor]
-        self.assertEqual(results, [
-            ('k00', '0'),
-            ('k01', '1'),
-            ('k02', '2'),
-            ('k03', '3'),
-            ('k05', '5'),
-            ('k06', '6'),
-            ('k07', '7'),
-            ('k08', '8'),
-            ('k09', '9'),
-        ])
+        with self.db.cursor() as cursor:
+            cursor.seek('k04')
+            cursor.delete()
+            cursor.reset()
+            results = [item for item in cursor]
+            self.assertEqual(results, [
+                ('k00', '0'),
+                ('k01', '1'),
+                ('k02', '2'),
+                ('k03', '3'),
+                ('k05', '5'),
+                ('k06', '6'),
+                ('k07', '7'),
+                ('k08', '8'),
+                ('k09', '9'),
+            ])
 
     def test_cursor_callbacks(self):
         keys = []
         values = []
-        cursor = self.db.cursor()
-        cursor.last()
+        with self.db.cursor() as cursor:
+            cursor.last()
 
-        @cursor.key_callback
-        def kcb(key):
-            keys.append(key)
+            @cursor.key_callback
+            def kcb(key):
+                keys.append(key)
 
-        def vcb(value):
-            values.append(value)
-        cursor.value_callback(vcb)
+            def vcb(value):
+                values.append(value)
+            cursor.value_callback(vcb)
 
-        self.assertEqual(keys, ['k09'])
-        self.assertEqual(values, ['9'])
+            self.assertEqual(keys, ['k09'])
+            self.assertEqual(values, ['9'])
 
-        cursor.previous()
-        cursor.value_callback(vcb)
+            cursor.previous()
+            cursor.value_callback(vcb)
 
-        self.assertEqual(keys, ['k09'])
-        self.assertEqual(values, ['9', '8'])
+            self.assertEqual(keys, ['k09'])
+            self.assertEqual(values, ['9', '8'])
 
 
 if __name__ == '__main__':
