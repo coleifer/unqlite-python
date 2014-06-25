@@ -1,3 +1,4 @@
+import os
 import sys
 import unittest
 
@@ -242,6 +243,26 @@ class TestJx9(BaseTestCase):
                 {'username': 'hubie', 'color': 'white', '__id': 0},
                 {'username': 'michael', 'color': 'black', '__id': 1},
             ])
+
+
+class TestUtils(BaseTestCase):
+    def test_random(self):
+        ri = self.db.random_number()
+        self.assertTrue(isinstance(ri, (int, long)))
+
+        rs = self.db.random_string(10)
+        self.assertEqual(len(rs), 10)
+
+    def test_store_file(self):
+        cur_dir = os.path.realpath(os.path.dirname(__file__))
+        filename = os.path.join(cur_dir, 'core.py')
+        with open(filename) as fh:
+            contents = fh.read()
+
+        self.db.store_file('source', filename)
+        db_contents = self.db.fetch('source', 1024 * 64)
+        self.assertEqual(db_contents, contents)
+
 
 if __name__ == '__main__':
     unittest.main(argv=sys.argv)

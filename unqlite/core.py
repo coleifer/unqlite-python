@@ -5,6 +5,8 @@ from unqlite._unqlite import *
 from unqlite._unqlite import _libs as _c_libraries
 from unqlite._unqlite import _variadic_function
 
+DEFAULT_BUFFER_SIZE = 16384
+
 def handle_return_value(rc):
     if rc != UNQLITE_OK:
         raise Exception({
@@ -92,6 +94,23 @@ class UnQLite(object):
             value,
             *params))
 
+    def store_file(self, key, filename):
+        ptr = c_void_p()
+        size = unqlite_int64(os.stat(filename).st_size)
+        handle_return_value(unqlite_util_load_mmaped_file(
+            filename,
+            byref(ptr),
+            byref(size)))
+        try:
+            return handle_return_value(unqlite_kv_store(
+                self._unqlite,
+                key,
+                -1,
+                ptr,
+                size))
+        finally:
+            unqlite_util_release_mmaped_file(ptr, size)
+
     def append(self, key, value):
         key, value = str(key), str(value)
         handle_return_value(unqlite_kv_append(
@@ -111,7 +130,7 @@ class UnQLite(object):
             None,
             byref(length)) == UNQLITE_OK
 
-    def fetch(self, key, buf_size=4096, determine_buffer_size=False):
+    def fetch(self, key, buf_size=DEFAULT_BUFFER_SIZE):
         key = str(key)
         buf = create_string_buffer(buf_size)
         nbytes = unqlite_int64(buf_size)
@@ -169,6 +188,18 @@ class UnQLite(object):
         vm.compile_file(filename)
         with vm:
             yield vm
+
+    # Utilities.
+    def random_string(self, nbytes):
+        buf = create_string_buffer(nbytes)
+        handle_return_value(unqlite_util_random_string(
+            self._unqlite,
+            addressof(buf),
+            nbytes))
+        return buf.raw[:nbytes]
+
+    def random_number(self):
+        return unqlite_util_random_num(self._unqlite)
 
     # Transaction helpers. Currently these do not seem to work, not sure why.
     def begin(self):
@@ -246,10 +277,10 @@ class Cursor(object):
             byref(buflen)))
         return buf.raw[:buflen.value]
 
-    def key(self, bufsize=4096):
+    def key(self, bufsize=DEFAULT_BUFFER_SIZE):
         return self._kv_cursor_value(unqlite_kv_cursor_key, bufsize)
 
-    def value(self, bufsize=4096):
+    def value(self, bufsize=DEFAULT_BUFFER_SIZE):
         return self._kv_cursor_value(unqlite_kv_cursor_data, bufsize)
 
     def _make_callback(self, unqlite_fn, user_fn):
