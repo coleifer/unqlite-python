@@ -7,6 +7,7 @@ from unqlite._unqlite import _variadic_function
 
 DEFAULT_BUFFER_SIZE = 16384
 
+
 def handle_return_value(rc):
     if rc != UNQLITE_OK:
         raise Exception({
@@ -43,7 +44,54 @@ def kv_callback(fn):
 
     return fn
 
+def _value_to_string(ptr):
+    nbytes = c_int()
+    res = unqlite_value_to_string(ptr, pointer(nbytes))
+    return res.raw[:nbytes.value]
+
+def _array_fetch_cb(array_ptr, callback):
+    c_callback = CFUNCTYPE(
+        UNCHECKED(c_int),
+        POINTER(unqlite_value),
+        POINTER(unqlite_value),
+        POINTER(None))(callback)
+    unqlite_array_walk(array_ptr, c_callback, None)
+
+def _value_to_list(ptr):
+    accum = []
+    def cb(key_ptr, value_ptr, user_data_ptr):
+        accum.append(_convert_value(value_ptr))
+        return UNQLITE_OK
+    _array_fetch_cb(ptr, cb)
+    return accum
+
+def _value_to_dict(ptr):
+    accum = {}
+    def cb(key_ptr, value_ptr, user_data_ptr):
+        accum[_convert_value(key_ptr)] = _convert_value(value_ptr)
+        return UNQLITE_OK
+    _array_fetch_cb(ptr, cb)
+    return accum
+
+def _convert_value(ptr):
+    if unqlite_value_is_json_object(ptr):
+        return _value_to_dict(ptr)
+    elif unqlite_value_is_json_array(ptr):
+        return _value_to_list(ptr)
+    elif unqlite_value_is_string(ptr):
+        return _value_to_string(ptr)
+    elif unqlite_value_is_int(ptr):
+        return unqlite_value_to_int(ptr)
+    elif unqlite_value_is_float(ptr):
+        return unqlite_value_to_float(ptr)
+    elif unqlite_value_is_bool(ptr):
+        return bool(unqlite_value_to_bool(ptr))
+    elif unqlite_value_is_null(ptr):
+        return None
+    raise TypeError('Unrecognized type: %s' % ptr)
+
 _unqlite_lib = _c_libraries['unqlite']
+
 
 class UnQLite(object):
     """
@@ -225,6 +273,7 @@ class UnQLite(object):
     def cursor(self):
         return Cursor(self._unqlite)
 
+
 class Cursor(object):
     def __init__(self, unqlite):
         self._unqlite = unqlite
@@ -308,6 +357,7 @@ class Cursor(object):
         if self._cursor is not None:
             self.close()
 
+
 class CursorIterator(object):
     def __init__(self, cursor):
         self._cursor = cursor
@@ -319,6 +369,7 @@ class CursorIterator(object):
             return res
         else:
             raise StopIteration
+
 
 class VM(object):
     def __init__(self, unqlite):
@@ -421,51 +472,6 @@ class VM(object):
         if self._vm is not None:
             self.close()
 
-def _value_to_string(ptr):
-    nbytes = c_int()
-    res = unqlite_value_to_string(ptr, pointer(nbytes))
-    return res.raw[:nbytes.value]
-
-def _array_fetch_cb(array_ptr, callback):
-    c_callback = CFUNCTYPE(
-        UNCHECKED(c_int),
-        POINTER(unqlite_value),
-        POINTER(unqlite_value),
-        POINTER(None))(callback)
-    unqlite_array_walk(array_ptr, c_callback, None)
-
-def _value_to_list(ptr):
-    accum = []
-    def cb(key_ptr, value_ptr, user_data_ptr):
-        accum.append(_convert_value(value_ptr))
-        return UNQLITE_OK
-    _array_fetch_cb(ptr, cb)
-    return accum
-
-def _value_to_dict(ptr):
-    accum = {}
-    def cb(key_ptr, value_ptr, user_data_ptr):
-        accum[_convert_value(key_ptr)] = _convert_value(value_ptr)
-        return UNQLITE_OK
-    _array_fetch_cb(ptr, cb)
-    return accum
-
-def _convert_value(ptr):
-    if unqlite_value_is_json_object(ptr):
-        return _value_to_dict(ptr)
-    elif unqlite_value_is_json_array(ptr):
-        return _value_to_list(ptr)
-    elif unqlite_value_is_string(ptr):
-        return _value_to_string(ptr)
-    elif unqlite_value_is_int(ptr):
-        return unqlite_value_to_int(ptr)
-    elif unqlite_value_is_float(ptr):
-        return unqlite_value_to_float(ptr)
-    elif unqlite_value_is_bool(ptr):
-        return bool(unqlite_value_to_bool(ptr))
-    elif unqlite_value_is_null(ptr):
-        return None
-    raise TypeError('Unrecognized type: %s' % ptr)
 
 class transaction(object):
     def __init__(self, unqlite):
