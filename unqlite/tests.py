@@ -187,21 +187,24 @@ class TestCursor(BaseTestCase):
 
 
 class TestJx9(BaseTestCase):
-    script = """
-        $collection = 'users';
-        if (!db_exists($collection)) {
-            db_create($collection);
-        }
-        db_store('users', {"username": "huey", "age": 3});
-        $huey_id = db_last_record_id('users');
-        db_store('users', {"username": "mickey", "age": 5});
-        $mickey_id = db_last_record_id('users');
-        $something = 'hello world';
-        $users = db_fetch_all('users');
-    """
-
     def test_simple_compilation(self):
-        with self.db.compile_script(self.script) as vm:
+        script = """
+            $collection = 'users';
+            if (!db_exists($collection)) {
+                db_create($collection);
+            }
+            db_store($collection, {"username": "huey", "age": 3});
+            $huey_id = db_last_record_id($collection);
+            db_store($collection, {"username": "mickey", "age": 5});
+            $mickey_id = db_last_record_id($collection);
+            $something = 'hello world';
+            $users = db_fetch_all($collection);
+            $nested = {
+                "k1": {"foo": [1, 2, 3]},
+                "k2": ["v2", ["v3", "v4"]]};
+        """
+
+        with self.db.compile_script(script) as vm:
             vm.execute()
             self.assertEqual(vm['huey_id'], 0)
             self.assertEqual(vm['mickey_id'], 1)
@@ -211,6 +214,33 @@ class TestJx9(BaseTestCase):
             self.assertEqual(users, [
                 {'__id': 0, 'age': 3, 'username': 'huey'},
                 {'__id': 1, 'age': 5, 'username': 'mickey'},
+            ])
+
+            nested = vm['nested']
+            self.assertEqual(nested, {
+                'k1': {'foo': [1, 2, 3]},
+                'k2': ['v2', ['v3', 'v4']]})
+
+    def test_setting_values(self):
+        script = """
+            $collection = 'users';
+            db_create($collection);
+            db_store($collection, $values);
+            $users = db_fetch_all($collection);
+        """
+        values = [
+            {'username': 'hubie', 'color': 'white'},
+            {'username': 'michael', 'color': 'black'},
+        ]
+
+        with self.db.compile_script(script) as vm:
+            vm['values'] = values
+            vm.execute()
+
+            users = vm['users']
+            self.assertEqual(users, [
+                {'username': 'hubie', 'color': 'white', '__id': 0},
+                {'username': 'michael', 'color': 'black', '__id': 1},
             ])
 
 if __name__ == '__main__':

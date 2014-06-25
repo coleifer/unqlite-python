@@ -194,7 +194,6 @@ class UnQLite(object):
     def cursor(self):
         return Cursor(self._unqlite)
 
-
 class Cursor(object):
     def __init__(self, unqlite):
         self._unqlite = unqlite
@@ -238,23 +237,20 @@ class Cursor(object):
         return handle_return_value(unqlite_kv_cursor_delete_entry(
             self._cursor))
 
-    def key(self, bufsize=4096):
+    def _kv_cursor_value(self, unqlite_fn, bufsize):
         buf = create_string_buffer(bufsize)
         buflen = unqlite_int64(bufsize)
-        handle_return_value(unqlite_kv_cursor_key(
+        handle_return_value(unqlite_fn(
             self._cursor,
             byref(buf),
             byref(buflen)))
         return buf.raw[:buflen.value]
 
+    def key(self, bufsize=4096):
+        return self._kv_cursor_value(unqlite_kv_cursor_key, bufsize)
+
     def value(self, bufsize=4096):
-        buf = create_string_buffer(bufsize)
-        buflen = unqlite_int64(bufsize)
-        handle_return_value(unqlite_kv_cursor_data(
-            self._cursor,
-            byref(buf),
-            byref(buflen)))
-        return buf.raw[:buflen.value]
+        return self._kv_cursor_value(unqlite_kv_cursor_data, bufsize)
 
     def _make_callback(self, unqlite_fn, user_fn):
         if not hasattr(user_fn, '_c_callback'):
@@ -281,7 +277,6 @@ class Cursor(object):
         if self._cursor is not None:
             self.close()
 
-
 class CursorIterator(object):
     def __init__(self, cursor):
         self._cursor = cursor
@@ -293,7 +288,6 @@ class CursorIterator(object):
             return res
         else:
             raise StopIteration
-
 
 class VM(object):
     def __init__(self, unqlite):
@@ -332,30 +326,56 @@ class VM(object):
             verb,
             *args))
 
-    def create_var(self, key, value):
-        """
-        Register a foreign variable within the Jx9 script. The key should
-        not contain a dollar sign.
-        """
-        # The value should be created using `create_scalar()` or
-        # `create_array()`.
-        pass
+    def _set_value(self, ptr, python_value):
+        if isinstance(python_value, basestring):
+            unqlite_value_string(ptr, python_value, -1)
+        elif isinstance(python_value, (list, tuple)):
+            for item in python_value:
+                item_ptr = self.create_value(item)
+                handle_return_value(unqlite_array_add_elem(
+                    ptr,
+                    None,  # automatically assign key.
+                    item_ptr))
+                self._release_value(item_ptr)
+        elif isinstance(python_value, dict):
+            for key, value in python_value.items():
+                item_ptr = self.create_value(value)
+                handle_return_value(unqlite_array_add_strkey_elem(
+                    ptr,
+                    key,
+                    item_ptr))
+                self._release_value(item_ptr)
+        elif isinstance(python_value, (int, long)):
+            unqlite_value_int(ptr, python_value)
+        elif isinstance(python_value, bool):
+            unqlite_value_bool(ptr, python_value)
+        elif isinstance(python_value, float):
+            unqlite_value_double(ptr, python_value)
+        else:
+            unqlite_value_null(ptr)
 
-    def set_value(self, name, value):
-        if isinstance(value, (list, tuple)):
+    def create_value(self, value):
+        if isinstance(value, (list, tuple, dict)):
             ptr = unqlite_vm_new_array(self._vm)
         else:
             ptr = unqlite_vm_new_scalar(self._vm)
+        self._set_value(ptr, value)
+        return ptr
 
+    def set_value(self, name, value):
+        ptr = self.create_value(value)
         self.config(UNQLITE_VM_CONFIG_CREATE_VAR, name, ptr)
-        unqlite_vm_release_value(self._vm, ptr)
+        self._release_value(ptr)
 
     def extract(self, name):
         ptr = unqlite_vm_extract_variable(self._vm, name)
         try:
             return _convert_value(ptr)
         finally:
-            unqlite_vm_release_value(self._vm, ptr)
+            self._release_value(ptr)
+
+    def _release_value(self, ptr):
+        handle_return_value(unqlite_vm_release_value(self._vm, ptr))
 
     def __getitem__(self, name):
         return self.extract(name)
@@ -375,18 +395,20 @@ def _value_to_string(ptr):
     res = unqlite_value_to_string(ptr, pointer(nbytes))
     return res.raw[:nbytes.value]
 
+def _array_fetch_cb(array_ptr, callback):
+    c_callback = CFUNCTYPE(
+        UNCHECKED(c_int),
+        POINTER(unqlite_value),
+        POINTER(unqlite_value),
+        POINTER(None))(callback)
+    unqlite_array_walk(array_ptr, c_callback, None)
+
 def _value_to_list(ptr):
     accum = []
     def cb(key_ptr, value_ptr, user_data_ptr):
         accum.append(_convert_value(value_ptr))
         return UNQLITE_OK
-
-    c_callback = CFUNCTYPE(
-        UNCHECKED(c_int),
-        POINTER(unqlite_value),
-        POINTER(unqlite_value),
-        POINTER(None))(cb)
-    unqlite_array_walk(ptr, c_callback, None)
+    _array_fetch_cb(ptr, cb)
     return accum
 
 def _value_to_dict(ptr):
@@ -394,13 +416,7 @@ def _value_to_dict(ptr):
     def cb(key_ptr, value_ptr, user_data_ptr):
         accum[_convert_value(key_ptr)] = _convert_value(value_ptr)
         return UNQLITE_OK
-
-    c_callback = CFUNCTYPE(
-        UNCHECKED(c_int),
-        POINTER(unqlite_value),
-        POINTER(unqlite_value),
-        POINTER(None))(cb)
-    unqlite_array_walk(ptr, c_callback, None)
+    _array_fetch_cb(ptr, cb)
     return accum
 
 def _convert_value(ptr):
@@ -419,31 +435,6 @@ def _convert_value(ptr):
     elif unqlite_value_is_null(ptr):
         return None
     raise TypeError('Unrecognized type: %s' % ptr)
-
-def _create_array(context, items):
-    #arr = vedis_context_new_array(context)
-    #for item in items:
-    #    if isinstance(item, (list, tuple)):
-    #        vedis_val = _create_array(context, item)
-    #    else:
-    #        vedis_val = vedis_context_new_scalar(context)
-    #        _set_value(vedis_val, item)
-    #    vedis_array_insert(arr, vedis_val)
-    #return arr
-    pass
-
-def _set_value(value, python_value):
-    #if isinstance(python_value, basestring):
-    #    vedis_value_string(value, python_value, -1)
-    #elif isinstance(python_value, (int, long)):
-    #    vedis_value_int(value, python_value)
-    #elif isinstance(python_value, bool):
-    #    vedis_value_bool(value, python_value)
-    #elif isinstance(python_value, float):
-    #    vedis_value_double(value, python_value)
-    #else:
-    #    vedis_value_null(value)
-    pass
 
 class transaction(object):
     def __init__(self, unqlite):
