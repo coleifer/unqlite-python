@@ -31,6 +31,7 @@ Contents:
    :glob:
 
    installation
+   quickstart
    api
 
 
