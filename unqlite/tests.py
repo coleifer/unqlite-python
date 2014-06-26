@@ -163,6 +163,24 @@ class TestCursor(BaseTestCase):
                 ('k09', '9'),
             ])
 
+            cursor.seek('k05')
+            self.assertEqual(cursor.value(), '5')
+            keys = [key for key, _ in cursor]
+            self.assertEqual(keys, ['k05', 'k06', 'k07', 'k08', 'k09'])
+
+        with self.db.cursor() as cursor:
+            self.assertRaises(Exception, cursor.seek, 'k04')
+            cursor.seek('k05')
+            keys = []
+            while True:
+                key = cursor.key()
+                keys.append(key)
+                if key == 'k07':
+                    break
+                else:
+                    cursor.next()
+        self.assertEqual(keys, ['k05', 'k06', 'k07'])
+
     def test_cursor_callbacks(self):
         keys = []
         values = []

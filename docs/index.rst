@@ -6,7 +6,18 @@
 unqlite-python
 ==============
 
-Python bindings for `UnQLite <http://unqlite.symisc.net/>`_, a fast, embedded, NoSQL database/document-store modeled after MongoDB.
+Python bindings for `UnQLite <http://unqlite.symisc.net/>`_, a lightweight, embedded NoSQL database and JSON document store.
+
+UnQLite features:
+
+* Embedded, zero-conf database
+* Transactional (ACID)
+* Single file or in-memory database
+* Key/value store
+* Cursor support and linear record traversal
+* JSON document store
+* Thread-safe
+* Terabyte-sized databases
 
 The source code for unqlite-python is `hosted on GitHub <https://github.com/coleifer/unqlite-python>`_.
 

@@ -210,10 +210,13 @@ class UnQLite(object):
 
     def delete(self, key):
         key = str(key)
-        return handle_return_value(unqlite_kv_delete(
+        rc = unqlite_kv_delete(
             self._unqlite,
             key,
-            -1))
+            -1)
+        if rc == UNQLITE_NOTFOUND:
+            raise KeyError(key)
+        return handle_return_value(rc)
 
     __getitem__ = fetch
     __setitem__ = store

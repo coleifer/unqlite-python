@@ -1,10 +1,22 @@
 ![](http://media.charlesleifer.com/blog/photos/unqlite-python.png)
 
-Python bindings for the UnQLite embedded NoSQL database. UnQLite is a fun, fast, embedded document store similar to MongoDB.
+Python bindings for [UnQLite](http://unqlite.symisc.net), a lightweight, embedded NoSQL database and JSON document store.
 
-[View the unqlite-python documentation](http://unqlite-python.readthedocs.org/).
+UnQLite features:
 
-[unqlite homepage](http://unqlite.org/)
+* Embedded, zero-conf database
+* Transactional (ACID)
+* Single file or in-memory database
+* Key/value store
+* Cursor support and linear record traversal
+* JSON document store
+* Thread-safe
+* Terabyte-sized databases
+
+Links:
+
+* [unqlite-python documentation](http://unqlite-python.readthedocs.org/)
+* [UnQLite's C API](http://unqlite.symisc.net/c_api.html)
 
 ## Installation
 
@@ -14,9 +26,9 @@ You can install unqlite using `pip`.
 
 ## Basic usage
 
-Fir you instantiate an `UnQLite` object, passing in either the path to the database file or the special string `':mem:'` for an in-memory database.
+First you instantiate an `UnQLite` object, passing in either the path to the database file or the special string `':mem:'` for an in-memory database.
 
-Below is a sample interactive console session designed to show some of the basic features and functionality of the unqlite-python library. Also check out the [full API documentation](http://unqlite-python.readthedocs.org/en/latest/api.html) as well as the [UnQLite project documentation](http://unqlite.org/c_api.html).
+Below is a sample interactive console session designed to show some of the basic features and functionality of the unqlite-python library. Also check out the [full API documentation](http://unqlite-python.readthedocs.org/en/latest/api.html).
 
 ### Key/value features
 

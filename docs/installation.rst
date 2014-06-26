@@ -3,7 +3,7 @@
 Installation
 ============
 
-You can use ``pip`` to install ``unqlite-python``:
+You can use ``pip`` to install ``unqlite``:
 
 .. code-block:: console
 
