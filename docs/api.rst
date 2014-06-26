@@ -400,6 +400,27 @@ API Documentation
 
         Return the value of the current record.
 
+    .. py:method:: __iter__()
+
+        Cursors support the Python iteration protocol. Successive iterations
+        yield key/value pairs.
+
+    .. py:method:: fetch_count(ct)
+
+        :param int ct: Number of rows to fetch.
+
+        Iterate from the current record, yielding the next ``ct`` key/value
+        pairs.
+
+    .. py:method:: fetch_until(stop_key[, include_stop_key=True])
+
+        :param str stop_key: The key at which the cursor should stop iterating.
+        :param bool include_stop_key: Whether the stop key/value pair should be returned.
+
+        Yield successive key/value pairs until the ``stop_key`` is reached.
+        By default the ``stop_key`` and associated value will be returned, but
+        this behavior can be controlled using the ``include_stop_key`` flag.
+
 
 .. py:class:: VM(unqlite)
 
