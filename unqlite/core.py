@@ -276,6 +276,9 @@ class UnQLite(object):
     def cursor(self):
         return Cursor(self._unqlite)
 
+    def __iter__(self):
+        return DBCursorIterator(self.cursor())
+
 
 class Cursor(object):
     def __init__(self, unqlite):
@@ -353,6 +356,19 @@ class Cursor(object):
     def __iter__(self):
         return CursorIterator(self)
 
+    def fetch_count(self, ct):
+        return CursorIterator(self, ct)
+
+    def fetch_until(self, stop_key, include_stop_key=True):
+        # Yield rows until `key` is reached.
+        for key, value in self:
+            if key == stop_key:
+                if include_stop_key:
+                    yield (key, value)
+                raise StopIteration
+            else:
+                yield (key, value)
+
     def __enter__(self):
         return self
 
@@ -362,16 +378,30 @@ class Cursor(object):
 
 
 class CursorIterator(object):
-    def __init__(self, cursor):
+    def __init__(self, cursor, ct=None):
         self._cursor = cursor
+        self._ct = ct or -1
 
     def next(self):
-        if self._cursor.is_valid():
+        if self._cursor.is_valid() and self._ct != 0:
             res = (self._cursor.key(), self._cursor.value())
             self._cursor.next()
+            self._ct -= 1
             return res
         else:
             raise StopIteration
+
+    def __iter__(self):
+        return self
+
+
+class DBCursorIterator(CursorIterator):
+    def next(self):
+        try:
+            return super(DBCursorIterator, self).next()
+        except StopIteration:
+            self._cursor.close()
+            raise
 
 
 class VM(object):

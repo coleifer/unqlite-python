@@ -4,6 +4,7 @@ import unittest
 
 try:
     from unqlite import UnQLite
+    from unqlite.core import CursorIterator
 except ImportError:
     sys.stderr.write('Unable to import `unqlite`. Make sure it is properly '
                      'installed.\n')
@@ -80,6 +81,21 @@ class TestKeyValueStorage(BaseTestCase):
         self.assertEqual(state, ['v1', 'v2', 'V1'])
 
         self.assertRaises(KeyError, lambda: self.db.fetch_cb('kx', cb))
+
+    def test_iteration(self):
+        for i in range(4):
+            self.db['k%s' % i] = str(i)
+
+        data = [item for item in self.db]
+        self.assertEqual(data, [
+            ('k0', '0'),
+            ('k1', '1'),
+            ('k2', '2'),
+            ('k3', '3'),
+        ])
+
+        del self.db['k2']
+        self.assertEqual([key for key, _ in self.db], ['k0', 'k1', 'k3'])
 
 
 class TestTransaction(BaseTestCase):
@@ -180,6 +196,42 @@ class TestCursor(BaseTestCase):
                 else:
                     cursor.next()
         self.assertEqual(keys, ['k05', 'k06', 'k07'])
+
+    def test_iterate_count(self):
+        with self.db.cursor() as cursor:
+            cursor_i = CursorIterator(cursor, 3)
+            items = [item for item in cursor_i]
+            self.assertEqual(items, [
+                ('k00', '0'),
+                ('k01', '1'),
+                ('k02', '2'),
+            ])
+
+        with self.db.cursor() as cursor:
+            cursor.next()
+            items = [item for item in cursor.fetch_count(2)]
+            self.assertEqual(items, [
+                ('k01', '1'),
+                ('k02', '2'),
+            ])
+
+        with self.db.cursor() as cursor:
+            cursor.seek('k03')
+            items = [item for item in cursor.fetch_until('k06')]
+            self.assertEqual(items, [
+                ('k03', '3'),
+                ('k04', '4'),
+                ('k05', '5'),
+                ('k06', '6'),
+            ])
+
+            cursor.seek('k01')
+            items = [item for item in cursor.fetch_until('k04', False)]
+            self.assertEqual(items, [
+                ('k01', '1'),
+                ('k02', '2'),
+                ('k03', '3'),
+            ])
 
     def test_cursor_callbacks(self):
         keys = []
