@@ -19,6 +19,60 @@ API Documentation
         in ``':mem:'`` as the database file. This is the default behavior if
         no database file is specified.
 
+    Example usage:
+
+    .. code-block:: pycon
+
+        >>> db = UnQLite()  # Create an in-memory database.
+        >>> db['foo'] = 'bar'  # Use as a key/value store.
+        >>> print db['foo']
+        bar
+
+        >>> for i in range(4):
+        ...     db['k%s' % i] = str(i)
+        ...
+
+        >>> 'k3' in db
+        True
+        >>> 'k4' in db
+        False
+        >>> del db['k3']
+
+        >>> db.append('k2', 'XXXX')
+        >>> db['k2']
+        '2XXXX'
+
+        >>> with db.cursor() as cursor:
+        ...     for key, value in cursor:
+        ...         print key, '=>', value
+        ...
+        foo => bar
+        k0 => 0
+        k1 => 1
+        k2 => 2XXXX
+
+        >>> script = """
+        ...     db_create('users');
+        ...     db_store('users', $list_of_users);
+        ...     $users_from_db = db_fetch_all('users');
+        ... """
+
+        >>> list_of_users = [
+        ...     {'username': 'Huey', 'age': 3},
+        ...     {'username': 'Mickey', 'age': 5}
+        ... ]
+
+        >>> with db.compile_script(script) as vm:
+        ...     vm['list_of_users'] = list_of_users
+        ...     vm.execute()
+        ...     users_from_db = vm['users_from_db']
+        ...
+        True
+
+        >>> users_from_db  # UnQLite assigns items in a collection an ID.
+        [{'username': 'Huey', 'age': 3, '__id': 0},
+         {'username': 'Mickey', 'age': 5, '__id': 1}]
+
     .. py:method:: open([flags=UNQLITE_OPEN_CREATE])
 
         :param flags: Optional flags to use when opening the database.
