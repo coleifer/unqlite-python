@@ -108,4 +108,4 @@ More information can be found in the [VM API documentation](http://unqlite-pytho
 
 -------------------------------------------
 
-Based in part on nobonobo's [unqlitepy](https://github.com/nobonobo/unqlitepy) library.
+This code is based in part on nobonobo's [unqlitepy](https://github.com/nobonobo/unqlitepy) library.
