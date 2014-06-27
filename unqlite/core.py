@@ -519,9 +519,9 @@ class VM(_ValueBase):
             byref(self._vm)))
 
     def close(self):
-        res = handle_return_value(unqlite_vm_release(self._vm))
-        for name in self._ff_registry:
+        for name in self._ff_registry.keys():
             self.delete_foreign_function(name)
+        res = handle_return_value(unqlite_vm_release(self._vm))
         self._vm = None
         return res
 
