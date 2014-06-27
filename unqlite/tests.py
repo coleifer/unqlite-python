@@ -121,9 +121,21 @@ class TestKeyValueStorage(BaseTestCase):
 
 class TestTransaction(BaseTestCase):
     """
-    These tests do not behave as I expect, but I am documenting the behavior
-    here just in the event it changes.
+    We must use a file-based database to test the transaction functions. See
+    http://unqlite.org/forum/trouble-with-transactions+1 for details.
     """
+    def setUp(self):
+        self._filename = 'test.db'
+        self.db = UnQLite(self._filename)
+
+    def tearDown(self):
+        try:
+            self.db.close()
+        except:
+            pass
+        if os.path.exists(self._filename):
+            os.unlink(self._filename)
+
     def test_transaction(self):
         @self.db.commit_on_success
         def _test_success(key, value):
@@ -138,10 +150,7 @@ class TestTransaction(BaseTestCase):
         self.assertEqual(self.db['k1'], 'v1')
 
         self.assertRaises(Exception , lambda: _test_failure('k2', 'v2'))
-        # I am not sure why this is the case, but the transaction management
-        # does not seem to work.
-        # self.assertRaises(KeyError, lambda: self.db['k2'])
-        self.assertEqual(self.db['k2'], 'v2')
+        self.assertRaises(KeyError, lambda: self.db['k2'])
 
     def test_explicit_transaction(self):
         self.db.close()
@@ -150,10 +159,7 @@ class TestTransaction(BaseTestCase):
         self.db['k1'] = 'v1'
         self.db.rollback()
 
-        # Again, not sure why this does not work, but for some reason, despite
-        # the rollback, the value is still present.
-        # self.assertRaises(KeyError, lambda: self.db['k1'])
-        self.assertEqual(self.db['k1'], 'v1')
+        self.assertRaises(KeyError, lambda: self.db['k1'])
 
 
 class TestCursor(BaseTestCase):
