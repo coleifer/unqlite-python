@@ -263,6 +263,27 @@ API Documentation
             with db.compile_file('myscript.jx9') as vm:
                 vm.execute()
 
+    .. py:method:: collection(name)
+
+        :param str name: The name of the collection.
+
+        Factory method for instantiating a :py:class:`Collection` for working
+        with a collection of JSON objects.
+
+        Usage:
+
+        .. code-block:: python
+
+            Users = db.collection('users')
+
+            # Fetch all records in the collection.
+            all_users = Users.all()
+
+            # Create a new record.
+            Users.store({'name': 'Charlie', 'activities': ['reading', 'programming']})
+
+        See the :py:class:`Collection` docs for more examples.
+
     .. py:method:: VM()
 
         :returns: an uninitialized :py:class:`VM` instance.
@@ -281,6 +302,15 @@ API Documentation
         :returns: a :py:class:`Cursor` instance.
 
         Create a cursor for traversing database records.
+
+    .. py:method:: range(start_key, end_key[, include_end_key=True])
+
+        Iterate over a range of key/value pairs in the database.
+
+        .. code-block:: python
+
+            for key, value in db.range('d.20140101', 'd.20140201', False):
+                calculate_daily_aggregate(key, value)
 
     .. py:method:: random_string(nbytes)
 
@@ -526,3 +556,95 @@ API Documentation
         :param str name: A variable name
 
         Extract the value of a variable after the execution of a Jx9 script.
+
+
+.. py:class:: Collection(unqlite, name):
+
+    :param unqlite: a :py:class:`UnQLite` instance
+    :param str name: the name of the collection
+
+    Perform common operations on a JSON document collection.
+
+    .. note::
+        Rather than instantiating this class directly, use the factory
+        method :py:meth:`UnQLite.collection`.
+
+    Basic operations:
+
+    .. code-block:: pycon
+
+        >>> users = db.collection('users')
+        >>> users.create()  # Create the collection if it does not exist.
+        >>> users.store([
+        ...     {'name': 'Charlie', 'color': 'green'},
+        ...     {'name': 'Huey', 'color': 'white'},
+        ...     {'name': 'Mickey', 'color': 'black'}])
+        >>> users.fetch(0)  # Fetch the first record.
+        {'name': 'Charlie', 'color': 'green', '__id': 0}
+        >>> users.delete(0)  # Delete the first record.
+        >>> users.all()
+        [{'name': 'Huey', 'color': 'white', '__id': 1},
+         {'name': 'Mickey', 'color': 'black', '__id': 2}]
+
+    .. py:method:: all()
+
+        Return a list containing all records in the collection.
+
+    .. py:method:: create()
+
+        Create the collection if it does not exist.
+
+    .. py:method:: drop()
+
+        Drop the collection, deleting all records.
+
+    .. py:method:: exists()
+
+        :returns: boolean value indicating whether the collection exists.
+
+    .. py:method:: last_record_id()
+
+        :returns: The integer ID of the last record stored in the collection.
+
+    .. py:method:: current_record_id()
+
+        :returns: The integer ID of the record pointed to by the active cursor.
+
+    .. py:method:: reset_cursor()
+
+        Reset the collection cursor to point to the first record in the collection.
+
+    .. py:method:: delete(record_id)
+
+        Delete the record with the given id.
+
+    .. py:method:: fetch(record_id)
+
+        Return the record with the given id.
+
+        .. code-block:: pycon
+
+            >>> users = db.collection('users')
+            >>> users.fetch(0)  # Fetch the first record in the collection
+            {'name': 'Charlie', 'color': 'green', '__id': 0}
+
+            >>> users[1]  # You can also use dictionary-style lookup.
+            {'name': 'Huey', 'color': 'white', '__id': 1}
+
+    .. py:method:: store(record)
+
+        :param record: Either a dictionary (single-record), or a list of dictionaries.
+
+        Store the record(s) in the collection.
+
+        .. code-block:: pycon
+
+            >>> users = db.collection('users')
+            >>> users.store({'name': 'Charlie', 'color': 'green'})
+            >>> users.store([
+            ...     {'name': 'Huey', 'color': 'white'},
+            ...     {'name': 'Mickey', 'color': 'black'}])
+
+    .. py:method:: fetch_current()
+
+        Fetch the record pointed to by the collection cursor.

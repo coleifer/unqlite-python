@@ -240,6 +240,9 @@ class UnQLite(object):
         with vm:
             yield vm
 
+    def collection(self, name):
+        return Collection(self, name)
+
     # Utilities.
     def random_string(self, nbytes):
         buf = create_string_buffer(nbytes)
@@ -251,6 +254,23 @@ class UnQLite(object):
 
     def random_number(self):
         return unqlite_util_random_num(self._unqlite)
+
+    # Library info.
+    @property
+    def lib_version(self):
+        return str(unqlite_lib_version())
+
+    @property
+    def lib_signature(self):
+        return str(unqlite_lib_signature())
+
+    @property
+    def lib_ident(self):
+        return str(unqlite_lib_ident())
+
+    @property
+    def lib_is_threadsafe(self):
+        return bool(unqlite_lib_is_threadsafe())
 
     # Transaction helpers. Currently these do not seem to work, not sure why.
     def begin(self):
@@ -278,6 +298,12 @@ class UnQLite(object):
 
     def __iter__(self):
         return DBCursorIterator(self.cursor())
+
+    def range(self, start_key, end_key, include_end_key=True):
+        with self.cursor() as cursor:
+            cursor.seek(start_key)
+            for item in cursor.fetch_until(end_key, include_end_key):
+                yield item
 
 
 class Cursor(object):
@@ -504,6 +530,76 @@ class VM(object):
     def __exit__(self, exc_type, exc_val, exc_tb):
         if self._vm is not None:
             self.close()
+
+
+class Collection(object):
+    def __init__(self, unqlite, name):
+        self.unqlite = unqlite
+        self.name = name
+
+    @contextmanager
+    def _execute(self, script, **kwargs):
+        with self.unqlite.compile_script(script) as vm:
+            vm['collection'] = self.name
+            for key, value in kwargs.items():
+                vm[key] = value
+            vm.execute()
+            yield vm
+
+    def _simple_execute(self, script, **kwargs):
+        with self._execute(script, **kwargs) as vm:
+            return vm['ret']
+
+    def all(self):
+        return self._simple_execute('$ret = db_fetch_all($collection);')
+
+    def create(self):
+        script = 'if (!db_exists($collection)) { db_create($collection); }'
+        with self._execute(script) as vm:
+            pass
+
+    def drop(self):
+        script = 'if (db_exists($collection)) { db_drop($collection); }'
+        with self._execute(script) as vm:
+            pass
+
+    def exists(self):
+        return self._simple_execute('$ret = db_exists($collection);')
+
+    def last_record_id(self):
+        return self._simple_execute('$ret = db_last_record_id($collection);')
+
+    def current_record_id(self):
+        return self._simple_execute(
+            '$ret = db_current_record_id($collection);')
+
+    def reset_cursor(self):
+        with self._execute('db_reset_record_cursor($collection);'):
+            pass
+
+    def __len__(self):
+        return self._simple_execute('$ret = db_total_records($collection);')
+
+    def delete(self, record_id):
+        script = '$ret = db_drop_record($collection, $record_id);'
+        return self._simple_execute(script, record_id=record_id)
+
+    def fetch(self, record_id):
+        script = '$ret = db_fetch_by_id($collection, $record_id);'
+        return self._simple_execute(script, record_id=record_id)
+
+    def store(self, record):
+        script = '$ret = db_store($collection, $record);'
+        return self._simple_execute(script, record=record)
+
+    def fetch_current(self):
+        return self._simple_execute('$ret = db_fetch($collection);')
+
+    __delitem__ = delete
+    __getitem__ = fetch
+
+    def error_log(self):
+        return self._simple_execute('$ret = db_errlog();')
 
 
 class transaction(object):

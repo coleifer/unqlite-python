@@ -19,6 +19,10 @@ class BaseTestCase(unittest.TestCase):
         super(BaseTestCase, self).setUp()
         self.db = UnQLite(':mem:')
 
+    def store_range(self, n):
+        for i in range(n):
+            self.db['k%s' % i] = str(i)
+
 
 class TestKeyValueStorage(BaseTestCase):
     def test_basic_operations(self):
@@ -83,9 +87,7 @@ class TestKeyValueStorage(BaseTestCase):
         self.assertRaises(KeyError, lambda: self.db.fetch_cb('kx', cb))
 
     def test_iteration(self):
-        for i in range(4):
-            self.db['k%s' % i] = str(i)
-
+        self.store_range(4)
         data = [item for item in self.db]
         self.assertEqual(data, [
             ('k0', '0'),
@@ -96,6 +98,25 @@ class TestKeyValueStorage(BaseTestCase):
 
         del self.db['k2']
         self.assertEqual([key for key, _ in self.db], ['k0', 'k1', 'k3'])
+
+    def test_range(self):
+        self.store_range(10)
+        data = [item for item in self.db.range('k4', 'k6')]
+        self.assertEqual(data, [
+            ('k4', '4'),
+            ('k5', '5'),
+            ('k6', '6'),
+        ])
+
+        data = [item for item in self.db.range('k8', 'kX')]
+        self.assertEqual(data, [
+            ('k8', '8'),
+            ('k9', '9'),
+        ])
+
+        def invalid_start():
+            data = [item for item in self.db.range('kx', 'k2')]
+        self.assertRaises(Exception, invalid_start)
 
 
 class TestTransaction(BaseTestCase):
@@ -138,12 +159,11 @@ class TestTransaction(BaseTestCase):
 class TestCursor(BaseTestCase):
     def setUp(self):
         super(TestCursor, self).setUp()
-        for i in range(10):
-            self.db['k%02d' % i] = str(i)
+        self.store_range(10)
 
     def assertIndex(self, cursor, idx):
         self.assertTrue(cursor.is_valid())
-        self.assertEqual(cursor.key(), 'k%02d' % idx)
+        self.assertEqual(cursor.key(), 'k%d' % idx)
         self.assertEqual(cursor.value(), str(idx))
 
     def test_cursor_basic(self):
@@ -163,74 +183,74 @@ class TestCursor(BaseTestCase):
 
     def test_cursor_iteration(self):
         with self.db.cursor() as cursor:
-            cursor.seek('k04')
+            cursor.seek('k4')
             cursor.delete()
             cursor.reset()
             results = [item for item in cursor]
             self.assertEqual(results, [
-                ('k00', '0'),
-                ('k01', '1'),
-                ('k02', '2'),
-                ('k03', '3'),
-                ('k05', '5'),
-                ('k06', '6'),
-                ('k07', '7'),
-                ('k08', '8'),
-                ('k09', '9'),
+                ('k0', '0'),
+                ('k1', '1'),
+                ('k2', '2'),
+                ('k3', '3'),
+                ('k5', '5'),
+                ('k6', '6'),
+                ('k7', '7'),
+                ('k8', '8'),
+                ('k9', '9'),
             ])
 
-            cursor.seek('k05')
+            cursor.seek('k5')
             self.assertEqual(cursor.value(), '5')
             keys = [key for key, _ in cursor]
-            self.assertEqual(keys, ['k05', 'k06', 'k07', 'k08', 'k09'])
+            self.assertEqual(keys, ['k5', 'k6', 'k7', 'k8', 'k9'])
 
         with self.db.cursor() as cursor:
-            self.assertRaises(Exception, cursor.seek, 'k04')
-            cursor.seek('k05')
+            self.assertRaises(Exception, cursor.seek, 'k4')
+            cursor.seek('k5')
             keys = []
             while True:
                 key = cursor.key()
                 keys.append(key)
-                if key == 'k07':
+                if key == 'k7':
                     break
                 else:
                     cursor.next()
-        self.assertEqual(keys, ['k05', 'k06', 'k07'])
+        self.assertEqual(keys, ['k5', 'k6', 'k7'])
 
     def test_iterate_count(self):
         with self.db.cursor() as cursor:
             cursor_i = CursorIterator(cursor, 3)
             items = [item for item in cursor_i]
             self.assertEqual(items, [
-                ('k00', '0'),
-                ('k01', '1'),
-                ('k02', '2'),
+                ('k0', '0'),
+                ('k1', '1'),
+                ('k2', '2'),
             ])
 
         with self.db.cursor() as cursor:
             cursor.next()
             items = [item for item in cursor.fetch_count(2)]
             self.assertEqual(items, [
-                ('k01', '1'),
-                ('k02', '2'),
+                ('k1', '1'),
+                ('k2', '2'),
             ])
 
         with self.db.cursor() as cursor:
-            cursor.seek('k03')
-            items = [item for item in cursor.fetch_until('k06')]
+            cursor.seek('k3')
+            items = [item for item in cursor.fetch_until('k6')]
             self.assertEqual(items, [
-                ('k03', '3'),
-                ('k04', '4'),
-                ('k05', '5'),
-                ('k06', '6'),
+                ('k3', '3'),
+                ('k4', '4'),
+                ('k5', '5'),
+                ('k6', '6'),
             ])
 
-            cursor.seek('k01')
-            items = [item for item in cursor.fetch_until('k04', False)]
+            cursor.seek('k1')
+            items = [item for item in cursor.fetch_until('k4', False)]
             self.assertEqual(items, [
-                ('k01', '1'),
-                ('k02', '2'),
-                ('k03', '3'),
+                ('k1', '1'),
+                ('k2', '2'),
+                ('k3', '3'),
             ])
 
     def test_cursor_callbacks(self):
@@ -247,13 +267,13 @@ class TestCursor(BaseTestCase):
                 values.append(value)
             cursor.value_callback(vcb)
 
-            self.assertEqual(keys, ['k09'])
+            self.assertEqual(keys, ['k9'])
             self.assertEqual(values, ['9'])
 
             cursor.previous()
             cursor.value_callback(vcb)
 
-            self.assertEqual(keys, ['k09'])
+            self.assertEqual(keys, ['k9'])
             self.assertEqual(values, ['9', '8'])
 
 
@@ -332,6 +352,50 @@ class TestUtils(BaseTestCase):
         self.db.store_file('source', filename)
         db_contents = self.db.fetch('source', 1024 * 64)
         self.assertEqual(db_contents, contents)
+
+
+class TestCollection(BaseTestCase):
+    def test_basic_operations(self):
+        users = self.db.collection('users')
+        self.assertFalse(users.exists())
+        users.create()
+        self.assertTrue(users.exists())
+        self.assertEqual(len(users), 0)
+
+        user_data = [
+            {'name': 'charlie', 'activities': ['coding', 'reading']},
+            {'name': 'huey', 'activities': ['playing', 'sleeping']},
+            {'name': 'mickey', 'activities': ['sleeping', 'hunger']}]
+
+        users.store(user_data)
+        self.assertEqual(len(users), 3)
+
+        users_with_ids = [record.copy() for record in user_data]
+        for idx, record in enumerate(users_with_ids):
+            record['__id'] = idx
+
+        results = users.all()
+        self.assertEqual(results, users_with_ids)
+
+        users.store({'name': 'leslie', 'activities': ['reading', 'surgery']})
+        self.assertEqual(len(users), 4)
+
+        record = users.fetch_current()
+        self.assertEqual(record['name'], 'charlie')
+
+        self.assertEqual(users.fetch(3), {
+            'name': 'leslie',
+            'activities': ['reading', 'surgery'],
+            '__id': 3})
+
+        users.delete(0)
+        users.delete(2)
+        users.delete(3)
+        self.assertEqual(users.all(), [
+            {'name': 'huey', 'activities': ['playing', 'sleeping'], '__id': 1}
+        ])
+
+        self.assertIsNone(users[99])
 
 
 if __name__ == '__main__':
