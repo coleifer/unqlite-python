@@ -183,7 +183,7 @@ You can retrieve all records in the collection, or specify a filtering function.
 
 ### Transactions
 
-UnQLite supports transactions for file-backed databases (see [this post](http://unqlite.org/forum/trouble-with-transactions+1) for explanation).
+UnQLite supports transactions for file-backed databases (since transactions occur at the filesystem level, they have no effect on in-memory databases).
 
 The easiest way to create a transaction is with the context manager:
 

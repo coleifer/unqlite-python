@@ -167,7 +167,7 @@ More information can be found in the :py:class:`Collection` documentation.
 Transactions
 ------------
 
-UnQLite supports transactions for file-backed databases (see `this post <http://unqlite.org/forum/trouble-with-transactions+1>`_ for explanation).
+UnQLite supports transactions for file-backed databases (since transactions occur at the filesystem level, they have no effect on in-memory databases).
 
 The easiest way to create a transaction is with the context manager:
 
