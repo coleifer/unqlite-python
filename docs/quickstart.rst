@@ -163,3 +163,52 @@ You can retrieve all records in the collection, or specify a filtering function.
     [{'__id': 1, 'color': 'white', 'name': 'Huey'}]
 
 More information can be found in the :py:class:`Collection` documentation.
+
+Transactions
+------------
+
+UnQLite supports transactions for file-backed databases (see `this post <http://unqlite.org/forum/trouble-with-transactions+1>`_ for explanation).
+
+The easiest way to create a transaction is with the context manager:
+
+.. code-block:: pycon
+
+    >>> db = UnQLite('/tmp/test.db')
+    >>> with db.transaction():
+    ...     db['k1'] = 'v1'
+    ...     db['k2'] = 'v2'
+    ...
+    >>> db['k1']
+    'v1'
+
+You can also use the transaction decorator which will wrap a function call in a transaction and commit upon successful execution (rolling back if an exception occurs).
+
+.. code-block:: pycon
+
+    >>> @db.commit_on_success
+    ... def save_value(key, value, exc=False):
+    ...     db[key] = value
+    ...     if exc:
+    ...         raise Exception('uh-oh')
+    ...
+    >>> save_value('k3', 'v3')
+    >>> save_value('k3', 'vx', True)
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+      File "unqlite/core.py", line 312, in wrapper
+        return fn(*args, **kwargs)
+      File "<stdin>", line 5, in save_value
+    Exception: uh-oh
+    >>> db['k3']
+    'v3'
+
+For finer-grained control you can call :py:meth:`~UnQLite.begin`, :py:meth:`~UnQLite.rollback` and :py:meth:`~UnQLite.commit` manually.
+
+.. code-block:: pycon
+
+    >>> db.begin()
+    >>> db['k3'] = 'v3-xx'
+    >>> db.commit()
+    True
+    >>> db['k3']
+    'v3-xx'

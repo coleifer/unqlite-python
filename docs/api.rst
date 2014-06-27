@@ -312,6 +312,64 @@ API Documentation
             for key, value in db.range('d.20140101', 'd.20140201', False):
                 calculate_daily_aggregate(key, value)
 
+    .. py:method:: transaction()
+
+        Create a context manager for performing multiple operations in a
+        transaction.
+
+        .. note::
+            Transactions occur at the disk-level, and as such have no effect
+            on in-memory databases.
+
+        Example:
+
+        .. code-block:: python
+
+            # Transfer $100 in a transaction.
+            with db.transaction():
+                db['from_acct'] = db['from_account'] - 100
+                db['to_acct'] = db['to_acct'] + 100
+
+    .. py:method:: commit_on_success(fn)
+
+        Function decorator that will cause the wrapped function to have all
+        statements wrapped in a transaction. If the function returns without
+        an exception, the transaction is committed. If an exception occurs
+        in the function, the transaction is rolled back.
+
+        Example:
+
+        .. code-block:: pycon
+
+            >>> @db.commit_on_success
+            ... def save_value(key, value, exc=False):
+            ...     db[key] = value
+            ...     if exc:
+            ...         raise Exception('uh-oh')
+            ...
+            >>> save_value('k3', 'v3')
+            >>> save_value('k3', 'vx', True)
+            Traceback (most recent call last):
+              File "<stdin>", line 1, in <module>
+              File "unqlite/core.py", line 312, in wrapper
+                return fn(*args, **kwargs)
+              File "<stdin>", line 5, in save_value
+            Exception: uh-oh
+            >>> db['k3']
+            'v3'
+
+    .. py:method:: begin()
+
+        Begin a transaction.
+
+    .. py:method:: rollback()
+
+        Roll back the current transaction.
+
+    .. py:method:: commit()
+
+        Commit the current transaction.
+
     .. py:method:: random_string(nbytes)
 
         :param int nbytes: number of bytes to generate
