@@ -151,6 +151,10 @@ You can use the :py:meth:`Collection.store` method to add one or many records. T
     >>> users.delete(users.last_record_id())  # Delete the last record.
     True
 
+You can retrieve all records in the collection, or specify a filtering function. The filtering function will be registered as a foreign function with the Jx9 VM and called *from* the VM.
+
+.. code-block:: pycon
+
     >>> users.all()
     [{'__id': 1, 'color': 'white', 'name': 'Huey'},
      {'__id': 2, 'color': 'black', 'name': 'Mickey'}]
