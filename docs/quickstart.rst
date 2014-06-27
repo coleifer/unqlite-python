@@ -155,4 +155,7 @@ You can use the :py:meth:`Collection.store` method to add one or many records. T
     [{'__id': 1, 'color': 'white', 'name': 'Huey'},
      {'__id': 2, 'color': 'black', 'name': 'Mickey'}]
 
+    >>> users.filter(lambda obj: obj['name'].startswith('H'))
+    [{'__id': 1, 'color': 'white', 'name': 'Huey'}]
+
 More information can be found in the :py:class:`Collection` documentation.

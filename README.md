@@ -172,6 +172,9 @@ True
 >>> users.all()
 [{'__id': 1, 'color': 'white', 'name': 'Huey'},
  {'__id': 2, 'color': 'black', 'name': 'Mickey'}]
+
+>>> users.filter(lambda obj: obj['name'].startswith('H'))
+[{'__id': 1, 'color': 'white', 'name': 'Huey'}]
 ```
 
 -------------------------------------------

@@ -551,11 +551,37 @@ API Documentation
           a string, int, float, bool, list, dict, or None (basically a valid
           JSON type).
 
+        Set the value of a Jx9 variable. You can also use dictionary-style assignment
+        to set the value.
+
     .. py:method:: extract(name)
 
         :param str name: A variable name
 
-        Extract the value of a variable after the execution of a Jx9 script.
+        Extract the value of a variable after the execution of a Jx9 script. You can also
+        use dictionary-style lookup to retrieve the value.
+
+    .. py:method:: foreign_function(name)
+
+        :param str name: Name of foreign function.
+
+        Function decorator for creating foreign functions that are callable from Jx9
+        scripts. Your function should have the following signature:
+
+        .. code-block:: python
+
+            def my_foreign_function(context, *args):
+                pass
+
+        Return values from your function will automatically be converted into
+        Jx9 values.
+
+    .. py:method:: delete_foreign_function(name)
+
+        :param str name: Name of foreign function
+
+        Delete the reference to a foreign function that was previously created
+        using the :py:meth:`~VM.foreign_function` decorator.
 
 
 .. py:class:: Collection(unqlite, name):
@@ -598,9 +624,19 @@ API Documentation
         [{'__id': 1, 'color': 'white', 'name': 'Huey'},
          {'__id': 2, 'color': 'black', 'name': 'Mickey'}]
 
+        >>> users.filter(lambda obj: obj['name'].startswith('H'))
+        [{'__id': 1, 'color': 'white', 'name': 'Huey'}]
+
     .. py:method:: all()
 
         Return a list containing all records in the collection.
+
+    .. py:method:: filter(filter_fn)
+
+        Filter the list of records using the provided function (or lambda).
+        Your filter function should accept a single parameter, which will be
+        the record, and return a boolean value indicating whether the record
+        should be returned.
 
     .. py:method:: create()
 
