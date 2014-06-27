@@ -113,3 +113,46 @@ Interacting with the document store basically consists of creating a Jx9 script 
 This is just a taste of what is possible with Jx9. In the near future I may add some wrappers around common Jx9 collection operations, but for now hopefully it is not too difficult to work with.
 
 More information can be found in the :py:class:`VM` documentation.
+
+Collections
+-----------
+
+To simplify working with JSON document collections, UnQLite provides a light API for
+executing Jx9 queries on collections. A collection is an ordered list of JSON objects
+(records). Records can be appended or deleted, and in the next major release there will
+be support for update as well.
+
+To begin working with :py:class:`Collection`, you can use the :py:meth:`UnQLite.collection` factory method:
+
+.. code-block:: pycon
+
+    >>> users = db.collection('users')
+    >>> users.create()  # Create the collection if it does not exist.
+    >>> users.exists()
+    True
+
+You can use the :py:meth:`Collection.store` method to add one or many records. To add a single record just pass in a python ``dict``. To add multiple records, pass in a list of dicts. Records can be fetched and deleted by ID using :py:meth:`~Collection.fetch` and :py:meth:`~Collection.delete`.
+
+.. code-block:: pycon
+
+    >>> users.store([
+    ...     {'name': 'Charlie', 'color': 'green'},
+    ...     {'name': 'Huey', 'color': 'white'},
+    ...     {'name': 'Mickey', 'color': 'black'}])
+    True
+    >>> users.store({'name': 'Leslie', 'color': 'also green'})
+    True
+
+    >>> users.fetch(0)  # Fetch the first record.
+    {'__id': 0, 'color': 'green', 'name': 'Charlie'}
+
+    >>> users.delete(0)  # Delete the first record.
+    True
+    >>> users.delete(users.last_record_id())  # Delete the last record.
+    True
+
+    >>> users.all()
+    [{'__id': 1, 'color': 'white', 'name': 'Huey'},
+     {'__id': 2, 'color': 'black', 'name': 'Mickey'}]
+
+More information can be found in the :py:class:`Collection` documentation.

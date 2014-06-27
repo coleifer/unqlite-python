@@ -575,16 +575,28 @@ API Documentation
 
         >>> users = db.collection('users')
         >>> users.create()  # Create the collection if it does not exist.
+        >>> users.exists()
+        True
+
         >>> users.store([
         ...     {'name': 'Charlie', 'color': 'green'},
         ...     {'name': 'Huey', 'color': 'white'},
         ...     {'name': 'Mickey', 'color': 'black'}])
+        True
+        >>> users.store({'name': 'Leslie', 'color': 'also green'})
+        True
+
         >>> users.fetch(0)  # Fetch the first record.
-        {'name': 'Charlie', 'color': 'green', '__id': 0}
+        {'__id': 0, 'color': 'green', 'name': 'Charlie'}
+
         >>> users.delete(0)  # Delete the first record.
+        True
+        >>> users.delete(users.last_record_id())  # Delete the last record.
+        True
+
         >>> users.all()
-        [{'name': 'Huey', 'color': 'white', '__id': 1},
-         {'name': 'Mickey', 'color': 'black', '__id': 2}]
+        [{'__id': 1, 'color': 'white', 'name': 'Huey'},
+         {'__id': 2, 'color': 'black', 'name': 'Mickey'}]
 
     .. py:method:: all()
 
