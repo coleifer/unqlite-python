@@ -90,6 +90,26 @@ def _convert_value(ptr):
         return None
     raise TypeError('Unrecognized type: %s' % ptr)
 
+def wrap_foreign_function(fn):
+    def inner(context, nargs, values):
+        converted_args = [_convert_value(values[i]) for i in range(nargs)]
+        context_wrapper = _Context(context)
+        try:
+            ret = fn(context_wrapper, *converted_args)
+        except:
+            return UNQLITE_ABORT
+        else:
+            context_wrapper.push_result(ret)
+            return UNQLITE_OK
+
+    c_callback = CFUNCTYPE(
+        UNCHECKED(c_int),
+        POINTER(unqlite_context),
+        c_int,
+        POINTER(POINTER(unqlite_value)))(inner)
+
+    return c_callback, inner
+
 _unqlite_lib = _c_libraries['unqlite']
 
 
@@ -430,10 +450,58 @@ class DBCursorIterator(CursorIterator):
             raise
 
 
-class VM(object):
+class _ValueBase(object):
+    def _set_value(self, ptr, python_value):
+        if isinstance(python_value, basestring):
+            unqlite_value_string(ptr, python_value, -1)
+        elif isinstance(python_value, (list, tuple)):
+            for item in python_value:
+                item_ptr = self.create_value(item)
+                handle_return_value(unqlite_array_add_elem(
+                    ptr,
+                    None,  # automatically assign key.
+                    item_ptr))
+                self._release_value(item_ptr)
+        elif isinstance(python_value, dict):
+            for key, value in python_value.items():
+                item_ptr = self.create_value(value)
+                handle_return_value(unqlite_array_add_strkey_elem(
+                    ptr,
+                    key,
+                    item_ptr))
+                self._release_value(item_ptr)
+        elif isinstance(python_value, (int, long)):
+            unqlite_value_int(ptr, python_value)
+        elif isinstance(python_value, bool):
+            unqlite_value_bool(ptr, python_value)
+        elif isinstance(python_value, float):
+            unqlite_value_double(ptr, python_value)
+        else:
+            unqlite_value_null(ptr)
+
+    def create_value(self, value):
+        if isinstance(value, (list, tuple, dict)):
+            ptr = self._create_array()
+        else:
+            ptr = self._create_scalar()
+        self._set_value(ptr, value)
+        return ptr
+
+    def _release_value(self, ptr):
+        raise NotImplementedError
+
+    def _create_scalar(self):
+        raise NotImplementedError
+
+    def _create_array(self):
+        raise NotImplementedError
+
+
+class VM(_ValueBase):
     def __init__(self, unqlite):
         self._unqlite = unqlite
         self._vm = None
+        self._ff_registry = {}
 
     def compile(self, code):
         self._vm = POINTER(unqlite_vm)()
@@ -467,41 +535,14 @@ class VM(object):
             verb,
             *args))
 
-    def _set_value(self, ptr, python_value):
-        if isinstance(python_value, basestring):
-            unqlite_value_string(ptr, python_value, -1)
-        elif isinstance(python_value, (list, tuple)):
-            for item in python_value:
-                item_ptr = self.create_value(item)
-                handle_return_value(unqlite_array_add_elem(
-                    ptr,
-                    None,  # automatically assign key.
-                    item_ptr))
-                self._release_value(item_ptr)
-        elif isinstance(python_value, dict):
-            for key, value in python_value.items():
-                item_ptr = self.create_value(value)
-                handle_return_value(unqlite_array_add_strkey_elem(
-                    ptr,
-                    key,
-                    item_ptr))
-                self._release_value(item_ptr)
-        elif isinstance(python_value, (int, long)):
-            unqlite_value_int(ptr, python_value)
-        elif isinstance(python_value, bool):
-            unqlite_value_bool(ptr, python_value)
-        elif isinstance(python_value, float):
-            unqlite_value_double(ptr, python_value)
-        else:
-            unqlite_value_null(ptr)
+    def _create_scalar(self):
+        return unqlite_vm_new_scalar(self._vm)
 
-    def create_value(self, value):
-        if isinstance(value, (list, tuple, dict)):
-            ptr = unqlite_vm_new_array(self._vm)
-        else:
-            ptr = unqlite_vm_new_scalar(self._vm)
-        self._set_value(ptr, value)
-        return ptr
+    def _create_array(self):
+        return unqlite_vm_new_array(self._vm)
+
+    def _release_value(self, ptr):
+        handle_return_value(unqlite_vm_release_value(self._vm, ptr))
 
     def set_value(self, name, value):
         ptr = self.create_value(value)
@@ -515,8 +556,22 @@ class VM(object):
         finally:
             self._release_value(ptr)
 
-    def _release_value(self, ptr):
-        handle_return_value(unqlite_vm_release_value(self._vm, ptr))
+    def foreign_function(self, name, user_data=None):
+        def _decorator(fn):
+            c_callback, inner = wrap_foreign_function(fn)
+            self._ff_registry[name] = c_callback
+            unqlite_create_function(
+                self._vm,
+                name,
+                c_callback,
+                user_data or '')
+            return inner
+        return _decorator
+
+    def delete_foreign_function(self, name):
+        if name in self._ff_registry:
+            del self._ff_registry[name]
+        handle_return_value(unqlite_delete_function(self._vm, name))
 
     def __getitem__(self, name):
         return self.extract(name)
@@ -530,6 +585,25 @@ class VM(object):
     def __exit__(self, exc_type, exc_val, exc_tb):
         if self._vm is not None:
             self.close()
+
+
+class _Context(_ValueBase):
+    def __init__(self, context):
+        self._context = context
+
+    def _create_scalar(self):
+        return unqlite_context_new_scalar(self._context)
+
+    def _create_array(self):
+        return unqlite_context_new_array(self._context)
+
+    def _release_value(self, ptr):
+        unqlite_context_release_value(self._context, ptr)
+
+    def push_result(self, value):
+        ptr = self.create_value(value)
+        unqlite_result_value(self._context, ptr)
+        self._release_value(ptr)
 
 
 class Collection(object):
@@ -552,6 +626,19 @@ class Collection(object):
 
     def all(self):
         return self._simple_execute('$ret = db_fetch_all($collection);')
+
+    def filter(self, filter_fn):
+        script = '$ret = db_fetch_all($collection, _filter_func);'
+        with self.unqlite.compile_script(script) as vm:
+            @vm.foreign_function('_filter_func')
+            def _filter_fn(context, obj):
+                return filter_fn(obj)
+            vm['collection'] = self.name
+            vm.execute()
+            ret = vm['ret']
+            vm.delete_foreign_function('_filter_func')
+
+        return ret
 
     def create(self):
         script = 'if (!db_exists($collection)) { db_create($collection); }'

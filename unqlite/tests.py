@@ -334,6 +334,31 @@ class TestJx9(BaseTestCase):
                 {'username': 'michael', 'color': 'black', '__id': 1},
             ])
 
+    def test_foreign_function(self):
+        script = "db_create('values'); db_store('values', $values);"
+        values = [{'val': i} for i in range(20)]
+        with self.db.compile_script(script) as vm:
+            vm['values'] = values
+            vm.execute()
+
+        script = "$ret = db_fetch_all('values', my_filter_func);"
+        with self.db.compile_script(script) as vm:
+            @vm.foreign_function('my_filter_func')
+            def _filter_func(context, obj):
+                return obj['val'] in range(7, 13)
+
+            vm.execute()
+            result = vm['ret']
+
+        self.assertEqual(result, [
+            {'__id': 7, 'val': 7},
+            {'__id': 8, 'val': 8},
+            {'__id': 9, 'val': 9},
+            {'__id': 10, 'val': 10},
+            {'__id': 11, 'val': 11},
+            {'__id': 12, 'val': 12},
+        ])
+
 
 class TestUtils(BaseTestCase):
     def test_random(self):
@@ -396,6 +421,22 @@ class TestCollection(BaseTestCase):
         ])
 
         self.assertIsNone(users[99])
+
+    def test_filtering(self):
+        values = self.db.collection('values')
+        values.create()
+        value_data = [{'val': i} for i in range(20)]
+        values.store(value_data)
+        self.assertEqual(len(values), 20)
+
+        filtered = values.filter(lambda obj: obj['val'] in range(7, 12))
+        self.assertEqual(filtered, [
+            {'__id': 7, 'val': 7},
+            {'__id': 8, 'val': 8},
+            {'__id': 9, 'val': 9},
+            {'__id': 10, 'val': 10},
+            {'__id': 11, 'val': 11},
+        ])
 
 
 if __name__ == '__main__':
