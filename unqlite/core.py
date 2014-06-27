@@ -520,6 +520,8 @@ class VM(_ValueBase):
 
     def close(self):
         res = handle_return_value(unqlite_vm_release(self._vm))
+        for name in self._ff_registry:
+            self.delete_foreign_function(name)
         self._vm = None
         return res
 
