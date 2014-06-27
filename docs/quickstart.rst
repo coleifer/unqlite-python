@@ -117,10 +117,10 @@ More information can be found in the :py:class:`VM` documentation.
 Collections
 -----------
 
-To simplify working with JSON document collections, UnQLite provides a light API for
+To simplify working with JSON document collections, ``unqlite-python`` provides a light API for
 executing Jx9 queries on collections. A collection is an ordered list of JSON objects
-(records). Records can be appended or deleted, and in the next major release there will
-be support for update as well.
+(records). Records can be appended or deleted, and in the next major release of UnQLite there will
+be support for updates as well.
 
 To begin working with :py:class:`Collection`, you can use the :py:meth:`UnQLite.collection` factory method:
 
