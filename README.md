@@ -18,6 +18,8 @@ Links:
 * [unqlite-python documentation](http://unqlite-python.readthedocs.org/)
 * [UnQLite's C API](http://unqlite.symisc.net/c_api.html)
 
+If you like UnQLite, you might also want to check out [Vedis](http://vedis.symisc.net), an embedded key/value database modeled after Redis (python bindings: [vedis-python](http://vedis-python.readthedocs.org)).
+
 ## Installation
 
 You can install unqlite using `pip`.
