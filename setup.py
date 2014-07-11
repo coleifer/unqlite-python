@@ -45,7 +45,7 @@ class GenerateCtypesWrapper(build_py):
 
 setup(
     name='unqlite',
-    version='0.1.5',
+    version='0.1.6',
     description='Python bindings for UnQLite, the embedded NoSQL database.',
     author='Charles Leifer',
     author_email='',
