@@ -223,15 +223,19 @@ class TestCursor(BaseTestCase):
                     cursor.next()
         self.assertEqual(keys, ['k5', 'k6', 'k7'])
 
+        # New items are appended to the end of the database.
         del self.db['k5']
         del self.db['k9']
         del self.db['k7']
+        self.db['a0'] = 'x0'
+        self.db['k5'] = 'x5'
+
         with self.db.cursor() as cursor:
             self.assertEqual(cursor.key(), 'k0')
             items = [k for k, _ in cursor]
             self.assertEqual(
                 items,
-                ['k0', 'k1', 'k2', 'k3', 'k6', 'k8'])
+                ['k0', 'k1', 'k2', 'k3', 'k6', 'k8', 'a0', 'k5'])
 
     def test_iterate_count(self):
         with self.db.cursor() as cursor:
