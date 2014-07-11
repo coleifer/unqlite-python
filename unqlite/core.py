@@ -132,6 +132,12 @@ class UnQLite(object):
     def close(self):
         return handle_return_value(unqlite_close(self._unqlite))
 
+    def __enter__(self):
+        self.open()
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        self.close()
+
     def config(self, verb, *args):
         return handle_return_value(_unqlite_lib.unqlite_config(
             self._unqlite,
