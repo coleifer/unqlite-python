@@ -83,7 +83,7 @@ def _convert_value(ptr):
     elif unqlite_value_is_int(ptr):
         return unqlite_value_to_int(ptr)
     elif unqlite_value_is_float(ptr):
-        return unqlite_value_to_float(ptr)
+        return unqlite_value_to_double(ptr)
     elif unqlite_value_is_bool(ptr):
         return bool(unqlite_value_to_bool(ptr))
     elif unqlite_value_is_null(ptr):
