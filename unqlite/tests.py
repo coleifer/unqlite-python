@@ -442,6 +442,20 @@ class TestCollection(BaseTestCase):
 
         self.assertIsNone(users[99])
 
+    def test_basic_operations(self):
+        users = self.db.collection('users')
+        users.create()
+
+        self.assertTrue(users.store({'key': 'value'}))
+        self.assertEqual(users.fetch(users.last_record_id()), {
+            '__id': 0,
+            'key': 'value'})
+
+        self.assertTrue(users.store({'key': u'value'}))
+        self.assertEqual(users.fetch(users.last_record_id()), {
+            '__id': 1,
+            'key': u'value'})
+
     def test_filtering(self):
         values = self.db.collection('values')
         values.create()

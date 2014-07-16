@@ -458,7 +458,9 @@ class DBCursorIterator(CursorIterator):
 
 class _ValueBase(object):
     def _set_value(self, ptr, python_value):
-        if isinstance(python_value, basestring):
+        if isinstance(python_value, unicode):
+            unqlite_value_string(ptr, python_value.encode('utf-8'), -1)
+        elif isinstance(python_value, basestring):
             unqlite_value_string(ptr, python_value, -1)
         elif isinstance(python_value, (list, tuple)):
             for item in python_value:
