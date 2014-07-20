@@ -337,6 +337,15 @@ class UnQLite(object):
             while curs.is_valid():
                 curs.delete()
 
+    def __len__(self):
+        ct = 0
+        with self.cursor() as curs:
+            curs.first()
+            while curs.is_valid():
+                ct += 1
+                curs.next()
+        return ct
+
 
 class Cursor(object):
     def __init__(self, unqlite):

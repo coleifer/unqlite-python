@@ -124,6 +124,16 @@ class TestKeyValueStorage(BaseTestCase):
         self.db.flush()
         self.assertEqual(list(self.db), [])
 
+    def test_len(self):
+        self.store_range(10)
+        self.assertEqual(len(self.db), 10)
+        self.db.flush()
+        self.assertEqual(len(self.db), 0)
+        self.db['a'] = 'A'
+        self.db['b'] = 'B'
+        self.db['b'] = 'Bb'
+        self.assertEqual(len(self.db), 2)
+
 
 class TestTransaction(BaseTestCase):
     """
