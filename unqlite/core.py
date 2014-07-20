@@ -331,6 +331,12 @@ class UnQLite(object):
             for item in cursor.fetch_until(end_key, include_end_key):
                 yield item
 
+    def flush(self):
+        with self.cursor() as curs:
+            curs.first()
+            while curs.is_valid():
+                curs.delete()
+
 
 class Cursor(object):
     def __init__(self, unqlite):

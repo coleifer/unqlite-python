@@ -118,6 +118,12 @@ class TestKeyValueStorage(BaseTestCase):
             data = [item for item in self.db.range('kx', 'k2')]
         self.assertRaises(Exception, invalid_start)
 
+    def test_flush(self):
+        self.store_range(10)
+        self.assertEqual(len(list(self.db)), 10)
+        self.db.flush()
+        self.assertEqual(list(self.db), [])
+
 
 class TestTransaction(BaseTestCase):
     """
