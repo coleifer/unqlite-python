@@ -343,7 +343,10 @@ class UnQLite(object):
             curs.first()
             while curs.is_valid():
                 ct += 1
-                curs.next()
+                try:
+                    curs.next()
+                except StopIteration:
+                    break
         return ct
 
 
@@ -378,7 +381,10 @@ class Cursor(object):
         return bool(unqlite_kv_cursor_valid_entry(self._cursor))
 
     def next(self):
-        return handle_return_value(unqlite_kv_cursor_next_entry(self._cursor))
+        ret = unqlite_kv_cursor_next_entry(self._cursor)
+        if ret == UNQLITE_DONE:
+            raise StopIteration
+        return handle_return_value(ret)
 
     def previous(self):
         return handle_return_value(unqlite_kv_cursor_prev_entry(self._cursor))
@@ -452,7 +458,10 @@ class CursorIterator(object):
     def next(self):
         if self._cursor.is_valid() and self._ct != 0:
             res = (self._cursor.key(), self._cursor.value())
-            self._cursor.next()
+            try:
+                self._cursor.next()
+            except StopIteration:
+                pass
             self._ct -= 1
             return res
         else:
@@ -463,6 +472,10 @@ class CursorIterator(object):
 
 
 class DBCursorIterator(CursorIterator):
+    def __init__(self, cursor, ct=None):
+        super(DBCursorIterator, self).__init__(cursor, ct)
+        self._cursor.first()
+
     def next(self):
         try:
             return super(DBCursorIterator, self).next()

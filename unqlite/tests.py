@@ -18,10 +18,22 @@ class BaseTestCase(unittest.TestCase):
     def setUp(self):
         super(BaseTestCase, self).setUp()
         self.db = UnQLite(':mem:')
+        self._filename = 'test.db'
+        self.file_db = UnQLite(self._filename)
 
-    def store_range(self, n):
+    def tearDown(self):
+        try:
+            self.file_db.close()
+        except:
+            pass
+        if os.path.exists(self._filename):
+            os.unlink(self._filename)
+
+    def store_range(self, n, db=None):
+        if db is None:
+            db = self.db
         for i in range(n):
-            self.db['k%s' % i] = str(i)
+            db['k%s' % i] = str(i)
 
 
 class TestKeyValueStorage(BaseTestCase):
@@ -87,7 +99,7 @@ class TestKeyValueStorage(BaseTestCase):
         self.assertRaises(KeyError, lambda: self.db.fetch_cb('kx', cb))
 
     def test_iteration(self):
-        self.store_range(4)
+        self.store_range(4, self.db)
         data = [item for item in self.db]
         self.assertEqual(data, [
             ('k0', '0'),
@@ -99,8 +111,21 @@ class TestKeyValueStorage(BaseTestCase):
         del self.db['k2']
         self.assertEqual([key for key, _ in self.db], ['k0', 'k1', 'k3'])
 
+    def test_file_iteration(self):
+        self.store_range(4, self.file_db)
+        data = [item for item in self.file_db]
+        self.assertEqual(data, [
+            ('k3', '3'),
+            ('k2', '2'),
+            ('k1', '1'),
+            ('k0', '0'),
+        ])
+
+        del self.file_db['k2']
+        self.assertEqual([key for key, _ in self.file_db], ['k3', 'k1', 'k0'])
+
     def test_range(self):
-        self.store_range(10)
+        self.store_range(10, self.db)
         data = [item for item in self.db.range('k4', 'k6')]
         self.assertEqual(data, [
             ('k4', '4'),
@@ -118,21 +143,48 @@ class TestKeyValueStorage(BaseTestCase):
             data = [item for item in self.db.range('kx', 'k2')]
         self.assertRaises(Exception, invalid_start)
 
+    def test_file_range(self):
+        self.store_range(10, self.file_db)
+        data = [item for item in self.file_db.range('k6', 'k4')]
+        self.assertEqual(data, [
+            ('k6', '6'),
+            ('k5', '5'),
+            ('k4', '4'),
+        ])
+
+        data = [item for item in self.file_db.range('k2', 'k0')]
+        self.assertEqual(data, [
+            ('k2', '2'),
+            ('k1', '1'),
+            ('k0', '0'),
+        ])
+
+        def invalid_start():
+            data = [item for item in self.file_db.range('kx', 'k2')]
+        self.assertRaises(Exception, invalid_start)
+
     def test_flush(self):
-        self.store_range(10)
+        self.store_range(10, self.db)
         self.assertEqual(len(list(self.db)), 10)
         self.db.flush()
         self.assertEqual(list(self.db), [])
 
+    def test_file_flush(self):
+        self.store_range(10, self.file_db)
+        self.assertEqual(len(list(self.file_db)), 10)
+        self.file_db.flush()
+        self.assertEqual(list(self.file_db), [])
+
     def test_len(self):
-        self.store_range(10)
-        self.assertEqual(len(self.db), 10)
-        self.db.flush()
-        self.assertEqual(len(self.db), 0)
-        self.db['a'] = 'A'
-        self.db['b'] = 'B'
-        self.db['b'] = 'Bb'
-        self.assertEqual(len(self.db), 2)
+        for db in [self.db, self.file_db]:
+            self.store_range(10, db)
+            self.assertEqual(len(db), 10)
+            db.flush()
+            self.assertEqual(len(db), 0)
+            db['a'] = 'A'
+            db['b'] = 'B'
+            db['b'] = 'Bb'
+            self.assertEqual(len(db), 2)
 
 
 class TestTransaction(BaseTestCase):
@@ -140,48 +192,37 @@ class TestTransaction(BaseTestCase):
     We must use a file-based database to test the transaction functions. See
     http://unqlite.org/forum/trouble-with-transactions+1 for details.
     """
-    def setUp(self):
-        self._filename = 'test.db'
-        self.db = UnQLite(self._filename)
-
-    def tearDown(self):
-        try:
-            self.db.close()
-        except:
-            pass
-        if os.path.exists(self._filename):
-            os.unlink(self._filename)
-
     def test_transaction(self):
-        @self.db.commit_on_success
+        @self.file_db.commit_on_success
         def _test_success(key, value):
-            self.db[key] = value
+            self.file_db[key] = value
 
-        @self.db.commit_on_success
+        @self.file_db.commit_on_success
         def _test_failure(key, value):
-            self.db[key] = value
+            self.file_db[key] = value
             raise Exception('intentional exception raised')
 
         _test_success('k1', 'v1')
-        self.assertEqual(self.db['k1'], 'v1')
+        self.assertEqual(self.file_db['k1'], 'v1')
 
         self.assertRaises(Exception , lambda: _test_failure('k2', 'v2'))
-        self.assertRaises(KeyError, lambda: self.db['k2'])
+        self.assertRaises(KeyError, lambda: self.file_db['k2'])
 
     def test_explicit_transaction(self):
-        self.db.close()
-        self.db.open()
-        self.db.begin()
-        self.db['k1'] = 'v1'
-        self.db.rollback()
+        self.file_db.close()
+        self.file_db.open()
+        self.file_db.begin()
+        self.file_db['k1'] = 'v1'
+        self.file_db.rollback()
 
-        self.assertRaises(KeyError, lambda: self.db['k1'])
+        self.assertRaises(KeyError, lambda: self.file_db['k1'])
 
 
 class TestCursor(BaseTestCase):
     def setUp(self):
         super(TestCursor, self).setUp()
-        self.store_range(10)
+        for db in [self.db, self.file_db]:
+            self.store_range(10, db)
 
     def assertIndex(self, cursor, idx):
         self.assertTrue(cursor.is_valid())
@@ -202,6 +243,23 @@ class TestCursor(BaseTestCase):
         cursor.delete()
         self.assertIndex(cursor, 1)
         cursor.close()
+
+    def test_cursor_basic_file(self):
+        cursor = self.file_db.cursor()
+        cursor.first()
+        self.assertIndex(cursor, 9)
+        cursor.next()
+        self.assertIndex(cursor, 8)
+        cursor.last()
+        self.assertIndex(cursor, 0)
+        cursor.previous()
+        self.assertIndex(cursor, 1)
+        cursor.delete()
+        self.assertIndex(cursor, 0)
+        cursor.previous()
+        self.assertIndex(cursor, 2)
+        cursor.next()
+        self.assertRaises(StopIteration, cursor.next)
 
     def test_cursor_iteration(self):
         with self.db.cursor() as cursor:
