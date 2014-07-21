@@ -4,6 +4,7 @@ include unqlite/src/unqlite.c
 include unqlite/src/unqlite.h
 recursive-include docs *
 
+exclude unqlite/_unqlite.py
 global-exclude *.pyc
 global-exclude *.o
 global-exclude *.so.0.1
