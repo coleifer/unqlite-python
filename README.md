@@ -2,6 +2,17 @@
 
 Python bindings for [UnQLite](http://unqlite.symisc.net), a lightweight, embedded NoSQL database and JSON document store.
 
+### Note
+
+The authors of UnQLite, Symisc, have informed me that UnQLite is no longer being developed actively. I would recommend using a different library like:
+
+* LevelDB
+* RocksDB
+* Kyotocabinet
+* BerkeleyDB
+
+### Features
+
 UnQLite features:
 
 * Embedded, zero-conf database
