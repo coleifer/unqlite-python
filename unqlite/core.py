@@ -684,7 +684,7 @@ class Collection(object):
             pass
 
     def drop(self):
-        script = 'if (db_exists($collection)) { db_drop($collection); }'
+        script = 'if (db_exists($collection)) { db_drop_collection($collection); }'
         with self._execute(script) as vm:
             pass
 
