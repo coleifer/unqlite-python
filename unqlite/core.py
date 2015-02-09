@@ -500,6 +500,8 @@ class _ValueBase(object):
                 self._release_value(item_ptr)
         elif isinstance(python_value, dict):
             for key, value in python_value.items():
+                if isinstance(key, unicode):
+                    key = key.encode('utf-8')
                 item_ptr = self.create_value(value)
                 handle_return_value(unqlite_array_add_strkey_elem(
                     ptr,

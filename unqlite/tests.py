@@ -516,6 +516,15 @@ class TestCollection(BaseTestCase):
 
         self.assertIsNone(users[99])
 
+    def test_unicode_key(self):
+        users = self.db.collection('users')
+        users.create()
+        self.assertTrue(users.store({u'key': u'value'}))
+        self.assertEqual(users.fetch(users.last_record_id()), {
+            '__id': 0,
+            'key': 'value',
+        })
+
     def test_basic_operations(self):
         users = self.db.collection('users')
         users.create()
