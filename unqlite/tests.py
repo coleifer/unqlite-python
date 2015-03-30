@@ -474,6 +474,46 @@ class TestUtils(BaseTestCase):
 
 
 class TestCollection(BaseTestCase):
+    def test_basic_crud(self):
+        users = self.db.collection('users')
+        users.create()
+
+        self.assertTrue(users.store({'username': 'huey'}))
+        self.assertEqual(users.fetch(users.last_record_id()), {
+            '__id': 0,
+            'username': 'huey'})
+
+        self.assertTrue(users.store({'username': u'mickey'}))
+        self.assertEqual(users.fetch(users.last_record_id()), {
+            '__id': 1,
+            'username': u'mickey'})
+
+        user_list = users.all()
+        self.assertEqual(user_list, [
+            {'__id': 0, 'username': 'huey'},
+            {'__id': 1, 'username': 'mickey'},
+        ])
+
+        users.delete(1)
+        self.assertEqual(users[0], {'__id': 0, 'username': 'huey'})
+        self.assertIsNone(users[1])
+
+        ret = users.update(0, {'color': 'white', 'name': 'hueybear'})
+        self.assertTrue(ret)
+        self.assertEqual(users[0], {
+            '__id': 0,
+            'color': 'white',
+            'name': 'hueybear',
+        })
+
+        ret = users.update(1, {'name': 'zaizee'})
+        self.assertFalse(ret)
+        self.assertIsNone(users[1])
+
+        self.assertEqual(users.all(), [
+            {'__id': 0, 'color': 'white', 'name': 'hueybear'},
+        ])
+
     def test_basic_operations(self):
         users = self.db.collection('users')
         self.assertFalse(users.exists())
@@ -524,20 +564,6 @@ class TestCollection(BaseTestCase):
             '__id': 0,
             'key': 'value',
         })
-
-    def test_basic_operations(self):
-        users = self.db.collection('users')
-        users.create()
-
-        self.assertTrue(users.store({'key': 'value'}))
-        self.assertEqual(users.fetch(users.last_record_id()), {
-            '__id': 0,
-            'key': 'value'})
-
-        self.assertTrue(users.store({'key': u'value'}))
-        self.assertEqual(users.fetch(users.last_record_id()), {
-            '__id': 1,
-            'key': u'value'})
 
     def test_filtering(self):
         values = self.db.collection('values')

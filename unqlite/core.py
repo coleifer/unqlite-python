@@ -719,6 +719,10 @@ class Collection(object):
         script = '$ret = db_store($collection, $record);'
         return self._simple_execute(script, record=record)
 
+    def update(self, record_id, record):
+        script = '$ret = db_update_record($collection, $record_id, $record);'
+        return self._simple_execute(script, record_id=record_id, record=record)
+
     def fetch_current(self):
         return self._simple_execute('$ret = db_fetch($collection);')
 
