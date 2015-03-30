@@ -86,7 +86,10 @@
  *   contact@symisc.net
  */
 #define UNQLITE_COPYRIGHT "Copyright (C) Symisc Systems, S.U.A.R.L [Mrad Chems Eddine <chm@symisc.net>] 2012-2013, http://unqlite.org/"
-
+/* Make sure we can call this stuff from C++ */
+#ifdef __cplusplus
+extern "C" { 
+#endif
 /* Forward declaration to public objects */
 typedef struct unqlite_io_methods unqlite_io_methods;
 typedef struct unqlite_kv_methods unqlite_kv_methods;
@@ -945,5 +948,7 @@ UNQLITE_APIEXPORT const char * unqlite_lib_version(void);
 UNQLITE_APIEXPORT const char * unqlite_lib_signature(void);
 UNQLITE_APIEXPORT const char * unqlite_lib_ident(void);
 UNQLITE_APIEXPORT const char * unqlite_lib_copyright(void);
-
+#ifdef __cplusplus
+}
+#endif /* __cplusplus */
 #endif /* _UNQLITE_H_ */
