@@ -15,9 +15,7 @@ API Documentation
         to :py:meth:`~UnQLite.open`.
 
     .. note::
-        UnQLite supports in-memory databases, which can be created by passing
-        in ``':mem:'`` as the database file. This is the default behavior if
-        no database file is specified.
+        UnQLite supports in-memory databases, which can be created by passing in ``':mem:'`` as the database file. This is the default behavior if no database file is specified.
 
     Example usage:
 
@@ -678,12 +676,15 @@ API Documentation
         >>> users.delete(users.last_record_id())  # Delete the last record.
         True
 
+        >>> users.update(1, {'color': 'white', 'name': 'Baby Huey'})
+        True
+
         >>> users.all()
-        [{'__id': 1, 'color': 'white', 'name': 'Huey'},
+        [{'__id': 1, 'color': 'white', 'name': 'Baby Huey'},
          {'__id': 2, 'color': 'black', 'name': 'Mickey'}]
 
-        >>> users.filter(lambda obj: obj['name'].startswith('H'))
-        [{'__id': 1, 'color': 'white', 'name': 'Huey'}]
+        >>> users.filter(lambda obj: obj['name'].startswith('B'))
+        [{'__id': 1, 'color': 'white', 'name': 'Baby Huey'}]
 
     .. py:method:: all()
 
@@ -695,6 +696,15 @@ API Documentation
         Your filter function should accept a single parameter, which will be
         the record, and return a boolean value indicating whether the record
         should be returned.
+
+        Example:
+
+        .. code-block:: pycon
+
+            >>> users.filter(lambda user: user['is_admin'] == True)
+            [{'__id': 0, 'username': 'Huey', 'is_admin': True},
+             {'__id': 3, 'username': 'Zaizee', 'is_admin': True},
+             {'__id': 4, 'username': 'Charlie', 'is_admin': True}]
 
     .. py:method:: create()
 
@@ -722,7 +732,21 @@ API Documentation
 
     .. py:method:: delete(record_id)
 
+        :param record_id: The database-provided ID of the record to delete.
+        :returns: Boolean indicating if the record was deleted successfully.
+
         Delete the record with the given id.
+
+        .. code-block:: pycon
+
+            >>> data = db.collection('data')
+            >>> data.create()
+            >>> data.store({'foo': 'bar'})
+            True
+            >>> data.delete(data.last_record_id())
+            True
+            >>> data.all()
+            []
 
     .. py:method:: fetch(record_id)
 
@@ -740,6 +764,7 @@ API Documentation
     .. py:method:: store(record)
 
         :param record: Either a dictionary (single-record), or a list of dictionaries.
+        :returns: Boolean indicating if the record was stored successfully.
 
         Store the record(s) in the collection.
 
@@ -747,9 +772,29 @@ API Documentation
 
             >>> users = db.collection('users')
             >>> users.store({'name': 'Charlie', 'color': 'green'})
+            True
             >>> users.store([
             ...     {'name': 'Huey', 'color': 'white'},
             ...     {'name': 'Mickey', 'color': 'black'}])
+            True
+
+    .. py:method:: update(record_id, record)
+
+        :param record_id: The ID of the record to update.
+        :param record: A dictionary of data to update the given record ID.
+        :returns: Boolean value indicating if the update was successful.
+
+        Update the data stored for the given ``record_id``. The data is completely replaced, rather than being appended to.
+
+        .. code-block:: pycon
+
+            >>> users = db.collection('users')
+            >>> users.store({'name': 'Charlie'})
+            True
+            >>> users.update(users.last_record_id(), {'name': 'Chuck'})
+            True
+            >>> users.fetch(users.last_record_id())
+            {'__id': 0, 'name': 'Chuck'}
 
     .. py:method:: fetch_current()
 
