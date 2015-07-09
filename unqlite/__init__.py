@@ -1,11 +1,1 @@
-from unqlite.core import UnQLite
-from unqlite._unqlite import (
-    UNQLITE_OPEN_READONLY,
-    UNQLITE_OPEN_READWRITE,
-    UNQLITE_OPEN_CREATE,
-    UNQLITE_OPEN_EXCLUSIVE,
-    UNQLITE_OPEN_TEMP_DB,
-    UNQLITE_OPEN_NOMUTEX,
-    UNQLITE_OPEN_OMIT_JOURNALING,
-    UNQLITE_OPEN_IN_MEMORY,
-    UNQLITE_OPEN_MMAP)
+from .unqlite import UnQLite

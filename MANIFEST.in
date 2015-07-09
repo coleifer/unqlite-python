@@ -2,9 +2,12 @@ include README.md
 include LICENSE
 include unqlite/src/unqlite.c
 include unqlite/src/unqlite.h
+include unqlite/unqlite.pyx
 recursive-include docs *
 
-exclude unqlite/_unqlite.py
+exclude unqlite/libunqlite.so
+exclude unqlite/unqlite.so
+exclude unqlite/unqlite.c
 global-exclude *.pyc
 global-exclude *.o
 global-exclude *.so.0.1

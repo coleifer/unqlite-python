@@ -1,6 +1,6 @@
 ![](http://media.charlesleifer.com/blog/photos/unqlite-python.png)
 
-Python bindings for [UnQLite](http://unqlite.symisc.net), a lightweight, embedded NoSQL database and JSON document store.
+Fast Python bindings for [UnQLite](http://unqlite.symisc.net), a lightweight, embedded NoSQL database and JSON document store.
 
 ### Note
 
@@ -33,9 +33,13 @@ If you like UnQLite, you might also want to check out [Vedis](http://vedis.symis
 
 ## Installation
 
+`unqlite-python` requires [Cython](http://cython.org/).
+
 You can install unqlite using `pip`.
 
     pip install unqlite
+
+For the older, slower `ctypes` version, try [unqlite-python 0.2.0](https://github.com/coleifer/unqlite-python/tree/0.2.0).
 
 ## Basic usage
 
@@ -244,4 +248,4 @@ True
 
 -------------------------------------------
 
-This code is based in part on nobonobo's [unqlitepy](https://github.com/nobonobo/unqlitepy) library.
+This code is based in part on [buaabyl's pyUnQLite](https://github.com/buaabyl/pyUnQLite/).

@@ -4,20 +4,17 @@ import unittest
 
 try:
     from unqlite import UnQLite
-    from unqlite.core import CursorIterator
 except ImportError:
     sys.stderr.write('Unable to import `unqlite`. Make sure it is properly '
                      'installed.\n')
     sys.stderr.flush()
     raise
 
-from _unqlite import UNQLITE_OK
-
 
 class BaseTestCase(unittest.TestCase):
     def setUp(self):
         super(BaseTestCase, self).setUp()
-        self.db = UnQLite(':mem:')
+        self.db = UnQLite()
         self._filename = 'test.db'
         self.file_db = UnQLite(self._filename)
 
@@ -70,33 +67,6 @@ class TestKeyValueStorage(BaseTestCase):
 
         self.db.append('k2', 'V2')
         self.assertEqual(self.db['k2'], 'V2')
-
-    def test_store_fmt(self):
-        self.db.store_fmt('k1', 'foo %s:%d:%s', 'v1', 25, 'VX')
-        self.assertEqual(self.db['k1'], 'foo v1:25:VX')
-
-    def test_fetch_cb(self):
-        state = []
-
-        def cb(data):
-            state.append(data)
-
-        def alt_cb(data):
-            state.append(data.upper())
-
-        self.db['k1'] = 'v1'
-        self.db['k2'] = 'v2'
-
-        self.db.fetch_cb('k1', cb)
-        self.assertEqual(state, ['v1'])
-
-        self.db.fetch_cb('k2', cb)
-        self.assertEqual(state, ['v1', 'v2'])
-
-        self.db.fetch_cb('k1', alt_cb)
-        self.assertEqual(state, ['v1', 'v2', 'V1'])
-
-        self.assertRaises(KeyError, lambda: self.db.fetch_cb('kx', cb))
 
     def test_iteration(self):
         self.store_range(4, self.db)
@@ -232,33 +202,33 @@ class TestCursor(BaseTestCase):
     def test_cursor_basic(self):
         cursor = self.db.cursor()
         self.assertIndex(cursor, 0)
-        cursor.next()
+        cursor.next_entry()
         self.assertIndex(cursor, 1)
         cursor.last()
         self.assertIndex(cursor, 9)
-        cursor.previous()
+        cursor.previous_entry()
         self.assertIndex(cursor, 8)
         cursor.first()
         self.assertIndex(cursor, 0)
         cursor.delete()
         self.assertIndex(cursor, 1)
-        cursor.close()
+        del cursor
 
     def test_cursor_basic_file(self):
         cursor = self.file_db.cursor()
         cursor.first()
         self.assertIndex(cursor, 9)
-        cursor.next()
+        cursor.next_entry()
         self.assertIndex(cursor, 8)
         cursor.last()
         self.assertIndex(cursor, 0)
-        cursor.previous()
+        cursor.previous_entry()
         self.assertIndex(cursor, 1)
         cursor.delete()
         self.assertIndex(cursor, 0)
-        cursor.previous()
+        cursor.previous_entry()
         self.assertIndex(cursor, 2)
-        cursor.next()
+        cursor.next_entry()
         self.assertRaises(StopIteration, cursor.next)
 
     def test_cursor_iteration(self):
@@ -294,7 +264,7 @@ class TestCursor(BaseTestCase):
                 if key == 'k7':
                     break
                 else:
-                    cursor.next()
+                    cursor.next_entry()
         self.assertEqual(keys, ['k5', 'k6', 'k7'])
 
         # New items are appended to the end of the database.
@@ -310,65 +280,6 @@ class TestCursor(BaseTestCase):
             self.assertEqual(
                 items,
                 ['k0', 'k1', 'k2', 'k3', 'k6', 'k8', 'a0', 'k5'])
-
-    def test_iterate_count(self):
-        with self.db.cursor() as cursor:
-            cursor_i = CursorIterator(cursor, 3)
-            items = [item for item in cursor_i]
-            self.assertEqual(items, [
-                ('k0', '0'),
-                ('k1', '1'),
-                ('k2', '2'),
-            ])
-
-        with self.db.cursor() as cursor:
-            cursor.next()
-            items = [item for item in cursor.fetch_count(2)]
-            self.assertEqual(items, [
-                ('k1', '1'),
-                ('k2', '2'),
-            ])
-
-        with self.db.cursor() as cursor:
-            cursor.seek('k3')
-            items = [item for item in cursor.fetch_until('k6')]
-            self.assertEqual(items, [
-                ('k3', '3'),
-                ('k4', '4'),
-                ('k5', '5'),
-                ('k6', '6'),
-            ])
-
-            cursor.seek('k1')
-            items = [item for item in cursor.fetch_until('k4', False)]
-            self.assertEqual(items, [
-                ('k1', '1'),
-                ('k2', '2'),
-                ('k3', '3'),
-            ])
-
-    def test_cursor_callbacks(self):
-        keys = []
-        values = []
-        with self.db.cursor() as cursor:
-            cursor.last()
-
-            @cursor.key_callback
-            def kcb(key):
-                keys.append(key)
-
-            def vcb(value):
-                values.append(value)
-            cursor.value_callback(vcb)
-
-            self.assertEqual(keys, ['k9'])
-            self.assertEqual(values, ['9'])
-
-            cursor.previous()
-            cursor.value_callback(vcb)
-
-            self.assertEqual(keys, ['k9'])
-            self.assertEqual(values, ['9', '8'])
 
 
 class TestJx9(BaseTestCase):
@@ -389,7 +300,7 @@ class TestJx9(BaseTestCase):
                 "k2": ["v2", ["v3", "v4"]]};
         """
 
-        with self.db.compile_script(script) as vm:
+        with self.db.vm(script) as vm:
             vm.execute()
             self.assertEqual(vm['huey_id'], 0)
             self.assertEqual(vm['mickey_id'], 1)
@@ -418,7 +329,7 @@ class TestJx9(BaseTestCase):
             {'username': 'michael', 'color': 'black'},
         ]
 
-        with self.db.compile_script(script) as vm:
+        with self.db.vm(script) as vm:
             vm['values'] = values
             vm.execute()
 
@@ -428,49 +339,14 @@ class TestJx9(BaseTestCase):
                 {'username': 'michael', 'color': 'black', '__id': 1},
             ])
 
-    def test_foreign_function(self):
-        script = "db_create('values'); db_store('values', $values);"
-        values = [{'val': i} for i in range(20)]
-        with self.db.compile_script(script) as vm:
-            vm['values'] = values
-            vm.execute()
-
-        script = "$ret = db_fetch_all('values', my_filter_func);"
-        with self.db.compile_script(script) as vm:
-            @vm.foreign_function('my_filter_func')
-            def _filter_func(context, obj):
-                return obj['val'] in range(7, 13)
-
-            vm.execute()
-            result = vm['ret']
-
-        self.assertEqual(result, [
-            {'__id': 7, 'val': 7},
-            {'__id': 8, 'val': 8},
-            {'__id': 9, 'val': 9},
-            {'__id': 10, 'val': 10},
-            {'__id': 11, 'val': 11},
-            {'__id': 12, 'val': 12},
-        ])
-
 
 class TestUtils(BaseTestCase):
     def test_random(self):
-        ri = self.db.random_number()
+        ri = self.db.random_int()
         self.assertTrue(isinstance(ri, (int, long)))
 
         rs = self.db.random_string(10)
         self.assertEqual(len(rs), 10)
-
-    def test_store_file(self):
-        cur_dir = os.path.realpath(os.path.dirname(__file__))
-        filename = os.path.join(cur_dir, 'core.py')
-        with open(filename) as fh:
-            contents = fh.read()
-
-        self.db.store_file('source', filename)
-        db_contents = self.db.fetch('source', 1024 * 64)
-        self.assertEqual(db_contents, contents)
 
 
 class TestCollection(BaseTestCase):
@@ -478,12 +354,12 @@ class TestCollection(BaseTestCase):
         users = self.db.collection('users')
         users.create()
 
-        self.assertTrue(users.store({'username': 'huey'}))
+        self.assertEqual(users.store({'username': 'huey'}), 0)
         self.assertEqual(users.fetch(users.last_record_id()), {
             '__id': 0,
             'username': 'huey'})
 
-        self.assertTrue(users.store({'username': u'mickey'}))
+        self.assertEqual(users.store({'username': u'mickey'}), 1)
         self.assertEqual(users.fetch(users.last_record_id()), {
             '__id': 1,
             'username': u'mickey'})
@@ -559,7 +435,7 @@ class TestCollection(BaseTestCase):
     def test_unicode_key(self):
         users = self.db.collection('users')
         users.create()
-        self.assertTrue(users.store({u'key': u'value'}))
+        self.assertEqual(users.store({u'key': u'value'}), 0)
         self.assertEqual(users.fetch(users.last_record_id()), {
             '__id': 0,
             'key': 'value',
