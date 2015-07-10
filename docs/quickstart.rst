@@ -46,6 +46,8 @@ The database can also be iterated in key-order:
     >>> [item for item in db]
     [('foo', 'bar'), ('k0', '0'), ('k1', '1'), ('k2', '2XXXX')]
 
+UnQLite databases support common ``dict`` APIs, such as :py:meth:`~UnQLite.keys`, :py:meth:`~UnQLite.values`, :py:meth:`~UnQLite.items`, and :py:meth:`~UnQLite.update`.
+
 Cursors
 -------
 
@@ -54,7 +56,6 @@ For finer-grained record traversal, you can use cursors.
 .. code-block:: pycon
 
     >>> with db.cursor() as cursor:
-    ...     cursor.seek('k0')
     ...     for key, value in cursor:
     ...         print key, '=>', value
     ...
@@ -62,14 +63,15 @@ For finer-grained record traversal, you can use cursors.
     k1 => 1
     k2 => 2XXXX
 
-Cursors also support a couple shortcut methods to simplify common iteration patterns:
+    >>> with db.cursor() as cursor:
+    ...     cursor.seek('k1')
+    ...     print cursor.value()
+    ...
+    1
+
+Cursors also support a shortcut method :py:meth:`~UnQLite.fetch_until` to simplify iterating over a subset of keys:
 
 .. code-block:: pycon
-
-    >>> with db.cursor() as cursor:
-    ...     list(cursor.fetch_count(3))
-    ...
-    [('foo', 'bar'), ('k0', '0'), ('k1', '1')]
 
     >>> with db.cursor() as cursor:
     ...     cursor.seek('k0')
@@ -82,7 +84,7 @@ For more information, see the :py:class:`Cursor` API documentation.
 Document store features
 -----------------------
 
-In my opinion the most interesting feature of UnQLite is its JSON document store. The `Jx9 scripting language <http://unqlite.org/jx9.html>`_ is used to interact with the document store, and it is a wacky mix of C, JavaScript and maybe even PHP.
+In my opinion the most interesting feature of UnQLite is its JSON document store. The `Jx9 scripting language <http://unqlite.org/jx9.html>`_ is used to interact with the document store, and it is a wacky mix of C, JavaScript and PHP.
 
 Interacting with the document store basically consists of creating a Jx9 script (you might think of it as an imperative SQL query), compiling it, and then executing it.
 
@@ -99,7 +101,7 @@ Interacting with the document store basically consists of creating a Jx9 script 
     ...     {'username': 'Mickey', 'age': 5}
     ... ]
 
-    >>> with db.compile_script(script) as vm:
+    >>> with db.vm(script) as vm:
     ...     vm['list_of_users'] = list_of_users
     ...     vm.execute()
     ...     users_from_db = vm['users_from_db']
@@ -110,16 +112,14 @@ Interacting with the document store basically consists of creating a Jx9 script 
     [{'username': 'Huey', 'age': 3, '__id': 0},
      {'username': 'Mickey', 'age': 5, '__id': 1}]
 
-This is just a taste of what is possible with Jx9. In the near future I may add some wrappers around common Jx9 collection operations, but for now hopefully it is not too difficult to work with.
-
-More information can be found in the :py:class:`VM` documentation.
+This is just a taste of what is possible with Jx9. More information can be found in the :py:class:`VM` documentation.
 
 Collections
 -----------
 
 To simplify working with JSON document collections, ``unqlite-python`` provides a light API for
 executing Jx9 queries on collections. A collection is an ordered list of JSON objects
-(records). Records can be appended or deleted, and in the next major release of UnQLite there will
+(records). Records can be appended, updated or deleted.
 be support for updates as well.
 
 To begin working with :py:class:`Collection`, you can use the :py:meth:`UnQLite.collection` factory method:

@@ -3,16 +3,15 @@
 API Documentation
 =================
 
-.. py:class:: UnQLite([database=':mem:'[, open_manually=False]])
+.. py:class:: UnQLite([database=':mem:'[, flags=UNQLITE_OPEN_CREATE[, open_database=True]])
 
     The :py:class:`UnQLite` object provides a pythonic interface for interacting
     with `UnQLite databases <http://unqlite.symisc.net/>`_. UnQLite is a lightweight,
     embedded NoSQL database and JSON document store.
 
     :param str database: The path to the database file.
-    :param bool open_manually: If set to ``True``, the database will not be
-        opened automatically upon instantiation and must be opened by a call
-        to :py:meth:`~UnQLite.open`.
+    :param int flags: How the database file should be opened.
+    :param bool open_database: When set to ``True``, the database will be opened automatically when the class is instantiated. If set to ``False`` you will need to manually call :py:meth:`~UnQLite.open`.
 
     .. note::
         UnQLite supports in-memory databases, which can be created by passing in ``':mem:'`` as the database file. This is the default behavior if no database file is specified.
@@ -60,7 +59,7 @@ API Documentation
         ...     {'username': 'Mickey', 'age': 5}
         ... ]
 
-        >>> with db.compile_script(script) as vm:
+        >>> with db.vm(script) as vm:
         ...     vm['list_of_users'] = list_of_users
         ...     vm.execute()
         ...     users_from_db = vm['users_from_db']
@@ -71,14 +70,9 @@ API Documentation
         [{'username': 'Huey', 'age': 3, '__id': 0},
          {'username': 'Mickey', 'age': 5, '__id': 1}]
 
-    .. py:method:: open([flags=UNQLITE_OPEN_CREATE])
+    .. py:method:: open()
 
-        :param flags: Optional flags to use when opening the database.
-        :raises: ``Exception`` if an error occurred opening the database.
-
-        Open the database connection. This method should only be called if the
-        database was manually closed, or if the database was instantiated with
-        ``open_manually=True``.
+        Open the database. This method should only be called if the database was manually closed, or if the database was instantiated with ``open_database=False``.
 
         Valid flags:
 
@@ -97,24 +91,34 @@ API Documentation
 
     .. py:method:: close()
 
-        :raises: ``Exception`` if an error occurred closing the database.
+        Close the database.
 
-        Close the database connection.
+        .. warning::
+            If you are using a file-based database, by default any uncommitted changes will be committed when the database is closed. If you wish to discard uncommitted changes, you can use :py:meth:`~UnQLite.disable_autocommit`.
 
-    .. py:method:: config(verb, \*args)
+    .. py:method:: __enter__()
 
-        :param int verb: A flag indicating what is being configured
-        :param args: Verb-specific arguments
+        Use the database as a context manager, opening the connection and closing it at the end of the wrapped block:
 
-        Configure an attribute of the UnQLite database. The list of verbs and their
-        parameters can be found in the `unqlite_config docs <http://unqlite.org/c_api/unqlite_config.html>`_.
+        .. code-block:: python
+
+            with UnQLite('my_db.udb') as db:
+                db['foo'] = 'bar'
+
+            # When the context manager exits, the database is closed.
+
+    .. py:method:: disable_autocommit()
+
+        When the database is closed, prevent any uncommitted writes from being saved.
+
+        .. note:: This method only affects file-based databases.
 
     .. py:method:: store(key, value)
 
         Store a value in the given key.
 
         :param str key: Identifier used for storing data.
-        :param any value: A value to store in UnQLite.
+        :param str value: A value to store in UnQLite.
 
         Example:
 
@@ -124,40 +128,58 @@ API Documentation
             db.store('some key', 'some value')
             db.store('another key', 'another value')
 
-        You can also use the dictionary-style ``[key] = value`` to store a value:
+        You can also use the dictionary-style ``db[key] = value`` to store a value:
 
         .. code-block:: python
 
             db['some key'] = 'some value'
 
-    .. py:method:: store_fmt(key, value, \*params)
+    .. py:method:: fetch(key)
 
-        Like :py:meth:`~UnQLite.store`, except that the ``value`` parameter is a
-        ``printf()``-style formatting string.
+        Retrieve the value stored at the given ``key``. If no value exists in the given key, a ``KeyError`` will be raised.
 
-        Example:
-
-        .. code-block:: python
-
-            db.store_fmt('greeting', 'hello %s, you are %d years old', 'huey', 3)
-
-    .. py:method:: store_file(key, filename)
-
-        Store the contents of a file in the given key. The method uses ``mmap`` to
-        create a read-only memory-view of the file, which is then used to store the
-        file contents in the database.
+        :param str key: Identifier to retrieve
+        :returns: The data stored at the given key
+        :raises: ``KeyError`` if the given key does not exist.
 
         Example:
 
         .. code-block:: python
 
-            for mp3_file in glob.glob('music/*.mp3'):
-                db.store_file(os.path.basename(mp3_file), mp3_file)
+            db = UnQLite()
+            db.store('some key', 'some value')
+            value = db.fetch('some key')
+
+        You can also use the dictionary-style ``value = db[key]`` lookup to retrieve a value:
+
+        .. code-block:: python
+
+            value = db['some key']
+
+    .. py:method:: delete(key)
+
+        Remove the key and its associated value from the database.
+
+        :param str key: The key to remove from the database.
+        :raises: ``KeyError`` if the given key does not exist.
+
+        Example:
+
+        .. code-block:: python
+
+            def clear_cache():
+                db.delete('cached-data')
+
+        You can also use the python ``del`` keyword combined with a dictionary lookup:
+
+        .. code-block:: python
+
+            def clear_cache():
+                del db['cached-data']
 
     .. py:method:: append(key, value)
 
-        Append the given ``value`` to the data stored in the ``key``. If no data exists, the operation
-        is equivalent to :py:meth:`~UnQLite.store`.
+        Append the given ``value`` to the data stored in the ``key``. If no data exists, the operation is equivalent to :py:meth:`~UnQLite.store`.
 
         :param str key: The identifier of the value to append to.
         :param value: The value to append.
@@ -187,137 +209,24 @@ API Documentation
                     db['cached-data'] = calculate_expensive_data()
                 return db['cached-data']
 
-    .. py:method:: fetch(key)
+    .. py:method:: begin()
 
-        Retrieve the value stored at the given ``key``. If no value exists,
-        a ``KeyError`` will be raised.
+        Begin a transaction.
 
-        :param str key: Identifier to retrieve
-        :returns: The data stored at the given key
-        :raises: ``KeyError`` if the given key does not exist.
+    .. py:method:: rollback()
 
-        Example:
+        Roll back the current transaction.
 
-        .. code-block:: python
+    .. py:method:: commit()
 
-            db = UnQLite()
-            db.store('some key', 'some value')
-            value = db.fetch('some key')
-
-        You can also use the dictionary-style ``[key]`` lookup to retrieve a value:
-
-        .. code-block:: python
-
-            value = db['some key']
-
-    .. py:method:: delete(key)
-
-        Remove the key and its associated value from the database.
-
-        :param str key: The key to remove from the database.
-        :raises: ``KeyError`` if the given key does not exist.
-
-        Example:
-
-        .. code-block:: python
-
-            def clear_cache():
-                db.delete('cached-data')
-
-        You can also use the python ``del`` keyword combined with a dictionary lookup:
-
-        .. code-block:: python
-
-            def clear_cache():
-                del db['cached-data']
-
-    .. py:method:: compile_script(code)
-
-        :param str code: a Jx9 script.
-        :returns: a context manager yielding a :py:class:`VM` instance.
-
-        Compile the given Jx9 script and return an initialized :py:class:`VM` instance.
-
-        Usage:
-
-        .. code-block:: python
-
-            script = "$users = db_fetch_all('users');"
-            with db.compile_script(script) as vm:
-                vm.execute()
-                users = vm['users']
-
-    .. py:method:: compile_file(filename)
-
-        :param str filename: filename of Jx9 script
-        :returns: a context manager yielding a :py:class:`VM` instance.
-
-        Compile the given Jx9 file and return an initialized :py:class:`VM` instance.
-
-        Usage:
-
-        .. code-block:: python
-
-            with db.compile_file('myscript.jx9') as vm:
-                vm.execute()
-
-    .. py:method:: collection(name)
-
-        :param str name: The name of the collection.
-
-        Factory method for instantiating a :py:class:`Collection` for working
-        with a collection of JSON objects.
-
-        Usage:
-
-        .. code-block:: python
-
-            Users = db.collection('users')
-
-            # Fetch all records in the collection.
-            all_users = Users.all()
-
-            # Create a new record.
-            Users.store({'name': 'Charlie', 'activities': ['reading', 'programming']})
-
-        See the :py:class:`Collection` docs for more examples.
-
-    .. py:method:: VM()
-
-        :returns: an uninitialized :py:class:`VM` instance.
-
-        Create a VM instance which can then be used to compile and
-        execute Jx9 scripts.
-
-        .. code-block:: python
-
-            with db.VM() as vm:
-                vm.compile(my_script)
-                vm.execute()
-
-    .. py:method:: cursor()
-
-        :returns: a :py:class:`Cursor` instance.
-
-        Create a cursor for traversing database records.
-
-    .. py:method:: range(start_key, end_key[, include_end_key=True])
-
-        Iterate over a range of key/value pairs in the database.
-
-        .. code-block:: python
-
-            for key, value in db.range('d.20140101', 'd.20140201', False):
-                calculate_daily_aggregate(key, value)
+        Commit the current transaction.
 
     .. py:method:: transaction()
 
-        Create a context manager for performing multiple operations in a
-        transaction.
+        Create a context manager for performing multiple operations in a transaction.
 
-        .. note::
-            Transactions occur at the disk-level, and as such have no effect
-            on in-memory databases.
+        .. warning::
+            Transactions occur at the disk-level and have no effect on in-memory databases.
 
         Example:
 
@@ -328,12 +237,14 @@ API Documentation
                 db['from_acct'] = db['from_account'] - 100
                 db['to_acct'] = db['to_acct'] + 100
 
+            # Make changes and then roll them back.
+            with db.transaction():
+                db['foo'] = 'bar'
+                db.rollback()  # Whoops, do not commit these changes.
+
     .. py:method:: commit_on_success(fn)
 
-        Function decorator that will cause the wrapped function to have all
-        statements wrapped in a transaction. If the function returns without
-        an exception, the transaction is committed. If an exception occurs
-        in the function, the transaction is rolled back.
+        Function decorator that will cause the wrapped function to have all statements wrapped in a transaction. If the function returns without an exception, the transaction is committed. If an exception occurs in the function, the transaction is rolled back.
 
         Example:
 
@@ -350,23 +261,96 @@ API Documentation
             Traceback (most recent call last):
               File "<stdin>", line 1, in <module>
               File "unqlite/core.py", line 312, in wrapper
-                return fn(*args, **kwargs)
+                return fn()
               File "<stdin>", line 5, in save_value
             Exception: uh-oh
             >>> db['k3']
             'v3'
 
-    .. py:method:: begin()
+    .. py:method:: cursor()
 
-        Begin a transaction.
+        :returns: a :py:class:`Cursor` instance.
 
-    .. py:method:: rollback()
+        Create a cursor for traversing database records.
 
-        Roll back the current transaction.
+    .. py:method:: vm(code)
 
-    .. py:method:: commit()
+        :param str code: a Jx9 script.
+        :returns: a :py:class:`VM` instance with the compiled script.
 
-        Commit the current transaction.
+        Compile the given Jx9 script and return an initialized :py:class:`VM` instance.
+
+        Usage:
+
+        .. code-block:: python
+
+            script = "$users = db_fetch_all('users');"
+            with db.vm(script) as vm:
+                vm.execute()
+                users = vm['users']
+
+    .. py:method:: collection(name)
+
+        :param str name: The name of the collection.
+
+        Factory method for instantiating a :py:class:`Collection` for working with a collection of JSON objects.
+
+        Usage:
+
+        .. code-block:: python
+
+            Users = db.collection('users')
+
+            # Fetch all records in the collection.
+            all_users = Users.all()
+
+            # Create a new record.
+            Users.store({'name': 'Charlie', 'activities': ['reading', 'programming']})
+
+        See the :py:class:`Collection` docs for more examples.
+
+    .. py:method:: keys()
+
+        :returns: A generator that successively yields the keys in the database.
+
+    .. py:method:: values()
+
+        :returns: A generator that successively yields the values in the database.
+
+    .. py:method:: items()
+
+        :returns: A generator that successively yields tuples containing the keys and values in the database.
+
+    .. py:method:: __iter__()
+
+        UnQLite databases can be iterated over. The iterator is a :py:class:`Cursor`, and will yield 2-tuples of keys and values:
+
+        .. code-block:: python
+
+            db = UnQLite('my_db.udb')
+            for (key, value) in db:
+                print key, '=>', value
+
+    .. py:method:: range(start_key, end_key[, include_end_key=True])
+
+        Iterate over a range of key/value pairs in the database.
+
+        .. code-block:: python
+
+            for key, value in db.range('d.20140101', 'd.20140201', False):
+                calculate_daily_aggregate(key, value)
+
+    .. py:method:: __len__()
+
+        Return the number of records in the database.
+
+        .. warning:: This method calculates the lengthy by iterating and counting every record. At the time of writing, there is no C API for calculating the size of the database.
+
+    .. py:method:: flush()
+
+        Delete all records in the database.
+
+        .. warning:: This method works by iterating through all the records and deleting them one-by-one. At the time of writing there is no API for bulk deletes. If you are worried about speed, simply delete the database file and re-open it.
 
     .. py:method:: random_string(nbytes)
 
@@ -377,16 +361,43 @@ API Documentation
 
         :returns: a random positive integer
 
+    .. py:method:: lib_version()
+
+        :returns: The UnQLite library version.
+
+
+.. py:class:: Transaction(unqlite)
+
+    :param UnQLite unqlite: An :py:class:`UnQLite` instance.
+
+    Context-manager for executing wrapped blocks in a transaction. Rather than instantiating this object directly, it is recommended that you use :py:meth:`UnQLite.transaction`.
+
+    Example:
+
+    .. code-block:: python
+
+        with db.transaction():
+            db['from_acct'] = db['from_acct'] + 100
+            db['to_acct'] = db['to_acct'] - 100
+
+    To roll back changes inside a transaction, call :py:meth:`UnQLite.rollback`:
+
+    .. code-block:: python
+
+        with db.transaction():
+            db['from_acct'] = db['from_acct'] + 100
+            db['to_acct'] = db['to_acct'] - 100
+            if int(db['to_acct']) < 0:
+                db.rollback()  # Not enough funds!
+
 
 .. py:class:: Cursor(unqlite)
 
-    :param unqlite: A pointer to an unqlite struct.
+    :param UnQLite unqlite: An :py:class:`UnQLite` instance.
 
-    Create and initialize a cursor. Cursors can be used as context managers,
-    which ensures that they are closed.
+    Create a cursor. Cursors should generally be used as context managers.
 
-    Rather than instantiating this class directly, it is preferable to call
-    the factory method :py:meth:`UnQLite.cursor`.
+    Rather than instantiating this class directly, it is preferable to call the factory method :py:meth:`UnQLite.cursor`.
 
     .. code-block:: python
 
@@ -416,9 +427,9 @@ API Documentation
             keys = [key for key, value in cursor]  # Cursor iterates from k2->k3
             assert keys == ['k2', 'k3']
 
-    .. py:method:: close()
+    .. py:method:: reset()
 
-        Close and release the database cursor.
+        Reset the cursor, which also resets the pointer to the first record.
 
     .. py:method:: seek(key[, flags=UNQLITE_CURSOR_MATCH_EXACT])
 
@@ -450,33 +461,29 @@ API Documentation
 
         Place cursor at the last record.
 
+    .. py:method:: next_entry()
+
+        Move the cursor to the next record.
+
+        :raises: ``StopIteration`` if you have gone past the last record.
+
+    .. py:method:: previous_entry()
+
+        Move the cursor to the previous record.
+
+        :raises: ``StopIteration`` if you have gone past the first record.
+
     .. py:method:: is_valid()
 
         :rtype: bool
 
-        Indicate whether this cursor is pointing to a valid record, or has
-        reached the end of the database.
+        Indicate whether this cursor is pointing to a valid record.
 
-    .. py:method:: next()
+    .. py:method:: __iter__()
 
-        Move the cursor to the next record.
+        Iterate over the keys in the database, returning 2-tuples of key/value.
 
-    .. py:method:: previous()
-
-        Move the cursor to the previous record.
-
-    .. py:method:: reset()
-
-        Reset the cursor, which also resets the pointer to the first record.
-
-    .. py:method:: delete()
-
-        Delete the record currently pointed to by the cursor.
-
-        .. warning::
-            The :py:meth:`~Cursor.delete` method is a little weird in that
-            it only seems to work if you explicitly call :py:meth:`~Cursor.seek`
-            beforehand.
+        .. note:: Iteration will begin wherever the cursor is currently pointing, rather than starting at the first record.
 
     .. py:method:: key()
 
@@ -486,17 +493,14 @@ API Documentation
 
         Return the value of the current record.
 
-    .. py:method:: __iter__()
+    .. py:method:: delete()
 
-        Cursors support the Python iteration protocol. Successive iterations
-        yield key/value pairs.
+        Delete the record currently pointed to by the cursor.
 
-    .. py:method:: fetch_count(ct)
-
-        :param int ct: Number of rows to fetch.
-
-        Iterate from the current record, yielding the next ``ct`` key/value
-        pairs.
+        .. warning::
+            The :py:meth:`~Cursor.delete` method is a little weird in that
+            it only seems to work if you explicitly call :py:meth:`~Cursor.seek`
+            beforehand.
 
     .. py:method:: fetch_until(stop_key[, include_stop_key=True])
 
@@ -508,23 +512,18 @@ API Documentation
         this behavior can be controlled using the ``include_stop_key`` flag.
 
 
-.. py:class:: VM(unqlite)
+.. py:class:: VM(unqlite, code)
 
-    :param unqlite: A pointer to an unqlite struct.
+    :param UnQLite unqlite: An :py:class:`UnQLite` instance.
+    :param str code: A Jx9 script.
 
-    Python wrapper around an UnQLite virtual machine. The VM is the primary
-    means of executing Jx9 scripts and interacting with the JSON document
-    store.
+    Python wrapper around an UnQLite virtual machine. The VM is the primary means of executing Jx9 scripts and interacting with the JSON document store.
 
-    VM instances will rarely be created explicitly. Instead, they are yielded
-    by calls to :py:meth:`UnQLite.compile_script` and :py:meth:`UnQLite.compile_file`.
-    Rather than instantiating this class directly, it is preferable to call
-    the factory method :py:meth:`UnQLite.VM`.
+    VM instances should not be instantiated directly, but created by calling :py:meth:`UnQLite.vm`.
 
     .. note:: For information on Jx9 scripting, see the `Jx9 docs <http://unqlite.org/jx9.html>`_.
 
-    Example of passing values into a Jx9 script prior to execution, then extracting
-    values afterwards:
+    Example of passing values into a Jx9 script prior to execution, then extracting values afterwards:
 
     .. code-block:: python
 
@@ -541,7 +540,7 @@ API Documentation
             {'username': 'mickey', 'color': 'black'},
         ]
 
-        with self.db.compile_script(script) as vm:
+        with db.vm(script) as vm:
             # Set the value of the `values` variable in the Jx9 script:
             vm['values'] = values
 
@@ -559,85 +558,49 @@ API Documentation
                 {'username': 'mickey', 'color': 'black', '__id': 1},
             ]  # prints `True`
 
+    .. py:method:: execute()
+
+        Execute the compiled Jx9 script.
+
+    .. py:method:: close()
+
+        Release the VM, deallocating associated memory.
+
+        .. note:: When using the VM as a context manager, this is handled automatically.
+
+    .. py:method:: __enter__()
+
+        Typically the VM should be used as a context manager. The context manager API handles compiling the Jx9 code and releasing the data-structures afterwards.
+
+        .. code-block:: python
+
+            with db.vm(jx9_script) as vm:
+                vm.execute()
+
+    .. py:method:: set_value(name, value)
+
+        :param str name: A variable name
+        :param value: Value to pass in to the scope of the Jx9 script, which should be either a string, int, float, bool, list, dict, or None (basically a valid JSON type).
+
+        Set the value of a Jx9 variable. You can also use dictionary-style assignment to set the value.
+
+    .. py:method:: get_value(name)
+
+        :param str name: A variable name
+
+        Retrieve the value of a variable after the execution of a Jx9 script. You can also use dictionary-style lookup to retrieve the value.
+
     .. py:method:: compile(code)
 
         :param str code: A Jx9 script.
 
         Compile the Jx9 script and initialize the VM.
 
-        .. note::
-            This does not execute the code. To execute the code, you
-            must also call :py:meth:`VM.execute`.
-
-    .. py:method:: compile_file(filename)
-
-        :param str code: The filename of a Jx9 script.
-
-        Compile the Jx9 script file and initialize the VM.
+        .. warning::
+            It is not necessary to call this method yourself, as it is called automatically when the VM is used as a context manager.
 
         .. note::
-            This does not execute the code. To execute the code, you
-            must also call :py:meth:`VM.execute`.
-
-    .. py:method:: close()
-
-        Release the VM, deallocating associated memory. When using the VM
-        as a context manager, this is handled automatically.
-
-    .. py:method:: reset()
-
-        Reset the VM.
-
-    .. py:method:: execute()
-
-        Execute the compiled Jx9 bytecode.
-
-    .. py:method:: config(verb, \*args)
-
-        :param int verb: A flag indicating what is being configured
-        :param args: Verb-specific arguments
-
-        Configure an attribute of the VM. The list of verbs and their
-        parameters can be found in the `unqlite_vm_config docs <http://unqlite.org/c_api/unqlite_vm_config.html>`_.
-
-    .. py:method:: set_value(name, value)
-
-        :param str name: A variable name
-        :param value: Value to pass in to the Jx9 script, which should be either
-          a string, int, float, bool, list, dict, or None (basically a valid
-          JSON type).
-
-        Set the value of a Jx9 variable. You can also use dictionary-style assignment
-        to set the value.
-
-    .. py:method:: extract(name)
-
-        :param str name: A variable name
-
-        Extract the value of a variable after the execution of a Jx9 script. You can also
-        use dictionary-style lookup to retrieve the value.
-
-    .. py:method:: foreign_function(name)
-
-        :param str name: Name of foreign function.
-
-        Function decorator for creating foreign functions that are callable from Jx9
-        scripts. Your function should have the following signature:
-
-        .. code-block:: python
-
-            def my_foreign_function(context, *args):
-                pass
-
-        Return values from your function will automatically be converted into
-        Jx9 values.
-
-    .. py:method:: delete_foreign_function(name)
-
-        :param str name: Name of foreign function
-
-        Delete the reference to a foreign function that was previously created
-        using the :py:meth:`~VM.foreign_function` decorator.
+            This does not execute the code. To execute the code, you must also call :py:meth:`VM.execute`.
 
 
 .. py:class:: Collection(unqlite, name):
@@ -648,8 +611,7 @@ API Documentation
     Perform common operations on a JSON document collection.
 
     .. note::
-        Rather than instantiating this class directly, use the factory
-        method :py:meth:`UnQLite.collection`.
+        Rather than instantiating this class directly, use the factory method :py:meth:`UnQLite.collection`.
 
     Basic operations:
 
@@ -730,23 +692,9 @@ API Documentation
 
         Reset the collection cursor to point to the first record in the collection.
 
-    .. py:method:: delete(record_id)
+    .. py:method:: __len__()
 
-        :param record_id: The database-provided ID of the record to delete.
-        :returns: Boolean indicating if the record was deleted successfully.
-
-        Delete the record with the given id.
-
-        .. code-block:: pycon
-
-            >>> data = db.collection('data')
-            >>> data.create()
-            >>> data.store({'foo': 'bar'})
-            True
-            >>> data.delete(data.last_record_id())
-            True
-            >>> data.all()
-            []
+        Return the number of records in the collection.
 
     .. py:method:: fetch(record_id)
 
@@ -760,6 +708,13 @@ API Documentation
 
             >>> users[1]  # You can also use dictionary-style lookup.
             {'name': 'Huey', 'color': 'white', '__id': 1}
+
+        You can also use the dictionary API:
+
+        .. code-block:: python
+
+            >>> users[0]
+            {'name': 'Charlie', 'color': 'green', '__id': 0}
 
     .. py:method:: store(record)
 
@@ -795,6 +750,30 @@ API Documentation
             True
             >>> users.fetch(users.last_record_id())
             {'__id': 0, 'name': 'Chuck'}
+
+    .. py:method:: delete(record_id)
+
+        :param record_id: The database-provided ID of the record to delete.
+        :returns: Boolean indicating if the record was deleted successfully.
+
+        Delete the record with the given id.
+
+        .. code-block:: pycon
+
+            >>> data = db.collection('data')
+            >>> data.create()
+            >>> data.store({'foo': 'bar'})
+            True
+            >>> data.delete(data.last_record_id())
+            True
+            >>> data.all()
+            []
+
+        You can also use the dictionary API:
+
+        .. code-block:: pycon
+
+            >>> del users[1]  # Delete user object with `__id=1`.
 
     .. py:method:: fetch_current()
 

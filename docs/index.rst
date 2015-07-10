@@ -6,7 +6,7 @@
 unqlite-python
 ==============
 
-Python bindings for `UnQLite <http://unqlite.symisc.net/>`_, a lightweight, embedded NoSQL database and JSON document store.
+Fast Python bindings for `UnQLite <http://unqlite.symisc.net/>`_, a lightweight, embedded NoSQL database and JSON document store.
 
 UnQLite features:
 
