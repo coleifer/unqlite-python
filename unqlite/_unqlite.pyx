@@ -296,15 +296,7 @@ cdef class UnQLite(object):
             self.filename,
             self.flags))
 
-        self.is_open = 1
-        if not self.is_memory:
-            # Disable autocommit for file-based databases.
-            ret = unqlite_config(
-                self.database,
-                UNQLITE_CONFIG_DISABLE_AUTO_COMMIT)
-            if ret != UNQLITE_OK:
-                raise NotImplementedError('Error disabling autocommit for '
-                                          'in-memory database.')
+        self.is_open = True
 
     def close(self):
         """Close database connection."""
@@ -321,6 +313,16 @@ cdef class UnQLite(object):
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.close()
+
+    cpdef disable_autocommit(self):
+        if not self.is_memory:
+            # Disable autocommit for file-based databases.
+            ret = unqlite_config(
+                self.database,
+                UNQLITE_CONFIG_DISABLE_AUTO_COMMIT)
+            if ret != UNQLITE_OK:
+                raise NotImplementedError('Error disabling autocommit for '
+                                          'in-memory database.')
 
     cpdef store(self, basestring key, basestring value):
         """Store key/value."""
@@ -491,38 +493,41 @@ cdef class UnQLite(object):
         """Create a wrapper for working with Jx9 collections."""
         return Collection(self, name)
 
+    cpdef update(self, dict values):
+        cdef basestring key
+        for key in values:
+            self.store(key, values[key])
+
     def keys(self):
         """Efficiently iterate through the database's keys."""
         cdef Cursor cursor
-        cursor = self.cursor()
-        while True:
-            try:
+        with self.cursor() as cursor:
+            while cursor.is_valid():
                 yield cursor.key()
-            except:
-                if not cursor.is_valid():
+                try:
+                    cursor.next_entry()
+                except StopIteration:
                     break
-            cursor.next_entry()
 
     def values(self):
         """Efficiently iterate through the database's values."""
         cdef Cursor cursor
-        cursor = self.cursor()
-        while cursor.is_valid():
-            try:
+        with self.cursor() as cursor:
+            while cursor.is_valid():
                 yield cursor.value()
-            except:
-                if not cursor.is_valid():
+                try:
+                    cursor.next_entry()
+                except StopIteration:
                     break
-            cursor.next_entry()
 
     def items(self):
         """Efficiently iterate through the database's key/value pairs."""
         cdef Cursor cursor
         cdef tuple item
 
-        cursor = self.cursor()
-        for item in cursor:
-            yield item
+        with self.cursor() as cursor:
+            for item in cursor:
+                yield item
 
     def __iter__(self):
         cursor = self.cursor()

@@ -5,10 +5,10 @@ from Cython.Build import cythonize
 
 
 cur_dir = os.path.dirname(__file__)
-cython_module = os.path.join(cur_dir, 'unqlite/unqlite.pyx')
+cython_module = os.path.join(cur_dir, 'unqlite/_unqlite.pyx')
 c_source = os.path.join(cur_dir, 'unqlite/src/unqlite.c')
 unqlite_extension = Extension(
-    'unqlite/unqlite',
+    os.path.join(cur_dir, 'unqlite/_unqlite'),
     sources=[cython_module, c_source])
 
 setup(

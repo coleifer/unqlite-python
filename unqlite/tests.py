@@ -19,10 +19,10 @@ class BaseTestCase(unittest.TestCase):
         self.file_db = UnQLite(self._filename)
 
     def tearDown(self):
-        try:
+        if self.db.is_open:
+            self.db.close()
+        if self.file_db.is_open:
             self.file_db.close()
-        except:
-            pass
         if os.path.exists(self._filename):
             os.unlink(self._filename)
 
@@ -35,30 +35,32 @@ class BaseTestCase(unittest.TestCase):
 
 class TestKeyValueStorage(BaseTestCase):
     def test_basic_operations(self):
-        self.db.store('k1', 'v1')
-        self.db.store('k2', 'v2')
-        self.assertEqual(self.db.fetch('k1'), 'v1')
-        self.assertEqual(self.db.fetch('k2'), 'v2')
-        self.assertRaises(KeyError, self.db.fetch, 'k3')
+        for db in (self.db, self.file_db):
+            db.store('k1', 'v1')
+            db.store('k2', 'v2')
+            self.assertEqual(db.fetch('k1'), 'v1')
+            self.assertEqual(db.fetch('k2'), 'v2')
+            self.assertRaises(KeyError, db.fetch, 'k3')
 
-        self.db.delete('k2')
-        self.assertRaises(KeyError, self.db.fetch, 'k2')
+            db.delete('k2')
+            self.assertRaises(KeyError, db.fetch, 'k2')
 
-        self.assertTrue(self.db.exists('k1'))
-        self.assertFalse(self.db.exists('k2'))
+            self.assertTrue(db.exists('k1'))
+            self.assertFalse(db.exists('k2'))
 
     def test_dict_interface(self):
-        self.db['k1'] = 'v1'
-        self.db['k2'] = 'v2'
-        self.assertEqual(self.db['k1'], 'v1')
-        self.assertEqual(self.db['k2'], 'v2')
-        self.assertRaises(KeyError, lambda: self.db['k3'])
+        for db in (self.db, self.file_db):
+            db['k1'] = 'v1'
+            db['k2'] = 'v2'
+            self.assertEqual(db['k1'], 'v1')
+            self.assertEqual(db['k2'], 'v2')
+            self.assertRaises(KeyError, lambda: db['k3'])
 
-        del self.db['k2']
-        self.assertRaises(KeyError, lambda: self.db['k2'])
+            del db['k2']
+            self.assertRaises(KeyError, lambda: db['k2'])
 
-        self.assertTrue('k1' in self.db)
-        self.assertFalse('k2' in self.db)
+            self.assertTrue('k1' in db)
+            self.assertFalse('k2' in db)
 
     def test_append(self):
         self.db['k1'] = 'v1'
@@ -111,7 +113,7 @@ class TestKeyValueStorage(BaseTestCase):
 
         def invalid_start():
             data = [item for item in self.db.range('kx', 'k2')]
-        self.assertRaises(Exception, invalid_start)
+        self.assertRaises(KeyError, invalid_start)
 
     def test_file_range(self):
         self.store_range(10, self.file_db)
@@ -131,22 +133,17 @@ class TestKeyValueStorage(BaseTestCase):
 
         def invalid_start():
             data = [item for item in self.file_db.range('kx', 'k2')]
-        self.assertRaises(Exception, invalid_start)
+        self.assertRaises(KeyError, invalid_start)
 
     def test_flush(self):
-        self.store_range(10, self.db)
-        self.assertEqual(len(list(self.db)), 10)
-        self.db.flush()
-        self.assertEqual(list(self.db), [])
-
-    def test_file_flush(self):
-        self.store_range(10, self.file_db)
-        self.assertEqual(len(list(self.file_db)), 10)
-        self.file_db.flush()
-        self.assertEqual(list(self.file_db), [])
+        for db in (self.db, self.file_db):
+            self.store_range(10, db)
+            self.assertEqual(len(list(db)), 10)
+            db.flush()
+            self.assertEqual(list(db), [])
 
     def test_len(self):
-        for db in [self.db, self.file_db]:
+        for db in (self.db, self.file_db):
             self.store_range(10, db)
             self.assertEqual(len(db), 10)
             db.flush()
@@ -155,6 +152,32 @@ class TestKeyValueStorage(BaseTestCase):
             db['b'] = 'B'
             db['b'] = 'Bb'
             self.assertEqual(len(db), 2)
+
+    def test_autocommit(self):
+        self.file_db['k1'] = 'v1'
+        self.file_db.close()
+        self.file_db.open()
+        self.assertEqual(self.file_db['k1'], 'v1')
+
+        self.file_db.disable_autocommit()
+        self.file_db['k2'] = 'v2'
+        self.file_db.close()
+        self.file_db.open()
+        self.assertRaises(KeyError, lambda: self.file_db['k2'])
+
+    def test_dict_methods(self):
+        for db in (self.db, self.file_db):
+            self.store_range(3, db)
+            self.assertEqual(sorted(db.keys()), ['k0', 'k1', 'k2'])
+            self.assertEqual(sorted(db.values()), ['0', '1', '2'])
+            self.assertEqual(sorted(db.items()), [
+                ('k0', '0'),
+                ('k1', '1'),
+                ('k2', '2')])
+
+            db.update({'foo': 'bar', 'baz': 'nug'})
+            self.assertEqual(db['foo'], 'bar')
+            self.assertEqual(db['baz'], 'nug')
 
 
 class TestTransaction(BaseTestCase):
@@ -178,6 +201,18 @@ class TestTransaction(BaseTestCase):
         self.assertRaises(Exception , lambda: _test_failure('k2', 'v2'))
         self.assertRaises(KeyError, lambda: self.file_db['k2'])
 
+    def test_context_manager(self):
+        with self.file_db.transaction():
+            self.file_db['foo'] = 'bar'
+
+        self.assertEqual(self.file_db['foo'], 'bar')
+
+        with self.file_db.transaction():
+            self.file_db['baz'] = 'nug'
+            self.file_db.rollback()
+
+        self.assertRaises(KeyError, lambda: self.file_db['baz'])
+
     def test_explicit_transaction(self):
         self.file_db.close()
         self.file_db.open()
@@ -191,7 +226,7 @@ class TestTransaction(BaseTestCase):
 class TestCursor(BaseTestCase):
     def setUp(self):
         super(TestCursor, self).setUp()
-        for db in [self.db, self.file_db]:
+        for db in (self.db, self.file_db):
             self.store_range(10, db)
 
     def assertIndex(self, cursor, idx):
