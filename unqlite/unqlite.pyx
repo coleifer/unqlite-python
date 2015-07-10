@@ -525,7 +525,9 @@ cdef class UnQLite(object):
             yield item
 
     def __iter__(self):
-        return self.cursor()
+        cursor = self.cursor()
+        cursor.reset()
+        return cursor
 
     def range(self, basestring start_key, basestring end_key,
                 bint include_end_key=True):
@@ -543,12 +545,9 @@ cdef class UnQLite(object):
         """
         cdef Cursor cursor
         cdef long count = 0
-        cursor = self.cursor()
-        cursor.first()
-        while cursor.is_valid():
-            count += 1
-            cursor.next_entry()
-        del cursor
+        with self.cursor() as cursor:
+            for item in cursor:
+                count += 1
         return count
 
     def flush(self):
@@ -560,12 +559,10 @@ cdef class UnQLite(object):
         """
         cdef Cursor cursor
         cdef long i = 0
-        cursor = self.cursor()
-        cursor.first()
-        while cursor.is_valid():
-            cursor.delete()
-            i += 1
-        del cursor
+        with self.cursor() as cursor:
+            while cursor.is_valid():
+                cursor.delete()
+                i += 1
         return i
 
     cpdef random_string(self, int nbytes):
@@ -612,7 +609,7 @@ cdef class Cursor(object):
     """Cursor interface for efficiently iterating through database."""
     cdef UnQLite unqlite
     cdef unqlite_kv_cursor *cursor
-    cdef bint is_open
+    cdef bint consumed
 
     def __cinit__(self, unqlite):
         self.unqlite = unqlite
@@ -680,6 +677,7 @@ cdef class Cursor(object):
         return False
 
     def __iter__(self):
+        self.consumed = False
         return self
 
     cpdef key(self):
@@ -730,15 +728,18 @@ cdef class Cursor(object):
         cdef int ret
         cdef basestring key, value
 
+        if self.consumed:
+            raise StopIteration
+
         try:
             key = self.key()
             value = self.value()
         except:
             raise StopIteration
-
-        ret = unqlite_kv_cursor_next_entry(self.cursor)
-        if ret != UNQLITE_OK:
-            raise StopIteration
+        else:
+            ret = unqlite_kv_cursor_next_entry(self.cursor)
+            if ret != UNQLITE_OK:
+                self.consumed = True
 
         return (key, value)
 

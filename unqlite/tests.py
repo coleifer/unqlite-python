@@ -229,7 +229,7 @@ class TestCursor(BaseTestCase):
         cursor.previous_entry()
         self.assertIndex(cursor, 2)
         cursor.next_entry()
-        self.assertRaises(StopIteration, cursor.next)
+        self.assertRaises(StopIteration, cursor.next_entry)
 
     def test_cursor_iteration(self):
         with self.db.cursor() as cursor:
