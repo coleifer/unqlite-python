@@ -19,4 +19,12 @@ setup(
     author_email='',
     packages=['unqlite'],
     ext_modules=cythonize(unqlite_extension),
+    install_requires=['Cython'],
+    classifiers=[
+        'Development Status :: 5 - Production/Stable',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: MIT License',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python',
+    ],
 )
