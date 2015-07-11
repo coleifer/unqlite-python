@@ -2,15 +2,6 @@
 
 Fast Python bindings for [UnQLite](http://unqlite.symisc.net), a lightweight, embedded NoSQL database and JSON document store.
 
-### Note
-
-The authors of UnQLite, Symisc, have informed me that UnQLite is no longer being developed actively. I would recommend using a different library like:
-
-* LevelDB
-* RocksDB
-* Kyotocabinet
-* BerkeleyDB
-
 ### Features
 
 UnQLite features:
@@ -23,6 +14,13 @@ UnQLite features:
 * JSON document store
 * Thread-safe
 * Terabyte-sized databases
+
+UnQLite-Python features:
+
+* Compiled library, extremely fast with minimal overhead.
+* Supports key/value operations, cursors, and transactions using Pythonic APIs.
+* Support for Jx9 scripting.
+* APIs for working with Jx9 JSON document collections.
 
 Links:
 
@@ -37,11 +35,7 @@ You can install unqlite using `pip`.
 
     pip install unqlite
 
-For the older, slower `ctypes` version, try [unqlite-python 0.2.0](https://github.com/coleifer/unqlite-python/tree/0.2.0).
-
 ## Basic usage
-
-First you instantiate an `UnQLite` object, passing in either the path to the database file or the special string `':mem:'` for an in-memory database.
 
 Below is a sample interactive console session designed to show some of the basic features and functionality of the unqlite-python library. Also check out the [full API documentation](http://unqlite-python.readthedocs.org/en/latest/api.html).
 
@@ -76,7 +70,7 @@ False
 '2XXXX'
 ```
 
-The database can also be iterated in key-order:
+The database can also be iterated through directly:
 
 ```pycon
 >>> [item for item in db]
@@ -96,19 +90,16 @@ For finer-grained record traversal, you can use cursors.
 k0 => 0
 k1 => 1
 k2 => 2XXXX
-```
 
-Cursors also support a couple shortcut methods to simplify common iteration patterns:
-
-```pycon
 >>> with db.cursor() as cursor:
-...     list(cursor.fetch_count(3))
+...     cursor.seek('k2')
+...     print cursor.value()
 ...
-[('foo', 'bar'), ('k0', '0'), ('k1', '1')]
+2
 
 >>> with db.cursor() as cursor:
 ...     cursor.seek('k0')
-...     list(cursor.fetch_until('k2', include_stop_key=False))
+...     print list(cursor.fetch_until('k2', include_stop_key=False))
 ...
 [('k0', '0'), ('k1', '1')]
 ```
@@ -117,7 +108,7 @@ There are many different ways of interacting with cursors, which are described i
 
 ### Document store features
 
-In my opinion the most interesting feature of UnQLite is its JSON document store. The [Jx9 scripting language](http://unqlite.org/jx9.html) is used to interact with the document store, and it is a wacky mix of C, JavaScript and maybe even PHP.
+In my opinion the most interesting feature of UnQLite is its JSON document store. The [Jx9 scripting language](http://unqlite.org/jx9.html) is used to interact with the document store, and it is a wacky mix of PHP and maybe JavaScript (?).
 
 Interacting with the document store basically consists of creating a Jx9 script (you might think of it as an imperative SQL query), compiling it, and then executing it.
 
@@ -133,7 +124,7 @@ Interacting with the document store basically consists of creating a Jx9 script 
 ...     {'username': 'Mickey', 'age': 5}
 ... ]
 
->>> with db.compile_script(script) as vm:
+>>> with db.vm(script) as vm:
 ...     vm['list_of_users'] = list_of_users
 ...     vm.execute()
 ...     users_from_db = vm['users_from_db']

@@ -321,6 +321,10 @@ API Documentation
 
         :returns: A generator that successively yields tuples containing the keys and values in the database.
 
+    .. py:method:: update(data)
+
+        :param dict data: Dictionary of data to store in the database. If any keys in ``data`` already exist, the values will be overwritten.
+
     .. py:method:: __iter__()
 
         UnQLite databases can be iterated over. The iterator is a :py:class:`Cursor`, and will yield 2-tuples of keys and values:
@@ -603,7 +607,7 @@ API Documentation
             This does not execute the code. To execute the code, you must also call :py:meth:`VM.execute`.
 
 
-.. py:class:: Collection(unqlite, name):
+.. py:class:: Collection(unqlite, name)
 
     :param unqlite: a :py:class:`UnQLite` instance
     :param str name: the name of the collection

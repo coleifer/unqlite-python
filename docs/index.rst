@@ -19,6 +19,13 @@ UnQLite features:
 * Thread-safe
 * Terabyte-sized databases
 
+UnQLite-Python features:
+
+* Compiled library, extremely fast with minimal overhead.
+* Supports key/value operations, cursors, and transactions using Pythonic APIs.
+* Support for Jx9 scripting.
+* APIs for working with Jx9 JSON document collections.
+
 The source code for unqlite-python is `hosted on GitHub <https://github.com/coleifer/unqlite-python>`_.
 
 .. note::

@@ -3,8 +3,6 @@
 Quick-start
 ===========
 
-First you instantiate an :py:class:`UnQLite` object, passing in either the path to the database file or the special string ``':mem:'`` for an in-memory database.
-
 Below is a sample interactive console session designed to show some of the basic features and functionality of the unqlite-python library. Also check out the `full API documentation <http://unqlite-python.readthedocs.org/en/latest/api.html>`_.
 
 To begin, instantiate an :py:class:`UnQLite` object. You can specify either the path to a database file, or use UnQLite as an in-memory database.
@@ -39,7 +37,7 @@ UnQLite can be used as a key/value store.
     >>> db['k2']
     '2XXXX'
 
-The database can also be iterated in key-order:
+The database can also be iterated through directly:
 
 .. code-block:: pycon
 
@@ -64,18 +62,14 @@ For finer-grained record traversal, you can use cursors.
     k2 => 2XXXX
 
     >>> with db.cursor() as cursor:
-    ...     cursor.seek('k1')
+    ...     cursor.seek('k2')
     ...     print cursor.value()
     ...
-    1
-
-Cursors also support a shortcut method :py:meth:`~UnQLite.fetch_until` to simplify iterating over a subset of keys:
-
-.. code-block:: pycon
+    2
 
     >>> with db.cursor() as cursor:
     ...     cursor.seek('k0')
-    ...     list(cursor.fetch_until('k2', include_stop_key=False))
+    ...     print list(cursor.fetch_until('k2', include_stop_key=False))
     ...
     [('k0', '0'), ('k1', '1')]
 
