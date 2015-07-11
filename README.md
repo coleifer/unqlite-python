@@ -33,8 +33,6 @@ If you like UnQLite, you might also want to check out [Vedis](http://vedis.symis
 
 ## Installation
 
-`unqlite-python` requires [Cython](http://cython.org/).
-
 You can install unqlite using `pip`.
 
     pip install unqlite
