@@ -1,0 +1,11 @@
+include README.md
+include LICENSE
+include src/unqlite.c
+include src/unqlite.h
+include unqlite.pyx
+recursive-include docs *
+
+exclude unqlite.c
+global-exclude *.pyc
+global-exclude *.o
+global-exclude *.so.0.1
