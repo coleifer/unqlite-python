@@ -4,19 +4,27 @@ from distutils.core import setup, Extension
 try:
     from Cython.Build import cythonize
 except ImportError:
-    raise RuntimeError('Cython must be installed in order to build '
-                       'unqlite-python.')
+    import warnings
+    cython_installed = False
+    warnings.warn('Cython not installed, using pre-generated C source file.')
+else:
+    cython_installed = True
 
 
-cython_module = 'unqlite.pyx'
-c_source = 'src/unqlite.c'
+if cython_installed:
+    python_source = 'unqlite.pyx'
+else:
+    python_source = 'unqlite.c'
+    cythonize = lambda obj: [obj]
+library_source = 'src/unqlite.c'
+
 unqlite_extension = Extension(
     'unqlite',
-    sources=[cython_module, c_source])
+    sources=[python_source, library_source])
 
 setup(
     name='unqlite',
-    version='0.3.2',
+    version='0.4.0',
     description='Fast Python bindings for the UnQLite embedded NoSQL database.',
     author='Charles Leifer',
     author_email='',
