@@ -914,7 +914,7 @@ cdef class Context(object):
                     item_ptr)
                 self.release_value(item_ptr)
         elif isinstance(python_value, (int, long)):
-            unqlite_value_int(ptr, python_value)
+            unqlite_value_int64(ptr, python_value)
         elif isinstance(python_value, bool):
             unqlite_value_bool(ptr, python_value)
         elif isinstance(python_value, float):
@@ -1101,7 +1101,7 @@ cdef unqlite_value_to_python(unqlite_value *ptr):
     elif unqlite_value_is_string(ptr):
         return str(unqlite_value_to_string(ptr, &nbytes))[:nbytes]
     elif unqlite_value_is_int(ptr):
-        return unqlite_value_to_int(ptr)
+        return unqlite_value_to_int64(ptr)
     elif unqlite_value_is_float(ptr):
         return unqlite_value_to_double(ptr)
     elif unqlite_value_is_bool(ptr):
@@ -1133,7 +1133,7 @@ cdef python_to_unqlite_value(VM vm, unqlite_value *ptr, python_value):
                 item_ptr)
             vm.release_value(item_ptr)
     elif isinstance(python_value, (int, long)):
-        unqlite_value_int(ptr, python_value)
+        unqlite_value_int64(ptr, python_value)
     elif isinstance(python_value, bool):
         unqlite_value_bool(ptr, python_value)
     elif isinstance(python_value, float):
