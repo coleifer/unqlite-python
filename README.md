@@ -1,4 +1,4 @@
-![](http://media.charlesleifer.com/blog/photos/unqlite-python.png)
+![](http://media.charlesleifer.com/blog/photos/unqlite-python-logo.png)
 
 Fast Python bindings for [UnQLite](http://unqlite.symisc.net), a lightweight, embedded NoSQL database and JSON document store.
 
