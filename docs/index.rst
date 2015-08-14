@@ -3,6 +3,9 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+unqlite-python
+==============
+
 .. image:: http://media.charlesleifer.com/blog/photos/unqlite-python-logo.png
 
 Fast Python bindings for `UnQLite <http://unqlite.symisc.net/>`_, a lightweight, embedded NoSQL database and JSON document store.
