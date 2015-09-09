@@ -907,6 +907,8 @@ cdef class Context(object):
             for key, value in python_value.items():
                 if isinstance(key, unicode):
                     key = key.encode('utf-8')
+                elif not isinstance(key, basestring):
+                    key = str(key)
                 item_ptr = self.create_value(value)
                 unqlite_array_add_strkey_elem(
                     ptr,
@@ -1126,6 +1128,8 @@ cdef python_to_unqlite_value(VM vm, unqlite_value *ptr, python_value):
         for key, value in python_value.items():
             if isinstance(key, unicode):
                 key = key.encode('utf-8')
+            elif not isinstance(key, basestring):
+                key = str(key)
             item_ptr = vm.create_value(value)
             unqlite_array_add_strkey_elem(
                 ptr,

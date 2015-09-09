@@ -492,6 +492,13 @@ class TestCollection(BaseTestCase):
             {'__id': 11, 'val': 11},
         ])
 
+    def test_int_key(self):
+        coll = self.db.collection('testing')
+        coll.create()
+        coll.store({1: 2})
+        res = coll.fetch(coll.last_record_id())
+        self.assertEqual(res, [2, 0])
+
 
 if __name__ == '__main__':
     unittest.main(argv=sys.argv)
