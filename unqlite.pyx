@@ -790,7 +790,7 @@ cdef class VM(object):
 
     cpdef execute(self):
         """Execute the compiled Jx9 script."""
-        unqlite_vm_exec(self.vm)
+        self.unqlite.check_call(unqlite_vm_exec(self.vm))
 
     cpdef close(self):
         """Close and release the virtual machine."""
@@ -844,6 +844,8 @@ cdef class VM(object):
         cdef unqlite_value *ptr
 
         ptr = unqlite_vm_extract_variable(self.vm, name)
+        if not ptr:
+            raise KeyError(name)
         try:
             return unqlite_value_to_python(ptr)
         finally:
@@ -972,7 +974,10 @@ cdef class Collection(object):
             for key, value in kwargs.items():
                 vm[key] = value
             vm.execute()
-            return vm['ret']
+            try:
+                return vm['ret']
+            except KeyError:
+                raise ValueError('Error fetching return value from script.')
 
     def all(self):
         """Retrieve all records in the given collection."""

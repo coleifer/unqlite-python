@@ -385,8 +385,14 @@ class TestUtils(BaseTestCase):
 
 
 class TestCollection(BaseTestCase):
-    def test_basic_crud(self):
-        users = self.db.collection('users')
+    def test_basic_crud_mem(self):
+        self._test_basic_crud(self.db)
+
+    def test_basic_crud_file(self):
+        self._test_basic_crud(self.file_db)
+
+    def _test_basic_crud(self, db):
+        users = db.collection('users')
         users.create()
 
         self.assertEqual(users.store({'username': 'huey'}), 0)
@@ -425,8 +431,14 @@ class TestCollection(BaseTestCase):
             {'__id': 0, 'color': 'white', 'name': 'hueybear'},
         ])
 
-    def test_basic_operations(self):
-        users = self.db.collection('users')
+    def test_basic_operations_mem(self):
+        self._test_basic_operations(self.db)
+
+    def test_basic_operations_file(self):
+        self._test_basic_operations(self.file_db)
+
+    def _test_basic_operations(self, db):
+        users = db.collection('users')
         self.assertFalse(users.exists())
         users.create()
         self.assertTrue(users.exists())
@@ -492,12 +504,23 @@ class TestCollection(BaseTestCase):
             {'__id': 11, 'val': 11},
         ])
 
-    def test_int_key(self):
-        coll = self.db.collection('testing')
+    def test_odd_values_mem(self):
+        self._test_odd_values(self.db)
+
+    def test_odd_values_file(self):
+        self._test_odd_values(self.file_db)
+
+    def _test_odd_values(self, db):
+        coll = db.collection('testing')
         coll.create()
         coll.store({1: 2})
         res = coll.fetch(coll.last_record_id())
         self.assertEqual(res, [2, 0])
+
+        coll.drop()
+
+        # Try storing in non-existent collection?
+        self.assertRaises(ValueError, lambda: coll.store({'f': 'f'}))
 
 
 if __name__ == '__main__':
