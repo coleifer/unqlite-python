@@ -11,6 +11,16 @@
 # ASCII art designed by "pils".
 from libc.stdlib cimport free, malloc
 
+try:
+    from os import fsencode
+except ImportError:
+    try:
+        from sys import getfilesystemencoding as _getfsencoding
+    except ImportError:
+        _fsencoding = 'utf-8'
+    else:
+        _fsencoding = _getfsencoding()
+    fsencode = lambda s: s.encode(_fsencoding)
 
 cdef extern from "src/unqlite.h":
     struct unqlite
@@ -263,6 +273,7 @@ cdef class UnQLite(object):
     cdef readonly bint is_memory
     cdef readonly bint is_open
     cdef readonly basestring filename
+    cdef readonly bytes encoded_filename
     cdef readonly int flags
     cdef bint open_database
 
@@ -278,6 +289,10 @@ cdef class UnQLite(object):
     def __init__(self, filename=':mem:', flags=UNQLITE_OPEN_CREATE,
                  open_database=True):
         self.filename = filename
+        if isinstance(filename, unicode):
+            self.encoded_filename = fsencode(filename)
+        else:
+            self.encoded_filename = bytes(filename)
         self.flags = flags
         self.is_memory = filename == ':mem:'
         self.open_database = open_database
@@ -293,7 +308,7 @@ cdef class UnQLite(object):
 
         self.check_call(unqlite_open(
             &self.database,
-            self.filename,
+            self.encoded_filename,
             self.flags))
 
         self.is_open = True
@@ -326,21 +341,39 @@ cdef class UnQLite(object):
 
     cpdef store(self, basestring key, basestring value):
         """Store key/value."""
+        cdef bytes encoded_key
+        cdef bytes encoded_value
+
+        if isinstance(key, unicode):
+            encoded_key = key.encode('utf-8')
+        else:
+            encoded_key = bytes(key)
+        if isinstance(value, unicode):
+            encoded_value = value.encode('utf-8')
+        else:
+            encoded_value = bytes(value)
+
         self.check_call(unqlite_kv_store(
             self.database,
-            <const char *>key,
+            <const char *>encoded_key,
             -1,
-            <const char *>value,
-            len(value)))
+            <const char *>encoded_value,
+            len(encoded_value)))
 
     cpdef fetch(self, basestring key):
         """Retrieve value at given key. Raises `KeyError` if key not found."""
         cdef char *buf = <char *>0
         cdef unqlite_int64 buf_size = 0
+        cdef bytes encoded_key
+
+        if isinstance(key, unicode):
+            encoded_key = key.encode('utf-8')
+        else:
+            encoded_key = bytes(key)
 
         self.check_call(unqlite_kv_fetch(
             self.database,
-            <char *>key,
+            <const char *>encoded_key,
             -1,
             <void *>0,
             &buf_size))
@@ -349,36 +382,64 @@ cdef class UnQLite(object):
             buf = <char *>malloc(buf_size)
             self.check_call(unqlite_kv_fetch(
                 self.database,
-                <char *>key,
+                <const char *>encoded_key,
                 -1,
                 <void *>buf,
                 &buf_size))
-
-            return buf[:buf_size]
+            value = buf[:buf_size]
+            if str is not bytes:
+                value = value.decode('utf-8')
+            return value
         finally:
             free(buf)
 
     cpdef delete(self, basestring key):
         """Delete the value stored at the given key."""
-        self.check_call(unqlite_kv_delete(self.database, <char *>key, -1))
+        cdef bytes encoded_key
+
+        if isinstance(key, unicode):
+            encoded_key = key.encode('utf-8')
+        else:
+            encoded_key = bytes(key)
+
+        self.check_call(unqlite_kv_delete(
+            self.database, <char *>encoded_key, -1))
 
     cpdef append(self, basestring key, basestring value):
         """Append to the value stored in the given key."""
+        cdef bytes encoded_key
+        cdef bytes encoded_value
+
+        if isinstance(key, unicode):
+            encoded_key = key.encode('utf-8')
+        else:
+            encoded_key = bytes(key)
+        if isinstance(value, unicode):
+            encoded_value = value.encode('utf-8')
+        else:
+            encoded_value = bytes(value)
+
         self.check_call(unqlite_kv_append(
             self.database,
-            <const char *>key,
+            <const char *>encoded_key,
             -1,
-            <const char *>value,
-            len(value)))
+            <const char *>encoded_value,
+            len(encoded_value)))
 
     cpdef exists(self, basestring key):
+        cdef bytes encoded_key
         cdef char *buf = <char *>0
         cdef unqlite_int64 buf_size = 0
         cdef int ret
 
+        if isinstance(key, unicode):
+            encoded_key = key.encode('utf-8')
+        else:
+            encoded_key = bytes(key)
+
         ret = unqlite_kv_fetch(
             self.database,
-            <char *>key,
+            <const char *>encoded_key,
             -1,
             <void *>0,
             &buf_size)
@@ -644,9 +705,16 @@ cdef class Cursor(object):
         * UNQLITE_CURSOR_MATCH_LE
         * UNQLITE_CURSOR_MATCH_GE
         """
+        cdef bytes encoded_key
+
+        if isinstance(key, unicode):
+            encoded_key = key.encode('utf-8')
+        else:
+            encoded_key = bytes(key)
+
         self.unqlite.check_call(unqlite_kv_cursor_seek(
             self.cursor,
-            <char *>key,
+            <char *>encoded_key,
             -1,
             flags))
 
@@ -687,43 +755,48 @@ cdef class Cursor(object):
 
     cpdef key(self):
         """Retrieve the key at the cursor's current location."""
-        cdef int ret
-        cdef int key_size
-        cdef char *key
+        cdef char *buf
+        cdef int buf_size
+
 
         self.unqlite.check_call(
-            unqlite_kv_cursor_key(self.cursor, <void *>0, &key_size))
+            unqlite_kv_cursor_key(self.cursor, <void *>0, &buf_size))
 
         try:
-            key = <char *>malloc(key_size * sizeof(char))
+            buf = <char *>malloc(buf_size * sizeof(char))
             unqlite_kv_cursor_key(
                 self.cursor,
-                <char *>key,
-                &key_size)
+                <char *>buf,
+                &buf_size)
 
-            return key[:key_size]
+            key = buf[:buf_size]
+            if str is not bytes:
+                key = key.decode('utf-8')
+            return key
         finally:
-            free(key)
+            free(buf)
 
     cpdef value(self):
         """Retrieve the value at the cursor's current location."""
-        cdef int ret
-        cdef unqlite_int64 value_size
-        cdef char *value
+        cdef char *buf
+        cdef unqlite_int64 buf_size
 
         self.unqlite.check_call(
-            unqlite_kv_cursor_data(self.cursor, <void *>0, &value_size))
+            unqlite_kv_cursor_data(self.cursor, <void *>0, &buf_size))
 
         try:
-            value = <char *>malloc(value_size * sizeof(char))
+            buf = <char *>malloc(buf_size * sizeof(char))
             unqlite_kv_cursor_data(
                 self.cursor,
-                <char *>value,
-                &value_size)
+                <char *>buf,
+                &buf_size)
 
-            return value[:value_size]
+            value = buf[:buf_size]
+            if str is not bytes:
+                value = value.decode('utf-8')
+            return value
         finally:
-            free(value)
+            free(buf)
 
     cpdef delete(self):
         """Delete the record at the cursor's current location."""
@@ -769,11 +842,18 @@ cdef class VM(object):
     cdef UnQLite unqlite
     cdef unqlite_vm *vm
     cdef readonly basestring code
+    cdef readonly bytes encoded_code
+    cdef set encoded_names
 
     def __cinit__(self, UnQLite unqlite, basestring code):
         self.unqlite = unqlite
         self.vm = <unqlite_vm *>0
         self.code = code
+        if isinstance(code, unicode):
+            self.encoded_code = code.encode('utf-8')
+        else:
+            self.encoded_code = bytes(code)
+        self.encoded_names = set()
 
     def __dealloc__(self):
         # For some reason, calling unqlite_vm_release() here always causes a
@@ -782,18 +862,21 @@ cdef class VM(object):
 
     cpdef compile(self):
         """Compile the Jx9 script."""
+        self.encoded_names.clear()
         self.unqlite.check_call(unqlite_compile(
             self.unqlite.database,
-            <const char *>self.code,
+            <const char *>self.encoded_code,
             -1,
             &self.vm))
 
     cpdef execute(self):
         """Execute the compiled Jx9 script."""
         self.unqlite.check_call(unqlite_vm_exec(self.vm))
+        self.encoded_names.clear()
 
     cpdef close(self):
         """Close and release the virtual machine."""
+        self.encoded_names.clear()
         unqlite_vm_release(self.vm)
 
     def __enter__(self):
@@ -828,12 +911,24 @@ cdef class VM(object):
     def set_value(self, name, value):
         """Set the value of a variable in the Jx9 script."""
         cdef unqlite_value *ptr
+        cdef bytes encoded_name
+
+        if isinstance(name, unicode):
+            encoded_name = name.encode('utf-8')
+        else:
+            encoded_name = bytes(name)
+        # since Jx9 does not make a private copy of the name,
+        # we need to keep it alive by adding it to a set
+        self.encoded_names.add(encoded_name)
+
         ptr = self.create_value(value)
         self.unqlite.check_call(unqlite_vm_config(
             self.vm,
             UNQLITE_VM_CONFIG_CREATE_VAR,
-            <const char *>name,
+            <const char *>encoded_name,
             ptr))
+        # since Jx9 makes a private copy of the value,
+        # we do not need to keep the value alive
         self.release_value(ptr)
 
     def get_value(self, name):
@@ -842,8 +937,14 @@ cdef class VM(object):
         Jx9 script.
         """
         cdef unqlite_value *ptr
+        cdef bytes encoded_name
 
-        ptr = unqlite_vm_extract_variable(self.vm, name)
+        if isinstance(name, unicode):
+            encoded_name = name.encode('utf-8')
+        else:
+            encoded_name = bytes(name)
+
+        ptr = unqlite_vm_extract_variable(self.vm, <const char *>encoded_name)
         if not ptr:
             raise KeyError(name)
         try:
@@ -895,10 +996,12 @@ cdef class Context(object):
 
     cdef python_to_unqlite_value(self, unqlite_value *ptr, python_value):
         cdef unqlite_value *item_ptr = <unqlite_value *>0
+        cdef bytes encoded_value
 
         if isinstance(python_value, unicode):
-            unqlite_value_string(ptr, python_value.encode('utf-8'), -1)
-        elif isinstance(python_value, basestring):
+            encoded_value = python_value.encode('utf-8')
+            unqlite_value_string(ptr, encoded_value, -1)
+        elif isinstance(python_value, bytes):
             unqlite_value_string(ptr, python_value, -1)
         elif isinstance(python_value, (list, tuple)):
             for item in python_value:
@@ -907,14 +1010,14 @@ cdef class Context(object):
                 self.release_value(item_ptr)
         elif isinstance(python_value, dict):
             for key, value in python_value.items():
+                if not isinstance(key, basestring):
+                    key = str(key)
                 if isinstance(key, unicode):
                     key = key.encode('utf-8')
-                elif not isinstance(key, basestring):
-                    key = str(key)
                 item_ptr = self.create_value(value)
                 unqlite_array_add_strkey_elem(
                     ptr,
-                    key,
+                    <const char *>key,
                     item_ptr)
                 self.release_value(item_ptr)
         elif isinstance(python_value, (int, long)):
@@ -1087,7 +1190,6 @@ cdef class Collection(object):
 
 
 cdef unqlite_value_to_python(unqlite_value *ptr):
-    cdef int nbytes
     cdef list json_array
     cdef dict json_object
 
@@ -1106,7 +1208,10 @@ cdef unqlite_value_to_python(unqlite_value *ptr):
             <void *>json_array)
         return json_array
     elif unqlite_value_is_string(ptr):
-        return str(unqlite_value_to_string(ptr, &nbytes))[:nbytes]
+        value = unqlite_value_to_string(ptr, NULL)
+        if str is not bytes:
+            value = value.decode('utf-8')
+        return value
     elif unqlite_value_is_int(ptr):
         return unqlite_value_to_int64(ptr)
     elif unqlite_value_is_float(ptr):
@@ -1119,10 +1224,12 @@ cdef unqlite_value_to_python(unqlite_value *ptr):
 
 cdef python_to_unqlite_value(VM vm, unqlite_value *ptr, python_value):
     cdef unqlite_value *item_ptr = <unqlite_value *>0
+    cdef bytes encoded_value
 
     if isinstance(python_value, unicode):
-        unqlite_value_string(ptr, python_value.encode('utf-8'), -1)
-    elif isinstance(python_value, basestring):
+        encoded_value = python_value.encode('utf-8')
+        unqlite_value_string(ptr, encoded_value, -1)
+    elif isinstance(python_value, bytes):
         unqlite_value_string(ptr, python_value, -1)
     elif isinstance(python_value, (list, tuple)):
         for item in python_value:
@@ -1131,14 +1238,14 @@ cdef python_to_unqlite_value(VM vm, unqlite_value *ptr, python_value):
             vm.release_value(item_ptr)
     elif isinstance(python_value, dict):
         for key, value in python_value.items():
+            if not isinstance(key, basestring):
+                key = str(key)
             if isinstance(key, unicode):
                 key = key.encode('utf-8')
-            elif not isinstance(key, basestring):
-                key = str(key)
             item_ptr = vm.create_value(value)
             unqlite_array_add_strkey_elem(
                 ptr,
-                key,
+                <const char *>key,
                 item_ptr)
             vm.release_value(item_ptr)
     elif isinstance(python_value, (int, long)):

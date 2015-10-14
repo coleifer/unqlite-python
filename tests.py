@@ -2,6 +2,20 @@ import os
 import sys
 import unittest
 
+
+try:
+    long
+except NameError:  # does not exist in Python 3
+    long = int
+
+
+def u(string, encoding='latin-1'):
+    """Surrogate for Unicode literals which are missing in Python 3.0-3.2"""
+    if isinstance(string, bytes):
+        string = string.decode(encoding)
+    return string
+
+
 try:
     from unqlite import UnQLite
 except ImportError:
@@ -178,6 +192,20 @@ class TestKeyValueStorage(BaseTestCase):
             db.update({'foo': 'bar', 'baz': 'nug'})
             self.assertEqual(db['foo'], 'bar')
             self.assertEqual(db['baz'], 'nug')
+
+    def test_unicode_strings(self):
+        unicode_data = [
+            (u('k\xe4se'), u('br\xf6tli')),
+            (u('w\xf6rstel'), u('kn\f6dli'))]
+        for db in (self.db, self.file_db):
+            for k, v in unicode_data:
+                db.store(k, v)
+            for k, v in unicode_data:
+                w = db.fetch(k)
+                self.assertTrue(isinstance(w, str))
+                if str is bytes:
+                    w = w.decode('utf-8')
+                self.assertEqual(w, v)
 
 
 class TestTransaction(BaseTestCase):
@@ -400,10 +428,10 @@ class TestCollection(BaseTestCase):
             '__id': 0,
             'username': 'huey'})
 
-        self.assertEqual(users.store({'username': u'mickey'}), 1)
+        self.assertEqual(users.store({'username': u('mickey')}), 1)
         self.assertEqual(users.fetch(users.last_record_id()), {
             '__id': 1,
-            'username': u'mickey'})
+            'username': u('mickey')})
 
         user_list = users.all()
         self.assertEqual(user_list, [
@@ -413,7 +441,7 @@ class TestCollection(BaseTestCase):
 
         users.delete(1)
         self.assertEqual(users[0], {'__id': 0, 'username': 'huey'})
-        self.assertIsNone(users[1])
+        self.assertTrue(users[1] is None)
 
         ret = users.update(0, {'color': 'white', 'name': 'hueybear'})
         self.assertTrue(ret)
@@ -425,7 +453,7 @@ class TestCollection(BaseTestCase):
 
         ret = users.update(1, {'name': 'zaizee'})
         self.assertFalse(ret)
-        self.assertIsNone(users[1])
+        self.assertTrue(users[1] is None)
 
         self.assertEqual(users.all(), [
             {'__id': 0, 'color': 'white', 'name': 'hueybear'},
@@ -477,12 +505,12 @@ class TestCollection(BaseTestCase):
             {'name': 'huey', 'activities': ['playing', 'sleeping'], '__id': 1}
         ])
 
-        self.assertIsNone(users[99])
+        self.assertTrue(users[99] is None)
 
     def test_unicode_key(self):
         users = self.db.collection('users')
         users.create()
-        self.assertEqual(users.store({u'key': u'value'}), 0)
+        self.assertEqual(users.store({u('key'): u('value')}), 0)
         self.assertEqual(users.fetch(users.last_record_id()), {
             '__id': 0,
             'key': 'value',
