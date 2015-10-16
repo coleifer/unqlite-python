@@ -475,7 +475,7 @@ struct __pyx_obj_7unqlite___pyx_scope_struct_4_range;
 struct __pyx_obj_7unqlite___pyx_scope_struct_5_fetch_until;
 struct __pyx_opt_args_7unqlite_6Cursor_seek;
 
-/* "unqlite.pyx":699
+/* "unqlite.pyx":702
  *         unqlite_kv_cursor_reset(self.cursor)
  * 
  *     cpdef seek(self, basestring key, int flags=UNQLITE_CURSOR_MATCH_EXACT):             # <<<<<<<<<<<<<<
@@ -487,7 +487,7 @@ struct __pyx_opt_args_7unqlite_6Cursor_seek {
   int flags;
 };
 
-/* "unqlite.pyx":837
+/* "unqlite.pyx":845
  * 
  * # Foreign function callback signature.
  * ctypedef int (*unqlite_filter_fn)(unqlite_context *, int, unqlite_value **)             # <<<<<<<<<<<<<<
@@ -516,7 +516,7 @@ struct __pyx_obj_7unqlite_UnQLite {
 };
 
 
-/* "unqlite.pyx":652
+/* "unqlite.pyx":655
  * 
  * 
  * cdef class Transaction(object):             # <<<<<<<<<<<<<<
@@ -529,7 +529,7 @@ struct __pyx_obj_7unqlite_Transaction {
 };
 
 
-/* "unqlite.pyx":674
+/* "unqlite.pyx":677
  * 
  * 
  * cdef class Cursor(object):             # <<<<<<<<<<<<<<
@@ -545,7 +545,7 @@ struct __pyx_obj_7unqlite_Cursor {
 };
 
 
-/* "unqlite.pyx":840
+/* "unqlite.pyx":848
  * 
  * 
  * cdef class VM(object):             # <<<<<<<<<<<<<<
@@ -563,7 +563,7 @@ struct __pyx_obj_7unqlite_VM {
 };
 
 
-/* "unqlite.pyx":962
+/* "unqlite.pyx":970
  * 
  * 
  * cdef class Context(object):             # <<<<<<<<<<<<<<
@@ -577,7 +577,7 @@ struct __pyx_obj_7unqlite_Context {
 };
 
 
-/* "unqlite.pyx":1054
+/* "unqlite.pyx":1062
  * 
  * 
  * cdef class Collection(object):             # <<<<<<<<<<<<<<
@@ -592,7 +592,7 @@ struct __pyx_obj_7unqlite_Collection {
 };
 
 
-/* "unqlite.pyx":539
+/* "unqlite.pyx":542
  *         return Transaction(self)
  * 
  *     def commit_on_success(self, fn):             # <<<<<<<<<<<<<<
@@ -606,7 +606,7 @@ struct __pyx_obj_7unqlite___pyx_scope_struct__commit_on_success {
 };
 
 
-/* "unqlite.pyx":562
+/* "unqlite.pyx":565
  *             self.store(key, values[key])
  * 
  *     def keys(self):             # <<<<<<<<<<<<<<
@@ -624,7 +624,7 @@ struct __pyx_obj_7unqlite___pyx_scope_struct_1_keys {
 };
 
 
-/* "unqlite.pyx":573
+/* "unqlite.pyx":576
  *                     break
  * 
  *     def values(self):             # <<<<<<<<<<<<<<
@@ -642,7 +642,7 @@ struct __pyx_obj_7unqlite___pyx_scope_struct_2_values {
 };
 
 
-/* "unqlite.pyx":584
+/* "unqlite.pyx":587
  *                     break
  * 
  *     def items(self):             # <<<<<<<<<<<<<<
@@ -664,7 +664,7 @@ struct __pyx_obj_7unqlite___pyx_scope_struct_3_items {
 };
 
 
-/* "unqlite.pyx":598
+/* "unqlite.pyx":601
  *         return cursor
  * 
  *     def range(self, basestring start_key, basestring end_key,             # <<<<<<<<<<<<<<
@@ -685,7 +685,7 @@ struct __pyx_obj_7unqlite___pyx_scope_struct_4_range {
 };
 
 
-/* "unqlite.pyx":824
+/* "unqlite.pyx":832
  *         return (key, value)
  * 
  *     def fetch_until(self, basestring stop_key, bint include_stop_key=True):             # <<<<<<<<<<<<<<
@@ -734,7 +734,7 @@ struct __pyx_vtabstruct_7unqlite_UnQLite {
 static struct __pyx_vtabstruct_7unqlite_UnQLite *__pyx_vtabptr_7unqlite_UnQLite;
 
 
-/* "unqlite.pyx":674
+/* "unqlite.pyx":677
  * 
  * 
  * cdef class Cursor(object):             # <<<<<<<<<<<<<<
@@ -757,7 +757,7 @@ struct __pyx_vtabstruct_7unqlite_Cursor {
 static struct __pyx_vtabstruct_7unqlite_Cursor *__pyx_vtabptr_7unqlite_Cursor;
 
 
-/* "unqlite.pyx":840
+/* "unqlite.pyx":848
  * 
  * 
  * cdef class VM(object):             # <<<<<<<<<<<<<<
@@ -777,7 +777,7 @@ struct __pyx_vtabstruct_7unqlite_VM {
 static struct __pyx_vtabstruct_7unqlite_VM *__pyx_vtabptr_7unqlite_VM;
 
 
-/* "unqlite.pyx":962
+/* "unqlite.pyx":970
  * 
  * 
  * cdef class Context(object):             # <<<<<<<<<<<<<<
@@ -797,7 +797,7 @@ struct __pyx_vtabstruct_7unqlite_Context {
 static struct __pyx_vtabstruct_7unqlite_Context *__pyx_vtabptr_7unqlite_Context;
 
 
-/* "unqlite.pyx":1054
+/* "unqlite.pyx":1062
  * 
  * 
  * cdef class Collection(object):             # <<<<<<<<<<<<<<
@@ -943,12 +943,12 @@ static CYTHON_INLINE PyObject* __Pyx_decode_bytes(
         start, stop, encoding, errors, decode_func);
 }
 
+static CYTHON_INLINE void __Pyx_ExceptionSave(PyObject **type, PyObject **value, PyObject **tb);
+static void __Pyx_ExceptionReset(PyObject *type, PyObject *value, PyObject *tb);
+
 static int __Pyx_GetException(PyObject **type, PyObject **value, PyObject **tb);
 
 static CYTHON_INLINE void __Pyx_ExceptionSwap(PyObject **type, PyObject **value, PyObject **tb);
-
-static CYTHON_INLINE void __Pyx_ExceptionSave(PyObject **type, PyObject **value, PyObject **tb);
-static void __Pyx_ExceptionReset(PyObject *type, PyObject *value, PyObject *tb);
 
 static PyObject* __Pyx_PyDict_GetItemDefault(PyObject* d, PyObject* key, PyObject* default_value);
 
@@ -1276,6 +1276,7 @@ int __pyx_module_is_main_unqlite = 0;
 /* Implementation of 'unqlite' */
 static PyObject *__pyx_builtin_ImportError;
 static PyObject *__pyx_builtin_NotImplementedError;
+static PyObject *__pyx_builtin_UnicodeDecodeError;
 static PyObject *__pyx_builtin_MemoryError;
 static PyObject *__pyx_builtin_IOError;
 static PyObject *__pyx_builtin_KeyError;
@@ -1379,6 +1380,7 @@ static char __pyx_k_include_end_key[] = "include_end_key";
 static char __pyx_k_include_stop_key[] = "include_stop_key";
 static char __pyx_k_Unrecognized_type[] = "Unrecognized type.";
 static char __pyx_k_Cursor_fetch_until[] = "Cursor.fetch_until";
+static char __pyx_k_UnicodeDecodeError[] = "UnicodeDecodeError";
 static char __pyx_k_disable_autocommit[] = "disable_autocommit";
 static char __pyx_k_NotImplementedError[] = "NotImplementedError";
 static char __pyx_k_getfilesystemencoding[] = "getfilesystemencoding";
@@ -1417,6 +1419,7 @@ static PyObject *__pyx_n_s_UnQLite_items;
 static PyObject *__pyx_n_s_UnQLite_keys;
 static PyObject *__pyx_n_s_UnQLite_range;
 static PyObject *__pyx_n_s_UnQLite_values;
+static PyObject *__pyx_n_s_UnicodeDecodeError;
 static PyObject *__pyx_kp_s_Unrecognized_type;
 static PyObject *__pyx_n_s_ValueError;
 static PyObject *__pyx_n_s_append;
@@ -3260,12 +3263,12 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_fetch(struct __pyx_obj_7unqlite_UnQLi
   int __pyx_t_7;
   char const *__pyx_t_8;
   char const *__pyx_t_9;
-  int __pyx_t_10;
-  int __pyx_t_11;
-  char const *__pyx_t_12;
-  PyObject *__pyx_t_13 = NULL;
-  PyObject *__pyx_t_14 = NULL;
-  PyObject *__pyx_t_15 = NULL;
+  PyObject *__pyx_t_10 = NULL;
+  PyObject *__pyx_t_11 = NULL;
+  PyObject *__pyx_t_12 = NULL;
+  int __pyx_t_13;
+  int __pyx_t_14;
+  char const *__pyx_t_15;
   PyObject *__pyx_t_16 = NULL;
   PyObject *__pyx_t_17 = NULL;
   PyObject *__pyx_t_18 = NULL;
@@ -3454,7 +3457,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_fetch(struct __pyx_obj_7unqlite_UnQLi
  *                 &buf_size))
  *             value = buf[:buf_size]             # <<<<<<<<<<<<<<
  *             if str is not bytes:
- *                 value = value.decode('utf-8')
+ *                 try:
  */
     __pyx_t_1 = __Pyx_PyBytes_FromStringAndSize(__pyx_v_buf + 0, __pyx_v_buf_size - 0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 389; __pyx_clineno = __LINE__; goto __pyx_L5_error;}
     __Pyx_GOTREF(__pyx_t_1);
@@ -3465,8 +3468,8 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_fetch(struct __pyx_obj_7unqlite_UnQLi
  *                 &buf_size))
  *             value = buf[:buf_size]
  *             if str is not bytes:             # <<<<<<<<<<<<<<
- *                 value = value.decode('utf-8')
- *             return value
+ *                 try:
+ *                     value = value.decode('utf-8')
  */
     __pyx_t_7 = ((&PyString_Type) != (&PyBytes_Type));
     __pyx_t_6 = (__pyx_t_7 != 0);
@@ -3475,27 +3478,95 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_fetch(struct __pyx_obj_7unqlite_UnQLi
       /* "unqlite.pyx":391
  *             value = buf[:buf_size]
  *             if str is not bytes:
- *                 value = value.decode('utf-8')             # <<<<<<<<<<<<<<
- *             return value
- *         finally:
+ *                 try:             # <<<<<<<<<<<<<<
+ *                     value = value.decode('utf-8')
+ *                 except UnicodeDecodeError:
  */
-      __pyx_t_1 = __Pyx_decode_bytes(__pyx_v_value, 0, PY_SSIZE_T_MAX, NULL, NULL, PyUnicode_DecodeUTF8); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 391; __pyx_clineno = __LINE__; goto __pyx_L5_error;}
-      __Pyx_GOTREF(__pyx_t_1);
-      __Pyx_DECREF_SET(__pyx_v_value, __pyx_t_1);
-      __pyx_t_1 = 0;
+      {
+        __Pyx_ExceptionSave(&__pyx_t_10, &__pyx_t_11, &__pyx_t_12);
+        __Pyx_XGOTREF(__pyx_t_10);
+        __Pyx_XGOTREF(__pyx_t_11);
+        __Pyx_XGOTREF(__pyx_t_12);
+        /*try:*/ {
+
+          /* "unqlite.pyx":392
+ *             if str is not bytes:
+ *                 try:
+ *                     value = value.decode('utf-8')             # <<<<<<<<<<<<<<
+ *                 except UnicodeDecodeError:
+ *                     pass
+ */
+          __pyx_t_1 = __Pyx_decode_bytes(__pyx_v_value, 0, PY_SSIZE_T_MAX, NULL, NULL, PyUnicode_DecodeUTF8); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 392; __pyx_clineno = __LINE__; goto __pyx_L8_error;}
+          __Pyx_GOTREF(__pyx_t_1);
+          __Pyx_DECREF_SET(__pyx_v_value, __pyx_t_1);
+          __pyx_t_1 = 0;
+
+          /* "unqlite.pyx":391
+ *             value = buf[:buf_size]
+ *             if str is not bytes:
+ *                 try:             # <<<<<<<<<<<<<<
+ *                     value = value.decode('utf-8')
+ *                 except UnicodeDecodeError:
+ */
+        }
+        __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
+        __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
+        __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
+        goto __pyx_L15_try_end;
+        __pyx_L8_error:;
+        __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+        __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+        __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+        __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+        __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+        /* "unqlite.pyx":393
+ *                 try:
+ *                     value = value.decode('utf-8')
+ *                 except UnicodeDecodeError:             # <<<<<<<<<<<<<<
+ *                     pass
+ *             return value
+ */
+        __pyx_t_13 = PyErr_ExceptionMatches(__pyx_builtin_UnicodeDecodeError);
+        if (__pyx_t_13) {
+          PyErr_Restore(0,0,0);
+          goto __pyx_L9_exception_handled;
+        }
+        goto __pyx_L10_except_error;
+        __pyx_L10_except_error:;
+
+        /* "unqlite.pyx":391
+ *             value = buf[:buf_size]
+ *             if str is not bytes:
+ *                 try:             # <<<<<<<<<<<<<<
+ *                     value = value.decode('utf-8')
+ *                 except UnicodeDecodeError:
+ */
+        __Pyx_XGIVEREF(__pyx_t_10);
+        __Pyx_XGIVEREF(__pyx_t_11);
+        __Pyx_XGIVEREF(__pyx_t_12);
+        __Pyx_ExceptionReset(__pyx_t_10, __pyx_t_11, __pyx_t_12);
+        goto __pyx_L5_error;
+        __pyx_L9_exception_handled:;
+        __Pyx_XGIVEREF(__pyx_t_10);
+        __Pyx_XGIVEREF(__pyx_t_11);
+        __Pyx_XGIVEREF(__pyx_t_12);
+        __Pyx_ExceptionReset(__pyx_t_10, __pyx_t_11, __pyx_t_12);
+        __pyx_L15_try_end:;
+      }
 
       /* "unqlite.pyx":390
  *                 &buf_size))
  *             value = buf[:buf_size]
  *             if str is not bytes:             # <<<<<<<<<<<<<<
- *                 value = value.decode('utf-8')
- *             return value
+ *                 try:
+ *                     value = value.decode('utf-8')
  */
     }
 
-    /* "unqlite.pyx":392
- *             if str is not bytes:
- *                 value = value.decode('utf-8')
+    /* "unqlite.pyx":395
+ *                 except UnicodeDecodeError:
+ *                     pass
  *             return value             # <<<<<<<<<<<<<<
  *         finally:
  *             free(buf)
@@ -3506,7 +3577,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_fetch(struct __pyx_obj_7unqlite_UnQLi
     goto __pyx_L4_return;
   }
 
-  /* "unqlite.pyx":394
+  /* "unqlite.pyx":397
  *             return value
  *         finally:
  *             free(buf)             # <<<<<<<<<<<<<<
@@ -3516,21 +3587,21 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_fetch(struct __pyx_obj_7unqlite_UnQLi
   /*finally:*/ {
     /*exception exit:*/{
       __pyx_L5_error:;
-      __pyx_t_13 = 0; __pyx_t_14 = 0; __pyx_t_15 = 0; __pyx_t_16 = 0; __pyx_t_17 = 0; __pyx_t_18 = 0;
+      __pyx_t_12 = 0; __pyx_t_11 = 0; __pyx_t_10 = 0; __pyx_t_16 = 0; __pyx_t_17 = 0; __pyx_t_18 = 0;
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
       if (PY_MAJOR_VERSION >= 3) __Pyx_ExceptionSwap(&__pyx_t_16, &__pyx_t_17, &__pyx_t_18);
-      if ((PY_MAJOR_VERSION < 3) || unlikely(__Pyx_GetException(&__pyx_t_13, &__pyx_t_14, &__pyx_t_15) < 0)) __Pyx_ErrFetch(&__pyx_t_13, &__pyx_t_14, &__pyx_t_15);
-      __Pyx_XGOTREF(__pyx_t_13);
-      __Pyx_XGOTREF(__pyx_t_14);
-      __Pyx_XGOTREF(__pyx_t_15);
+      if ((PY_MAJOR_VERSION < 3) || unlikely(__Pyx_GetException(&__pyx_t_12, &__pyx_t_11, &__pyx_t_10) < 0)) __Pyx_ErrFetch(&__pyx_t_12, &__pyx_t_11, &__pyx_t_10);
+      __Pyx_XGOTREF(__pyx_t_12);
+      __Pyx_XGOTREF(__pyx_t_11);
+      __Pyx_XGOTREF(__pyx_t_10);
       __Pyx_XGOTREF(__pyx_t_16);
       __Pyx_XGOTREF(__pyx_t_17);
       __Pyx_XGOTREF(__pyx_t_18);
-      __pyx_t_10 = __pyx_lineno; __pyx_t_11 = __pyx_clineno; __pyx_t_12 = __pyx_filename;
+      __pyx_t_13 = __pyx_lineno; __pyx_t_14 = __pyx_clineno; __pyx_t_15 = __pyx_filename;
       {
         free(__pyx_v_buf);
       }
@@ -3540,12 +3611,12 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_fetch(struct __pyx_obj_7unqlite_UnQLi
         __Pyx_XGIVEREF(__pyx_t_18);
         __Pyx_ExceptionReset(__pyx_t_16, __pyx_t_17, __pyx_t_18);
       }
-      __Pyx_XGIVEREF(__pyx_t_13);
-      __Pyx_XGIVEREF(__pyx_t_14);
-      __Pyx_XGIVEREF(__pyx_t_15);
-      __Pyx_ErrRestore(__pyx_t_13, __pyx_t_14, __pyx_t_15);
-      __pyx_t_13 = 0; __pyx_t_14 = 0; __pyx_t_15 = 0; __pyx_t_16 = 0; __pyx_t_17 = 0; __pyx_t_18 = 0;
-      __pyx_lineno = __pyx_t_10; __pyx_clineno = __pyx_t_11; __pyx_filename = __pyx_t_12;
+      __Pyx_XGIVEREF(__pyx_t_12);
+      __Pyx_XGIVEREF(__pyx_t_11);
+      __Pyx_XGIVEREF(__pyx_t_10);
+      __Pyx_ErrRestore(__pyx_t_12, __pyx_t_11, __pyx_t_10);
+      __pyx_t_12 = 0; __pyx_t_11 = 0; __pyx_t_10 = 0; __pyx_t_16 = 0; __pyx_t_17 = 0; __pyx_t_18 = 0;
+      __pyx_lineno = __pyx_t_13; __pyx_clineno = __pyx_t_14; __pyx_filename = __pyx_t_15;
       goto __pyx_L1_error;
     }
     __pyx_L4_return: {
@@ -3631,7 +3702,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_18fetch(struct __pyx_obj_7unqlite_Un
   return __pyx_r;
 }
 
-/* "unqlite.pyx":396
+/* "unqlite.pyx":399
  *             free(buf)
  * 
  *     cpdef delete(self, basestring key):             # <<<<<<<<<<<<<<
@@ -3660,7 +3731,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_delete(struct __pyx_obj_7unqlite_UnQL
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
   else if (unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0)) {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_delete); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 396; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_delete); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 399; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)__pyx_pw_7unqlite_7UnQLite_21delete)) {
       __Pyx_XDECREF(__pyx_r);
@@ -3676,16 +3747,16 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_delete(struct __pyx_obj_7unqlite_UnQL
         }
       }
       if (!__pyx_t_4) {
-        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_key); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 396; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_key); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 399; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_2);
       } else {
-        __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 396; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 399; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_4); __pyx_t_4 = NULL;
         __Pyx_INCREF(__pyx_v_key);
         __Pyx_GIVEREF(__pyx_v_key);
         PyTuple_SET_ITEM(__pyx_t_5, 0+1, __pyx_v_key);
-        __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 396; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 399; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       }
@@ -3698,7 +3769,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_delete(struct __pyx_obj_7unqlite_UnQL
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "unqlite.pyx":400
+  /* "unqlite.pyx":403
  *         cdef bytes encoded_key
  * 
  *         if isinstance(key, unicode):             # <<<<<<<<<<<<<<
@@ -3709,23 +3780,23 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_delete(struct __pyx_obj_7unqlite_UnQL
   __pyx_t_7 = (__pyx_t_6 != 0);
   if (__pyx_t_7) {
 
-    /* "unqlite.pyx":401
+    /* "unqlite.pyx":404
  * 
  *         if isinstance(key, unicode):
  *             encoded_key = key.encode('utf-8')             # <<<<<<<<<<<<<<
  *         else:
  *             encoded_key = bytes(key)
  */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_key, __pyx_n_s_encode); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 401; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_key, __pyx_n_s_encode); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 404; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__6, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 401; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__6, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 404; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (!(likely(PyBytes_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "bytes", Py_TYPE(__pyx_t_2)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 401; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (!(likely(PyBytes_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "bytes", Py_TYPE(__pyx_t_2)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 404; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __pyx_v_encoded_key = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "unqlite.pyx":400
+    /* "unqlite.pyx":403
  *         cdef bytes encoded_key
  * 
  *         if isinstance(key, unicode):             # <<<<<<<<<<<<<<
@@ -3735,7 +3806,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_delete(struct __pyx_obj_7unqlite_UnQL
     goto __pyx_L3;
   }
 
-  /* "unqlite.pyx":403
+  /* "unqlite.pyx":406
  *             encoded_key = key.encode('utf-8')
  *         else:
  *             encoded_key = bytes(key)             # <<<<<<<<<<<<<<
@@ -3743,12 +3814,12 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_delete(struct __pyx_obj_7unqlite_UnQL
  *         self.check_call(unqlite_kv_delete(
  */
   /*else*/ {
-    __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 403; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 406; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_INCREF(__pyx_v_key);
     __Pyx_GIVEREF(__pyx_v_key);
     PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_key);
-    __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)(&PyBytes_Type)), __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 403; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)(&PyBytes_Type)), __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 406; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_encoded_key = ((PyObject*)__pyx_t_1);
@@ -3756,27 +3827,27 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_delete(struct __pyx_obj_7unqlite_UnQL
   }
   __pyx_L3:;
 
-  /* "unqlite.pyx":406
+  /* "unqlite.pyx":409
  * 
  *         self.check_call(unqlite_kv_delete(
  *             self.database, <char *>encoded_key, -1))             # <<<<<<<<<<<<<<
  * 
  *     cpdef append(self, basestring key, basestring value):
  */
-  __pyx_t_8 = __Pyx_PyObject_AsString(__pyx_v_encoded_key); if (unlikely((!__pyx_t_8) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 406; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_8 = __Pyx_PyObject_AsString(__pyx_v_encoded_key); if (unlikely((!__pyx_t_8) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 409; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "unqlite.pyx":405
+  /* "unqlite.pyx":408
  *             encoded_key = bytes(key)
  * 
  *         self.check_call(unqlite_kv_delete(             # <<<<<<<<<<<<<<
  *             self.database, <char *>encoded_key, -1))
  * 
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->__pyx_vtab)->check_call(__pyx_v_self, unqlite_kv_delete(__pyx_v_self->database, ((char *)__pyx_t_8), -1)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 405; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->__pyx_vtab)->check_call(__pyx_v_self, unqlite_kv_delete(__pyx_v_self->database, ((char *)__pyx_t_8), -1)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 408; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":396
+  /* "unqlite.pyx":399
  *             free(buf)
  * 
  *     cpdef delete(self, basestring key):             # <<<<<<<<<<<<<<
@@ -3812,7 +3883,7 @@ static PyObject *__pyx_pw_7unqlite_7UnQLite_21delete(PyObject *__pyx_v_self, PyO
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("delete (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_key), (&PyBaseString_Type), 1, "key", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 396; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_key), (&PyBaseString_Type), 1, "key", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 399; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_7unqlite_7UnQLite_20delete(((struct __pyx_obj_7unqlite_UnQLite *)__pyx_v_self), ((PyObject*)__pyx_v_key));
 
   /* function exit code */
@@ -3833,7 +3904,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_20delete(struct __pyx_obj_7unqlite_U
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("delete", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_7unqlite_7UnQLite_delete(__pyx_v_self, __pyx_v_key, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 396; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_f_7unqlite_7UnQLite_delete(__pyx_v_self, __pyx_v_key, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 399; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3850,7 +3921,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_20delete(struct __pyx_obj_7unqlite_U
   return __pyx_r;
 }
 
-/* "unqlite.pyx":408
+/* "unqlite.pyx":411
  *             self.database, <char *>encoded_key, -1))
  * 
  *     cpdef append(self, basestring key, basestring value):             # <<<<<<<<<<<<<<
@@ -3882,7 +3953,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_append(struct __pyx_obj_7unqlite_UnQL
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
   else if (unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0)) {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_append); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 408; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_append); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 411; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)__pyx_pw_7unqlite_7UnQLite_23append)) {
       __Pyx_XDECREF(__pyx_r);
@@ -3899,7 +3970,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_append(struct __pyx_obj_7unqlite_UnQL
           __pyx_t_5 = 1;
         }
       }
-      __pyx_t_6 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 408; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_6 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 411; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_6);
       if (__pyx_t_4) {
         __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_4); __pyx_t_4 = NULL;
@@ -3910,7 +3981,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_append(struct __pyx_obj_7unqlite_UnQL
       __Pyx_INCREF(__pyx_v_value);
       __Pyx_GIVEREF(__pyx_v_value);
       PyTuple_SET_ITEM(__pyx_t_6, 1+__pyx_t_5, __pyx_v_value);
-      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_6, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 408; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_6, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 411; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -3922,7 +3993,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_append(struct __pyx_obj_7unqlite_UnQL
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "unqlite.pyx":413
+  /* "unqlite.pyx":416
  *         cdef bytes encoded_value
  * 
  *         if isinstance(key, unicode):             # <<<<<<<<<<<<<<
@@ -3933,23 +4004,23 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_append(struct __pyx_obj_7unqlite_UnQL
   __pyx_t_8 = (__pyx_t_7 != 0);
   if (__pyx_t_8) {
 
-    /* "unqlite.pyx":414
+    /* "unqlite.pyx":417
  * 
  *         if isinstance(key, unicode):
  *             encoded_key = key.encode('utf-8')             # <<<<<<<<<<<<<<
  *         else:
  *             encoded_key = bytes(key)
  */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_key, __pyx_n_s_encode); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 414; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_key, __pyx_n_s_encode); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 417; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__7, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 414; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__7, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 417; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (!(likely(PyBytes_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "bytes", Py_TYPE(__pyx_t_2)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 414; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (!(likely(PyBytes_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "bytes", Py_TYPE(__pyx_t_2)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 417; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __pyx_v_encoded_key = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "unqlite.pyx":413
+    /* "unqlite.pyx":416
  *         cdef bytes encoded_value
  * 
  *         if isinstance(key, unicode):             # <<<<<<<<<<<<<<
@@ -3959,7 +4030,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_append(struct __pyx_obj_7unqlite_UnQL
     goto __pyx_L3;
   }
 
-  /* "unqlite.pyx":416
+  /* "unqlite.pyx":419
  *             encoded_key = key.encode('utf-8')
  *         else:
  *             encoded_key = bytes(key)             # <<<<<<<<<<<<<<
@@ -3967,12 +4038,12 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_append(struct __pyx_obj_7unqlite_UnQL
  *             encoded_value = value.encode('utf-8')
  */
   /*else*/ {
-    __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 416; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 419; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_INCREF(__pyx_v_key);
     __Pyx_GIVEREF(__pyx_v_key);
     PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_key);
-    __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)(&PyBytes_Type)), __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 416; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)(&PyBytes_Type)), __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 419; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_encoded_key = ((PyObject*)__pyx_t_1);
@@ -3980,7 +4051,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_append(struct __pyx_obj_7unqlite_UnQL
   }
   __pyx_L3:;
 
-  /* "unqlite.pyx":417
+  /* "unqlite.pyx":420
  *         else:
  *             encoded_key = bytes(key)
  *         if isinstance(value, unicode):             # <<<<<<<<<<<<<<
@@ -3991,23 +4062,23 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_append(struct __pyx_obj_7unqlite_UnQL
   __pyx_t_7 = (__pyx_t_8 != 0);
   if (__pyx_t_7) {
 
-    /* "unqlite.pyx":418
+    /* "unqlite.pyx":421
  *             encoded_key = bytes(key)
  *         if isinstance(value, unicode):
  *             encoded_value = value.encode('utf-8')             # <<<<<<<<<<<<<<
  *         else:
  *             encoded_value = bytes(value)
  */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_value, __pyx_n_s_encode); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 418; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_value, __pyx_n_s_encode); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 421; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__8, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 418; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__8, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 421; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (!(likely(PyBytes_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "bytes", Py_TYPE(__pyx_t_2)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 418; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (!(likely(PyBytes_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "bytes", Py_TYPE(__pyx_t_2)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 421; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __pyx_v_encoded_value = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "unqlite.pyx":417
+    /* "unqlite.pyx":420
  *         else:
  *             encoded_key = bytes(key)
  *         if isinstance(value, unicode):             # <<<<<<<<<<<<<<
@@ -4017,7 +4088,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_append(struct __pyx_obj_7unqlite_UnQL
     goto __pyx_L4;
   }
 
-  /* "unqlite.pyx":420
+  /* "unqlite.pyx":423
  *             encoded_value = value.encode('utf-8')
  *         else:
  *             encoded_value = bytes(value)             # <<<<<<<<<<<<<<
@@ -4025,12 +4096,12 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_append(struct __pyx_obj_7unqlite_UnQL
  *         self.check_call(unqlite_kv_append(
  */
   /*else*/ {
-    __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 420; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 423; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_INCREF(__pyx_v_value);
     __Pyx_GIVEREF(__pyx_v_value);
     PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_value);
-    __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)(&PyBytes_Type)), __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 420; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)(&PyBytes_Type)), __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 423; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_encoded_value = ((PyObject*)__pyx_t_1);
@@ -4038,25 +4109,25 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_append(struct __pyx_obj_7unqlite_UnQL
   }
   __pyx_L4:;
 
-  /* "unqlite.pyx":424
+  /* "unqlite.pyx":427
  *         self.check_call(unqlite_kv_append(
  *             self.database,
  *             <const char *>encoded_key,             # <<<<<<<<<<<<<<
  *             -1,
  *             <const char *>encoded_value,
  */
-  __pyx_t_9 = __Pyx_PyObject_AsString(__pyx_v_encoded_key); if (unlikely((!__pyx_t_9) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 424; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_9 = __Pyx_PyObject_AsString(__pyx_v_encoded_key); if (unlikely((!__pyx_t_9) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 427; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "unqlite.pyx":426
+  /* "unqlite.pyx":429
  *             <const char *>encoded_key,
  *             -1,
  *             <const char *>encoded_value,             # <<<<<<<<<<<<<<
  *             len(encoded_value)))
  * 
  */
-  __pyx_t_10 = __Pyx_PyObject_AsString(__pyx_v_encoded_value); if (unlikely((!__pyx_t_10) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 426; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_10 = __Pyx_PyObject_AsString(__pyx_v_encoded_value); if (unlikely((!__pyx_t_10) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 429; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "unqlite.pyx":427
+  /* "unqlite.pyx":430
  *             -1,
  *             <const char *>encoded_value,
  *             len(encoded_value)))             # <<<<<<<<<<<<<<
@@ -4065,22 +4136,22 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_append(struct __pyx_obj_7unqlite_UnQL
  */
   if (unlikely(__pyx_v_encoded_value == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 427; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 430; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
-  __pyx_t_5 = PyBytes_GET_SIZE(__pyx_v_encoded_value); if (unlikely(__pyx_t_5 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 427; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = PyBytes_GET_SIZE(__pyx_v_encoded_value); if (unlikely(__pyx_t_5 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 430; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "unqlite.pyx":422
+  /* "unqlite.pyx":425
  *             encoded_value = bytes(value)
  * 
  *         self.check_call(unqlite_kv_append(             # <<<<<<<<<<<<<<
  *             self.database,
  *             <const char *>encoded_key,
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->__pyx_vtab)->check_call(__pyx_v_self, unqlite_kv_append(__pyx_v_self->database, ((char const *)__pyx_t_9), -1, ((char const *)__pyx_t_10), __pyx_t_5)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 422; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->__pyx_vtab)->check_call(__pyx_v_self, unqlite_kv_append(__pyx_v_self->database, ((char const *)__pyx_t_9), -1, ((char const *)__pyx_t_10), __pyx_t_5)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 425; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":408
+  /* "unqlite.pyx":411
  *             self.database, <char *>encoded_key, -1))
  * 
  *     cpdef append(self, basestring key, basestring value):             # <<<<<<<<<<<<<<
@@ -4139,11 +4210,11 @@ static PyObject *__pyx_pw_7unqlite_7UnQLite_23append(PyObject *__pyx_v_self, PyO
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_value)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("append", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 408; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("append", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 411; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "append") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 408; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "append") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 411; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -4156,14 +4227,14 @@ static PyObject *__pyx_pw_7unqlite_7UnQLite_23append(PyObject *__pyx_v_self, PyO
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("append", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 408; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("append", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 411; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("unqlite.UnQLite.append", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_key), (&PyBaseString_Type), 1, "key", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 408; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_value), (&PyBaseString_Type), 1, "value", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 408; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_key), (&PyBaseString_Type), 1, "key", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 411; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_value), (&PyBaseString_Type), 1, "value", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 411; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_7unqlite_7UnQLite_22append(((struct __pyx_obj_7unqlite_UnQLite *)__pyx_v_self), __pyx_v_key, __pyx_v_value);
 
   /* function exit code */
@@ -4184,7 +4255,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_22append(struct __pyx_obj_7unqlite_U
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("append", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_7unqlite_7UnQLite_append(__pyx_v_self, __pyx_v_key, __pyx_v_value, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 408; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_f_7unqlite_7UnQLite_append(__pyx_v_self, __pyx_v_key, __pyx_v_value, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 411; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -4201,7 +4272,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_22append(struct __pyx_obj_7unqlite_U
   return __pyx_r;
 }
 
-/* "unqlite.pyx":429
+/* "unqlite.pyx":432
  *             len(encoded_value)))
  * 
  *     cpdef exists(self, basestring key):             # <<<<<<<<<<<<<<
@@ -4233,7 +4304,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_exists(struct __pyx_obj_7unqlite_UnQL
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
   else if (unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0)) {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_exists); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 429; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_exists); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 432; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)__pyx_pw_7unqlite_7UnQLite_25exists)) {
       __Pyx_XDECREF(__pyx_r);
@@ -4249,16 +4320,16 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_exists(struct __pyx_obj_7unqlite_UnQL
         }
       }
       if (!__pyx_t_4) {
-        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_key); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 429; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_key); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 432; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_2);
       } else {
-        __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 429; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 432; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_4); __pyx_t_4 = NULL;
         __Pyx_INCREF(__pyx_v_key);
         __Pyx_GIVEREF(__pyx_v_key);
         PyTuple_SET_ITEM(__pyx_t_5, 0+1, __pyx_v_key);
-        __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 429; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 432; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       }
@@ -4271,7 +4342,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_exists(struct __pyx_obj_7unqlite_UnQL
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "unqlite.pyx":431
+  /* "unqlite.pyx":434
  *     cpdef exists(self, basestring key):
  *         cdef bytes encoded_key
  *         cdef char *buf = <char *>0             # <<<<<<<<<<<<<<
@@ -4280,7 +4351,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_exists(struct __pyx_obj_7unqlite_UnQL
  */
   __pyx_v_buf = ((char *)0);
 
-  /* "unqlite.pyx":432
+  /* "unqlite.pyx":435
  *         cdef bytes encoded_key
  *         cdef char *buf = <char *>0
  *         cdef unqlite_int64 buf_size = 0             # <<<<<<<<<<<<<<
@@ -4289,7 +4360,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_exists(struct __pyx_obj_7unqlite_UnQL
  */
   __pyx_v_buf_size = 0;
 
-  /* "unqlite.pyx":435
+  /* "unqlite.pyx":438
  *         cdef int ret
  * 
  *         if isinstance(key, unicode):             # <<<<<<<<<<<<<<
@@ -4300,23 +4371,23 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_exists(struct __pyx_obj_7unqlite_UnQL
   __pyx_t_7 = (__pyx_t_6 != 0);
   if (__pyx_t_7) {
 
-    /* "unqlite.pyx":436
+    /* "unqlite.pyx":439
  * 
  *         if isinstance(key, unicode):
  *             encoded_key = key.encode('utf-8')             # <<<<<<<<<<<<<<
  *         else:
  *             encoded_key = bytes(key)
  */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_key, __pyx_n_s_encode); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 436; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_key, __pyx_n_s_encode); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 439; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__9, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 436; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__9, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 439; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (!(likely(PyBytes_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "bytes", Py_TYPE(__pyx_t_2)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 436; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (!(likely(PyBytes_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "bytes", Py_TYPE(__pyx_t_2)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 439; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __pyx_v_encoded_key = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "unqlite.pyx":435
+    /* "unqlite.pyx":438
  *         cdef int ret
  * 
  *         if isinstance(key, unicode):             # <<<<<<<<<<<<<<
@@ -4326,7 +4397,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_exists(struct __pyx_obj_7unqlite_UnQL
     goto __pyx_L3;
   }
 
-  /* "unqlite.pyx":438
+  /* "unqlite.pyx":441
  *             encoded_key = key.encode('utf-8')
  *         else:
  *             encoded_key = bytes(key)             # <<<<<<<<<<<<<<
@@ -4334,12 +4405,12 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_exists(struct __pyx_obj_7unqlite_UnQL
  *         ret = unqlite_kv_fetch(
  */
   /*else*/ {
-    __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 438; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 441; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_INCREF(__pyx_v_key);
     __Pyx_GIVEREF(__pyx_v_key);
     PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_key);
-    __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)(&PyBytes_Type)), __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 438; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)(&PyBytes_Type)), __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 441; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_encoded_key = ((PyObject*)__pyx_t_1);
@@ -4347,16 +4418,16 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_exists(struct __pyx_obj_7unqlite_UnQL
   }
   __pyx_L3:;
 
-  /* "unqlite.pyx":442
+  /* "unqlite.pyx":445
  *         ret = unqlite_kv_fetch(
  *             self.database,
  *             <const char *>encoded_key,             # <<<<<<<<<<<<<<
  *             -1,
  *             <void *>0,
  */
-  __pyx_t_8 = __Pyx_PyObject_AsString(__pyx_v_encoded_key); if (unlikely((!__pyx_t_8) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 442; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_8 = __Pyx_PyObject_AsString(__pyx_v_encoded_key); if (unlikely((!__pyx_t_8) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 445; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "unqlite.pyx":440
+  /* "unqlite.pyx":443
  *             encoded_key = bytes(key)
  * 
  *         ret = unqlite_kv_fetch(             # <<<<<<<<<<<<<<
@@ -4365,7 +4436,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_exists(struct __pyx_obj_7unqlite_UnQL
  */
   __pyx_v_ret = unqlite_kv_fetch(__pyx_v_self->database, ((char const *)__pyx_t_8), -1, ((void *)0), (&__pyx_v_buf_size));
 
-  /* "unqlite.pyx":446
+  /* "unqlite.pyx":449
  *             <void *>0,
  *             &buf_size)
  *         if ret == UNQLITE_NOTFOUND:             # <<<<<<<<<<<<<<
@@ -4375,7 +4446,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_exists(struct __pyx_obj_7unqlite_UnQL
   __pyx_t_7 = ((__pyx_v_ret == UNQLITE_NOTFOUND) != 0);
   if (__pyx_t_7) {
 
-    /* "unqlite.pyx":447
+    /* "unqlite.pyx":450
  *             &buf_size)
  *         if ret == UNQLITE_NOTFOUND:
  *             return False             # <<<<<<<<<<<<<<
@@ -4387,7 +4458,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_exists(struct __pyx_obj_7unqlite_UnQL
     __pyx_r = Py_False;
     goto __pyx_L0;
 
-    /* "unqlite.pyx":446
+    /* "unqlite.pyx":449
  *             <void *>0,
  *             &buf_size)
  *         if ret == UNQLITE_NOTFOUND:             # <<<<<<<<<<<<<<
@@ -4396,7 +4467,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_exists(struct __pyx_obj_7unqlite_UnQL
  */
   }
 
-  /* "unqlite.pyx":448
+  /* "unqlite.pyx":451
  *         if ret == UNQLITE_NOTFOUND:
  *             return False
  *         elif ret == UNQLITE_OK:             # <<<<<<<<<<<<<<
@@ -4406,7 +4477,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_exists(struct __pyx_obj_7unqlite_UnQL
   __pyx_t_7 = ((__pyx_v_ret == UNQLITE_OK) != 0);
   if (__pyx_t_7) {
 
-    /* "unqlite.pyx":449
+    /* "unqlite.pyx":452
  *             return False
  *         elif ret == UNQLITE_OK:
  *             return True             # <<<<<<<<<<<<<<
@@ -4418,7 +4489,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_exists(struct __pyx_obj_7unqlite_UnQL
     __pyx_r = Py_True;
     goto __pyx_L0;
 
-    /* "unqlite.pyx":448
+    /* "unqlite.pyx":451
  *         if ret == UNQLITE_NOTFOUND:
  *             return False
  *         elif ret == UNQLITE_OK:             # <<<<<<<<<<<<<<
@@ -4427,20 +4498,20 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_exists(struct __pyx_obj_7unqlite_UnQL
  */
   }
 
-  /* "unqlite.pyx":451
+  /* "unqlite.pyx":454
  *             return True
  * 
  *         raise self._build_exception_for_error(ret)             # <<<<<<<<<<<<<<
  * 
  *     def __setitem__(self, basestring key, basestring value):
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->__pyx_vtab)->_build_exception_for_error(__pyx_v_self, __pyx_v_ret); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 451; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->__pyx_vtab)->_build_exception_for_error(__pyx_v_self, __pyx_v_ret); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 454; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_Raise(__pyx_t_1, 0, 0, 0);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  {__pyx_filename = __pyx_f[0]; __pyx_lineno = 451; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  {__pyx_filename = __pyx_f[0]; __pyx_lineno = 454; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "unqlite.pyx":429
+  /* "unqlite.pyx":432
  *             len(encoded_value)))
  * 
  *     cpdef exists(self, basestring key):             # <<<<<<<<<<<<<<
@@ -4473,7 +4544,7 @@ static PyObject *__pyx_pw_7unqlite_7UnQLite_25exists(PyObject *__pyx_v_self, PyO
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("exists (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_key), (&PyBaseString_Type), 1, "key", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 429; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_key), (&PyBaseString_Type), 1, "key", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 432; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_7unqlite_7UnQLite_24exists(((struct __pyx_obj_7unqlite_UnQLite *)__pyx_v_self), ((PyObject*)__pyx_v_key));
 
   /* function exit code */
@@ -4494,7 +4565,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_24exists(struct __pyx_obj_7unqlite_U
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("exists", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_7unqlite_7UnQLite_exists(__pyx_v_self, __pyx_v_key, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 429; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_f_7unqlite_7UnQLite_exists(__pyx_v_self, __pyx_v_key, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 432; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -4511,7 +4582,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_24exists(struct __pyx_obj_7unqlite_U
   return __pyx_r;
 }
 
-/* "unqlite.pyx":453
+/* "unqlite.pyx":456
  *         raise self._build_exception_for_error(ret)
  * 
  *     def __setitem__(self, basestring key, basestring value):             # <<<<<<<<<<<<<<
@@ -4528,8 +4599,8 @@ static int __pyx_pw_7unqlite_7UnQLite_27__setitem__(PyObject *__pyx_v_self, PyOb
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__setitem__ (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_key), (&PyBaseString_Type), 1, "key", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 453; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_value), (&PyBaseString_Type), 1, "value", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 453; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_key), (&PyBaseString_Type), 1, "key", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 456; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_value), (&PyBaseString_Type), 1, "value", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 456; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_7unqlite_7UnQLite_26__setitem__(((struct __pyx_obj_7unqlite_UnQLite *)__pyx_v_self), ((PyObject*)__pyx_v_key), ((PyObject*)__pyx_v_value));
 
   /* function exit code */
@@ -4550,18 +4621,18 @@ static int __pyx_pf_7unqlite_7UnQLite_26__setitem__(struct __pyx_obj_7unqlite_Un
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__setitem__", 0);
 
-  /* "unqlite.pyx":454
+  /* "unqlite.pyx":457
  * 
  *     def __setitem__(self, basestring key, basestring value):
  *         self.store(key, value)             # <<<<<<<<<<<<<<
  * 
  *     def __getitem__(self, basestring key):
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->__pyx_vtab)->store(__pyx_v_self, __pyx_v_key, __pyx_v_value, 0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 454; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->__pyx_vtab)->store(__pyx_v_self, __pyx_v_key, __pyx_v_value, 0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 457; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":453
+  /* "unqlite.pyx":456
  *         raise self._build_exception_for_error(ret)
  * 
  *     def __setitem__(self, basestring key, basestring value):             # <<<<<<<<<<<<<<
@@ -4581,7 +4652,7 @@ static int __pyx_pf_7unqlite_7UnQLite_26__setitem__(struct __pyx_obj_7unqlite_Un
   return __pyx_r;
 }
 
-/* "unqlite.pyx":456
+/* "unqlite.pyx":459
  *         self.store(key, value)
  * 
  *     def __getitem__(self, basestring key):             # <<<<<<<<<<<<<<
@@ -4598,7 +4669,7 @@ static PyObject *__pyx_pw_7unqlite_7UnQLite_29__getitem__(PyObject *__pyx_v_self
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__getitem__ (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_key), (&PyBaseString_Type), 1, "key", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 456; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_key), (&PyBaseString_Type), 1, "key", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 459; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_7unqlite_7UnQLite_28__getitem__(((struct __pyx_obj_7unqlite_UnQLite *)__pyx_v_self), ((PyObject*)__pyx_v_key));
 
   /* function exit code */
@@ -4619,7 +4690,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_28__getitem__(struct __pyx_obj_7unql
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__getitem__", 0);
 
-  /* "unqlite.pyx":457
+  /* "unqlite.pyx":460
  * 
  *     def __getitem__(self, basestring key):
  *         return self.fetch(key)             # <<<<<<<<<<<<<<
@@ -4627,13 +4698,13 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_28__getitem__(struct __pyx_obj_7unql
  *     def __delitem__(self, basestring key):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->__pyx_vtab)->fetch(__pyx_v_self, __pyx_v_key, 0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 457; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->__pyx_vtab)->fetch(__pyx_v_self, __pyx_v_key, 0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 460; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "unqlite.pyx":456
+  /* "unqlite.pyx":459
  *         self.store(key, value)
  * 
  *     def __getitem__(self, basestring key):             # <<<<<<<<<<<<<<
@@ -4652,7 +4723,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_28__getitem__(struct __pyx_obj_7unql
   return __pyx_r;
 }
 
-/* "unqlite.pyx":459
+/* "unqlite.pyx":462
  *         return self.fetch(key)
  * 
  *     def __delitem__(self, basestring key):             # <<<<<<<<<<<<<<
@@ -4669,7 +4740,7 @@ static int __pyx_pw_7unqlite_7UnQLite_31__delitem__(PyObject *__pyx_v_self, PyOb
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__delitem__ (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_key), (&PyBaseString_Type), 1, "key", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 459; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_key), (&PyBaseString_Type), 1, "key", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 462; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_7unqlite_7UnQLite_30__delitem__(((struct __pyx_obj_7unqlite_UnQLite *)__pyx_v_self), ((PyObject*)__pyx_v_key));
 
   /* function exit code */
@@ -4690,18 +4761,18 @@ static int __pyx_pf_7unqlite_7UnQLite_30__delitem__(struct __pyx_obj_7unqlite_Un
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__delitem__", 0);
 
-  /* "unqlite.pyx":460
+  /* "unqlite.pyx":463
  * 
  *     def __delitem__(self, basestring key):
  *         self.delete(key)             # <<<<<<<<<<<<<<
  * 
  *     def __contains__(self, basestring key):
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->__pyx_vtab)->delete(__pyx_v_self, __pyx_v_key, 0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 460; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->__pyx_vtab)->delete(__pyx_v_self, __pyx_v_key, 0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 463; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":459
+  /* "unqlite.pyx":462
  *         return self.fetch(key)
  * 
  *     def __delitem__(self, basestring key):             # <<<<<<<<<<<<<<
@@ -4721,7 +4792,7 @@ static int __pyx_pf_7unqlite_7UnQLite_30__delitem__(struct __pyx_obj_7unqlite_Un
   return __pyx_r;
 }
 
-/* "unqlite.pyx":462
+/* "unqlite.pyx":465
  *         self.delete(key)
  * 
  *     def __contains__(self, basestring key):             # <<<<<<<<<<<<<<
@@ -4738,7 +4809,7 @@ static int __pyx_pw_7unqlite_7UnQLite_33__contains__(PyObject *__pyx_v_self, PyO
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__contains__ (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_key), (&PyBaseString_Type), 1, "key", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 462; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_key), (&PyBaseString_Type), 1, "key", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 465; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_7unqlite_7UnQLite_32__contains__(((struct __pyx_obj_7unqlite_UnQLite *)__pyx_v_self), ((PyObject*)__pyx_v_key));
 
   /* function exit code */
@@ -4760,21 +4831,21 @@ static int __pyx_pf_7unqlite_7UnQLite_32__contains__(struct __pyx_obj_7unqlite_U
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__contains__", 0);
 
-  /* "unqlite.pyx":463
+  /* "unqlite.pyx":466
  * 
  *     def __contains__(self, basestring key):
  *         return self.exists(key)             # <<<<<<<<<<<<<<
  * 
  *     cdef check_call(self, int result):
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->__pyx_vtab)->exists(__pyx_v_self, __pyx_v_key, 0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 463; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->__pyx_vtab)->exists(__pyx_v_self, __pyx_v_key, 0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 466; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 463; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 466; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_2;
   goto __pyx_L0;
 
-  /* "unqlite.pyx":462
+  /* "unqlite.pyx":465
  *         self.delete(key)
  * 
  *     def __contains__(self, basestring key):             # <<<<<<<<<<<<<<
@@ -4792,7 +4863,7 @@ static int __pyx_pf_7unqlite_7UnQLite_32__contains__(struct __pyx_obj_7unqlite_U
   return __pyx_r;
 }
 
-/* "unqlite.pyx":465
+/* "unqlite.pyx":468
  *         return self.exists(key)
  * 
  *     cdef check_call(self, int result):             # <<<<<<<<<<<<<<
@@ -4810,7 +4881,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_check_call(struct __pyx_obj_7unqlite_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("check_call", 0);
 
-  /* "unqlite.pyx":470
+  /* "unqlite.pyx":473
  *         if the result is other than `UNQLITE_OK`.
  *         """
  *         if result != UNQLITE_OK:             # <<<<<<<<<<<<<<
@@ -4820,20 +4891,20 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_check_call(struct __pyx_obj_7unqlite_
   __pyx_t_1 = ((__pyx_v_result != UNQLITE_OK) != 0);
   if (__pyx_t_1) {
 
-    /* "unqlite.pyx":471
+    /* "unqlite.pyx":474
  *         """
  *         if result != UNQLITE_OK:
  *             raise self._build_exception_for_error(result)             # <<<<<<<<<<<<<<
  * 
  *     cdef _build_exception_for_error(self, int status):
  */
-    __pyx_t_2 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->__pyx_vtab)->_build_exception_for_error(__pyx_v_self, __pyx_v_result); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 471; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->__pyx_vtab)->_build_exception_for_error(__pyx_v_self, __pyx_v_result); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 474; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 471; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 474; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-    /* "unqlite.pyx":470
+    /* "unqlite.pyx":473
  *         if the result is other than `UNQLITE_OK`.
  *         """
  *         if result != UNQLITE_OK:             # <<<<<<<<<<<<<<
@@ -4842,7 +4913,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_check_call(struct __pyx_obj_7unqlite_
  */
   }
 
-  /* "unqlite.pyx":465
+  /* "unqlite.pyx":468
  *         return self.exists(key)
  * 
  *     cdef check_call(self, int result):             # <<<<<<<<<<<<<<
@@ -4863,7 +4934,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_check_call(struct __pyx_obj_7unqlite_
   return __pyx_r;
 }
 
-/* "unqlite.pyx":473
+/* "unqlite.pyx":476
  *             raise self._build_exception_for_error(result)
  * 
  *     cdef _build_exception_for_error(self, int status):             # <<<<<<<<<<<<<<
@@ -4887,182 +4958,182 @@ static PyObject *__pyx_f_7unqlite_7UnQLite__build_exception_for_error(struct __p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_build_exception_for_error", 0);
 
-  /* "unqlite.pyx":477
+  /* "unqlite.pyx":480
  * 
  *         exc_map = {
  *             UNQLITE_NOMEM: MemoryError,             # <<<<<<<<<<<<<<
  *             UNQLITE_IOERR: IOError,
  *             UNQLITE_CORRUPT: IOError,
  */
-  __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 477; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 480; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyInt_From_int(UNQLITE_NOMEM); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 477; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyInt_From_int(UNQLITE_NOMEM); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 480; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_t_2, __pyx_builtin_MemoryError) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 477; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem(__pyx_t_1, __pyx_t_2, __pyx_builtin_MemoryError) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 480; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "unqlite.pyx":478
+  /* "unqlite.pyx":481
  *         exc_map = {
  *             UNQLITE_NOMEM: MemoryError,
  *             UNQLITE_IOERR: IOError,             # <<<<<<<<<<<<<<
  *             UNQLITE_CORRUPT: IOError,
  *             UNQLITE_LOCKED: IOError,
  */
-  __pyx_t_2 = __Pyx_PyInt_From_int(UNQLITE_IOERR); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 478; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyInt_From_int(UNQLITE_IOERR); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 481; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_t_2, __pyx_builtin_IOError) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 477; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem(__pyx_t_1, __pyx_t_2, __pyx_builtin_IOError) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 480; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "unqlite.pyx":479
+  /* "unqlite.pyx":482
  *             UNQLITE_NOMEM: MemoryError,
  *             UNQLITE_IOERR: IOError,
  *             UNQLITE_CORRUPT: IOError,             # <<<<<<<<<<<<<<
  *             UNQLITE_LOCKED: IOError,
  *             UNQLITE_BUSY: IOError,
  */
-  __pyx_t_2 = __Pyx_PyInt_From_int(UNQLITE_CORRUPT); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 479; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyInt_From_int(UNQLITE_CORRUPT); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 482; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_t_2, __pyx_builtin_IOError) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 477; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem(__pyx_t_1, __pyx_t_2, __pyx_builtin_IOError) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 480; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "unqlite.pyx":480
+  /* "unqlite.pyx":483
  *             UNQLITE_IOERR: IOError,
  *             UNQLITE_CORRUPT: IOError,
  *             UNQLITE_LOCKED: IOError,             # <<<<<<<<<<<<<<
  *             UNQLITE_BUSY: IOError,
  *             UNQLITE_LOCKERR: IOError,
  */
-  __pyx_t_2 = __Pyx_PyInt_From_int(UNQLITE_LOCKED); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 480; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyInt_From_int(UNQLITE_LOCKED); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 483; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_t_2, __pyx_builtin_IOError) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 477; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem(__pyx_t_1, __pyx_t_2, __pyx_builtin_IOError) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 480; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "unqlite.pyx":481
+  /* "unqlite.pyx":484
  *             UNQLITE_CORRUPT: IOError,
  *             UNQLITE_LOCKED: IOError,
  *             UNQLITE_BUSY: IOError,             # <<<<<<<<<<<<<<
  *             UNQLITE_LOCKERR: IOError,
  *             UNQLITE_NOTIMPLEMENTED: NotImplementedError,
  */
-  __pyx_t_2 = __Pyx_PyInt_From_int(UNQLITE_BUSY); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 481; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyInt_From_int(UNQLITE_BUSY); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 484; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_t_2, __pyx_builtin_IOError) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 477; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem(__pyx_t_1, __pyx_t_2, __pyx_builtin_IOError) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 480; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "unqlite.pyx":482
+  /* "unqlite.pyx":485
  *             UNQLITE_LOCKED: IOError,
  *             UNQLITE_BUSY: IOError,
  *             UNQLITE_LOCKERR: IOError,             # <<<<<<<<<<<<<<
  *             UNQLITE_NOTIMPLEMENTED: NotImplementedError,
  *             UNQLITE_NOTFOUND: KeyError,
  */
-  __pyx_t_2 = __Pyx_PyInt_From_int(UNQLITE_LOCKERR); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 482; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyInt_From_int(UNQLITE_LOCKERR); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 485; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_t_2, __pyx_builtin_IOError) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 477; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem(__pyx_t_1, __pyx_t_2, __pyx_builtin_IOError) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 480; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "unqlite.pyx":483
+  /* "unqlite.pyx":486
  *             UNQLITE_BUSY: IOError,
  *             UNQLITE_LOCKERR: IOError,
  *             UNQLITE_NOTIMPLEMENTED: NotImplementedError,             # <<<<<<<<<<<<<<
  *             UNQLITE_NOTFOUND: KeyError,
  *             UNQLITE_NOOP: NotImplementedError,
  */
-  __pyx_t_2 = __Pyx_PyInt_From_int(UNQLITE_NOTIMPLEMENTED); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 483; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyInt_From_int(UNQLITE_NOTIMPLEMENTED); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 486; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_t_2, __pyx_builtin_NotImplementedError) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 477; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem(__pyx_t_1, __pyx_t_2, __pyx_builtin_NotImplementedError) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 480; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "unqlite.pyx":484
+  /* "unqlite.pyx":487
  *             UNQLITE_LOCKERR: IOError,
  *             UNQLITE_NOTIMPLEMENTED: NotImplementedError,
  *             UNQLITE_NOTFOUND: KeyError,             # <<<<<<<<<<<<<<
  *             UNQLITE_NOOP: NotImplementedError,
  *             UNQLITE_EOF: IOError,
  */
-  __pyx_t_2 = __Pyx_PyInt_From_int(UNQLITE_NOTFOUND); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 484; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyInt_From_int(UNQLITE_NOTFOUND); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 487; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_t_2, __pyx_builtin_KeyError) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 477; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem(__pyx_t_1, __pyx_t_2, __pyx_builtin_KeyError) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 480; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "unqlite.pyx":485
+  /* "unqlite.pyx":488
  *             UNQLITE_NOTIMPLEMENTED: NotImplementedError,
  *             UNQLITE_NOTFOUND: KeyError,
  *             UNQLITE_NOOP: NotImplementedError,             # <<<<<<<<<<<<<<
  *             UNQLITE_EOF: IOError,
  *             UNQLITE_FULL: IOError,
  */
-  __pyx_t_2 = __Pyx_PyInt_From_int(UNQLITE_NOOP); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 485; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyInt_From_int(UNQLITE_NOOP); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 488; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_t_2, __pyx_builtin_NotImplementedError) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 477; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem(__pyx_t_1, __pyx_t_2, __pyx_builtin_NotImplementedError) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 480; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "unqlite.pyx":486
+  /* "unqlite.pyx":489
  *             UNQLITE_NOTFOUND: KeyError,
  *             UNQLITE_NOOP: NotImplementedError,
  *             UNQLITE_EOF: IOError,             # <<<<<<<<<<<<<<
  *             UNQLITE_FULL: IOError,
  *             UNQLITE_CANTOPEN: IOError,
  */
-  __pyx_t_2 = __Pyx_PyInt_From_int(UNQLITE_EOF); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 486; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyInt_From_int(UNQLITE_EOF); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 489; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_t_2, __pyx_builtin_IOError) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 477; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem(__pyx_t_1, __pyx_t_2, __pyx_builtin_IOError) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 480; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "unqlite.pyx":487
+  /* "unqlite.pyx":490
  *             UNQLITE_NOOP: NotImplementedError,
  *             UNQLITE_EOF: IOError,
  *             UNQLITE_FULL: IOError,             # <<<<<<<<<<<<<<
  *             UNQLITE_CANTOPEN: IOError,
  *             UNQLITE_READ_ONLY: IOError,
  */
-  __pyx_t_2 = __Pyx_PyInt_From_int(UNQLITE_FULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 487; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyInt_From_int(UNQLITE_FULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 490; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_t_2, __pyx_builtin_IOError) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 477; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem(__pyx_t_1, __pyx_t_2, __pyx_builtin_IOError) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 480; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "unqlite.pyx":488
+  /* "unqlite.pyx":491
  *             UNQLITE_EOF: IOError,
  *             UNQLITE_FULL: IOError,
  *             UNQLITE_CANTOPEN: IOError,             # <<<<<<<<<<<<<<
  *             UNQLITE_READ_ONLY: IOError,
  *         }
  */
-  __pyx_t_2 = __Pyx_PyInt_From_int(UNQLITE_CANTOPEN); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 488; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyInt_From_int(UNQLITE_CANTOPEN); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 491; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_t_2, __pyx_builtin_IOError) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 477; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem(__pyx_t_1, __pyx_t_2, __pyx_builtin_IOError) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 480; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "unqlite.pyx":489
+  /* "unqlite.pyx":492
  *             UNQLITE_FULL: IOError,
  *             UNQLITE_CANTOPEN: IOError,
  *             UNQLITE_READ_ONLY: IOError,             # <<<<<<<<<<<<<<
  *         }
  * 
  */
-  __pyx_t_2 = __Pyx_PyInt_From_int(UNQLITE_READ_ONLY); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 489; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyInt_From_int(UNQLITE_READ_ONLY); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 492; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_t_2, __pyx_builtin_IOError) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 477; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem(__pyx_t_1, __pyx_t_2, __pyx_builtin_IOError) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 480; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_exc_map = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":492
+  /* "unqlite.pyx":495
  *         }
  * 
  *         exc_klass = exc_map.get(status, Exception)             # <<<<<<<<<<<<<<
  *         if status != UNQLITE_NOTFOUND:
  *             message = self._get_last_error()
  */
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_status); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 492; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_status); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 495; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyDict_GetItemDefault(__pyx_v_exc_map, __pyx_t_1, __pyx_builtin_Exception); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 492; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyDict_GetItemDefault(__pyx_v_exc_map, __pyx_t_1, __pyx_builtin_Exception); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 495; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_exc_klass = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "unqlite.pyx":493
+  /* "unqlite.pyx":496
  * 
  *         exc_klass = exc_map.get(status, Exception)
  *         if status != UNQLITE_NOTFOUND:             # <<<<<<<<<<<<<<
@@ -5072,19 +5143,19 @@ static PyObject *__pyx_f_7unqlite_7UnQLite__build_exception_for_error(struct __p
   __pyx_t_3 = ((__pyx_v_status != UNQLITE_NOTFOUND) != 0);
   if (__pyx_t_3) {
 
-    /* "unqlite.pyx":494
+    /* "unqlite.pyx":497
  *         exc_klass = exc_map.get(status, Exception)
  *         if status != UNQLITE_NOTFOUND:
  *             message = self._get_last_error()             # <<<<<<<<<<<<<<
  *             return exc_klass(message)
  *         else:
  */
-    __pyx_t_2 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->__pyx_vtab)->_get_last_error(__pyx_v_self); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 494; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->__pyx_vtab)->_get_last_error(__pyx_v_self); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 497; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_v_message = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "unqlite.pyx":495
+    /* "unqlite.pyx":498
  *         if status != UNQLITE_NOTFOUND:
  *             message = self._get_last_error()
  *             return exc_klass(message)             # <<<<<<<<<<<<<<
@@ -5104,16 +5175,16 @@ static PyObject *__pyx_f_7unqlite_7UnQLite__build_exception_for_error(struct __p
       }
     }
     if (!__pyx_t_4) {
-      __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_v_message); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 495; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_v_message); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 498; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_2);
     } else {
-      __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 495; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 498; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_4); __pyx_t_4 = NULL;
       __Pyx_INCREF(__pyx_v_message);
       __Pyx_GIVEREF(__pyx_v_message);
       PyTuple_SET_ITEM(__pyx_t_5, 0+1, __pyx_v_message);
-      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_5, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 495; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_5, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 498; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     }
@@ -5122,7 +5193,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite__build_exception_for_error(struct __p
     __pyx_t_2 = 0;
     goto __pyx_L0;
 
-    /* "unqlite.pyx":493
+    /* "unqlite.pyx":496
  * 
  *         exc_klass = exc_map.get(status, Exception)
  *         if status != UNQLITE_NOTFOUND:             # <<<<<<<<<<<<<<
@@ -5131,7 +5202,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite__build_exception_for_error(struct __p
  */
   }
 
-  /* "unqlite.pyx":497
+  /* "unqlite.pyx":500
  *             return exc_klass(message)
  *         else:
  *             return exc_klass()             # <<<<<<<<<<<<<<
@@ -5152,10 +5223,10 @@ static PyObject *__pyx_f_7unqlite_7UnQLite__build_exception_for_error(struct __p
       }
     }
     if (__pyx_t_5) {
-      __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_5); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 497; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_5); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 500; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     } else {
-      __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 497; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 500; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -5164,7 +5235,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite__build_exception_for_error(struct __p
     goto __pyx_L0;
   }
 
-  /* "unqlite.pyx":473
+  /* "unqlite.pyx":476
  *             raise self._build_exception_for_error(result)
  * 
  *     cdef _build_exception_for_error(self, int status):             # <<<<<<<<<<<<<<
@@ -5189,7 +5260,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite__build_exception_for_error(struct __p
   return __pyx_r;
 }
 
-/* "unqlite.pyx":499
+/* "unqlite.pyx":502
  *             return exc_klass()
  * 
  *     cdef _get_last_error(self):             # <<<<<<<<<<<<<<
@@ -5210,7 +5281,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite__get_last_error(struct __pyx_obj_7unq
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_get_last_error", 0);
 
-  /* "unqlite.pyx":504
+  /* "unqlite.pyx":507
  *         cdef char buf[1024]
  * 
  *         ret = unqlite_config(             # <<<<<<<<<<<<<<
@@ -5219,7 +5290,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite__get_last_error(struct __pyx_obj_7unq
  */
   __pyx_v_ret = unqlite_config(__pyx_v_self->database, UNQLITE_CONFIG_ERR_LOG, (&__pyx_v_buf), (&__pyx_v_size));
 
-  /* "unqlite.pyx":509
+  /* "unqlite.pyx":512
  *             &buf,
  *             &size)
  *         if ret != UNQLITE_OK:             # <<<<<<<<<<<<<<
@@ -5229,7 +5300,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite__get_last_error(struct __pyx_obj_7unq
   __pyx_t_1 = ((__pyx_v_ret != UNQLITE_OK) != 0);
   if (__pyx_t_1) {
 
-    /* "unqlite.pyx":510
+    /* "unqlite.pyx":513
  *             &size)
  *         if ret != UNQLITE_OK:
  *             return None             # <<<<<<<<<<<<<<
@@ -5241,7 +5312,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite__get_last_error(struct __pyx_obj_7unq
     __pyx_r = Py_None;
     goto __pyx_L0;
 
-    /* "unqlite.pyx":509
+    /* "unqlite.pyx":512
  *             &buf,
  *             &size)
  *         if ret != UNQLITE_OK:             # <<<<<<<<<<<<<<
@@ -5250,7 +5321,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite__get_last_error(struct __pyx_obj_7unq
  */
   }
 
-  /* "unqlite.pyx":512
+  /* "unqlite.pyx":515
  *             return None
  * 
  *         return buf[:size]             # <<<<<<<<<<<<<<
@@ -5258,13 +5329,13 @@ static PyObject *__pyx_f_7unqlite_7UnQLite__get_last_error(struct __pyx_obj_7unq
  *     cpdef begin(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyBytes_FromStringAndSize(((const char*)__pyx_v_buf) + 0, __pyx_v_size - 0); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 512; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyBytes_FromStringAndSize(((const char*)__pyx_v_buf) + 0, __pyx_v_size - 0); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 515; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "unqlite.pyx":499
+  /* "unqlite.pyx":502
  *             return exc_klass()
  * 
  *     cdef _get_last_error(self):             # <<<<<<<<<<<<<<
@@ -5283,7 +5354,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite__get_last_error(struct __pyx_obj_7unq
   return __pyx_r;
 }
 
-/* "unqlite.pyx":514
+/* "unqlite.pyx":517
  *         return buf[:size]
  * 
  *     cpdef begin(self):             # <<<<<<<<<<<<<<
@@ -5308,7 +5379,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_begin(struct __pyx_obj_7unqlite_UnQLi
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
   else if (unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0)) {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_begin); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 514; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_begin); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 517; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)__pyx_pw_7unqlite_7UnQLite_35begin)) {
       __Pyx_XDECREF(__pyx_r);
@@ -5324,10 +5395,10 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_begin(struct __pyx_obj_7unqlite_UnQLi
         }
       }
       if (__pyx_t_4) {
-        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 514; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 517; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       } else {
-        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 514; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 517; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       }
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -5339,7 +5410,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_begin(struct __pyx_obj_7unqlite_UnQLi
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "unqlite.pyx":516
+  /* "unqlite.pyx":519
  *     cpdef begin(self):
  *         """Begin a new transaction. Only works for file-based databases."""
  *         if self.is_memory:             # <<<<<<<<<<<<<<
@@ -5349,7 +5420,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_begin(struct __pyx_obj_7unqlite_UnQLi
   __pyx_t_5 = (__pyx_v_self->is_memory != 0);
   if (__pyx_t_5) {
 
-    /* "unqlite.pyx":517
+    /* "unqlite.pyx":520
  *         """Begin a new transaction. Only works for file-based databases."""
  *         if self.is_memory:
  *             return             # <<<<<<<<<<<<<<
@@ -5360,7 +5431,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_begin(struct __pyx_obj_7unqlite_UnQLi
     __pyx_r = Py_None; __Pyx_INCREF(Py_None);
     goto __pyx_L0;
 
-    /* "unqlite.pyx":516
+    /* "unqlite.pyx":519
  *     cpdef begin(self):
  *         """Begin a new transaction. Only works for file-based databases."""
  *         if self.is_memory:             # <<<<<<<<<<<<<<
@@ -5369,18 +5440,18 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_begin(struct __pyx_obj_7unqlite_UnQLi
  */
   }
 
-  /* "unqlite.pyx":519
+  /* "unqlite.pyx":522
  *             return
  * 
  *         self.check_call(unqlite_begin(self.database))             # <<<<<<<<<<<<<<
  * 
  *     cpdef commit(self):
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->__pyx_vtab)->check_call(__pyx_v_self, unqlite_begin(__pyx_v_self->database)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 519; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->__pyx_vtab)->check_call(__pyx_v_self, unqlite_begin(__pyx_v_self->database)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 522; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":514
+  /* "unqlite.pyx":517
  *         return buf[:size]
  * 
  *     cpdef begin(self):             # <<<<<<<<<<<<<<
@@ -5427,7 +5498,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_34begin(struct __pyx_obj_7unqlite_Un
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("begin", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_7unqlite_7UnQLite_begin(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 514; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_f_7unqlite_7UnQLite_begin(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 517; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -5444,7 +5515,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_34begin(struct __pyx_obj_7unqlite_Un
   return __pyx_r;
 }
 
-/* "unqlite.pyx":521
+/* "unqlite.pyx":524
  *         self.check_call(unqlite_begin(self.database))
  * 
  *     cpdef commit(self):             # <<<<<<<<<<<<<<
@@ -5469,7 +5540,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_commit(struct __pyx_obj_7unqlite_UnQL
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
   else if (unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0)) {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_commit); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 521; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_commit); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 524; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)__pyx_pw_7unqlite_7UnQLite_37commit)) {
       __Pyx_XDECREF(__pyx_r);
@@ -5485,10 +5556,10 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_commit(struct __pyx_obj_7unqlite_UnQL
         }
       }
       if (__pyx_t_4) {
-        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 521; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 524; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       } else {
-        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 521; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 524; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       }
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -5500,7 +5571,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_commit(struct __pyx_obj_7unqlite_UnQL
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "unqlite.pyx":523
+  /* "unqlite.pyx":526
  *     cpdef commit(self):
  *         """Commit current transaction. Only works for file-based databases."""
  *         if self.is_memory:             # <<<<<<<<<<<<<<
@@ -5510,7 +5581,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_commit(struct __pyx_obj_7unqlite_UnQL
   __pyx_t_5 = (__pyx_v_self->is_memory != 0);
   if (__pyx_t_5) {
 
-    /* "unqlite.pyx":524
+    /* "unqlite.pyx":527
  *         """Commit current transaction. Only works for file-based databases."""
  *         if self.is_memory:
  *             return             # <<<<<<<<<<<<<<
@@ -5521,7 +5592,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_commit(struct __pyx_obj_7unqlite_UnQL
     __pyx_r = Py_None; __Pyx_INCREF(Py_None);
     goto __pyx_L0;
 
-    /* "unqlite.pyx":523
+    /* "unqlite.pyx":526
  *     cpdef commit(self):
  *         """Commit current transaction. Only works for file-based databases."""
  *         if self.is_memory:             # <<<<<<<<<<<<<<
@@ -5530,18 +5601,18 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_commit(struct __pyx_obj_7unqlite_UnQL
  */
   }
 
-  /* "unqlite.pyx":526
+  /* "unqlite.pyx":529
  *             return
  * 
  *         self.check_call(unqlite_commit(self.database))             # <<<<<<<<<<<<<<
  * 
  *     cpdef rollback(self):
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->__pyx_vtab)->check_call(__pyx_v_self, unqlite_commit(__pyx_v_self->database)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 526; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->__pyx_vtab)->check_call(__pyx_v_self, unqlite_commit(__pyx_v_self->database)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 529; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":521
+  /* "unqlite.pyx":524
  *         self.check_call(unqlite_begin(self.database))
  * 
  *     cpdef commit(self):             # <<<<<<<<<<<<<<
@@ -5588,7 +5659,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_36commit(struct __pyx_obj_7unqlite_U
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("commit", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_7unqlite_7UnQLite_commit(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 521; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_f_7unqlite_7UnQLite_commit(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 524; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -5605,7 +5676,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_36commit(struct __pyx_obj_7unqlite_U
   return __pyx_r;
 }
 
-/* "unqlite.pyx":528
+/* "unqlite.pyx":531
  *         self.check_call(unqlite_commit(self.database))
  * 
  *     cpdef rollback(self):             # <<<<<<<<<<<<<<
@@ -5630,7 +5701,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_rollback(struct __pyx_obj_7unqlite_Un
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
   else if (unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0)) {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_rollback); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 528; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_rollback); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 531; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)__pyx_pw_7unqlite_7UnQLite_39rollback)) {
       __Pyx_XDECREF(__pyx_r);
@@ -5646,10 +5717,10 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_rollback(struct __pyx_obj_7unqlite_Un
         }
       }
       if (__pyx_t_4) {
-        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 528; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 531; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       } else {
-        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 528; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 531; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       }
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -5661,7 +5732,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_rollback(struct __pyx_obj_7unqlite_Un
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "unqlite.pyx":530
+  /* "unqlite.pyx":533
  *     cpdef rollback(self):
  *         """Rollback current transaction. Only works for file-based databases."""
  *         if self.is_memory:             # <<<<<<<<<<<<<<
@@ -5671,7 +5742,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_rollback(struct __pyx_obj_7unqlite_Un
   __pyx_t_5 = (__pyx_v_self->is_memory != 0);
   if (__pyx_t_5) {
 
-    /* "unqlite.pyx":531
+    /* "unqlite.pyx":534
  *         """Rollback current transaction. Only works for file-based databases."""
  *         if self.is_memory:
  *             return             # <<<<<<<<<<<<<<
@@ -5682,7 +5753,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_rollback(struct __pyx_obj_7unqlite_Un
     __pyx_r = Py_None; __Pyx_INCREF(Py_None);
     goto __pyx_L0;
 
-    /* "unqlite.pyx":530
+    /* "unqlite.pyx":533
  *     cpdef rollback(self):
  *         """Rollback current transaction. Only works for file-based databases."""
  *         if self.is_memory:             # <<<<<<<<<<<<<<
@@ -5691,18 +5762,18 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_rollback(struct __pyx_obj_7unqlite_Un
  */
   }
 
-  /* "unqlite.pyx":533
+  /* "unqlite.pyx":536
  *             return
  * 
  *         self.check_call(unqlite_rollback(self.database))             # <<<<<<<<<<<<<<
  * 
  *     def transaction(self):
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->__pyx_vtab)->check_call(__pyx_v_self, unqlite_rollback(__pyx_v_self->database)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 533; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->__pyx_vtab)->check_call(__pyx_v_self, unqlite_rollback(__pyx_v_self->database)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 536; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":528
+  /* "unqlite.pyx":531
  *         self.check_call(unqlite_commit(self.database))
  * 
  *     cpdef rollback(self):             # <<<<<<<<<<<<<<
@@ -5749,7 +5820,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_38rollback(struct __pyx_obj_7unqlite
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("rollback", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_7unqlite_7UnQLite_rollback(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 528; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_f_7unqlite_7UnQLite_rollback(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 531; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -5766,7 +5837,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_38rollback(struct __pyx_obj_7unqlite
   return __pyx_r;
 }
 
-/* "unqlite.pyx":535
+/* "unqlite.pyx":538
  *         self.check_call(unqlite_rollback(self.database))
  * 
  *     def transaction(self):             # <<<<<<<<<<<<<<
@@ -5798,7 +5869,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_40transaction(struct __pyx_obj_7unql
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("transaction", 0);
 
-  /* "unqlite.pyx":537
+  /* "unqlite.pyx":540
  *     def transaction(self):
  *         """Create context manager for wrapping a transaction."""
  *         return Transaction(self)             # <<<<<<<<<<<<<<
@@ -5806,19 +5877,19 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_40transaction(struct __pyx_obj_7unql
  *     def commit_on_success(self, fn):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 537; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 540; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(((PyObject *)__pyx_v_self));
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
   PyTuple_SET_ITEM(__pyx_t_1, 0, ((PyObject *)__pyx_v_self));
-  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_7unqlite_Transaction), __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 537; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_7unqlite_Transaction), __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 540; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "unqlite.pyx":535
+  /* "unqlite.pyx":538
  *         self.check_call(unqlite_rollback(self.database))
  * 
  *     def transaction(self):             # <<<<<<<<<<<<<<
@@ -5838,7 +5909,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_40transaction(struct __pyx_obj_7unql
   return __pyx_r;
 }
 
-/* "unqlite.pyx":539
+/* "unqlite.pyx":542
  *         return Transaction(self)
  * 
  *     def commit_on_success(self, fn):             # <<<<<<<<<<<<<<
@@ -5859,7 +5930,7 @@ static PyObject *__pyx_pw_7unqlite_7UnQLite_43commit_on_success(PyObject *__pyx_
   return __pyx_r;
 }
 
-/* "unqlite.pyx":540
+/* "unqlite.pyx":543
  * 
  *     def commit_on_success(self, fn):
  *         def wrapper(*args, **kwargs):             # <<<<<<<<<<<<<<
@@ -5917,7 +5988,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_17commit_on_success_wrapper(PyObject
   __pyx_outer_scope = (struct __pyx_obj_7unqlite___pyx_scope_struct__commit_on_success *) __Pyx_CyFunction_GetClosure(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
 
-  /* "unqlite.pyx":541
+  /* "unqlite.pyx":544
  *     def commit_on_success(self, fn):
  *         def wrapper(*args, **kwargs):
  *             with self.transaction():             # <<<<<<<<<<<<<<
@@ -5925,8 +5996,8 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_17commit_on_success_wrapper(PyObject
  *         return wrapper
  */
   /*with:*/ {
-    if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 541; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_cur_scope->__pyx_v_self), __pyx_n_s_transaction); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 541; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 544; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_cur_scope->__pyx_v_self), __pyx_n_s_transaction); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 544; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_3 = NULL;
     if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_2))) {
@@ -5939,16 +6010,16 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_17commit_on_success_wrapper(PyObject
       }
     }
     if (__pyx_t_3) {
-      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 541; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 544; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     } else {
-      __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 541; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 544; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_4 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_exit); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 541; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_exit); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 544; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_3 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_enter); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 541; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+    __pyx_t_3 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_enter); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 544; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_5 = NULL;
     if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_3))) {
@@ -5961,10 +6032,10 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_17commit_on_success_wrapper(PyObject
       }
     }
     if (__pyx_t_5) {
-      __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 541; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+      __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 544; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     } else {
-      __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 541; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+      __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 544; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
     }
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -5978,7 +6049,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_17commit_on_success_wrapper(PyObject
         __Pyx_XGOTREF(__pyx_t_8);
         /*try:*/ {
 
-          /* "unqlite.pyx":542
+          /* "unqlite.pyx":545
  *         def wrapper(*args, **kwargs):
  *             with self.transaction():
  *                 return fn(*args, **kwargs)             # <<<<<<<<<<<<<<
@@ -5986,14 +6057,14 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_17commit_on_success_wrapper(PyObject
  * 
  */
           __Pyx_XDECREF(__pyx_r);
-          if (unlikely(!__pyx_cur_scope->__pyx_v_fn)) { __Pyx_RaiseClosureNameError("fn"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 542; __pyx_clineno = __LINE__; goto __pyx_L7_error;} }
-          __pyx_t_1 = __Pyx_PyObject_Call(__pyx_cur_scope->__pyx_v_fn, __pyx_v_args, __pyx_v_kwargs); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 542; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
+          if (unlikely(!__pyx_cur_scope->__pyx_v_fn)) { __Pyx_RaiseClosureNameError("fn"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 545; __pyx_clineno = __LINE__; goto __pyx_L7_error;} }
+          __pyx_t_1 = __Pyx_PyObject_Call(__pyx_cur_scope->__pyx_v_fn, __pyx_v_args, __pyx_v_kwargs); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 545; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
           __Pyx_GOTREF(__pyx_t_1);
           __pyx_r = __pyx_t_1;
           __pyx_t_1 = 0;
           goto __pyx_L11_try_return;
 
-          /* "unqlite.pyx":541
+          /* "unqlite.pyx":544
  *     def commit_on_success(self, fn):
  *         def wrapper(*args, **kwargs):
  *             with self.transaction():             # <<<<<<<<<<<<<<
@@ -6008,20 +6079,20 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_17commit_on_success_wrapper(PyObject
         __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
         /*except:*/ {
           __Pyx_AddTraceback("unqlite.UnQLite.commit_on_success.wrapper", __pyx_clineno, __pyx_lineno, __pyx_filename);
-          if (__Pyx_GetException(&__pyx_t_1, &__pyx_t_2, &__pyx_t_3) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 541; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
+          if (__Pyx_GetException(&__pyx_t_1, &__pyx_t_2, &__pyx_t_3) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 544; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_GOTREF(__pyx_t_3);
-          __pyx_t_5 = PyTuple_Pack(3, __pyx_t_1, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 541; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
+          __pyx_t_5 = PyTuple_Pack(3, __pyx_t_1, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 544; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
           __Pyx_GOTREF(__pyx_t_5);
           __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_5, NULL);
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          if (unlikely(!__pyx_t_9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 541; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
+          if (unlikely(!__pyx_t_9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 544; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
           __Pyx_GOTREF(__pyx_t_9);
           __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_t_9);
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-          if (__pyx_t_10 < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 541; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
+          if (__pyx_t_10 < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 544; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
           __pyx_t_11 = ((!(__pyx_t_10 != 0)) != 0);
           if (__pyx_t_11) {
             __Pyx_GIVEREF(__pyx_t_1);
@@ -6029,7 +6100,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_17commit_on_success_wrapper(PyObject
             __Pyx_XGIVEREF(__pyx_t_3);
             __Pyx_ErrRestore(__pyx_t_1, __pyx_t_2, __pyx_t_3);
             __pyx_t_1 = 0; __pyx_t_2 = 0; __pyx_t_3 = 0; 
-            {__pyx_filename = __pyx_f[0]; __pyx_lineno = 541; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
+            {__pyx_filename = __pyx_f[0]; __pyx_lineno = 544; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
           }
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -6060,7 +6131,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_17commit_on_success_wrapper(PyObject
         if (__pyx_t_4) {
           __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_tuple__10, NULL);
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 541; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 544; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_8);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         }
@@ -6072,7 +6143,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_17commit_on_success_wrapper(PyObject
         if (__pyx_t_4) {
           __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_tuple__11, NULL);
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 541; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 544; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_7);
           __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
         }
@@ -6089,7 +6160,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_17commit_on_success_wrapper(PyObject
     __pyx_L18:;
   }
 
-  /* "unqlite.pyx":540
+  /* "unqlite.pyx":543
  * 
  *     def commit_on_success(self, fn):
  *         def wrapper(*args, **kwargs):             # <<<<<<<<<<<<<<
@@ -6113,7 +6184,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_17commit_on_success_wrapper(PyObject
   return __pyx_r;
 }
 
-/* "unqlite.pyx":539
+/* "unqlite.pyx":542
  *         return Transaction(self)
  * 
  *     def commit_on_success(self, fn):             # <<<<<<<<<<<<<<
@@ -6144,19 +6215,19 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_42commit_on_success(struct __pyx_obj
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_fn);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_fn);
 
-  /* "unqlite.pyx":540
+  /* "unqlite.pyx":543
  * 
  *     def commit_on_success(self, fn):
  *         def wrapper(*args, **kwargs):             # <<<<<<<<<<<<<<
  *             with self.transaction():
  *                 return fn(*args, **kwargs)
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_7unqlite_7UnQLite_17commit_on_success_1wrapper, 0, __pyx_n_s_commit_on_success_locals_wrapper, ((PyObject*)__pyx_cur_scope), __pyx_n_s_unqlite, __pyx_d, ((PyObject *)__pyx_codeobj__13)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 540; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_7unqlite_7UnQLite_17commit_on_success_1wrapper, 0, __pyx_n_s_commit_on_success_locals_wrapper, ((PyObject*)__pyx_cur_scope), __pyx_n_s_unqlite, __pyx_d, ((PyObject *)__pyx_codeobj__13)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 543; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_wrapper = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":543
+  /* "unqlite.pyx":546
  *             with self.transaction():
  *                 return fn(*args, **kwargs)
  *         return wrapper             # <<<<<<<<<<<<<<
@@ -6168,7 +6239,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_42commit_on_success(struct __pyx_obj
   __pyx_r = __pyx_v_wrapper;
   goto __pyx_L0;
 
-  /* "unqlite.pyx":539
+  /* "unqlite.pyx":542
  *         return Transaction(self)
  * 
  *     def commit_on_success(self, fn):             # <<<<<<<<<<<<<<
@@ -6189,7 +6260,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_42commit_on_success(struct __pyx_obj
   return __pyx_r;
 }
 
-/* "unqlite.pyx":545
+/* "unqlite.pyx":548
  *         return wrapper
  * 
  *     def cursor(self):             # <<<<<<<<<<<<<<
@@ -6221,7 +6292,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_44cursor(struct __pyx_obj_7unqlite_U
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("cursor", 0);
 
-  /* "unqlite.pyx":547
+  /* "unqlite.pyx":550
  *     def cursor(self):
  *         """Create a cursor for iterating through the database."""
  *         return Cursor(self)             # <<<<<<<<<<<<<<
@@ -6229,19 +6300,19 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_44cursor(struct __pyx_obj_7unqlite_U
  *     def vm(self, basestring code):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 547; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 550; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(((PyObject *)__pyx_v_self));
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
   PyTuple_SET_ITEM(__pyx_t_1, 0, ((PyObject *)__pyx_v_self));
-  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_7unqlite_Cursor), __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 547; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_7unqlite_Cursor), __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 550; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "unqlite.pyx":545
+  /* "unqlite.pyx":548
  *         return wrapper
  * 
  *     def cursor(self):             # <<<<<<<<<<<<<<
@@ -6261,7 +6332,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_44cursor(struct __pyx_obj_7unqlite_U
   return __pyx_r;
 }
 
-/* "unqlite.pyx":549
+/* "unqlite.pyx":552
  *         return Cursor(self)
  * 
  *     def vm(self, basestring code):             # <<<<<<<<<<<<<<
@@ -6279,7 +6350,7 @@ static PyObject *__pyx_pw_7unqlite_7UnQLite_47vm(PyObject *__pyx_v_self, PyObjec
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("vm (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_code), (&PyBaseString_Type), 1, "code", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 549; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_code), (&PyBaseString_Type), 1, "code", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 552; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_7unqlite_7UnQLite_46vm(((struct __pyx_obj_7unqlite_UnQLite *)__pyx_v_self), ((PyObject*)__pyx_v_code));
 
   /* function exit code */
@@ -6301,7 +6372,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_46vm(struct __pyx_obj_7unqlite_UnQLi
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("vm", 0);
 
-  /* "unqlite.pyx":551
+  /* "unqlite.pyx":554
  *     def vm(self, basestring code):
  *         """Create an UnQLite Jx9 virtual machine."""
  *         return VM(self, code)             # <<<<<<<<<<<<<<
@@ -6309,7 +6380,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_46vm(struct __pyx_obj_7unqlite_UnQLi
  *     def collection(self, basestring name):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 551; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 554; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(((PyObject *)__pyx_v_self));
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
@@ -6317,14 +6388,14 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_46vm(struct __pyx_obj_7unqlite_UnQLi
   __Pyx_INCREF(__pyx_v_code);
   __Pyx_GIVEREF(__pyx_v_code);
   PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_code);
-  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_7unqlite_VM), __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 551; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_7unqlite_VM), __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 554; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "unqlite.pyx":549
+  /* "unqlite.pyx":552
  *         return Cursor(self)
  * 
  *     def vm(self, basestring code):             # <<<<<<<<<<<<<<
@@ -6344,7 +6415,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_46vm(struct __pyx_obj_7unqlite_UnQLi
   return __pyx_r;
 }
 
-/* "unqlite.pyx":553
+/* "unqlite.pyx":556
  *         return VM(self, code)
  * 
  *     def collection(self, basestring name):             # <<<<<<<<<<<<<<
@@ -6362,7 +6433,7 @@ static PyObject *__pyx_pw_7unqlite_7UnQLite_49collection(PyObject *__pyx_v_self,
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("collection (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyBaseString_Type), 1, "name", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 553; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyBaseString_Type), 1, "name", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 556; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_7unqlite_7UnQLite_48collection(((struct __pyx_obj_7unqlite_UnQLite *)__pyx_v_self), ((PyObject*)__pyx_v_name));
 
   /* function exit code */
@@ -6384,7 +6455,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_48collection(struct __pyx_obj_7unqli
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("collection", 0);
 
-  /* "unqlite.pyx":555
+  /* "unqlite.pyx":558
  *     def collection(self, basestring name):
  *         """Create a wrapper for working with Jx9 collections."""
  *         return Collection(self, name)             # <<<<<<<<<<<<<<
@@ -6392,7 +6463,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_48collection(struct __pyx_obj_7unqli
  *     cpdef update(self, dict values):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 555; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 558; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(((PyObject *)__pyx_v_self));
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
@@ -6400,14 +6471,14 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_48collection(struct __pyx_obj_7unqli
   __Pyx_INCREF(__pyx_v_name);
   __Pyx_GIVEREF(__pyx_v_name);
   PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_name);
-  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_7unqlite_Collection), __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 555; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_7unqlite_Collection), __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 558; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "unqlite.pyx":553
+  /* "unqlite.pyx":556
  *         return VM(self, code)
  * 
  *     def collection(self, basestring name):             # <<<<<<<<<<<<<<
@@ -6427,7 +6498,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_48collection(struct __pyx_obj_7unqli
   return __pyx_r;
 }
 
-/* "unqlite.pyx":557
+/* "unqlite.pyx":560
  *         return Collection(self, name)
  * 
  *     cpdef update(self, dict values):             # <<<<<<<<<<<<<<
@@ -6457,7 +6528,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_update(struct __pyx_obj_7unqlite_UnQL
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
   else if (unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0)) {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_update); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 557; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_update); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 560; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)__pyx_pw_7unqlite_7UnQLite_51update)) {
       __Pyx_XDECREF(__pyx_r);
@@ -6473,16 +6544,16 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_update(struct __pyx_obj_7unqlite_UnQL
         }
       }
       if (!__pyx_t_4) {
-        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_values); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 557; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_values); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 560; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_2);
       } else {
-        __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 557; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 560; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_4); __pyx_t_4 = NULL;
         __Pyx_INCREF(__pyx_v_values);
         __Pyx_GIVEREF(__pyx_v_values);
         PyTuple_SET_ITEM(__pyx_t_5, 0+1, __pyx_v_values);
-        __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 557; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 560; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       }
@@ -6495,7 +6566,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_update(struct __pyx_obj_7unqlite_UnQL
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "unqlite.pyx":559
+  /* "unqlite.pyx":562
  *     cpdef update(self, dict values):
  *         cdef basestring key
  *         for key in values:             # <<<<<<<<<<<<<<
@@ -6505,9 +6576,9 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_update(struct __pyx_obj_7unqlite_UnQL
   __pyx_t_6 = 0;
   if (unlikely(__pyx_v_values == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 559; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 562; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
-  __pyx_t_2 = __Pyx_dict_iterator(__pyx_v_values, 1, ((PyObject *)NULL), (&__pyx_t_7), (&__pyx_t_8)); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 559; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_dict_iterator(__pyx_v_values, 1, ((PyObject *)NULL), (&__pyx_t_7), (&__pyx_t_8)); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 562; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_1);
   __pyx_t_1 = __pyx_t_2;
@@ -6515,13 +6586,13 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_update(struct __pyx_obj_7unqlite_UnQL
   while (1) {
     __pyx_t_9 = __Pyx_dict_iter_next(__pyx_t_1, __pyx_t_7, &__pyx_t_6, &__pyx_t_2, NULL, NULL, __pyx_t_8);
     if (unlikely(__pyx_t_9 == 0)) break;
-    if (unlikely(__pyx_t_9 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 559; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (unlikely(__pyx_t_9 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 562; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
-    if (!(likely(__Pyx_PyBaseString_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", (PY_MAJOR_VERSION < 3 ? "basestring" : "str"), Py_TYPE(__pyx_t_2)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 559; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (!(likely(__Pyx_PyBaseString_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", (PY_MAJOR_VERSION < 3 ? "basestring" : "str"), Py_TYPE(__pyx_t_2)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 562; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_XDECREF_SET(__pyx_v_key, ((PyObject*)__pyx_t_2));
     __pyx_t_2 = 0;
 
-    /* "unqlite.pyx":560
+    /* "unqlite.pyx":563
  *         cdef basestring key
  *         for key in values:
  *             self.store(key, values[key])             # <<<<<<<<<<<<<<
@@ -6530,19 +6601,19 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_update(struct __pyx_obj_7unqlite_UnQL
  */
     if (unlikely(__pyx_v_values == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 560; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 563; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
-    __pyx_t_2 = __Pyx_PyDict_GetItem(__pyx_v_values, __pyx_v_key); if (unlikely(__pyx_t_2 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 560; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+    __pyx_t_2 = __Pyx_PyDict_GetItem(__pyx_v_values, __pyx_v_key); if (unlikely(__pyx_t_2 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 563; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
     __Pyx_GOTREF(__pyx_t_2);
-    if (!(likely(__Pyx_PyBaseString_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", (PY_MAJOR_VERSION < 3 ? "basestring" : "str"), Py_TYPE(__pyx_t_2)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 560; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __pyx_t_3 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->__pyx_vtab)->store(__pyx_v_self, __pyx_v_key, ((PyObject*)__pyx_t_2), 0); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 560; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (!(likely(__Pyx_PyBaseString_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", (PY_MAJOR_VERSION < 3 ? "basestring" : "str"), Py_TYPE(__pyx_t_2)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 563; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->__pyx_vtab)->store(__pyx_v_self, __pyx_v_key, ((PyObject*)__pyx_t_2), 0); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 563; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":557
+  /* "unqlite.pyx":560
  *         return Collection(self, name)
  * 
  *     cpdef update(self, dict values):             # <<<<<<<<<<<<<<
@@ -6577,7 +6648,7 @@ static PyObject *__pyx_pw_7unqlite_7UnQLite_51update(PyObject *__pyx_v_self, PyO
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("update (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_values), (&PyDict_Type), 1, "values", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 557; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_values), (&PyDict_Type), 1, "values", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 560; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_7unqlite_7UnQLite_50update(((struct __pyx_obj_7unqlite_UnQLite *)__pyx_v_self), ((PyObject*)__pyx_v_values));
 
   /* function exit code */
@@ -6598,7 +6669,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_50update(struct __pyx_obj_7unqlite_U
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("update", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_7unqlite_7UnQLite_update(__pyx_v_self, __pyx_v_values, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 557; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_f_7unqlite_7UnQLite_update(__pyx_v_self, __pyx_v_values, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 560; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -6616,7 +6687,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_50update(struct __pyx_obj_7unqlite_U
 }
 static PyObject *__pyx_gb_7unqlite_7UnQLite_54generator(__pyx_CoroutineObject *__pyx_generator, PyObject *__pyx_sent_value); /* proto */
 
-/* "unqlite.pyx":562
+/* "unqlite.pyx":565
  *             self.store(key, values[key])
  * 
  *     def keys(self):             # <<<<<<<<<<<<<<
@@ -6656,7 +6727,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_52keys(struct __pyx_obj_7unqlite_UnQ
   __Pyx_INCREF((PyObject *)__pyx_cur_scope->__pyx_v_self);
   __Pyx_GIVEREF((PyObject *)__pyx_cur_scope->__pyx_v_self);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_7unqlite_7UnQLite_54generator, (PyObject *) __pyx_cur_scope, __pyx_n_s_keys, __pyx_n_s_UnQLite_keys); if (unlikely(!gen)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 562; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_7unqlite_7UnQLite_54generator, (PyObject *) __pyx_cur_scope, __pyx_n_s_keys, __pyx_n_s_UnQLite_keys); if (unlikely(!gen)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 565; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -6703,9 +6774,9 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_54generator(__pyx_CoroutineObject *_
     return NULL;
   }
   __pyx_L3_first_run:;
-  if (unlikely(!__pyx_sent_value)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 562; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__pyx_sent_value)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 565; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "unqlite.pyx":565
+  /* "unqlite.pyx":568
  *         """Efficiently iterate through the database's keys."""
  *         cdef Cursor cursor
  *         with self.cursor() as cursor:             # <<<<<<<<<<<<<<
@@ -6713,7 +6784,7 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_54generator(__pyx_CoroutineObject *_
  *                 yield cursor.key()
  */
   /*with:*/ {
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_cur_scope->__pyx_v_self), __pyx_n_s_cursor); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 565; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_cur_scope->__pyx_v_self), __pyx_n_s_cursor); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 568; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_3 = NULL;
     if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_2))) {
@@ -6726,16 +6797,16 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_54generator(__pyx_CoroutineObject *_
       }
     }
     if (__pyx_t_3) {
-      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 565; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 568; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     } else {
-      __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 565; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 568; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_4 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_exit); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 565; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_exit); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 568; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_3 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_enter); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 565; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
+    __pyx_t_3 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_enter); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 568; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_5 = NULL;
     if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_3))) {
@@ -6748,10 +6819,10 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_54generator(__pyx_CoroutineObject *_
       }
     }
     if (__pyx_t_5) {
-      __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 565; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
+      __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 568; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     } else {
-      __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 565; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
+      __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 568; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
     }
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -6765,12 +6836,12 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_54generator(__pyx_CoroutineObject *_
         __Pyx_XGOTREF(__pyx_t_7);
         __Pyx_XGOTREF(__pyx_t_8);
         /*try:*/ {
-          if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_7unqlite_Cursor))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 565; __pyx_clineno = __LINE__; goto __pyx_L8_error;}
+          if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_7unqlite_Cursor))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 568; __pyx_clineno = __LINE__; goto __pyx_L8_error;}
           __Pyx_GIVEREF(__pyx_t_3);
           __pyx_cur_scope->__pyx_v_cursor = ((struct __pyx_obj_7unqlite_Cursor *)__pyx_t_3);
           __pyx_t_3 = 0;
 
-          /* "unqlite.pyx":566
+          /* "unqlite.pyx":569
  *         cdef Cursor cursor
  *         with self.cursor() as cursor:
  *             while cursor.is_valid():             # <<<<<<<<<<<<<<
@@ -6781,14 +6852,14 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_54generator(__pyx_CoroutineObject *_
             __pyx_t_9 = (((struct __pyx_vtabstruct_7unqlite_Cursor *)__pyx_cur_scope->__pyx_v_cursor->__pyx_vtab)->is_valid(__pyx_cur_scope->__pyx_v_cursor, 0) != 0);
             if (!__pyx_t_9) break;
 
-            /* "unqlite.pyx":567
+            /* "unqlite.pyx":570
  *         with self.cursor() as cursor:
  *             while cursor.is_valid():
  *                 yield cursor.key()             # <<<<<<<<<<<<<<
  *                 try:
  *                     cursor.next_entry()
  */
-            __pyx_t_3 = ((struct __pyx_vtabstruct_7unqlite_Cursor *)__pyx_cur_scope->__pyx_v_cursor->__pyx_vtab)->key(__pyx_cur_scope->__pyx_v_cursor, 0); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 567; __pyx_clineno = __LINE__; goto __pyx_L8_error;}
+            __pyx_t_3 = ((struct __pyx_vtabstruct_7unqlite_Cursor *)__pyx_cur_scope->__pyx_v_cursor->__pyx_vtab)->key(__pyx_cur_scope->__pyx_v_cursor, 0); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 570; __pyx_clineno = __LINE__; goto __pyx_L8_error;}
             __Pyx_GOTREF(__pyx_t_3);
             __pyx_r = __pyx_t_3;
             __pyx_t_3 = 0;
@@ -6818,9 +6889,9 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_54generator(__pyx_CoroutineObject *_
             __pyx_t_8 = __pyx_cur_scope->__pyx_t_3;
             __pyx_cur_scope->__pyx_t_3 = 0;
             __Pyx_XGOTREF(__pyx_t_8);
-            if (unlikely(!__pyx_sent_value)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 567; __pyx_clineno = __LINE__; goto __pyx_L8_error;}
+            if (unlikely(!__pyx_sent_value)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 570; __pyx_clineno = __LINE__; goto __pyx_L8_error;}
 
-            /* "unqlite.pyx":568
+            /* "unqlite.pyx":571
  *             while cursor.is_valid():
  *                 yield cursor.key()
  *                 try:             # <<<<<<<<<<<<<<
@@ -6834,18 +6905,18 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_54generator(__pyx_CoroutineObject *_
               __Pyx_XGOTREF(__pyx_t_12);
               /*try:*/ {
 
-                /* "unqlite.pyx":569
+                /* "unqlite.pyx":572
  *                 yield cursor.key()
  *                 try:
  *                     cursor.next_entry()             # <<<<<<<<<<<<<<
  *                 except StopIteration:
  *                     break
  */
-                __pyx_t_3 = ((struct __pyx_vtabstruct_7unqlite_Cursor *)__pyx_cur_scope->__pyx_v_cursor->__pyx_vtab)->next_entry(__pyx_cur_scope->__pyx_v_cursor, 0); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 569; __pyx_clineno = __LINE__; goto __pyx_L19_error;}
+                __pyx_t_3 = ((struct __pyx_vtabstruct_7unqlite_Cursor *)__pyx_cur_scope->__pyx_v_cursor->__pyx_vtab)->next_entry(__pyx_cur_scope->__pyx_v_cursor, 0); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 572; __pyx_clineno = __LINE__; goto __pyx_L19_error;}
                 __Pyx_GOTREF(__pyx_t_3);
                 __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-                /* "unqlite.pyx":568
+                /* "unqlite.pyx":571
  *             while cursor.is_valid():
  *                 yield cursor.key()
  *                 try:             # <<<<<<<<<<<<<<
@@ -6863,7 +6934,7 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_54generator(__pyx_CoroutineObject *_
               __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
               __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-              /* "unqlite.pyx":570
+              /* "unqlite.pyx":573
  *                 try:
  *                     cursor.next_entry()
  *                 except StopIteration:             # <<<<<<<<<<<<<<
@@ -6873,12 +6944,12 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_54generator(__pyx_CoroutineObject *_
               __pyx_t_13 = PyErr_ExceptionMatches(__pyx_builtin_StopIteration);
               if (__pyx_t_13) {
                 __Pyx_AddTraceback("unqlite.UnQLite.keys", __pyx_clineno, __pyx_lineno, __pyx_filename);
-                if (__Pyx_GetException(&__pyx_t_3, &__pyx_t_1, &__pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 570; __pyx_clineno = __LINE__; goto __pyx_L21_except_error;}
+                if (__Pyx_GetException(&__pyx_t_3, &__pyx_t_1, &__pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 573; __pyx_clineno = __LINE__; goto __pyx_L21_except_error;}
                 __Pyx_GOTREF(__pyx_t_3);
                 __Pyx_GOTREF(__pyx_t_1);
                 __Pyx_GOTREF(__pyx_t_2);
 
-                /* "unqlite.pyx":571
+                /* "unqlite.pyx":574
  *                     cursor.next_entry()
  *                 except StopIteration:
  *                     break             # <<<<<<<<<<<<<<
@@ -6895,7 +6966,7 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_54generator(__pyx_CoroutineObject *_
               goto __pyx_L21_except_error;
               __pyx_L21_except_error:;
 
-              /* "unqlite.pyx":568
+              /* "unqlite.pyx":571
  *             while cursor.is_valid():
  *                 yield cursor.key()
  *                 try:             # <<<<<<<<<<<<<<
@@ -6918,7 +6989,7 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_54generator(__pyx_CoroutineObject *_
           }
           __pyx_L17_break:;
 
-          /* "unqlite.pyx":565
+          /* "unqlite.pyx":568
  *         """Efficiently iterate through the database's keys."""
  *         cdef Cursor cursor
  *         with self.cursor() as cursor:             # <<<<<<<<<<<<<<
@@ -6937,20 +7008,20 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_54generator(__pyx_CoroutineObject *_
         __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
         /*except:*/ {
           __Pyx_AddTraceback("unqlite.UnQLite.keys", __pyx_clineno, __pyx_lineno, __pyx_filename);
-          if (__Pyx_GetException(&__pyx_t_2, &__pyx_t_1, &__pyx_t_3) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 565; __pyx_clineno = __LINE__; goto __pyx_L10_except_error;}
+          if (__Pyx_GetException(&__pyx_t_2, &__pyx_t_1, &__pyx_t_3) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 568; __pyx_clineno = __LINE__; goto __pyx_L10_except_error;}
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_GOTREF(__pyx_t_3);
-          __pyx_t_5 = PyTuple_Pack(3, __pyx_t_2, __pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 565; __pyx_clineno = __LINE__; goto __pyx_L10_except_error;}
+          __pyx_t_5 = PyTuple_Pack(3, __pyx_t_2, __pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 568; __pyx_clineno = __LINE__; goto __pyx_L10_except_error;}
           __Pyx_GOTREF(__pyx_t_5);
           __pyx_t_12 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_5, NULL);
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          if (unlikely(!__pyx_t_12)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 565; __pyx_clineno = __LINE__; goto __pyx_L10_except_error;}
+          if (unlikely(!__pyx_t_12)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 568; __pyx_clineno = __LINE__; goto __pyx_L10_except_error;}
           __Pyx_GOTREF(__pyx_t_12);
           __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_12);
           __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-          if (__pyx_t_9 < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 565; __pyx_clineno = __LINE__; goto __pyx_L10_except_error;}
+          if (__pyx_t_9 < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 568; __pyx_clineno = __LINE__; goto __pyx_L10_except_error;}
           __pyx_t_14 = ((!(__pyx_t_9 != 0)) != 0);
           if (__pyx_t_14) {
             __Pyx_GIVEREF(__pyx_t_2);
@@ -6958,7 +7029,7 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_54generator(__pyx_CoroutineObject *_
             __Pyx_XGIVEREF(__pyx_t_3);
             __Pyx_ErrRestore(__pyx_t_2, __pyx_t_1, __pyx_t_3);
             __pyx_t_2 = 0; __pyx_t_1 = 0; __pyx_t_3 = 0; 
-            {__pyx_filename = __pyx_f[0]; __pyx_lineno = 565; __pyx_clineno = __LINE__; goto __pyx_L10_except_error;}
+            {__pyx_filename = __pyx_f[0]; __pyx_lineno = 568; __pyx_clineno = __LINE__; goto __pyx_L10_except_error;}
           }
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -6984,7 +7055,7 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_54generator(__pyx_CoroutineObject *_
         if (__pyx_t_4) {
           __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_tuple__14, NULL);
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 565; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 568; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_8);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         }
@@ -6999,7 +7070,7 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_54generator(__pyx_CoroutineObject *_
     __pyx_L32:;
   }
 
-  /* "unqlite.pyx":562
+  /* "unqlite.pyx":565
  *             self.store(key, values[key])
  * 
  *     def keys(self):             # <<<<<<<<<<<<<<
@@ -7025,7 +7096,7 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_54generator(__pyx_CoroutineObject *_
 }
 static PyObject *__pyx_gb_7unqlite_7UnQLite_57generator1(__pyx_CoroutineObject *__pyx_generator, PyObject *__pyx_sent_value); /* proto */
 
-/* "unqlite.pyx":573
+/* "unqlite.pyx":576
  *                     break
  * 
  *     def values(self):             # <<<<<<<<<<<<<<
@@ -7065,7 +7136,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_55values(struct __pyx_obj_7unqlite_U
   __Pyx_INCREF((PyObject *)__pyx_cur_scope->__pyx_v_self);
   __Pyx_GIVEREF((PyObject *)__pyx_cur_scope->__pyx_v_self);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_7unqlite_7UnQLite_57generator1, (PyObject *) __pyx_cur_scope, __pyx_n_s_values, __pyx_n_s_UnQLite_values); if (unlikely(!gen)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 573; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_7unqlite_7UnQLite_57generator1, (PyObject *) __pyx_cur_scope, __pyx_n_s_values, __pyx_n_s_UnQLite_values); if (unlikely(!gen)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 576; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -7112,9 +7183,9 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_57generator1(__pyx_CoroutineObject *
     return NULL;
   }
   __pyx_L3_first_run:;
-  if (unlikely(!__pyx_sent_value)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 573; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__pyx_sent_value)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 576; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "unqlite.pyx":576
+  /* "unqlite.pyx":579
  *         """Efficiently iterate through the database's values."""
  *         cdef Cursor cursor
  *         with self.cursor() as cursor:             # <<<<<<<<<<<<<<
@@ -7122,7 +7193,7 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_57generator1(__pyx_CoroutineObject *
  *                 yield cursor.value()
  */
   /*with:*/ {
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_cur_scope->__pyx_v_self), __pyx_n_s_cursor); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 576; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_cur_scope->__pyx_v_self), __pyx_n_s_cursor); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 579; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_3 = NULL;
     if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_2))) {
@@ -7135,16 +7206,16 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_57generator1(__pyx_CoroutineObject *
       }
     }
     if (__pyx_t_3) {
-      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 576; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 579; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     } else {
-      __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 576; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 579; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_4 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_exit); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 576; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_exit); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 579; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_3 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_enter); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 576; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
+    __pyx_t_3 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_enter); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 579; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_5 = NULL;
     if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_3))) {
@@ -7157,10 +7228,10 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_57generator1(__pyx_CoroutineObject *
       }
     }
     if (__pyx_t_5) {
-      __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 576; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
+      __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 579; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     } else {
-      __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 576; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
+      __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 579; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
     }
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -7174,12 +7245,12 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_57generator1(__pyx_CoroutineObject *
         __Pyx_XGOTREF(__pyx_t_7);
         __Pyx_XGOTREF(__pyx_t_8);
         /*try:*/ {
-          if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_7unqlite_Cursor))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 576; __pyx_clineno = __LINE__; goto __pyx_L8_error;}
+          if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_7unqlite_Cursor))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 579; __pyx_clineno = __LINE__; goto __pyx_L8_error;}
           __Pyx_GIVEREF(__pyx_t_3);
           __pyx_cur_scope->__pyx_v_cursor = ((struct __pyx_obj_7unqlite_Cursor *)__pyx_t_3);
           __pyx_t_3 = 0;
 
-          /* "unqlite.pyx":577
+          /* "unqlite.pyx":580
  *         cdef Cursor cursor
  *         with self.cursor() as cursor:
  *             while cursor.is_valid():             # <<<<<<<<<<<<<<
@@ -7190,14 +7261,14 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_57generator1(__pyx_CoroutineObject *
             __pyx_t_9 = (((struct __pyx_vtabstruct_7unqlite_Cursor *)__pyx_cur_scope->__pyx_v_cursor->__pyx_vtab)->is_valid(__pyx_cur_scope->__pyx_v_cursor, 0) != 0);
             if (!__pyx_t_9) break;
 
-            /* "unqlite.pyx":578
+            /* "unqlite.pyx":581
  *         with self.cursor() as cursor:
  *             while cursor.is_valid():
  *                 yield cursor.value()             # <<<<<<<<<<<<<<
  *                 try:
  *                     cursor.next_entry()
  */
-            __pyx_t_3 = ((struct __pyx_vtabstruct_7unqlite_Cursor *)__pyx_cur_scope->__pyx_v_cursor->__pyx_vtab)->value(__pyx_cur_scope->__pyx_v_cursor, 0); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 578; __pyx_clineno = __LINE__; goto __pyx_L8_error;}
+            __pyx_t_3 = ((struct __pyx_vtabstruct_7unqlite_Cursor *)__pyx_cur_scope->__pyx_v_cursor->__pyx_vtab)->value(__pyx_cur_scope->__pyx_v_cursor, 0); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 581; __pyx_clineno = __LINE__; goto __pyx_L8_error;}
             __Pyx_GOTREF(__pyx_t_3);
             __pyx_r = __pyx_t_3;
             __pyx_t_3 = 0;
@@ -7227,9 +7298,9 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_57generator1(__pyx_CoroutineObject *
             __pyx_t_8 = __pyx_cur_scope->__pyx_t_3;
             __pyx_cur_scope->__pyx_t_3 = 0;
             __Pyx_XGOTREF(__pyx_t_8);
-            if (unlikely(!__pyx_sent_value)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 578; __pyx_clineno = __LINE__; goto __pyx_L8_error;}
+            if (unlikely(!__pyx_sent_value)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 581; __pyx_clineno = __LINE__; goto __pyx_L8_error;}
 
-            /* "unqlite.pyx":579
+            /* "unqlite.pyx":582
  *             while cursor.is_valid():
  *                 yield cursor.value()
  *                 try:             # <<<<<<<<<<<<<<
@@ -7243,18 +7314,18 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_57generator1(__pyx_CoroutineObject *
               __Pyx_XGOTREF(__pyx_t_12);
               /*try:*/ {
 
-                /* "unqlite.pyx":580
+                /* "unqlite.pyx":583
  *                 yield cursor.value()
  *                 try:
  *                     cursor.next_entry()             # <<<<<<<<<<<<<<
  *                 except StopIteration:
  *                     break
  */
-                __pyx_t_3 = ((struct __pyx_vtabstruct_7unqlite_Cursor *)__pyx_cur_scope->__pyx_v_cursor->__pyx_vtab)->next_entry(__pyx_cur_scope->__pyx_v_cursor, 0); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 580; __pyx_clineno = __LINE__; goto __pyx_L19_error;}
+                __pyx_t_3 = ((struct __pyx_vtabstruct_7unqlite_Cursor *)__pyx_cur_scope->__pyx_v_cursor->__pyx_vtab)->next_entry(__pyx_cur_scope->__pyx_v_cursor, 0); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 583; __pyx_clineno = __LINE__; goto __pyx_L19_error;}
                 __Pyx_GOTREF(__pyx_t_3);
                 __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-                /* "unqlite.pyx":579
+                /* "unqlite.pyx":582
  *             while cursor.is_valid():
  *                 yield cursor.value()
  *                 try:             # <<<<<<<<<<<<<<
@@ -7272,7 +7343,7 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_57generator1(__pyx_CoroutineObject *
               __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
               __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-              /* "unqlite.pyx":581
+              /* "unqlite.pyx":584
  *                 try:
  *                     cursor.next_entry()
  *                 except StopIteration:             # <<<<<<<<<<<<<<
@@ -7282,12 +7353,12 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_57generator1(__pyx_CoroutineObject *
               __pyx_t_13 = PyErr_ExceptionMatches(__pyx_builtin_StopIteration);
               if (__pyx_t_13) {
                 __Pyx_AddTraceback("unqlite.UnQLite.values", __pyx_clineno, __pyx_lineno, __pyx_filename);
-                if (__Pyx_GetException(&__pyx_t_3, &__pyx_t_1, &__pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 581; __pyx_clineno = __LINE__; goto __pyx_L21_except_error;}
+                if (__Pyx_GetException(&__pyx_t_3, &__pyx_t_1, &__pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 584; __pyx_clineno = __LINE__; goto __pyx_L21_except_error;}
                 __Pyx_GOTREF(__pyx_t_3);
                 __Pyx_GOTREF(__pyx_t_1);
                 __Pyx_GOTREF(__pyx_t_2);
 
-                /* "unqlite.pyx":582
+                /* "unqlite.pyx":585
  *                     cursor.next_entry()
  *                 except StopIteration:
  *                     break             # <<<<<<<<<<<<<<
@@ -7304,7 +7375,7 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_57generator1(__pyx_CoroutineObject *
               goto __pyx_L21_except_error;
               __pyx_L21_except_error:;
 
-              /* "unqlite.pyx":579
+              /* "unqlite.pyx":582
  *             while cursor.is_valid():
  *                 yield cursor.value()
  *                 try:             # <<<<<<<<<<<<<<
@@ -7327,7 +7398,7 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_57generator1(__pyx_CoroutineObject *
           }
           __pyx_L17_break:;
 
-          /* "unqlite.pyx":576
+          /* "unqlite.pyx":579
  *         """Efficiently iterate through the database's values."""
  *         cdef Cursor cursor
  *         with self.cursor() as cursor:             # <<<<<<<<<<<<<<
@@ -7346,20 +7417,20 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_57generator1(__pyx_CoroutineObject *
         __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
         /*except:*/ {
           __Pyx_AddTraceback("unqlite.UnQLite.values", __pyx_clineno, __pyx_lineno, __pyx_filename);
-          if (__Pyx_GetException(&__pyx_t_2, &__pyx_t_1, &__pyx_t_3) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 576; __pyx_clineno = __LINE__; goto __pyx_L10_except_error;}
+          if (__Pyx_GetException(&__pyx_t_2, &__pyx_t_1, &__pyx_t_3) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 579; __pyx_clineno = __LINE__; goto __pyx_L10_except_error;}
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_GOTREF(__pyx_t_3);
-          __pyx_t_5 = PyTuple_Pack(3, __pyx_t_2, __pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 576; __pyx_clineno = __LINE__; goto __pyx_L10_except_error;}
+          __pyx_t_5 = PyTuple_Pack(3, __pyx_t_2, __pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 579; __pyx_clineno = __LINE__; goto __pyx_L10_except_error;}
           __Pyx_GOTREF(__pyx_t_5);
           __pyx_t_12 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_5, NULL);
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          if (unlikely(!__pyx_t_12)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 576; __pyx_clineno = __LINE__; goto __pyx_L10_except_error;}
+          if (unlikely(!__pyx_t_12)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 579; __pyx_clineno = __LINE__; goto __pyx_L10_except_error;}
           __Pyx_GOTREF(__pyx_t_12);
           __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_12);
           __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-          if (__pyx_t_9 < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 576; __pyx_clineno = __LINE__; goto __pyx_L10_except_error;}
+          if (__pyx_t_9 < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 579; __pyx_clineno = __LINE__; goto __pyx_L10_except_error;}
           __pyx_t_14 = ((!(__pyx_t_9 != 0)) != 0);
           if (__pyx_t_14) {
             __Pyx_GIVEREF(__pyx_t_2);
@@ -7367,7 +7438,7 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_57generator1(__pyx_CoroutineObject *
             __Pyx_XGIVEREF(__pyx_t_3);
             __Pyx_ErrRestore(__pyx_t_2, __pyx_t_1, __pyx_t_3);
             __pyx_t_2 = 0; __pyx_t_1 = 0; __pyx_t_3 = 0; 
-            {__pyx_filename = __pyx_f[0]; __pyx_lineno = 576; __pyx_clineno = __LINE__; goto __pyx_L10_except_error;}
+            {__pyx_filename = __pyx_f[0]; __pyx_lineno = 579; __pyx_clineno = __LINE__; goto __pyx_L10_except_error;}
           }
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -7393,7 +7464,7 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_57generator1(__pyx_CoroutineObject *
         if (__pyx_t_4) {
           __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_tuple__15, NULL);
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 576; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 579; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_8);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         }
@@ -7408,7 +7479,7 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_57generator1(__pyx_CoroutineObject *
     __pyx_L32:;
   }
 
-  /* "unqlite.pyx":573
+  /* "unqlite.pyx":576
  *                     break
  * 
  *     def values(self):             # <<<<<<<<<<<<<<
@@ -7434,7 +7505,7 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_57generator1(__pyx_CoroutineObject *
 }
 static PyObject *__pyx_gb_7unqlite_7UnQLite_60generator2(__pyx_CoroutineObject *__pyx_generator, PyObject *__pyx_sent_value); /* proto */
 
-/* "unqlite.pyx":584
+/* "unqlite.pyx":587
  *                     break
  * 
  *     def items(self):             # <<<<<<<<<<<<<<
@@ -7474,7 +7545,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_58items(struct __pyx_obj_7unqlite_Un
   __Pyx_INCREF((PyObject *)__pyx_cur_scope->__pyx_v_self);
   __Pyx_GIVEREF((PyObject *)__pyx_cur_scope->__pyx_v_self);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_7unqlite_7UnQLite_60generator2, (PyObject *) __pyx_cur_scope, __pyx_n_s_items, __pyx_n_s_UnQLite_items); if (unlikely(!gen)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 584; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_7unqlite_7UnQLite_60generator2, (PyObject *) __pyx_cur_scope, __pyx_n_s_items, __pyx_n_s_UnQLite_items); if (unlikely(!gen)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 587; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -7520,9 +7591,9 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_60generator2(__pyx_CoroutineObject *
     return NULL;
   }
   __pyx_L3_first_run:;
-  if (unlikely(!__pyx_sent_value)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 584; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__pyx_sent_value)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 587; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "unqlite.pyx":589
+  /* "unqlite.pyx":592
  *         cdef tuple item
  * 
  *         with self.cursor() as cursor:             # <<<<<<<<<<<<<<
@@ -7530,7 +7601,7 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_60generator2(__pyx_CoroutineObject *
  *                 yield item
  */
   /*with:*/ {
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_cur_scope->__pyx_v_self), __pyx_n_s_cursor); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 589; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_cur_scope->__pyx_v_self), __pyx_n_s_cursor); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 592; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_3 = NULL;
     if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_2))) {
@@ -7543,16 +7614,16 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_60generator2(__pyx_CoroutineObject *
       }
     }
     if (__pyx_t_3) {
-      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 589; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 592; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     } else {
-      __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 589; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 592; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_4 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_exit); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 589; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_exit); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 592; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_3 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_enter); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 589; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
+    __pyx_t_3 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_enter); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 592; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_5 = NULL;
     if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_3))) {
@@ -7565,10 +7636,10 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_60generator2(__pyx_CoroutineObject *
       }
     }
     if (__pyx_t_5) {
-      __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 589; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
+      __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 592; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     } else {
-      __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 589; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
+      __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 592; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
     }
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -7582,12 +7653,12 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_60generator2(__pyx_CoroutineObject *
         __Pyx_XGOTREF(__pyx_t_7);
         __Pyx_XGOTREF(__pyx_t_8);
         /*try:*/ {
-          if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_7unqlite_Cursor))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 589; __pyx_clineno = __LINE__; goto __pyx_L8_error;}
+          if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_7unqlite_Cursor))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 592; __pyx_clineno = __LINE__; goto __pyx_L8_error;}
           __Pyx_GIVEREF(__pyx_t_3);
           __pyx_cur_scope->__pyx_v_cursor = ((struct __pyx_obj_7unqlite_Cursor *)__pyx_t_3);
           __pyx_t_3 = 0;
 
-          /* "unqlite.pyx":590
+          /* "unqlite.pyx":593
  * 
  *         with self.cursor() as cursor:
  *             for item in cursor:             # <<<<<<<<<<<<<<
@@ -7598,26 +7669,26 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_60generator2(__pyx_CoroutineObject *
             __pyx_t_3 = ((PyObject *)__pyx_cur_scope->__pyx_v_cursor); __Pyx_INCREF(__pyx_t_3); __pyx_t_9 = 0;
             __pyx_t_10 = NULL;
           } else {
-            __pyx_t_9 = -1; __pyx_t_3 = PyObject_GetIter(((PyObject *)__pyx_cur_scope->__pyx_v_cursor)); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 590; __pyx_clineno = __LINE__; goto __pyx_L8_error;}
+            __pyx_t_9 = -1; __pyx_t_3 = PyObject_GetIter(((PyObject *)__pyx_cur_scope->__pyx_v_cursor)); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 593; __pyx_clineno = __LINE__; goto __pyx_L8_error;}
             __Pyx_GOTREF(__pyx_t_3);
-            __pyx_t_10 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 590; __pyx_clineno = __LINE__; goto __pyx_L8_error;}
+            __pyx_t_10 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 593; __pyx_clineno = __LINE__; goto __pyx_L8_error;}
           }
           for (;;) {
             if (likely(!__pyx_t_10)) {
               if (likely(PyList_CheckExact(__pyx_t_3))) {
                 if (__pyx_t_9 >= PyList_GET_SIZE(__pyx_t_3)) break;
                 #if CYTHON_COMPILING_IN_CPYTHON
-                __pyx_t_1 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_9); __Pyx_INCREF(__pyx_t_1); __pyx_t_9++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 590; __pyx_clineno = __LINE__; goto __pyx_L8_error;}
+                __pyx_t_1 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_9); __Pyx_INCREF(__pyx_t_1); __pyx_t_9++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 593; __pyx_clineno = __LINE__; goto __pyx_L8_error;}
                 #else
-                __pyx_t_1 = PySequence_ITEM(__pyx_t_3, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 590; __pyx_clineno = __LINE__; goto __pyx_L8_error;}
+                __pyx_t_1 = PySequence_ITEM(__pyx_t_3, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 593; __pyx_clineno = __LINE__; goto __pyx_L8_error;}
                 __Pyx_GOTREF(__pyx_t_1);
                 #endif
               } else {
                 if (__pyx_t_9 >= PyTuple_GET_SIZE(__pyx_t_3)) break;
                 #if CYTHON_COMPILING_IN_CPYTHON
-                __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_9); __Pyx_INCREF(__pyx_t_1); __pyx_t_9++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 590; __pyx_clineno = __LINE__; goto __pyx_L8_error;}
+                __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_9); __Pyx_INCREF(__pyx_t_1); __pyx_t_9++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 593; __pyx_clineno = __LINE__; goto __pyx_L8_error;}
                 #else
-                __pyx_t_1 = PySequence_ITEM(__pyx_t_3, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 590; __pyx_clineno = __LINE__; goto __pyx_L8_error;}
+                __pyx_t_1 = PySequence_ITEM(__pyx_t_3, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 593; __pyx_clineno = __LINE__; goto __pyx_L8_error;}
                 __Pyx_GOTREF(__pyx_t_1);
                 #endif
               }
@@ -7627,19 +7698,19 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_60generator2(__pyx_CoroutineObject *
                 PyObject* exc_type = PyErr_Occurred();
                 if (exc_type) {
                   if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-                  else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 590; __pyx_clineno = __LINE__; goto __pyx_L8_error;}
+                  else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 593; __pyx_clineno = __LINE__; goto __pyx_L8_error;}
                 }
                 break;
               }
               __Pyx_GOTREF(__pyx_t_1);
             }
-            if (!(likely(PyTuple_CheckExact(__pyx_t_1))||((__pyx_t_1) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "tuple", Py_TYPE(__pyx_t_1)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 590; __pyx_clineno = __LINE__; goto __pyx_L8_error;}
+            if (!(likely(PyTuple_CheckExact(__pyx_t_1))||((__pyx_t_1) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "tuple", Py_TYPE(__pyx_t_1)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 593; __pyx_clineno = __LINE__; goto __pyx_L8_error;}
             __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_item);
             __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_item, ((PyObject*)__pyx_t_1));
             __Pyx_GIVEREF(__pyx_t_1);
             __pyx_t_1 = 0;
 
-            /* "unqlite.pyx":591
+            /* "unqlite.pyx":594
  *         with self.cursor() as cursor:
  *             for item in cursor:
  *                 yield item             # <<<<<<<<<<<<<<
@@ -7683,9 +7754,9 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_60generator2(__pyx_CoroutineObject *
             __Pyx_XGOTREF(__pyx_t_8);
             __pyx_t_9 = __pyx_cur_scope->__pyx_t_5;
             __pyx_t_10 = __pyx_cur_scope->__pyx_t_6;
-            if (unlikely(!__pyx_sent_value)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 591; __pyx_clineno = __LINE__; goto __pyx_L8_error;}
+            if (unlikely(!__pyx_sent_value)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 594; __pyx_clineno = __LINE__; goto __pyx_L8_error;}
 
-            /* "unqlite.pyx":590
+            /* "unqlite.pyx":593
  * 
  *         with self.cursor() as cursor:
  *             for item in cursor:             # <<<<<<<<<<<<<<
@@ -7695,7 +7766,7 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_60generator2(__pyx_CoroutineObject *
           }
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-          /* "unqlite.pyx":589
+          /* "unqlite.pyx":592
  *         cdef tuple item
  * 
  *         with self.cursor() as cursor:             # <<<<<<<<<<<<<<
@@ -7714,20 +7785,20 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_60generator2(__pyx_CoroutineObject *
         __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
         /*except:*/ {
           __Pyx_AddTraceback("unqlite.UnQLite.items", __pyx_clineno, __pyx_lineno, __pyx_filename);
-          if (__Pyx_GetException(&__pyx_t_3, &__pyx_t_1, &__pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 589; __pyx_clineno = __LINE__; goto __pyx_L10_except_error;}
+          if (__Pyx_GetException(&__pyx_t_3, &__pyx_t_1, &__pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 592; __pyx_clineno = __LINE__; goto __pyx_L10_except_error;}
           __Pyx_GOTREF(__pyx_t_3);
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_GOTREF(__pyx_t_2);
-          __pyx_t_5 = PyTuple_Pack(3, __pyx_t_3, __pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 589; __pyx_clineno = __LINE__; goto __pyx_L10_except_error;}
+          __pyx_t_5 = PyTuple_Pack(3, __pyx_t_3, __pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 592; __pyx_clineno = __LINE__; goto __pyx_L10_except_error;}
           __Pyx_GOTREF(__pyx_t_5);
           __pyx_t_11 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_5, NULL);
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 589; __pyx_clineno = __LINE__; goto __pyx_L10_except_error;}
+          if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 592; __pyx_clineno = __LINE__; goto __pyx_L10_except_error;}
           __Pyx_GOTREF(__pyx_t_11);
           __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_11);
           __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-          if (__pyx_t_12 < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 589; __pyx_clineno = __LINE__; goto __pyx_L10_except_error;}
+          if (__pyx_t_12 < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 592; __pyx_clineno = __LINE__; goto __pyx_L10_except_error;}
           __pyx_t_13 = ((!(__pyx_t_12 != 0)) != 0);
           if (__pyx_t_13) {
             __Pyx_GIVEREF(__pyx_t_3);
@@ -7735,7 +7806,7 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_60generator2(__pyx_CoroutineObject *
             __Pyx_XGIVEREF(__pyx_t_2);
             __Pyx_ErrRestore(__pyx_t_3, __pyx_t_1, __pyx_t_2);
             __pyx_t_3 = 0; __pyx_t_1 = 0; __pyx_t_2 = 0; 
-            {__pyx_filename = __pyx_f[0]; __pyx_lineno = 589; __pyx_clineno = __LINE__; goto __pyx_L10_except_error;}
+            {__pyx_filename = __pyx_f[0]; __pyx_lineno = 592; __pyx_clineno = __LINE__; goto __pyx_L10_except_error;}
           }
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -7761,7 +7832,7 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_60generator2(__pyx_CoroutineObject *
         if (__pyx_t_4) {
           __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_tuple__16, NULL);
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 589; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 592; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_8);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         }
@@ -7776,7 +7847,7 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_60generator2(__pyx_CoroutineObject *
     __pyx_L22:;
   }
 
-  /* "unqlite.pyx":584
+  /* "unqlite.pyx":587
  *                     break
  * 
  *     def items(self):             # <<<<<<<<<<<<<<
@@ -7801,7 +7872,7 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_60generator2(__pyx_CoroutineObject *
   return __pyx_r;
 }
 
-/* "unqlite.pyx":593
+/* "unqlite.pyx":596
  *                 yield item
  * 
  *     def __iter__(self):             # <<<<<<<<<<<<<<
@@ -7834,14 +7905,14 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_61__iter__(struct __pyx_obj_7unqlite
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__iter__", 0);
 
-  /* "unqlite.pyx":594
+  /* "unqlite.pyx":597
  * 
  *     def __iter__(self):
  *         cursor = self.cursor()             # <<<<<<<<<<<<<<
  *         cursor.reset()
  *         return cursor
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_cursor); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 594; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_cursor); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 597; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_2))) {
@@ -7854,24 +7925,24 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_61__iter__(struct __pyx_obj_7unqlite
     }
   }
   if (__pyx_t_3) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 594; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 597; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else {
-    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 594; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 597; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_cursor = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":595
+  /* "unqlite.pyx":598
  *     def __iter__(self):
  *         cursor = self.cursor()
  *         cursor.reset()             # <<<<<<<<<<<<<<
  *         return cursor
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_cursor, __pyx_n_s_reset); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 595; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_cursor, __pyx_n_s_reset); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 598; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_2))) {
@@ -7884,16 +7955,16 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_61__iter__(struct __pyx_obj_7unqlite
     }
   }
   if (__pyx_t_3) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 595; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 598; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else {
-    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 595; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 598; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":596
+  /* "unqlite.pyx":599
  *         cursor = self.cursor()
  *         cursor.reset()
  *         return cursor             # <<<<<<<<<<<<<<
@@ -7905,7 +7976,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_61__iter__(struct __pyx_obj_7unqlite
   __pyx_r = __pyx_v_cursor;
   goto __pyx_L0;
 
-  /* "unqlite.pyx":593
+  /* "unqlite.pyx":596
  *                 yield item
  * 
  *     def __iter__(self):             # <<<<<<<<<<<<<<
@@ -7928,7 +7999,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_61__iter__(struct __pyx_obj_7unqlite
 }
 static PyObject *__pyx_gb_7unqlite_7UnQLite_65generator3(__pyx_CoroutineObject *__pyx_generator, PyObject *__pyx_sent_value); /* proto */
 
-/* "unqlite.pyx":598
+/* "unqlite.pyx":601
  *         return cursor
  * 
  *     def range(self, basestring start_key, basestring end_key,             # <<<<<<<<<<<<<<
@@ -7969,7 +8040,7 @@ static PyObject *__pyx_pw_7unqlite_7UnQLite_64range(PyObject *__pyx_v_self, PyOb
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_end_key)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("range", 0, 2, 3, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 598; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("range", 0, 2, 3, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 601; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  2:
         if (kw_args > 0) {
@@ -7978,7 +8049,7 @@ static PyObject *__pyx_pw_7unqlite_7UnQLite_64range(PyObject *__pyx_v_self, PyOb
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "range") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 598; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "range") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 601; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -7992,10 +8063,10 @@ static PyObject *__pyx_pw_7unqlite_7UnQLite_64range(PyObject *__pyx_v_self, PyOb
     __pyx_v_start_key = ((PyObject*)values[0]);
     __pyx_v_end_key = ((PyObject*)values[1]);
     if (values[2]) {
-      __pyx_v_include_end_key = __Pyx_PyObject_IsTrue(values[2]); if (unlikely((__pyx_v_include_end_key == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 599; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+      __pyx_v_include_end_key = __Pyx_PyObject_IsTrue(values[2]); if (unlikely((__pyx_v_include_end_key == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 602; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
     } else {
 
-      /* "unqlite.pyx":599
+      /* "unqlite.pyx":602
  * 
  *     def range(self, basestring start_key, basestring end_key,
  *                 bint include_end_key=True):             # <<<<<<<<<<<<<<
@@ -8007,17 +8078,17 @@ static PyObject *__pyx_pw_7unqlite_7UnQLite_64range(PyObject *__pyx_v_self, PyOb
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("range", 0, 2, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 598; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("range", 0, 2, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 601; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("unqlite.UnQLite.range", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_start_key), (&PyBaseString_Type), 1, "start_key", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 598; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_end_key), (&PyBaseString_Type), 1, "end_key", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 598; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_start_key), (&PyBaseString_Type), 1, "start_key", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 601; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_end_key), (&PyBaseString_Type), 1, "end_key", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 601; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_7unqlite_7UnQLite_63range(((struct __pyx_obj_7unqlite_UnQLite *)__pyx_v_self), __pyx_v_start_key, __pyx_v_end_key, __pyx_v_include_end_key);
 
-  /* "unqlite.pyx":598
+  /* "unqlite.pyx":601
  *         return cursor
  * 
  *     def range(self, basestring start_key, basestring end_key,             # <<<<<<<<<<<<<<
@@ -8059,7 +8130,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_63range(struct __pyx_obj_7unqlite_Un
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_end_key);
   __pyx_cur_scope->__pyx_v_include_end_key = __pyx_v_include_end_key;
   {
-    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_7unqlite_7UnQLite_65generator3, (PyObject *) __pyx_cur_scope, __pyx_n_s_range, __pyx_n_s_UnQLite_range); if (unlikely(!gen)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 598; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_7unqlite_7UnQLite_65generator3, (PyObject *) __pyx_cur_scope, __pyx_n_s_range, __pyx_n_s_UnQLite_range); if (unlikely(!gen)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 601; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -8099,16 +8170,16 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_65generator3(__pyx_CoroutineObject *
     return NULL;
   }
   __pyx_L3_first_run:;
-  if (unlikely(!__pyx_sent_value)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 598; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__pyx_sent_value)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 601; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "unqlite.pyx":600
+  /* "unqlite.pyx":603
  *     def range(self, basestring start_key, basestring end_key,
  *                 bint include_end_key=True):
  *         cdef Cursor cursor = self.cursor()             # <<<<<<<<<<<<<<
  *         cursor.seek(start_key)
  *         for item in cursor.fetch_until(end_key, include_end_key):
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_cur_scope->__pyx_v_self), __pyx_n_s_cursor); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 600; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_cur_scope->__pyx_v_self), __pyx_n_s_cursor); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 603; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_2))) {
@@ -8121,39 +8192,39 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_65generator3(__pyx_CoroutineObject *
     }
   }
   if (__pyx_t_3) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 600; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 603; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else {
-    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 600; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 603; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_7unqlite_Cursor))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 600; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_7unqlite_Cursor))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 603; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_cur_scope->__pyx_v_cursor = ((struct __pyx_obj_7unqlite_Cursor *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":601
+  /* "unqlite.pyx":604
  *                 bint include_end_key=True):
  *         cdef Cursor cursor = self.cursor()
  *         cursor.seek(start_key)             # <<<<<<<<<<<<<<
  *         for item in cursor.fetch_until(end_key, include_end_key):
  *             yield item
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_Cursor *)__pyx_cur_scope->__pyx_v_cursor->__pyx_vtab)->seek(__pyx_cur_scope->__pyx_v_cursor, __pyx_cur_scope->__pyx_v_start_key, 0, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 601; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_Cursor *)__pyx_cur_scope->__pyx_v_cursor->__pyx_vtab)->seek(__pyx_cur_scope->__pyx_v_cursor, __pyx_cur_scope->__pyx_v_start_key, 0, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 604; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":602
+  /* "unqlite.pyx":605
  *         cdef Cursor cursor = self.cursor()
  *         cursor.seek(start_key)
  *         for item in cursor.fetch_until(end_key, include_end_key):             # <<<<<<<<<<<<<<
  *             yield item
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_cur_scope->__pyx_v_cursor), __pyx_n_s_fetch_until); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 602; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_cur_scope->__pyx_v_cursor), __pyx_n_s_fetch_until); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 605; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyBool_FromLong(__pyx_cur_scope->__pyx_v_include_end_key); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 602; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyBool_FromLong(__pyx_cur_scope->__pyx_v_include_end_key); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 605; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   __pyx_t_5 = 0;
@@ -8167,7 +8238,7 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_65generator3(__pyx_CoroutineObject *
       __pyx_t_5 = 1;
     }
   }
-  __pyx_t_6 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 602; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_6 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 605; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_6);
   if (__pyx_t_4) {
     __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_4); __pyx_t_4 = NULL;
@@ -8178,7 +8249,7 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_65generator3(__pyx_CoroutineObject *
   __Pyx_GIVEREF(__pyx_t_3);
   PyTuple_SET_ITEM(__pyx_t_6, 1+__pyx_t_5, __pyx_t_3);
   __pyx_t_3 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 602; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 605; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -8186,9 +8257,9 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_65generator3(__pyx_CoroutineObject *
     __pyx_t_2 = __pyx_t_1; __Pyx_INCREF(__pyx_t_2); __pyx_t_5 = 0;
     __pyx_t_7 = NULL;
   } else {
-    __pyx_t_5 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 602; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_5 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 605; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_7 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 602; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_7 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 605; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   for (;;) {
@@ -8196,17 +8267,17 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_65generator3(__pyx_CoroutineObject *
       if (likely(PyList_CheckExact(__pyx_t_2))) {
         if (__pyx_t_5 >= PyList_GET_SIZE(__pyx_t_2)) break;
         #if CYTHON_COMPILING_IN_CPYTHON
-        __pyx_t_1 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_5); __Pyx_INCREF(__pyx_t_1); __pyx_t_5++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 602; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_1 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_5); __Pyx_INCREF(__pyx_t_1); __pyx_t_5++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 605; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         #else
-        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 602; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 605; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_1);
         #endif
       } else {
         if (__pyx_t_5 >= PyTuple_GET_SIZE(__pyx_t_2)) break;
         #if CYTHON_COMPILING_IN_CPYTHON
-        __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_5); __Pyx_INCREF(__pyx_t_1); __pyx_t_5++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 602; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_5); __Pyx_INCREF(__pyx_t_1); __pyx_t_5++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 605; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         #else
-        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 602; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 605; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_1);
         #endif
       }
@@ -8216,7 +8287,7 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_65generator3(__pyx_CoroutineObject *
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 602; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 605; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         }
         break;
       }
@@ -8227,7 +8298,7 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_65generator3(__pyx_CoroutineObject *
     __Pyx_GIVEREF(__pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "unqlite.pyx":603
+    /* "unqlite.pyx":606
  *         cursor.seek(start_key)
  *         for item in cursor.fetch_until(end_key, include_end_key):
  *             yield item             # <<<<<<<<<<<<<<
@@ -8251,9 +8322,9 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_65generator3(__pyx_CoroutineObject *
     __Pyx_XGOTREF(__pyx_t_2);
     __pyx_t_5 = __pyx_cur_scope->__pyx_t_1;
     __pyx_t_7 = __pyx_cur_scope->__pyx_t_2;
-    if (unlikely(!__pyx_sent_value)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 603; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (unlikely(!__pyx_sent_value)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 606; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-    /* "unqlite.pyx":602
+    /* "unqlite.pyx":605
  *         cdef Cursor cursor = self.cursor()
  *         cursor.seek(start_key)
  *         for item in cursor.fetch_until(end_key, include_end_key):             # <<<<<<<<<<<<<<
@@ -8263,7 +8334,7 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_65generator3(__pyx_CoroutineObject *
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "unqlite.pyx":598
+  /* "unqlite.pyx":601
  *         return cursor
  * 
  *     def range(self, basestring start_key, basestring end_key,             # <<<<<<<<<<<<<<
@@ -8289,7 +8360,7 @@ static PyObject *__pyx_gb_7unqlite_7UnQLite_65generator3(__pyx_CoroutineObject *
   return __pyx_r;
 }
 
-/* "unqlite.pyx":605
+/* "unqlite.pyx":608
  *             yield item
  * 
  *     def __len__(self):             # <<<<<<<<<<<<<<
@@ -8338,7 +8409,7 @@ static Py_ssize_t __pyx_pf_7unqlite_7UnQLite_66__len__(struct __pyx_obj_7unqlite
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__len__", 0);
 
-  /* "unqlite.pyx":613
+  /* "unqlite.pyx":616
  *         """
  *         cdef Cursor cursor
  *         cdef long count = 0             # <<<<<<<<<<<<<<
@@ -8347,7 +8418,7 @@ static Py_ssize_t __pyx_pf_7unqlite_7UnQLite_66__len__(struct __pyx_obj_7unqlite
  */
   __pyx_v_count = 0;
 
-  /* "unqlite.pyx":614
+  /* "unqlite.pyx":617
  *         cdef Cursor cursor
  *         cdef long count = 0
  *         with self.cursor() as cursor:             # <<<<<<<<<<<<<<
@@ -8355,7 +8426,7 @@ static Py_ssize_t __pyx_pf_7unqlite_7UnQLite_66__len__(struct __pyx_obj_7unqlite
  *                 count += 1
  */
   /*with:*/ {
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_cursor); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 614; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_cursor); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 617; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_3 = NULL;
     if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_2))) {
@@ -8368,16 +8439,16 @@ static Py_ssize_t __pyx_pf_7unqlite_7UnQLite_66__len__(struct __pyx_obj_7unqlite
       }
     }
     if (__pyx_t_3) {
-      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 614; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 617; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     } else {
-      __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 614; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 617; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_4 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_exit); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 614; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_exit); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 617; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_3 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_enter); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 614; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+    __pyx_t_3 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_enter); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 617; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_5 = NULL;
     if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_3))) {
@@ -8390,10 +8461,10 @@ static Py_ssize_t __pyx_pf_7unqlite_7UnQLite_66__len__(struct __pyx_obj_7unqlite
       }
     }
     if (__pyx_t_5) {
-      __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 614; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+      __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 617; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     } else {
-      __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 614; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+      __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 617; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
     }
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -8407,11 +8478,11 @@ static Py_ssize_t __pyx_pf_7unqlite_7UnQLite_66__len__(struct __pyx_obj_7unqlite
         __Pyx_XGOTREF(__pyx_t_7);
         __Pyx_XGOTREF(__pyx_t_8);
         /*try:*/ {
-          if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_7unqlite_Cursor))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 614; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
+          if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_7unqlite_Cursor))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 617; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
           __pyx_v_cursor = ((struct __pyx_obj_7unqlite_Cursor *)__pyx_t_3);
           __pyx_t_3 = 0;
 
-          /* "unqlite.pyx":615
+          /* "unqlite.pyx":618
  *         cdef long count = 0
  *         with self.cursor() as cursor:
  *             for item in cursor:             # <<<<<<<<<<<<<<
@@ -8422,26 +8493,26 @@ static Py_ssize_t __pyx_pf_7unqlite_7UnQLite_66__len__(struct __pyx_obj_7unqlite
             __pyx_t_3 = ((PyObject *)__pyx_v_cursor); __Pyx_INCREF(__pyx_t_3); __pyx_t_9 = 0;
             __pyx_t_10 = NULL;
           } else {
-            __pyx_t_9 = -1; __pyx_t_3 = PyObject_GetIter(((PyObject *)__pyx_v_cursor)); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 615; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
+            __pyx_t_9 = -1; __pyx_t_3 = PyObject_GetIter(((PyObject *)__pyx_v_cursor)); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 618; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
             __Pyx_GOTREF(__pyx_t_3);
-            __pyx_t_10 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 615; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
+            __pyx_t_10 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 618; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
           }
           for (;;) {
             if (likely(!__pyx_t_10)) {
               if (likely(PyList_CheckExact(__pyx_t_3))) {
                 if (__pyx_t_9 >= PyList_GET_SIZE(__pyx_t_3)) break;
                 #if CYTHON_COMPILING_IN_CPYTHON
-                __pyx_t_1 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_9); __Pyx_INCREF(__pyx_t_1); __pyx_t_9++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 615; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
+                __pyx_t_1 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_9); __Pyx_INCREF(__pyx_t_1); __pyx_t_9++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 618; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
                 #else
-                __pyx_t_1 = PySequence_ITEM(__pyx_t_3, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 615; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
+                __pyx_t_1 = PySequence_ITEM(__pyx_t_3, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 618; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
                 __Pyx_GOTREF(__pyx_t_1);
                 #endif
               } else {
                 if (__pyx_t_9 >= PyTuple_GET_SIZE(__pyx_t_3)) break;
                 #if CYTHON_COMPILING_IN_CPYTHON
-                __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_9); __Pyx_INCREF(__pyx_t_1); __pyx_t_9++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 615; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
+                __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_9); __Pyx_INCREF(__pyx_t_1); __pyx_t_9++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 618; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
                 #else
-                __pyx_t_1 = PySequence_ITEM(__pyx_t_3, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 615; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
+                __pyx_t_1 = PySequence_ITEM(__pyx_t_3, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 618; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
                 __Pyx_GOTREF(__pyx_t_1);
                 #endif
               }
@@ -8451,7 +8522,7 @@ static Py_ssize_t __pyx_pf_7unqlite_7UnQLite_66__len__(struct __pyx_obj_7unqlite
                 PyObject* exc_type = PyErr_Occurred();
                 if (exc_type) {
                   if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-                  else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 615; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
+                  else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 618; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
                 }
                 break;
               }
@@ -8460,7 +8531,7 @@ static Py_ssize_t __pyx_pf_7unqlite_7UnQLite_66__len__(struct __pyx_obj_7unqlite
             __Pyx_XDECREF_SET(__pyx_v_item, __pyx_t_1);
             __pyx_t_1 = 0;
 
-            /* "unqlite.pyx":616
+            /* "unqlite.pyx":619
  *         with self.cursor() as cursor:
  *             for item in cursor:
  *                 count += 1             # <<<<<<<<<<<<<<
@@ -8469,7 +8540,7 @@ static Py_ssize_t __pyx_pf_7unqlite_7UnQLite_66__len__(struct __pyx_obj_7unqlite
  */
             __pyx_v_count = (__pyx_v_count + 1);
 
-            /* "unqlite.pyx":615
+            /* "unqlite.pyx":618
  *         cdef long count = 0
  *         with self.cursor() as cursor:
  *             for item in cursor:             # <<<<<<<<<<<<<<
@@ -8479,7 +8550,7 @@ static Py_ssize_t __pyx_pf_7unqlite_7UnQLite_66__len__(struct __pyx_obj_7unqlite
           }
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-          /* "unqlite.pyx":614
+          /* "unqlite.pyx":617
  *         cdef Cursor cursor
  *         cdef long count = 0
  *         with self.cursor() as cursor:             # <<<<<<<<<<<<<<
@@ -8498,20 +8569,20 @@ static Py_ssize_t __pyx_pf_7unqlite_7UnQLite_66__len__(struct __pyx_obj_7unqlite
         __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
         /*except:*/ {
           __Pyx_AddTraceback("unqlite.UnQLite.__len__", __pyx_clineno, __pyx_lineno, __pyx_filename);
-          if (__Pyx_GetException(&__pyx_t_3, &__pyx_t_1, &__pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 614; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
+          if (__Pyx_GetException(&__pyx_t_3, &__pyx_t_1, &__pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 617; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
           __Pyx_GOTREF(__pyx_t_3);
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_GOTREF(__pyx_t_2);
-          __pyx_t_5 = PyTuple_Pack(3, __pyx_t_3, __pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 614; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
+          __pyx_t_5 = PyTuple_Pack(3, __pyx_t_3, __pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 617; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
           __Pyx_GOTREF(__pyx_t_5);
           __pyx_t_11 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_5, NULL);
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 614; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
+          if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 617; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
           __Pyx_GOTREF(__pyx_t_11);
           __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_11);
           __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-          if (__pyx_t_12 < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 614; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
+          if (__pyx_t_12 < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 617; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
           __pyx_t_13 = ((!(__pyx_t_12 != 0)) != 0);
           if (__pyx_t_13) {
             __Pyx_GIVEREF(__pyx_t_3);
@@ -8519,7 +8590,7 @@ static Py_ssize_t __pyx_pf_7unqlite_7UnQLite_66__len__(struct __pyx_obj_7unqlite
             __Pyx_XGIVEREF(__pyx_t_2);
             __Pyx_ErrRestore(__pyx_t_3, __pyx_t_1, __pyx_t_2);
             __pyx_t_3 = 0; __pyx_t_1 = 0; __pyx_t_2 = 0; 
-            {__pyx_filename = __pyx_f[0]; __pyx_lineno = 614; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
+            {__pyx_filename = __pyx_f[0]; __pyx_lineno = 617; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
           }
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -8545,7 +8616,7 @@ static Py_ssize_t __pyx_pf_7unqlite_7UnQLite_66__len__(struct __pyx_obj_7unqlite
         if (__pyx_t_4) {
           __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_tuple__17, NULL);
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 614; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 617; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_8);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         }
@@ -8560,7 +8631,7 @@ static Py_ssize_t __pyx_pf_7unqlite_7UnQLite_66__len__(struct __pyx_obj_7unqlite
     __pyx_L20:;
   }
 
-  /* "unqlite.pyx":617
+  /* "unqlite.pyx":620
  *             for item in cursor:
  *                 count += 1
  *         return count             # <<<<<<<<<<<<<<
@@ -8570,7 +8641,7 @@ static Py_ssize_t __pyx_pf_7unqlite_7UnQLite_66__len__(struct __pyx_obj_7unqlite
   __pyx_r = __pyx_v_count;
   goto __pyx_L0;
 
-  /* "unqlite.pyx":605
+  /* "unqlite.pyx":608
  *             yield item
  * 
  *     def __len__(self):             # <<<<<<<<<<<<<<
@@ -8593,7 +8664,7 @@ static Py_ssize_t __pyx_pf_7unqlite_7UnQLite_66__len__(struct __pyx_obj_7unqlite
   return __pyx_r;
 }
 
-/* "unqlite.pyx":619
+/* "unqlite.pyx":622
  *         return count
  * 
  *     def flush(self):             # <<<<<<<<<<<<<<
@@ -8636,7 +8707,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_68flush(struct __pyx_obj_7unqlite_Un
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("flush", 0);
 
-  /* "unqlite.pyx":627
+  /* "unqlite.pyx":630
  *         """
  *         cdef Cursor cursor
  *         cdef long i = 0             # <<<<<<<<<<<<<<
@@ -8645,7 +8716,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_68flush(struct __pyx_obj_7unqlite_Un
  */
   __pyx_v_i = 0;
 
-  /* "unqlite.pyx":628
+  /* "unqlite.pyx":631
  *         cdef Cursor cursor
  *         cdef long i = 0
  *         with self.cursor() as cursor:             # <<<<<<<<<<<<<<
@@ -8653,7 +8724,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_68flush(struct __pyx_obj_7unqlite_Un
  *                 cursor.delete()
  */
   /*with:*/ {
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_cursor); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 628; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_cursor); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 631; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_3 = NULL;
     if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_2))) {
@@ -8666,16 +8737,16 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_68flush(struct __pyx_obj_7unqlite_Un
       }
     }
     if (__pyx_t_3) {
-      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 628; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 631; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     } else {
-      __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 628; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 631; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_4 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_exit); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 628; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_exit); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 631; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_3 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_enter); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 628; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+    __pyx_t_3 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_enter); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 631; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_5 = NULL;
     if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_3))) {
@@ -8688,10 +8759,10 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_68flush(struct __pyx_obj_7unqlite_Un
       }
     }
     if (__pyx_t_5) {
-      __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 628; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+      __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 631; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     } else {
-      __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 628; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+      __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 631; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
     }
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -8705,11 +8776,11 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_68flush(struct __pyx_obj_7unqlite_Un
         __Pyx_XGOTREF(__pyx_t_7);
         __Pyx_XGOTREF(__pyx_t_8);
         /*try:*/ {
-          if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_7unqlite_Cursor))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 628; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
+          if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_7unqlite_Cursor))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 631; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
           __pyx_v_cursor = ((struct __pyx_obj_7unqlite_Cursor *)__pyx_t_3);
           __pyx_t_3 = 0;
 
-          /* "unqlite.pyx":629
+          /* "unqlite.pyx":632
  *         cdef long i = 0
  *         with self.cursor() as cursor:
  *             while cursor.is_valid():             # <<<<<<<<<<<<<<
@@ -8720,18 +8791,18 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_68flush(struct __pyx_obj_7unqlite_Un
             __pyx_t_9 = (((struct __pyx_vtabstruct_7unqlite_Cursor *)__pyx_v_cursor->__pyx_vtab)->is_valid(__pyx_v_cursor, 0) != 0);
             if (!__pyx_t_9) break;
 
-            /* "unqlite.pyx":630
+            /* "unqlite.pyx":633
  *         with self.cursor() as cursor:
  *             while cursor.is_valid():
  *                 cursor.delete()             # <<<<<<<<<<<<<<
  *                 i += 1
  *         return i
  */
-            __pyx_t_3 = ((struct __pyx_vtabstruct_7unqlite_Cursor *)__pyx_v_cursor->__pyx_vtab)->delete(__pyx_v_cursor, 0); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 630; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
+            __pyx_t_3 = ((struct __pyx_vtabstruct_7unqlite_Cursor *)__pyx_v_cursor->__pyx_vtab)->delete(__pyx_v_cursor, 0); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 633; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
             __Pyx_GOTREF(__pyx_t_3);
             __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-            /* "unqlite.pyx":631
+            /* "unqlite.pyx":634
  *             while cursor.is_valid():
  *                 cursor.delete()
  *                 i += 1             # <<<<<<<<<<<<<<
@@ -8741,7 +8812,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_68flush(struct __pyx_obj_7unqlite_Un
             __pyx_v_i = (__pyx_v_i + 1);
           }
 
-          /* "unqlite.pyx":628
+          /* "unqlite.pyx":631
  *         cdef Cursor cursor
  *         cdef long i = 0
  *         with self.cursor() as cursor:             # <<<<<<<<<<<<<<
@@ -8760,20 +8831,20 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_68flush(struct __pyx_obj_7unqlite_Un
         __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
         /*except:*/ {
           __Pyx_AddTraceback("unqlite.UnQLite.flush", __pyx_clineno, __pyx_lineno, __pyx_filename);
-          if (__Pyx_GetException(&__pyx_t_3, &__pyx_t_1, &__pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 628; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
+          if (__Pyx_GetException(&__pyx_t_3, &__pyx_t_1, &__pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 631; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
           __Pyx_GOTREF(__pyx_t_3);
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_GOTREF(__pyx_t_2);
-          __pyx_t_5 = PyTuple_Pack(3, __pyx_t_3, __pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 628; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
+          __pyx_t_5 = PyTuple_Pack(3, __pyx_t_3, __pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 631; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
           __Pyx_GOTREF(__pyx_t_5);
           __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_5, NULL);
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          if (unlikely(!__pyx_t_10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 628; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
+          if (unlikely(!__pyx_t_10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 631; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
           __Pyx_GOTREF(__pyx_t_10);
           __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_10);
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-          if (__pyx_t_9 < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 628; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
+          if (__pyx_t_9 < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 631; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
           __pyx_t_11 = ((!(__pyx_t_9 != 0)) != 0);
           if (__pyx_t_11) {
             __Pyx_GIVEREF(__pyx_t_3);
@@ -8781,7 +8852,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_68flush(struct __pyx_obj_7unqlite_Un
             __Pyx_XGIVEREF(__pyx_t_2);
             __Pyx_ErrRestore(__pyx_t_3, __pyx_t_1, __pyx_t_2);
             __pyx_t_3 = 0; __pyx_t_1 = 0; __pyx_t_2 = 0; 
-            {__pyx_filename = __pyx_f[0]; __pyx_lineno = 628; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
+            {__pyx_filename = __pyx_f[0]; __pyx_lineno = 631; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
           }
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -8807,7 +8878,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_68flush(struct __pyx_obj_7unqlite_Un
         if (__pyx_t_4) {
           __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_tuple__18, NULL);
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 628; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 631; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_8);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         }
@@ -8822,7 +8893,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_68flush(struct __pyx_obj_7unqlite_Un
     __pyx_L20:;
   }
 
-  /* "unqlite.pyx":632
+  /* "unqlite.pyx":635
  *                 cursor.delete()
  *                 i += 1
  *         return i             # <<<<<<<<<<<<<<
@@ -8830,13 +8901,13 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_68flush(struct __pyx_obj_7unqlite_Un
  *     cpdef random_string(self, int nbytes):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyInt_From_long(__pyx_v_i); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 632; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyInt_From_long(__pyx_v_i); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 635; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "unqlite.pyx":619
+  /* "unqlite.pyx":622
  *         return count
  * 
  *     def flush(self):             # <<<<<<<<<<<<<<
@@ -8859,7 +8930,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_68flush(struct __pyx_obj_7unqlite_Un
   return __pyx_r;
 }
 
-/* "unqlite.pyx":634
+/* "unqlite.pyx":637
  *         return i
  * 
  *     cpdef random_string(self, int nbytes):             # <<<<<<<<<<<<<<
@@ -8895,11 +8966,11 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_random_string(struct __pyx_obj_7unqli
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
   else if (unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0)) {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_random_string); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 634; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_random_string); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 637; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)__pyx_pw_7unqlite_7UnQLite_71random_string)) {
       __Pyx_XDECREF(__pyx_r);
-      __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_nbytes); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 634; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_nbytes); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 637; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_INCREF(__pyx_t_1);
       __pyx_t_4 = __pyx_t_1; __pyx_t_5 = NULL;
@@ -8913,17 +8984,17 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_random_string(struct __pyx_obj_7unqli
         }
       }
       if (!__pyx_t_5) {
-        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 634; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 637; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __Pyx_GOTREF(__pyx_t_2);
       } else {
-        __pyx_t_6 = PyTuple_New(1+1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 634; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_6 = PyTuple_New(1+1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 637; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_6);
         __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_5); __pyx_t_5 = NULL;
         __Pyx_GIVEREF(__pyx_t_3);
         PyTuple_SET_ITEM(__pyx_t_6, 0+1, __pyx_t_3);
         __pyx_t_3 = 0;
-        __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_6, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 634; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_6, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 637; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       }
@@ -8936,7 +9007,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_random_string(struct __pyx_obj_7unqli
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "unqlite.pyx":637
+  /* "unqlite.pyx":640
  *         """Generate a random string of given length."""
  *         cdef char *buf
  *         buf = <char *>malloc(nbytes * sizeof(char))             # <<<<<<<<<<<<<<
@@ -8945,7 +9016,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_random_string(struct __pyx_obj_7unqli
  */
   __pyx_v_buf = ((char *)malloc((__pyx_v_nbytes * (sizeof(char)))));
 
-  /* "unqlite.pyx":638
+  /* "unqlite.pyx":641
  *         cdef char *buf
  *         buf = <char *>malloc(nbytes * sizeof(char))
  *         try:             # <<<<<<<<<<<<<<
@@ -8954,7 +9025,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_random_string(struct __pyx_obj_7unqli
  */
   /*try:*/ {
 
-    /* "unqlite.pyx":639
+    /* "unqlite.pyx":642
  *         buf = <char *>malloc(nbytes * sizeof(char))
  *         try:
  *             unqlite_util_random_string(self.database, buf, nbytes)             # <<<<<<<<<<<<<<
@@ -8963,7 +9034,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_random_string(struct __pyx_obj_7unqli
  */
     unqlite_util_random_string(__pyx_v_self->database, __pyx_v_buf, __pyx_v_nbytes);
 
-    /* "unqlite.pyx":640
+    /* "unqlite.pyx":643
  *         try:
  *             unqlite_util_random_string(self.database, buf, nbytes)
  *             return buf[:nbytes]             # <<<<<<<<<<<<<<
@@ -8971,14 +9042,14 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_random_string(struct __pyx_obj_7unqli
  *             free(buf)
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_1 = __Pyx_PyBytes_FromStringAndSize(__pyx_v_buf + 0, __pyx_v_nbytes - 0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 640; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
+    __pyx_t_1 = __Pyx_PyBytes_FromStringAndSize(__pyx_v_buf + 0, __pyx_v_nbytes - 0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 643; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_r = __pyx_t_1;
     __pyx_t_1 = 0;
     goto __pyx_L3_return;
   }
 
-  /* "unqlite.pyx":642
+  /* "unqlite.pyx":645
  *             return buf[:nbytes]
  *         finally:
  *             free(buf)             # <<<<<<<<<<<<<<
@@ -9031,7 +9102,7 @@ static PyObject *__pyx_f_7unqlite_7UnQLite_random_string(struct __pyx_obj_7unqli
     }
   }
 
-  /* "unqlite.pyx":634
+  /* "unqlite.pyx":637
  *         return i
  * 
  *     cpdef random_string(self, int nbytes):             # <<<<<<<<<<<<<<
@@ -9067,7 +9138,7 @@ static PyObject *__pyx_pw_7unqlite_7UnQLite_71random_string(PyObject *__pyx_v_se
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("random_string (wrapper)", 0);
   assert(__pyx_arg_nbytes); {
-    __pyx_v_nbytes = __Pyx_PyInt_As_int(__pyx_arg_nbytes); if (unlikely((__pyx_v_nbytes == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 634; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+    __pyx_v_nbytes = __Pyx_PyInt_As_int(__pyx_arg_nbytes); if (unlikely((__pyx_v_nbytes == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 637; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -9091,7 +9162,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_70random_string(struct __pyx_obj_7un
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("random_string", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_7unqlite_7UnQLite_random_string(__pyx_v_self, __pyx_v_nbytes, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 634; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_f_7unqlite_7UnQLite_random_string(__pyx_v_self, __pyx_v_nbytes, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 637; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -9108,7 +9179,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_70random_string(struct __pyx_obj_7un
   return __pyx_r;
 }
 
-/* "unqlite.pyx":644
+/* "unqlite.pyx":647
  *             free(buf)
  * 
  *     cpdef int random_int(self):             # <<<<<<<<<<<<<<
@@ -9133,7 +9204,7 @@ static int __pyx_f_7unqlite_7UnQLite_random_int(struct __pyx_obj_7unqlite_UnQLit
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
   else if (unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0)) {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_random_int); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 644; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_random_int); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 647; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)__pyx_pw_7unqlite_7UnQLite_73random_int)) {
       __Pyx_INCREF(__pyx_t_1);
@@ -9148,14 +9219,14 @@ static int __pyx_f_7unqlite_7UnQLite_random_int(struct __pyx_obj_7unqlite_UnQLit
         }
       }
       if (__pyx_t_4) {
-        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 644; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 647; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       } else {
-        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 644; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 647; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       }
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 644; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 647; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __pyx_r = __pyx_t_5;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -9164,7 +9235,7 @@ static int __pyx_f_7unqlite_7UnQLite_random_int(struct __pyx_obj_7unqlite_UnQLit
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "unqlite.pyx":646
+  /* "unqlite.pyx":649
  *     cpdef int random_int(self):
  *         """Generate a random integer."""
  *         return unqlite_util_random_num(self.database)             # <<<<<<<<<<<<<<
@@ -9174,7 +9245,7 @@ static int __pyx_f_7unqlite_7UnQLite_random_int(struct __pyx_obj_7unqlite_UnQLit
   __pyx_r = unqlite_util_random_num(__pyx_v_self->database);
   goto __pyx_L0;
 
-  /* "unqlite.pyx":644
+  /* "unqlite.pyx":647
  *             free(buf)
  * 
  *     cpdef int random_int(self):             # <<<<<<<<<<<<<<
@@ -9218,7 +9289,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_72random_int(struct __pyx_obj_7unqli
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("random_int", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_7unqlite_7UnQLite_random_int(__pyx_v_self, 1)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 644; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_f_7unqlite_7UnQLite_random_int(__pyx_v_self, 1)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 647; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -9235,7 +9306,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_72random_int(struct __pyx_obj_7unqli
   return __pyx_r;
 }
 
-/* "unqlite.pyx":648
+/* "unqlite.pyx":651
  *         return unqlite_util_random_num(self.database)
  * 
  *     def lib_version(self):             # <<<<<<<<<<<<<<
@@ -9265,7 +9336,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_74lib_version(CYTHON_UNUSED struct _
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("lib_version", 0);
 
-  /* "unqlite.pyx":649
+  /* "unqlite.pyx":652
  * 
  *     def lib_version(self):
  *         return unqlite_lib_version()             # <<<<<<<<<<<<<<
@@ -9273,13 +9344,13 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_74lib_version(CYTHON_UNUSED struct _
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBytes_FromString(unqlite_lib_version()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 649; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyBytes_FromString(unqlite_lib_version()); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 652; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "unqlite.pyx":648
+  /* "unqlite.pyx":651
  *         return unqlite_util_random_num(self.database)
  * 
  *     def lib_version(self):             # <<<<<<<<<<<<<<
@@ -9513,7 +9584,7 @@ static PyObject *__pyx_pf_7unqlite_7UnQLite_5flags___get__(struct __pyx_obj_7unq
   return __pyx_r;
 }
 
-/* "unqlite.pyx":656
+/* "unqlite.pyx":659
  *     cdef UnQLite unqlite
  * 
  *     def __init__(self, unqlite):             # <<<<<<<<<<<<<<
@@ -9549,7 +9620,7 @@ static int __pyx_pw_7unqlite_11Transaction_1__init__(PyObject *__pyx_v_self, PyO
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 656; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 659; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
@@ -9560,7 +9631,7 @@ static int __pyx_pw_7unqlite_11Transaction_1__init__(PyObject *__pyx_v_self, PyO
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 656; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 659; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("unqlite.Transaction.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -9582,14 +9653,14 @@ static int __pyx_pf_7unqlite_11Transaction___init__(struct __pyx_obj_7unqlite_Tr
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "unqlite.pyx":657
+  /* "unqlite.pyx":660
  * 
  *     def __init__(self, unqlite):
  *         self.unqlite = unqlite             # <<<<<<<<<<<<<<
  * 
  *     def __enter__(self):
  */
-  if (!(likely(((__pyx_v_unqlite) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_unqlite, __pyx_ptype_7unqlite_UnQLite))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 657; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (!(likely(((__pyx_v_unqlite) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_unqlite, __pyx_ptype_7unqlite_UnQLite))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 660; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_t_1 = __pyx_v_unqlite;
   __Pyx_INCREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
@@ -9598,7 +9669,7 @@ static int __pyx_pf_7unqlite_11Transaction___init__(struct __pyx_obj_7unqlite_Tr
   __pyx_v_self->unqlite = ((struct __pyx_obj_7unqlite_UnQLite *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":656
+  /* "unqlite.pyx":659
  *     cdef UnQLite unqlite
  * 
  *     def __init__(self, unqlite):             # <<<<<<<<<<<<<<
@@ -9618,7 +9689,7 @@ static int __pyx_pf_7unqlite_11Transaction___init__(struct __pyx_obj_7unqlite_Tr
   return __pyx_r;
 }
 
-/* "unqlite.pyx":659
+/* "unqlite.pyx":662
  *         self.unqlite = unqlite
  * 
  *     def __enter__(self):             # <<<<<<<<<<<<<<
@@ -9648,18 +9719,18 @@ static PyObject *__pyx_pf_7unqlite_11Transaction_2__enter__(struct __pyx_obj_7un
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__enter__", 0);
 
-  /* "unqlite.pyx":660
+  /* "unqlite.pyx":663
  * 
  *     def __enter__(self):
  *         self.unqlite.begin()             # <<<<<<<<<<<<<<
  *         return self
  * 
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->unqlite->__pyx_vtab)->begin(__pyx_v_self->unqlite, 0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 660; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->unqlite->__pyx_vtab)->begin(__pyx_v_self->unqlite, 0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 663; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":661
+  /* "unqlite.pyx":664
  *     def __enter__(self):
  *         self.unqlite.begin()
  *         return self             # <<<<<<<<<<<<<<
@@ -9671,7 +9742,7 @@ static PyObject *__pyx_pf_7unqlite_11Transaction_2__enter__(struct __pyx_obj_7un
   __pyx_r = ((PyObject *)__pyx_v_self);
   goto __pyx_L0;
 
-  /* "unqlite.pyx":659
+  /* "unqlite.pyx":662
  *         self.unqlite = unqlite
  * 
  *     def __enter__(self):             # <<<<<<<<<<<<<<
@@ -9690,7 +9761,7 @@ static PyObject *__pyx_pf_7unqlite_11Transaction_2__enter__(struct __pyx_obj_7un
   return __pyx_r;
 }
 
-/* "unqlite.pyx":663
+/* "unqlite.pyx":666
  *         return self
  * 
  *     def __exit__(self, exc_type, exc_val, exc_tb):             # <<<<<<<<<<<<<<
@@ -9731,16 +9802,16 @@ static PyObject *__pyx_pw_7unqlite_11Transaction_5__exit__(PyObject *__pyx_v_sel
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_exc_val)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__exit__", 1, 3, 3, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 663; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("__exit__", 1, 3, 3, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 666; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_exc_tb)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__exit__", 1, 3, 3, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 663; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("__exit__", 1, 3, 3, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 666; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__exit__") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 663; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__exit__") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 666; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -9755,7 +9826,7 @@ static PyObject *__pyx_pw_7unqlite_11Transaction_5__exit__(PyObject *__pyx_v_sel
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__exit__", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 663; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("__exit__", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 666; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("unqlite.Transaction.__exit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -9776,36 +9847,37 @@ static PyObject *__pyx_pf_7unqlite_11Transaction_4__exit__(struct __pyx_obj_7unq
   PyObject *__pyx_t_3 = NULL;
   PyObject *__pyx_t_4 = NULL;
   PyObject *__pyx_t_5 = NULL;
-  PyObject *__pyx_t_6 = NULL;
+  int __pyx_t_6;
   PyObject *__pyx_t_7 = NULL;
   PyObject *__pyx_t_8 = NULL;
+  PyObject *__pyx_t_9 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__exit__", 0);
 
-  /* "unqlite.pyx":664
+  /* "unqlite.pyx":667
  * 
  *     def __exit__(self, exc_type, exc_val, exc_tb):
  *         if exc_type:             # <<<<<<<<<<<<<<
  *             self.unqlite.rollback()
  *         else:
  */
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_exc_type); if (unlikely(__pyx_t_1 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 664; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_exc_type); if (unlikely(__pyx_t_1 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 667; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   if (__pyx_t_1) {
 
-    /* "unqlite.pyx":665
+    /* "unqlite.pyx":668
  *     def __exit__(self, exc_type, exc_val, exc_tb):
  *         if exc_type:
  *             self.unqlite.rollback()             # <<<<<<<<<<<<<<
  *         else:
  *             try:
  */
-    __pyx_t_2 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->unqlite->__pyx_vtab)->rollback(__pyx_v_self->unqlite, 0); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 665; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->unqlite->__pyx_vtab)->rollback(__pyx_v_self->unqlite, 0); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 668; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "unqlite.pyx":664
+    /* "unqlite.pyx":667
  * 
  *     def __exit__(self, exc_type, exc_val, exc_tb):
  *         if exc_type:             # <<<<<<<<<<<<<<
@@ -9815,12 +9887,12 @@ static PyObject *__pyx_pf_7unqlite_11Transaction_4__exit__(struct __pyx_obj_7unq
     goto __pyx_L3;
   }
 
-  /* "unqlite.pyx":667
+  /* "unqlite.pyx":670
  *             self.unqlite.rollback()
  *         else:
  *             try:             # <<<<<<<<<<<<<<
  *                 self.unqlite.commit()
- *             except:
+ *             except Exception:
  */
   /*else*/ {
     {
@@ -9830,23 +9902,23 @@ static PyObject *__pyx_pf_7unqlite_11Transaction_4__exit__(struct __pyx_obj_7unq
       __Pyx_XGOTREF(__pyx_t_5);
       /*try:*/ {
 
-        /* "unqlite.pyx":668
+        /* "unqlite.pyx":671
  *         else:
  *             try:
  *                 self.unqlite.commit()             # <<<<<<<<<<<<<<
- *             except:
+ *             except Exception:
  *                 self.unqlite.rollback()
  */
-        __pyx_t_2 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->unqlite->__pyx_vtab)->commit(__pyx_v_self->unqlite, 0); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 668; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
+        __pyx_t_2 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->unqlite->__pyx_vtab)->commit(__pyx_v_self->unqlite, 0); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 671; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-        /* "unqlite.pyx":667
+        /* "unqlite.pyx":670
  *             self.unqlite.rollback()
  *         else:
  *             try:             # <<<<<<<<<<<<<<
  *                 self.unqlite.commit()
- *             except:
+ *             except Exception:
  */
       }
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -9856,53 +9928,55 @@ static PyObject *__pyx_pf_7unqlite_11Transaction_4__exit__(struct __pyx_obj_7unq
       __pyx_L4_error:;
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-      /* "unqlite.pyx":669
+      /* "unqlite.pyx":672
  *             try:
  *                 self.unqlite.commit()
- *             except:             # <<<<<<<<<<<<<<
+ *             except Exception:             # <<<<<<<<<<<<<<
  *                 self.unqlite.rollback()
  *                 raise
  */
-      /*except:*/ {
+      __pyx_t_6 = PyErr_ExceptionMatches(__pyx_builtin_Exception);
+      if (__pyx_t_6) {
         __Pyx_AddTraceback("unqlite.Transaction.__exit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
-        if (__Pyx_GetException(&__pyx_t_2, &__pyx_t_6, &__pyx_t_7) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 669; __pyx_clineno = __LINE__; goto __pyx_L6_except_error;}
+        if (__Pyx_GetException(&__pyx_t_2, &__pyx_t_7, &__pyx_t_8) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 672; __pyx_clineno = __LINE__; goto __pyx_L6_except_error;}
         __Pyx_GOTREF(__pyx_t_2);
-        __Pyx_GOTREF(__pyx_t_6);
         __Pyx_GOTREF(__pyx_t_7);
+        __Pyx_GOTREF(__pyx_t_8);
 
-        /* "unqlite.pyx":670
+        /* "unqlite.pyx":673
  *                 self.unqlite.commit()
- *             except:
+ *             except Exception:
  *                 self.unqlite.rollback()             # <<<<<<<<<<<<<<
  *                 raise
  * 
  */
-        __pyx_t_8 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->unqlite->__pyx_vtab)->rollback(__pyx_v_self->unqlite, 0); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 670; __pyx_clineno = __LINE__; goto __pyx_L6_except_error;}
-        __Pyx_GOTREF(__pyx_t_8);
-        __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+        __pyx_t_9 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->unqlite->__pyx_vtab)->rollback(__pyx_v_self->unqlite, 0); if (unlikely(!__pyx_t_9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 673; __pyx_clineno = __LINE__; goto __pyx_L6_except_error;}
+        __Pyx_GOTREF(__pyx_t_9);
+        __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-        /* "unqlite.pyx":671
- *             except:
+        /* "unqlite.pyx":674
+ *             except Exception:
  *                 self.unqlite.rollback()
  *                 raise             # <<<<<<<<<<<<<<
  * 
  * 
  */
         __Pyx_GIVEREF(__pyx_t_2);
-        __Pyx_GIVEREF(__pyx_t_6);
-        __Pyx_XGIVEREF(__pyx_t_7);
-        __Pyx_ErrRestore(__pyx_t_2, __pyx_t_6, __pyx_t_7);
-        __pyx_t_2 = 0; __pyx_t_6 = 0; __pyx_t_7 = 0; 
-        {__pyx_filename = __pyx_f[0]; __pyx_lineno = 671; __pyx_clineno = __LINE__; goto __pyx_L6_except_error;}
+        __Pyx_GIVEREF(__pyx_t_7);
+        __Pyx_XGIVEREF(__pyx_t_8);
+        __Pyx_ErrRestore(__pyx_t_2, __pyx_t_7, __pyx_t_8);
+        __pyx_t_2 = 0; __pyx_t_7 = 0; __pyx_t_8 = 0; 
+        {__pyx_filename = __pyx_f[0]; __pyx_lineno = 674; __pyx_clineno = __LINE__; goto __pyx_L6_except_error;}
       }
+      goto __pyx_L6_except_error;
       __pyx_L6_except_error:;
 
-      /* "unqlite.pyx":667
+      /* "unqlite.pyx":670
  *             self.unqlite.rollback()
  *         else:
  *             try:             # <<<<<<<<<<<<<<
  *                 self.unqlite.commit()
- *             except:
+ *             except Exception:
  */
       __Pyx_XGIVEREF(__pyx_t_3);
       __Pyx_XGIVEREF(__pyx_t_4);
@@ -9914,7 +9988,7 @@ static PyObject *__pyx_pf_7unqlite_11Transaction_4__exit__(struct __pyx_obj_7unq
   }
   __pyx_L3:;
 
-  /* "unqlite.pyx":663
+  /* "unqlite.pyx":666
  *         return self
  * 
  *     def __exit__(self, exc_type, exc_val, exc_tb):             # <<<<<<<<<<<<<<
@@ -9927,9 +10001,9 @@ static PyObject *__pyx_pf_7unqlite_11Transaction_4__exit__(struct __pyx_obj_7unq
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_8);
+  __Pyx_XDECREF(__pyx_t_9);
   __Pyx_AddTraceback("unqlite.Transaction.__exit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -9938,7 +10012,7 @@ static PyObject *__pyx_pf_7unqlite_11Transaction_4__exit__(struct __pyx_obj_7unq
   return __pyx_r;
 }
 
-/* "unqlite.pyx":680
+/* "unqlite.pyx":683
  *     cdef bint consumed
  * 
  *     def __cinit__(self, unqlite):             # <<<<<<<<<<<<<<
@@ -9974,7 +10048,7 @@ static int __pyx_pw_7unqlite_6Cursor_1__cinit__(PyObject *__pyx_v_self, PyObject
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 680; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 683; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
@@ -9985,7 +10059,7 @@ static int __pyx_pw_7unqlite_6Cursor_1__cinit__(PyObject *__pyx_v_self, PyObject
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 680; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 683; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("unqlite.Cursor.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -10007,14 +10081,14 @@ static int __pyx_pf_7unqlite_6Cursor___cinit__(struct __pyx_obj_7unqlite_Cursor 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "unqlite.pyx":681
+  /* "unqlite.pyx":684
  * 
  *     def __cinit__(self, unqlite):
  *         self.unqlite = unqlite             # <<<<<<<<<<<<<<
  *         self.cursor = <unqlite_kv_cursor *>0
  *         unqlite_kv_cursor_init(self.unqlite.database, &self.cursor)
  */
-  if (!(likely(((__pyx_v_unqlite) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_unqlite, __pyx_ptype_7unqlite_UnQLite))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 681; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (!(likely(((__pyx_v_unqlite) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_unqlite, __pyx_ptype_7unqlite_UnQLite))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 684; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_t_1 = __pyx_v_unqlite;
   __Pyx_INCREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
@@ -10023,7 +10097,7 @@ static int __pyx_pf_7unqlite_6Cursor___cinit__(struct __pyx_obj_7unqlite_Cursor 
   __pyx_v_self->unqlite = ((struct __pyx_obj_7unqlite_UnQLite *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":682
+  /* "unqlite.pyx":685
  *     def __cinit__(self, unqlite):
  *         self.unqlite = unqlite
  *         self.cursor = <unqlite_kv_cursor *>0             # <<<<<<<<<<<<<<
@@ -10032,7 +10106,7 @@ static int __pyx_pf_7unqlite_6Cursor___cinit__(struct __pyx_obj_7unqlite_Cursor 
  */
   __pyx_v_self->cursor = ((struct unqlite_kv_cursor *)0);
 
-  /* "unqlite.pyx":683
+  /* "unqlite.pyx":686
  *         self.unqlite = unqlite
  *         self.cursor = <unqlite_kv_cursor *>0
  *         unqlite_kv_cursor_init(self.unqlite.database, &self.cursor)             # <<<<<<<<<<<<<<
@@ -10041,7 +10115,7 @@ static int __pyx_pf_7unqlite_6Cursor___cinit__(struct __pyx_obj_7unqlite_Cursor 
  */
   unqlite_kv_cursor_init(__pyx_v_self->unqlite->database, (&__pyx_v_self->cursor));
 
-  /* "unqlite.pyx":680
+  /* "unqlite.pyx":683
  *     cdef bint consumed
  * 
  *     def __cinit__(self, unqlite):             # <<<<<<<<<<<<<<
@@ -10061,7 +10135,7 @@ static int __pyx_pf_7unqlite_6Cursor___cinit__(struct __pyx_obj_7unqlite_Cursor 
   return __pyx_r;
 }
 
-/* "unqlite.pyx":685
+/* "unqlite.pyx":688
  *         unqlite_kv_cursor_init(self.unqlite.database, &self.cursor)
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -10084,7 +10158,7 @@ static void __pyx_pf_7unqlite_6Cursor_2__dealloc__(struct __pyx_obj_7unqlite_Cur
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "unqlite.pyx":686
+  /* "unqlite.pyx":689
  * 
  *     def __dealloc__(self):
  *         unqlite_kv_cursor_release(self.unqlite.database, self.cursor)             # <<<<<<<<<<<<<<
@@ -10093,7 +10167,7 @@ static void __pyx_pf_7unqlite_6Cursor_2__dealloc__(struct __pyx_obj_7unqlite_Cur
  */
   unqlite_kv_cursor_release(__pyx_v_self->unqlite->database, __pyx_v_self->cursor);
 
-  /* "unqlite.pyx":685
+  /* "unqlite.pyx":688
  *         unqlite_kv_cursor_init(self.unqlite.database, &self.cursor)
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -10105,7 +10179,7 @@ static void __pyx_pf_7unqlite_6Cursor_2__dealloc__(struct __pyx_obj_7unqlite_Cur
   __Pyx_RefNannyFinishContext();
 }
 
-/* "unqlite.pyx":688
+/* "unqlite.pyx":691
  *         unqlite_kv_cursor_release(self.unqlite.database, self.cursor)
  * 
  *     def __enter__(self):             # <<<<<<<<<<<<<<
@@ -10135,18 +10209,18 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_4__enter__(struct __pyx_obj_7unqlite_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__enter__", 0);
 
-  /* "unqlite.pyx":689
+  /* "unqlite.pyx":692
  * 
  *     def __enter__(self):
  *         self.reset()             # <<<<<<<<<<<<<<
  *         return self
  * 
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_Cursor *)__pyx_v_self->__pyx_vtab)->reset(__pyx_v_self, 0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 689; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_Cursor *)__pyx_v_self->__pyx_vtab)->reset(__pyx_v_self, 0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 692; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":690
+  /* "unqlite.pyx":693
  *     def __enter__(self):
  *         self.reset()
  *         return self             # <<<<<<<<<<<<<<
@@ -10158,7 +10232,7 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_4__enter__(struct __pyx_obj_7unqlite_
   __pyx_r = ((PyObject *)__pyx_v_self);
   goto __pyx_L0;
 
-  /* "unqlite.pyx":688
+  /* "unqlite.pyx":691
  *         unqlite_kv_cursor_release(self.unqlite.database, self.cursor)
  * 
  *     def __enter__(self):             # <<<<<<<<<<<<<<
@@ -10177,7 +10251,7 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_4__enter__(struct __pyx_obj_7unqlite_
   return __pyx_r;
 }
 
-/* "unqlite.pyx":692
+/* "unqlite.pyx":695
  *         return self
  * 
  *     def __exit__(self, exc_type, exc_val, exc_tb):             # <<<<<<<<<<<<<<
@@ -10218,16 +10292,16 @@ static PyObject *__pyx_pw_7unqlite_6Cursor_7__exit__(PyObject *__pyx_v_self, PyO
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_exc_val)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__exit__", 1, 3, 3, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 692; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("__exit__", 1, 3, 3, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 695; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_exc_tb)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__exit__", 1, 3, 3, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 692; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("__exit__", 1, 3, 3, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 695; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__exit__") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 692; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__exit__") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 695; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -10242,7 +10316,7 @@ static PyObject *__pyx_pw_7unqlite_6Cursor_7__exit__(PyObject *__pyx_v_self, PyO
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__exit__", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 692; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("__exit__", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 695; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("unqlite.Cursor.__exit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -10267,7 +10341,7 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_6__exit__(CYTHON_UNUSED struct __pyx_
   return __pyx_r;
 }
 
-/* "unqlite.pyx":695
+/* "unqlite.pyx":698
  *         pass
  * 
  *     cpdef reset(self):             # <<<<<<<<<<<<<<
@@ -10291,7 +10365,7 @@ static PyObject *__pyx_f_7unqlite_6Cursor_reset(struct __pyx_obj_7unqlite_Cursor
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
   else if (unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0)) {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_reset); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 695; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_reset); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 698; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)__pyx_pw_7unqlite_6Cursor_9reset)) {
       __Pyx_XDECREF(__pyx_r);
@@ -10307,10 +10381,10 @@ static PyObject *__pyx_f_7unqlite_6Cursor_reset(struct __pyx_obj_7unqlite_Cursor
         }
       }
       if (__pyx_t_4) {
-        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 695; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 698; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       } else {
-        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 695; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 698; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       }
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -10322,7 +10396,7 @@ static PyObject *__pyx_f_7unqlite_6Cursor_reset(struct __pyx_obj_7unqlite_Cursor
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "unqlite.pyx":697
+  /* "unqlite.pyx":700
  *     cpdef reset(self):
  *         """Reset the cursor's position."""
  *         unqlite_kv_cursor_reset(self.cursor)             # <<<<<<<<<<<<<<
@@ -10331,7 +10405,7 @@ static PyObject *__pyx_f_7unqlite_6Cursor_reset(struct __pyx_obj_7unqlite_Cursor
  */
   unqlite_kv_cursor_reset(__pyx_v_self->cursor);
 
-  /* "unqlite.pyx":695
+  /* "unqlite.pyx":698
  *         pass
  * 
  *     cpdef reset(self):             # <<<<<<<<<<<<<<
@@ -10378,7 +10452,7 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_8reset(struct __pyx_obj_7unqlite_Curs
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("reset", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_7unqlite_6Cursor_reset(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 695; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_f_7unqlite_6Cursor_reset(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 698; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -10395,7 +10469,7 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_8reset(struct __pyx_obj_7unqlite_Curs
   return __pyx_r;
 }
 
-/* "unqlite.pyx":699
+/* "unqlite.pyx":702
  *         unqlite_kv_cursor_reset(self.cursor)
  * 
  *     cpdef seek(self, basestring key, int flags=UNQLITE_CURSOR_MATCH_EXACT):             # <<<<<<<<<<<<<<
@@ -10432,11 +10506,11 @@ static PyObject *__pyx_f_7unqlite_6Cursor_seek(struct __pyx_obj_7unqlite_Cursor 
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
   else if (unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0)) {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_seek); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 699; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_seek); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 702; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)__pyx_pw_7unqlite_6Cursor_11seek)) {
       __Pyx_XDECREF(__pyx_r);
-      __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_flags); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 699; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_flags); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 702; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_INCREF(__pyx_t_1);
       __pyx_t_4 = __pyx_t_1; __pyx_t_5 = NULL;
@@ -10451,7 +10525,7 @@ static PyObject *__pyx_f_7unqlite_6Cursor_seek(struct __pyx_obj_7unqlite_Cursor 
           __pyx_t_6 = 1;
         }
       }
-      __pyx_t_7 = PyTuple_New(2+__pyx_t_6); if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 699; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_7 = PyTuple_New(2+__pyx_t_6); if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 702; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_7);
       if (__pyx_t_5) {
         __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_5); __pyx_t_5 = NULL;
@@ -10462,7 +10536,7 @@ static PyObject *__pyx_f_7unqlite_6Cursor_seek(struct __pyx_obj_7unqlite_Cursor 
       __Pyx_GIVEREF(__pyx_t_3);
       PyTuple_SET_ITEM(__pyx_t_7, 1+__pyx_t_6, __pyx_t_3);
       __pyx_t_3 = 0;
-      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_7, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 699; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_7, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 702; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -10474,7 +10548,7 @@ static PyObject *__pyx_f_7unqlite_6Cursor_seek(struct __pyx_obj_7unqlite_Cursor 
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "unqlite.pyx":710
+  /* "unqlite.pyx":713
  *         cdef bytes encoded_key
  * 
  *         if isinstance(key, unicode):             # <<<<<<<<<<<<<<
@@ -10485,23 +10559,23 @@ static PyObject *__pyx_f_7unqlite_6Cursor_seek(struct __pyx_obj_7unqlite_Cursor 
   __pyx_t_9 = (__pyx_t_8 != 0);
   if (__pyx_t_9) {
 
-    /* "unqlite.pyx":711
+    /* "unqlite.pyx":714
  * 
  *         if isinstance(key, unicode):
  *             encoded_key = key.encode('utf-8')             # <<<<<<<<<<<<<<
  *         else:
  *             encoded_key = bytes(key)
  */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_key, __pyx_n_s_encode); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 711; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_key, __pyx_n_s_encode); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 714; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__20, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 711; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__20, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 714; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (!(likely(PyBytes_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "bytes", Py_TYPE(__pyx_t_2)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 711; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (!(likely(PyBytes_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "bytes", Py_TYPE(__pyx_t_2)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 714; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __pyx_v_encoded_key = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "unqlite.pyx":710
+    /* "unqlite.pyx":713
  *         cdef bytes encoded_key
  * 
  *         if isinstance(key, unicode):             # <<<<<<<<<<<<<<
@@ -10511,7 +10585,7 @@ static PyObject *__pyx_f_7unqlite_6Cursor_seek(struct __pyx_obj_7unqlite_Cursor 
     goto __pyx_L3;
   }
 
-  /* "unqlite.pyx":713
+  /* "unqlite.pyx":716
  *             encoded_key = key.encode('utf-8')
  *         else:
  *             encoded_key = bytes(key)             # <<<<<<<<<<<<<<
@@ -10519,12 +10593,12 @@ static PyObject *__pyx_f_7unqlite_6Cursor_seek(struct __pyx_obj_7unqlite_Cursor 
  *         self.unqlite.check_call(unqlite_kv_cursor_seek(
  */
   /*else*/ {
-    __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 713; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 716; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_INCREF(__pyx_v_key);
     __Pyx_GIVEREF(__pyx_v_key);
     PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_key);
-    __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)(&PyBytes_Type)), __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 713; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)(&PyBytes_Type)), __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 716; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_encoded_key = ((PyObject*)__pyx_t_1);
@@ -10532,27 +10606,27 @@ static PyObject *__pyx_f_7unqlite_6Cursor_seek(struct __pyx_obj_7unqlite_Cursor 
   }
   __pyx_L3:;
 
-  /* "unqlite.pyx":717
+  /* "unqlite.pyx":720
  *         self.unqlite.check_call(unqlite_kv_cursor_seek(
  *             self.cursor,
  *             <char *>encoded_key,             # <<<<<<<<<<<<<<
  *             -1,
  *             flags))
  */
-  __pyx_t_10 = __Pyx_PyObject_AsString(__pyx_v_encoded_key); if (unlikely((!__pyx_t_10) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 717; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_10 = __Pyx_PyObject_AsString(__pyx_v_encoded_key); if (unlikely((!__pyx_t_10) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 720; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "unqlite.pyx":715
+  /* "unqlite.pyx":718
  *             encoded_key = bytes(key)
  * 
  *         self.unqlite.check_call(unqlite_kv_cursor_seek(             # <<<<<<<<<<<<<<
  *             self.cursor,
  *             <char *>encoded_key,
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->unqlite->__pyx_vtab)->check_call(__pyx_v_self->unqlite, unqlite_kv_cursor_seek(__pyx_v_self->cursor, ((char *)__pyx_t_10), -1, __pyx_v_flags)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 715; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->unqlite->__pyx_vtab)->check_call(__pyx_v_self->unqlite, unqlite_kv_cursor_seek(__pyx_v_self->cursor, ((char *)__pyx_t_10), -1, __pyx_v_flags)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 718; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":699
+  /* "unqlite.pyx":702
  *         unqlite_kv_cursor_reset(self.cursor)
  * 
  *     cpdef seek(self, basestring key, int flags=UNQLITE_CURSOR_MATCH_EXACT):             # <<<<<<<<<<<<<<
@@ -10615,7 +10689,7 @@ static PyObject *__pyx_pw_7unqlite_6Cursor_11seek(PyObject *__pyx_v_self, PyObje
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "seek") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 699; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "seek") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 702; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -10627,20 +10701,20 @@ static PyObject *__pyx_pw_7unqlite_6Cursor_11seek(PyObject *__pyx_v_self, PyObje
     }
     __pyx_v_key = ((PyObject*)values[0]);
     if (values[1]) {
-      __pyx_v_flags = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_flags == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 699; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+      __pyx_v_flags = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_flags == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 702; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
     } else {
       __pyx_v_flags = __pyx_k__19;
     }
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("seek", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 699; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("seek", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 702; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("unqlite.Cursor.seek", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_key), (&PyBaseString_Type), 1, "key", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 699; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_key), (&PyBaseString_Type), 1, "key", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 702; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_7unqlite_6Cursor_10seek(((struct __pyx_obj_7unqlite_Cursor *)__pyx_v_self), __pyx_v_key, __pyx_v_flags);
 
   /* function exit code */
@@ -10664,7 +10738,7 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_10seek(struct __pyx_obj_7unqlite_Curs
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_2.__pyx_n = 1;
   __pyx_t_2.flags = __pyx_v_flags;
-  __pyx_t_1 = __pyx_vtabptr_7unqlite_Cursor->seek(__pyx_v_self, __pyx_v_key, 1, &__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 699; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_vtabptr_7unqlite_Cursor->seek(__pyx_v_self, __pyx_v_key, 1, &__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 702; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -10681,7 +10755,7 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_10seek(struct __pyx_obj_7unqlite_Curs
   return __pyx_r;
 }
 
-/* "unqlite.pyx":721
+/* "unqlite.pyx":724
  *             flags))
  * 
  *     cpdef first(self):             # <<<<<<<<<<<<<<
@@ -10705,7 +10779,7 @@ static PyObject *__pyx_f_7unqlite_6Cursor_first(struct __pyx_obj_7unqlite_Cursor
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
   else if (unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0)) {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_first); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 721; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_first); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 724; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)__pyx_pw_7unqlite_6Cursor_13first)) {
       __Pyx_XDECREF(__pyx_r);
@@ -10721,10 +10795,10 @@ static PyObject *__pyx_f_7unqlite_6Cursor_first(struct __pyx_obj_7unqlite_Cursor
         }
       }
       if (__pyx_t_4) {
-        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 721; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 724; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       } else {
-        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 721; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 724; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       }
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -10736,18 +10810,18 @@ static PyObject *__pyx_f_7unqlite_6Cursor_first(struct __pyx_obj_7unqlite_Cursor
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "unqlite.pyx":723
+  /* "unqlite.pyx":726
  *     cpdef first(self):
  *         """Set cursor to the first record in the database."""
  *         self.unqlite.check_call(unqlite_kv_cursor_first_entry(self.cursor))             # <<<<<<<<<<<<<<
  * 
  *     cpdef last(self):
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->unqlite->__pyx_vtab)->check_call(__pyx_v_self->unqlite, unqlite_kv_cursor_first_entry(__pyx_v_self->cursor)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 723; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->unqlite->__pyx_vtab)->check_call(__pyx_v_self->unqlite, unqlite_kv_cursor_first_entry(__pyx_v_self->cursor)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 726; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":721
+  /* "unqlite.pyx":724
  *             flags))
  * 
  *     cpdef first(self):             # <<<<<<<<<<<<<<
@@ -10794,7 +10868,7 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_12first(struct __pyx_obj_7unqlite_Cur
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("first", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_7unqlite_6Cursor_first(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 721; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_f_7unqlite_6Cursor_first(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 724; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -10811,7 +10885,7 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_12first(struct __pyx_obj_7unqlite_Cur
   return __pyx_r;
 }
 
-/* "unqlite.pyx":725
+/* "unqlite.pyx":728
  *         self.unqlite.check_call(unqlite_kv_cursor_first_entry(self.cursor))
  * 
  *     cpdef last(self):             # <<<<<<<<<<<<<<
@@ -10835,7 +10909,7 @@ static PyObject *__pyx_f_7unqlite_6Cursor_last(struct __pyx_obj_7unqlite_Cursor 
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
   else if (unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0)) {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_last); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 725; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_last); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 728; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)__pyx_pw_7unqlite_6Cursor_15last)) {
       __Pyx_XDECREF(__pyx_r);
@@ -10851,10 +10925,10 @@ static PyObject *__pyx_f_7unqlite_6Cursor_last(struct __pyx_obj_7unqlite_Cursor 
         }
       }
       if (__pyx_t_4) {
-        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 725; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 728; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       } else {
-        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 725; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 728; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       }
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -10866,18 +10940,18 @@ static PyObject *__pyx_f_7unqlite_6Cursor_last(struct __pyx_obj_7unqlite_Cursor 
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "unqlite.pyx":727
+  /* "unqlite.pyx":730
  *     cpdef last(self):
  *         """Set cursor to the last record in the database."""
  *         self.unqlite.check_call(unqlite_kv_cursor_last_entry(self.cursor))             # <<<<<<<<<<<<<<
  * 
  *     cpdef next_entry(self):
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->unqlite->__pyx_vtab)->check_call(__pyx_v_self->unqlite, unqlite_kv_cursor_last_entry(__pyx_v_self->cursor)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 727; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->unqlite->__pyx_vtab)->check_call(__pyx_v_self->unqlite, unqlite_kv_cursor_last_entry(__pyx_v_self->cursor)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 730; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":725
+  /* "unqlite.pyx":728
  *         self.unqlite.check_call(unqlite_kv_cursor_first_entry(self.cursor))
  * 
  *     cpdef last(self):             # <<<<<<<<<<<<<<
@@ -10924,7 +10998,7 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_14last(struct __pyx_obj_7unqlite_Curs
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("last", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_7unqlite_6Cursor_last(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 725; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_f_7unqlite_6Cursor_last(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 728; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -10941,7 +11015,7 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_14last(struct __pyx_obj_7unqlite_Curs
   return __pyx_r;
 }
 
-/* "unqlite.pyx":729
+/* "unqlite.pyx":732
  *         self.unqlite.check_call(unqlite_kv_cursor_last_entry(self.cursor))
  * 
  *     cpdef next_entry(self):             # <<<<<<<<<<<<<<
@@ -10967,7 +11041,7 @@ static PyObject *__pyx_f_7unqlite_6Cursor_next_entry(struct __pyx_obj_7unqlite_C
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
   else if (unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0)) {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_next_entry); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 729; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_next_entry); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 732; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)__pyx_pw_7unqlite_6Cursor_17next_entry)) {
       __Pyx_XDECREF(__pyx_r);
@@ -10983,10 +11057,10 @@ static PyObject *__pyx_f_7unqlite_6Cursor_next_entry(struct __pyx_obj_7unqlite_C
         }
       }
       if (__pyx_t_4) {
-        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 729; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 732; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       } else {
-        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 729; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 732; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       }
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -10998,7 +11072,7 @@ static PyObject *__pyx_f_7unqlite_6Cursor_next_entry(struct __pyx_obj_7unqlite_C
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "unqlite.pyx":732
+  /* "unqlite.pyx":735
  *         """Move cursor to the next entry."""
  *         cdef int ret
  *         ret = unqlite_kv_cursor_next_entry(self.cursor)             # <<<<<<<<<<<<<<
@@ -11007,7 +11081,7 @@ static PyObject *__pyx_f_7unqlite_6Cursor_next_entry(struct __pyx_obj_7unqlite_C
  */
   __pyx_v_ret = unqlite_kv_cursor_next_entry(__pyx_v_self->cursor);
 
-  /* "unqlite.pyx":733
+  /* "unqlite.pyx":736
  *         cdef int ret
  *         ret = unqlite_kv_cursor_next_entry(self.cursor)
  *         if ret != UNQLITE_OK:             # <<<<<<<<<<<<<<
@@ -11017,7 +11091,7 @@ static PyObject *__pyx_f_7unqlite_6Cursor_next_entry(struct __pyx_obj_7unqlite_C
   __pyx_t_5 = ((__pyx_v_ret != UNQLITE_OK) != 0);
   if (__pyx_t_5) {
 
-    /* "unqlite.pyx":734
+    /* "unqlite.pyx":737
  *         ret = unqlite_kv_cursor_next_entry(self.cursor)
  *         if ret != UNQLITE_OK:
  *             raise StopIteration             # <<<<<<<<<<<<<<
@@ -11025,9 +11099,9 @@ static PyObject *__pyx_f_7unqlite_6Cursor_next_entry(struct __pyx_obj_7unqlite_C
  *     cpdef previous_entry(self):
  */
     __Pyx_Raise(__pyx_builtin_StopIteration, 0, 0, 0);
-    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 734; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 737; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-    /* "unqlite.pyx":733
+    /* "unqlite.pyx":736
  *         cdef int ret
  *         ret = unqlite_kv_cursor_next_entry(self.cursor)
  *         if ret != UNQLITE_OK:             # <<<<<<<<<<<<<<
@@ -11036,7 +11110,7 @@ static PyObject *__pyx_f_7unqlite_6Cursor_next_entry(struct __pyx_obj_7unqlite_C
  */
   }
 
-  /* "unqlite.pyx":729
+  /* "unqlite.pyx":732
  *         self.unqlite.check_call(unqlite_kv_cursor_last_entry(self.cursor))
  * 
  *     cpdef next_entry(self):             # <<<<<<<<<<<<<<
@@ -11083,7 +11157,7 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_16next_entry(struct __pyx_obj_7unqlit
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("next_entry", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_7unqlite_6Cursor_next_entry(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 729; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_f_7unqlite_6Cursor_next_entry(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 732; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -11100,7 +11174,7 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_16next_entry(struct __pyx_obj_7unqlit
   return __pyx_r;
 }
 
-/* "unqlite.pyx":736
+/* "unqlite.pyx":739
  *             raise StopIteration
  * 
  *     cpdef previous_entry(self):             # <<<<<<<<<<<<<<
@@ -11126,7 +11200,7 @@ static PyObject *__pyx_f_7unqlite_6Cursor_previous_entry(struct __pyx_obj_7unqli
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
   else if (unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0)) {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_previous_entry); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 736; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_previous_entry); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 739; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)__pyx_pw_7unqlite_6Cursor_19previous_entry)) {
       __Pyx_XDECREF(__pyx_r);
@@ -11142,10 +11216,10 @@ static PyObject *__pyx_f_7unqlite_6Cursor_previous_entry(struct __pyx_obj_7unqli
         }
       }
       if (__pyx_t_4) {
-        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 736; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 739; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       } else {
-        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 736; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 739; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       }
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -11157,7 +11231,7 @@ static PyObject *__pyx_f_7unqlite_6Cursor_previous_entry(struct __pyx_obj_7unqli
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "unqlite.pyx":739
+  /* "unqlite.pyx":742
  *         """Move cursor to the previous entry."""
  *         cdef int ret
  *         ret = unqlite_kv_cursor_prev_entry(self.cursor)             # <<<<<<<<<<<<<<
@@ -11166,7 +11240,7 @@ static PyObject *__pyx_f_7unqlite_6Cursor_previous_entry(struct __pyx_obj_7unqli
  */
   __pyx_v_ret = unqlite_kv_cursor_prev_entry(__pyx_v_self->cursor);
 
-  /* "unqlite.pyx":740
+  /* "unqlite.pyx":743
  *         cdef int ret
  *         ret = unqlite_kv_cursor_prev_entry(self.cursor)
  *         if ret != UNQLITE_OK:             # <<<<<<<<<<<<<<
@@ -11176,7 +11250,7 @@ static PyObject *__pyx_f_7unqlite_6Cursor_previous_entry(struct __pyx_obj_7unqli
   __pyx_t_5 = ((__pyx_v_ret != UNQLITE_OK) != 0);
   if (__pyx_t_5) {
 
-    /* "unqlite.pyx":741
+    /* "unqlite.pyx":744
  *         ret = unqlite_kv_cursor_prev_entry(self.cursor)
  *         if ret != UNQLITE_OK:
  *             raise StopIteration             # <<<<<<<<<<<<<<
@@ -11184,9 +11258,9 @@ static PyObject *__pyx_f_7unqlite_6Cursor_previous_entry(struct __pyx_obj_7unqli
  *     cpdef bint is_valid(self):
  */
     __Pyx_Raise(__pyx_builtin_StopIteration, 0, 0, 0);
-    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 741; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 744; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-    /* "unqlite.pyx":740
+    /* "unqlite.pyx":743
  *         cdef int ret
  *         ret = unqlite_kv_cursor_prev_entry(self.cursor)
  *         if ret != UNQLITE_OK:             # <<<<<<<<<<<<<<
@@ -11195,7 +11269,7 @@ static PyObject *__pyx_f_7unqlite_6Cursor_previous_entry(struct __pyx_obj_7unqli
  */
   }
 
-  /* "unqlite.pyx":736
+  /* "unqlite.pyx":739
  *             raise StopIteration
  * 
  *     cpdef previous_entry(self):             # <<<<<<<<<<<<<<
@@ -11242,7 +11316,7 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_18previous_entry(struct __pyx_obj_7un
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("previous_entry", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_7unqlite_6Cursor_previous_entry(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 736; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_f_7unqlite_6Cursor_previous_entry(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 739; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -11259,7 +11333,7 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_18previous_entry(struct __pyx_obj_7un
   return __pyx_r;
 }
 
-/* "unqlite.pyx":743
+/* "unqlite.pyx":746
  *             raise StopIteration
  * 
  *     cpdef bint is_valid(self):             # <<<<<<<<<<<<<<
@@ -11284,7 +11358,7 @@ static int __pyx_f_7unqlite_6Cursor_is_valid(struct __pyx_obj_7unqlite_Cursor *_
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
   else if (unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0)) {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_is_valid); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 743; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_is_valid); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 746; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)__pyx_pw_7unqlite_6Cursor_21is_valid)) {
       __Pyx_INCREF(__pyx_t_1);
@@ -11299,14 +11373,14 @@ static int __pyx_f_7unqlite_6Cursor_is_valid(struct __pyx_obj_7unqlite_Cursor *_
         }
       }
       if (__pyx_t_4) {
-        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 743; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 746; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       } else {
-        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 743; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 746; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       }
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 743; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 746; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __pyx_r = __pyx_t_5;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -11315,7 +11389,7 @@ static int __pyx_f_7unqlite_6Cursor_is_valid(struct __pyx_obj_7unqlite_Cursor *_
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "unqlite.pyx":748
+  /* "unqlite.pyx":751
  *         pointing to a valid record.
  *         """
  *         if unqlite_kv_cursor_valid_entry(self.cursor):             # <<<<<<<<<<<<<<
@@ -11325,7 +11399,7 @@ static int __pyx_f_7unqlite_6Cursor_is_valid(struct __pyx_obj_7unqlite_Cursor *_
   __pyx_t_5 = (unqlite_kv_cursor_valid_entry(__pyx_v_self->cursor) != 0);
   if (__pyx_t_5) {
 
-    /* "unqlite.pyx":749
+    /* "unqlite.pyx":752
  *         """
  *         if unqlite_kv_cursor_valid_entry(self.cursor):
  *             return True             # <<<<<<<<<<<<<<
@@ -11335,7 +11409,7 @@ static int __pyx_f_7unqlite_6Cursor_is_valid(struct __pyx_obj_7unqlite_Cursor *_
     __pyx_r = 1;
     goto __pyx_L0;
 
-    /* "unqlite.pyx":748
+    /* "unqlite.pyx":751
  *         pointing to a valid record.
  *         """
  *         if unqlite_kv_cursor_valid_entry(self.cursor):             # <<<<<<<<<<<<<<
@@ -11344,7 +11418,7 @@ static int __pyx_f_7unqlite_6Cursor_is_valid(struct __pyx_obj_7unqlite_Cursor *_
  */
   }
 
-  /* "unqlite.pyx":750
+  /* "unqlite.pyx":753
  *         if unqlite_kv_cursor_valid_entry(self.cursor):
  *             return True
  *         return False             # <<<<<<<<<<<<<<
@@ -11354,7 +11428,7 @@ static int __pyx_f_7unqlite_6Cursor_is_valid(struct __pyx_obj_7unqlite_Cursor *_
   __pyx_r = 0;
   goto __pyx_L0;
 
-  /* "unqlite.pyx":743
+  /* "unqlite.pyx":746
  *             raise StopIteration
  * 
  *     cpdef bint is_valid(self):             # <<<<<<<<<<<<<<
@@ -11398,7 +11472,7 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_20is_valid(struct __pyx_obj_7unqlite_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("is_valid", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_f_7unqlite_6Cursor_is_valid(__pyx_v_self, 1)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 743; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_f_7unqlite_6Cursor_is_valid(__pyx_v_self, 1)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 746; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -11415,7 +11489,7 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_20is_valid(struct __pyx_obj_7unqlite_
   return __pyx_r;
 }
 
-/* "unqlite.pyx":752
+/* "unqlite.pyx":755
  *         return False
  * 
  *     def __iter__(self):             # <<<<<<<<<<<<<<
@@ -11441,7 +11515,7 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_22__iter__(struct __pyx_obj_7unqlite_
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__iter__", 0);
 
-  /* "unqlite.pyx":753
+  /* "unqlite.pyx":756
  * 
  *     def __iter__(self):
  *         self.consumed = False             # <<<<<<<<<<<<<<
@@ -11450,7 +11524,7 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_22__iter__(struct __pyx_obj_7unqlite_
  */
   __pyx_v_self->consumed = 0;
 
-  /* "unqlite.pyx":754
+  /* "unqlite.pyx":757
  *     def __iter__(self):
  *         self.consumed = False
  *         return self             # <<<<<<<<<<<<<<
@@ -11462,7 +11536,7 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_22__iter__(struct __pyx_obj_7unqlite_
   __pyx_r = ((PyObject *)__pyx_v_self);
   goto __pyx_L0;
 
-  /* "unqlite.pyx":752
+  /* "unqlite.pyx":755
  *         return False
  * 
  *     def __iter__(self):             # <<<<<<<<<<<<<<
@@ -11477,7 +11551,7 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_22__iter__(struct __pyx_obj_7unqlite_
   return __pyx_r;
 }
 
-/* "unqlite.pyx":756
+/* "unqlite.pyx":759
  *         return self
  * 
  *     cpdef key(self):             # <<<<<<<<<<<<<<
@@ -11498,12 +11572,12 @@ static PyObject *__pyx_f_7unqlite_6Cursor_key(struct __pyx_obj_7unqlite_Cursor *
   PyObject *__pyx_t_4 = NULL;
   int __pyx_t_5;
   int __pyx_t_6;
-  int __pyx_t_7;
-  int __pyx_t_8;
-  char const *__pyx_t_9;
-  PyObject *__pyx_t_10 = NULL;
-  PyObject *__pyx_t_11 = NULL;
-  PyObject *__pyx_t_12 = NULL;
+  PyObject *__pyx_t_7 = NULL;
+  PyObject *__pyx_t_8 = NULL;
+  PyObject *__pyx_t_9 = NULL;
+  int __pyx_t_10;
+  int __pyx_t_11;
+  char const *__pyx_t_12;
   PyObject *__pyx_t_13 = NULL;
   PyObject *__pyx_t_14 = NULL;
   PyObject *__pyx_t_15 = NULL;
@@ -11515,7 +11589,7 @@ static PyObject *__pyx_f_7unqlite_6Cursor_key(struct __pyx_obj_7unqlite_Cursor *
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
   else if (unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0)) {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_key); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 756; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_key); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 759; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)__pyx_pw_7unqlite_6Cursor_25key)) {
       __Pyx_XDECREF(__pyx_r);
@@ -11531,10 +11605,10 @@ static PyObject *__pyx_f_7unqlite_6Cursor_key(struct __pyx_obj_7unqlite_Cursor *
         }
       }
       if (__pyx_t_4) {
-        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 756; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 759; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       } else {
-        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 756; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 759; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       }
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -11546,18 +11620,18 @@ static PyObject *__pyx_f_7unqlite_6Cursor_key(struct __pyx_obj_7unqlite_Cursor *
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "unqlite.pyx":762
+  /* "unqlite.pyx":765
  * 
  * 
  *         self.unqlite.check_call(             # <<<<<<<<<<<<<<
  *             unqlite_kv_cursor_key(self.cursor, <void *>0, &buf_size))
  * 
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->unqlite->__pyx_vtab)->check_call(__pyx_v_self->unqlite, unqlite_kv_cursor_key(__pyx_v_self->cursor, ((void *)0), (&__pyx_v_buf_size))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 762; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->unqlite->__pyx_vtab)->check_call(__pyx_v_self->unqlite, unqlite_kv_cursor_key(__pyx_v_self->cursor, ((void *)0), (&__pyx_v_buf_size))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 765; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":765
+  /* "unqlite.pyx":768
  *             unqlite_kv_cursor_key(self.cursor, <void *>0, &buf_size))
  * 
  *         try:             # <<<<<<<<<<<<<<
@@ -11566,7 +11640,7 @@ static PyObject *__pyx_f_7unqlite_6Cursor_key(struct __pyx_obj_7unqlite_Cursor *
  */
   /*try:*/ {
 
-    /* "unqlite.pyx":766
+    /* "unqlite.pyx":769
  * 
  *         try:
  *             buf = <char *>malloc(buf_size * sizeof(char))             # <<<<<<<<<<<<<<
@@ -11575,7 +11649,7 @@ static PyObject *__pyx_f_7unqlite_6Cursor_key(struct __pyx_obj_7unqlite_Cursor *
  */
     __pyx_v_buf = ((char *)malloc((__pyx_v_buf_size * (sizeof(char)))));
 
-    /* "unqlite.pyx":767
+    /* "unqlite.pyx":770
  *         try:
  *             buf = <char *>malloc(buf_size * sizeof(char))
  *             unqlite_kv_cursor_key(             # <<<<<<<<<<<<<<
@@ -11584,53 +11658,120 @@ static PyObject *__pyx_f_7unqlite_6Cursor_key(struct __pyx_obj_7unqlite_Cursor *
  */
     unqlite_kv_cursor_key(__pyx_v_self->cursor, ((char *)__pyx_v_buf), (&__pyx_v_buf_size));
 
-    /* "unqlite.pyx":772
+    /* "unqlite.pyx":775
  *                 &buf_size)
  * 
  *             key = buf[:buf_size]             # <<<<<<<<<<<<<<
  *             if str is not bytes:
- *                 key = key.decode('utf-8')
+ *                 try:
  */
-    __pyx_t_1 = __Pyx_PyBytes_FromStringAndSize(__pyx_v_buf + 0, __pyx_v_buf_size - 0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 772; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
+    __pyx_t_1 = __Pyx_PyBytes_FromStringAndSize(__pyx_v_buf + 0, __pyx_v_buf_size - 0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 775; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_v_key = __pyx_t_1;
     __pyx_t_1 = 0;
 
-    /* "unqlite.pyx":773
+    /* "unqlite.pyx":776
  * 
  *             key = buf[:buf_size]
  *             if str is not bytes:             # <<<<<<<<<<<<<<
- *                 key = key.decode('utf-8')
- *             return key
+ *                 try:
+ *                     key = key.decode('utf-8')
  */
     __pyx_t_5 = ((&PyString_Type) != (&PyBytes_Type));
     __pyx_t_6 = (__pyx_t_5 != 0);
     if (__pyx_t_6) {
 
-      /* "unqlite.pyx":774
+      /* "unqlite.pyx":777
  *             key = buf[:buf_size]
  *             if str is not bytes:
- *                 key = key.decode('utf-8')             # <<<<<<<<<<<<<<
- *             return key
- *         finally:
+ *                 try:             # <<<<<<<<<<<<<<
+ *                     key = key.decode('utf-8')
+ *                 except UnicodeDecodeError:
  */
-      __pyx_t_1 = __Pyx_decode_bytes(__pyx_v_key, 0, PY_SSIZE_T_MAX, NULL, NULL, PyUnicode_DecodeUTF8); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 774; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
-      __Pyx_GOTREF(__pyx_t_1);
-      __Pyx_DECREF_SET(__pyx_v_key, __pyx_t_1);
-      __pyx_t_1 = 0;
+      {
+        __Pyx_ExceptionSave(&__pyx_t_7, &__pyx_t_8, &__pyx_t_9);
+        __Pyx_XGOTREF(__pyx_t_7);
+        __Pyx_XGOTREF(__pyx_t_8);
+        __Pyx_XGOTREF(__pyx_t_9);
+        /*try:*/ {
 
-      /* "unqlite.pyx":773
+          /* "unqlite.pyx":778
+ *             if str is not bytes:
+ *                 try:
+ *                     key = key.decode('utf-8')             # <<<<<<<<<<<<<<
+ *                 except UnicodeDecodeError:
+ *                     pass
+ */
+          __pyx_t_1 = __Pyx_decode_bytes(__pyx_v_key, 0, PY_SSIZE_T_MAX, NULL, NULL, PyUnicode_DecodeUTF8); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 778; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
+          __Pyx_GOTREF(__pyx_t_1);
+          __Pyx_DECREF_SET(__pyx_v_key, __pyx_t_1);
+          __pyx_t_1 = 0;
+
+          /* "unqlite.pyx":777
+ *             key = buf[:buf_size]
+ *             if str is not bytes:
+ *                 try:             # <<<<<<<<<<<<<<
+ *                     key = key.decode('utf-8')
+ *                 except UnicodeDecodeError:
+ */
+        }
+        __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
+        __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
+        __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
+        goto __pyx_L14_try_end;
+        __pyx_L7_error:;
+        __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+        __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+        __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+        __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+        /* "unqlite.pyx":779
+ *                 try:
+ *                     key = key.decode('utf-8')
+ *                 except UnicodeDecodeError:             # <<<<<<<<<<<<<<
+ *                     pass
+ *             return key
+ */
+        __pyx_t_10 = PyErr_ExceptionMatches(__pyx_builtin_UnicodeDecodeError);
+        if (__pyx_t_10) {
+          PyErr_Restore(0,0,0);
+          goto __pyx_L8_exception_handled;
+        }
+        goto __pyx_L9_except_error;
+        __pyx_L9_except_error:;
+
+        /* "unqlite.pyx":777
+ *             key = buf[:buf_size]
+ *             if str is not bytes:
+ *                 try:             # <<<<<<<<<<<<<<
+ *                     key = key.decode('utf-8')
+ *                 except UnicodeDecodeError:
+ */
+        __Pyx_XGIVEREF(__pyx_t_7);
+        __Pyx_XGIVEREF(__pyx_t_8);
+        __Pyx_XGIVEREF(__pyx_t_9);
+        __Pyx_ExceptionReset(__pyx_t_7, __pyx_t_8, __pyx_t_9);
+        goto __pyx_L4_error;
+        __pyx_L8_exception_handled:;
+        __Pyx_XGIVEREF(__pyx_t_7);
+        __Pyx_XGIVEREF(__pyx_t_8);
+        __Pyx_XGIVEREF(__pyx_t_9);
+        __Pyx_ExceptionReset(__pyx_t_7, __pyx_t_8, __pyx_t_9);
+        __pyx_L14_try_end:;
+      }
+
+      /* "unqlite.pyx":776
  * 
  *             key = buf[:buf_size]
  *             if str is not bytes:             # <<<<<<<<<<<<<<
- *                 key = key.decode('utf-8')
- *             return key
+ *                 try:
+ *                     key = key.decode('utf-8')
  */
     }
 
-    /* "unqlite.pyx":775
- *             if str is not bytes:
- *                 key = key.decode('utf-8')
+    /* "unqlite.pyx":781
+ *                 except UnicodeDecodeError:
+ *                     pass
  *             return key             # <<<<<<<<<<<<<<
  *         finally:
  *             free(buf)
@@ -11641,7 +11782,7 @@ static PyObject *__pyx_f_7unqlite_6Cursor_key(struct __pyx_obj_7unqlite_Cursor *
     goto __pyx_L3_return;
   }
 
-  /* "unqlite.pyx":777
+  /* "unqlite.pyx":783
  *             return key
  *         finally:
  *             free(buf)             # <<<<<<<<<<<<<<
@@ -11651,20 +11792,20 @@ static PyObject *__pyx_f_7unqlite_6Cursor_key(struct __pyx_obj_7unqlite_Cursor *
   /*finally:*/ {
     /*exception exit:*/{
       __pyx_L4_error:;
-      __pyx_t_10 = 0; __pyx_t_11 = 0; __pyx_t_12 = 0; __pyx_t_13 = 0; __pyx_t_14 = 0; __pyx_t_15 = 0;
+      __pyx_t_9 = 0; __pyx_t_8 = 0; __pyx_t_7 = 0; __pyx_t_13 = 0; __pyx_t_14 = 0; __pyx_t_15 = 0;
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
       if (PY_MAJOR_VERSION >= 3) __Pyx_ExceptionSwap(&__pyx_t_13, &__pyx_t_14, &__pyx_t_15);
-      if ((PY_MAJOR_VERSION < 3) || unlikely(__Pyx_GetException(&__pyx_t_10, &__pyx_t_11, &__pyx_t_12) < 0)) __Pyx_ErrFetch(&__pyx_t_10, &__pyx_t_11, &__pyx_t_12);
-      __Pyx_XGOTREF(__pyx_t_10);
-      __Pyx_XGOTREF(__pyx_t_11);
-      __Pyx_XGOTREF(__pyx_t_12);
+      if ((PY_MAJOR_VERSION < 3) || unlikely(__Pyx_GetException(&__pyx_t_9, &__pyx_t_8, &__pyx_t_7) < 0)) __Pyx_ErrFetch(&__pyx_t_9, &__pyx_t_8, &__pyx_t_7);
+      __Pyx_XGOTREF(__pyx_t_9);
+      __Pyx_XGOTREF(__pyx_t_8);
+      __Pyx_XGOTREF(__pyx_t_7);
       __Pyx_XGOTREF(__pyx_t_13);
       __Pyx_XGOTREF(__pyx_t_14);
       __Pyx_XGOTREF(__pyx_t_15);
-      __pyx_t_7 = __pyx_lineno; __pyx_t_8 = __pyx_clineno; __pyx_t_9 = __pyx_filename;
+      __pyx_t_10 = __pyx_lineno; __pyx_t_11 = __pyx_clineno; __pyx_t_12 = __pyx_filename;
       {
         free(__pyx_v_buf);
       }
@@ -11674,12 +11815,12 @@ static PyObject *__pyx_f_7unqlite_6Cursor_key(struct __pyx_obj_7unqlite_Cursor *
         __Pyx_XGIVEREF(__pyx_t_15);
         __Pyx_ExceptionReset(__pyx_t_13, __pyx_t_14, __pyx_t_15);
       }
-      __Pyx_XGIVEREF(__pyx_t_10);
-      __Pyx_XGIVEREF(__pyx_t_11);
-      __Pyx_XGIVEREF(__pyx_t_12);
-      __Pyx_ErrRestore(__pyx_t_10, __pyx_t_11, __pyx_t_12);
-      __pyx_t_10 = 0; __pyx_t_11 = 0; __pyx_t_12 = 0; __pyx_t_13 = 0; __pyx_t_14 = 0; __pyx_t_15 = 0;
-      __pyx_lineno = __pyx_t_7; __pyx_clineno = __pyx_t_8; __pyx_filename = __pyx_t_9;
+      __Pyx_XGIVEREF(__pyx_t_9);
+      __Pyx_XGIVEREF(__pyx_t_8);
+      __Pyx_XGIVEREF(__pyx_t_7);
+      __Pyx_ErrRestore(__pyx_t_9, __pyx_t_8, __pyx_t_7);
+      __pyx_t_9 = 0; __pyx_t_8 = 0; __pyx_t_7 = 0; __pyx_t_13 = 0; __pyx_t_14 = 0; __pyx_t_15 = 0;
+      __pyx_lineno = __pyx_t_10; __pyx_clineno = __pyx_t_11; __pyx_filename = __pyx_t_12;
       goto __pyx_L1_error;
     }
     __pyx_L3_return: {
@@ -11692,7 +11833,7 @@ static PyObject *__pyx_f_7unqlite_6Cursor_key(struct __pyx_obj_7unqlite_Cursor *
     }
   }
 
-  /* "unqlite.pyx":756
+  /* "unqlite.pyx":759
  *         return self
  * 
  *     cpdef key(self):             # <<<<<<<<<<<<<<
@@ -11738,7 +11879,7 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_24key(struct __pyx_obj_7unqlite_Curso
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("key", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_7unqlite_6Cursor_key(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 756; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_f_7unqlite_6Cursor_key(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 759; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -11755,7 +11896,7 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_24key(struct __pyx_obj_7unqlite_Curso
   return __pyx_r;
 }
 
-/* "unqlite.pyx":779
+/* "unqlite.pyx":785
  *             free(buf)
  * 
  *     cpdef value(self):             # <<<<<<<<<<<<<<
@@ -11776,12 +11917,12 @@ static PyObject *__pyx_f_7unqlite_6Cursor_value(struct __pyx_obj_7unqlite_Cursor
   PyObject *__pyx_t_4 = NULL;
   int __pyx_t_5;
   int __pyx_t_6;
-  int __pyx_t_7;
-  int __pyx_t_8;
-  char const *__pyx_t_9;
-  PyObject *__pyx_t_10 = NULL;
-  PyObject *__pyx_t_11 = NULL;
-  PyObject *__pyx_t_12 = NULL;
+  PyObject *__pyx_t_7 = NULL;
+  PyObject *__pyx_t_8 = NULL;
+  PyObject *__pyx_t_9 = NULL;
+  int __pyx_t_10;
+  int __pyx_t_11;
+  char const *__pyx_t_12;
   PyObject *__pyx_t_13 = NULL;
   PyObject *__pyx_t_14 = NULL;
   PyObject *__pyx_t_15 = NULL;
@@ -11793,7 +11934,7 @@ static PyObject *__pyx_f_7unqlite_6Cursor_value(struct __pyx_obj_7unqlite_Cursor
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
   else if (unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0)) {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_value); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 779; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_value); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 785; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)__pyx_pw_7unqlite_6Cursor_27value)) {
       __Pyx_XDECREF(__pyx_r);
@@ -11809,10 +11950,10 @@ static PyObject *__pyx_f_7unqlite_6Cursor_value(struct __pyx_obj_7unqlite_Cursor
         }
       }
       if (__pyx_t_4) {
-        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 779; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 785; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       } else {
-        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 779; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 785; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       }
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -11824,18 +11965,18 @@ static PyObject *__pyx_f_7unqlite_6Cursor_value(struct __pyx_obj_7unqlite_Cursor
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "unqlite.pyx":784
+  /* "unqlite.pyx":790
  *         cdef unqlite_int64 buf_size
  * 
  *         self.unqlite.check_call(             # <<<<<<<<<<<<<<
  *             unqlite_kv_cursor_data(self.cursor, <void *>0, &buf_size))
  * 
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->unqlite->__pyx_vtab)->check_call(__pyx_v_self->unqlite, unqlite_kv_cursor_data(__pyx_v_self->cursor, ((void *)0), (&__pyx_v_buf_size))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 784; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->unqlite->__pyx_vtab)->check_call(__pyx_v_self->unqlite, unqlite_kv_cursor_data(__pyx_v_self->cursor, ((void *)0), (&__pyx_v_buf_size))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 790; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":787
+  /* "unqlite.pyx":793
  *             unqlite_kv_cursor_data(self.cursor, <void *>0, &buf_size))
  * 
  *         try:             # <<<<<<<<<<<<<<
@@ -11844,7 +11985,7 @@ static PyObject *__pyx_f_7unqlite_6Cursor_value(struct __pyx_obj_7unqlite_Cursor
  */
   /*try:*/ {
 
-    /* "unqlite.pyx":788
+    /* "unqlite.pyx":794
  * 
  *         try:
  *             buf = <char *>malloc(buf_size * sizeof(char))             # <<<<<<<<<<<<<<
@@ -11853,7 +11994,7 @@ static PyObject *__pyx_f_7unqlite_6Cursor_value(struct __pyx_obj_7unqlite_Cursor
  */
     __pyx_v_buf = ((char *)malloc((__pyx_v_buf_size * (sizeof(char)))));
 
-    /* "unqlite.pyx":789
+    /* "unqlite.pyx":795
  *         try:
  *             buf = <char *>malloc(buf_size * sizeof(char))
  *             unqlite_kv_cursor_data(             # <<<<<<<<<<<<<<
@@ -11862,53 +12003,120 @@ static PyObject *__pyx_f_7unqlite_6Cursor_value(struct __pyx_obj_7unqlite_Cursor
  */
     unqlite_kv_cursor_data(__pyx_v_self->cursor, ((char *)__pyx_v_buf), (&__pyx_v_buf_size));
 
-    /* "unqlite.pyx":794
+    /* "unqlite.pyx":800
  *                 &buf_size)
  * 
  *             value = buf[:buf_size]             # <<<<<<<<<<<<<<
  *             if str is not bytes:
- *                 value = value.decode('utf-8')
+ *                 try:
  */
-    __pyx_t_1 = __Pyx_PyBytes_FromStringAndSize(__pyx_v_buf + 0, __pyx_v_buf_size - 0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 794; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
+    __pyx_t_1 = __Pyx_PyBytes_FromStringAndSize(__pyx_v_buf + 0, __pyx_v_buf_size - 0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 800; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_v_value = __pyx_t_1;
     __pyx_t_1 = 0;
 
-    /* "unqlite.pyx":795
+    /* "unqlite.pyx":801
  * 
  *             value = buf[:buf_size]
  *             if str is not bytes:             # <<<<<<<<<<<<<<
- *                 value = value.decode('utf-8')
- *             return value
+ *                 try:
+ *                     value = value.decode('utf-8')
  */
     __pyx_t_5 = ((&PyString_Type) != (&PyBytes_Type));
     __pyx_t_6 = (__pyx_t_5 != 0);
     if (__pyx_t_6) {
 
-      /* "unqlite.pyx":796
+      /* "unqlite.pyx":802
  *             value = buf[:buf_size]
  *             if str is not bytes:
- *                 value = value.decode('utf-8')             # <<<<<<<<<<<<<<
- *             return value
- *         finally:
+ *                 try:             # <<<<<<<<<<<<<<
+ *                     value = value.decode('utf-8')
+ *                 except UnicodeDecodeError:
  */
-      __pyx_t_1 = __Pyx_decode_bytes(__pyx_v_value, 0, PY_SSIZE_T_MAX, NULL, NULL, PyUnicode_DecodeUTF8); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 796; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
-      __Pyx_GOTREF(__pyx_t_1);
-      __Pyx_DECREF_SET(__pyx_v_value, __pyx_t_1);
-      __pyx_t_1 = 0;
+      {
+        __Pyx_ExceptionSave(&__pyx_t_7, &__pyx_t_8, &__pyx_t_9);
+        __Pyx_XGOTREF(__pyx_t_7);
+        __Pyx_XGOTREF(__pyx_t_8);
+        __Pyx_XGOTREF(__pyx_t_9);
+        /*try:*/ {
 
-      /* "unqlite.pyx":795
+          /* "unqlite.pyx":803
+ *             if str is not bytes:
+ *                 try:
+ *                     value = value.decode('utf-8')             # <<<<<<<<<<<<<<
+ *                 except UnicodeDecodeError:
+ *                     pass
+ */
+          __pyx_t_1 = __Pyx_decode_bytes(__pyx_v_value, 0, PY_SSIZE_T_MAX, NULL, NULL, PyUnicode_DecodeUTF8); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 803; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
+          __Pyx_GOTREF(__pyx_t_1);
+          __Pyx_DECREF_SET(__pyx_v_value, __pyx_t_1);
+          __pyx_t_1 = 0;
+
+          /* "unqlite.pyx":802
+ *             value = buf[:buf_size]
+ *             if str is not bytes:
+ *                 try:             # <<<<<<<<<<<<<<
+ *                     value = value.decode('utf-8')
+ *                 except UnicodeDecodeError:
+ */
+        }
+        __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
+        __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
+        __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
+        goto __pyx_L14_try_end;
+        __pyx_L7_error:;
+        __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+        __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+        __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+        __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+        /* "unqlite.pyx":804
+ *                 try:
+ *                     value = value.decode('utf-8')
+ *                 except UnicodeDecodeError:             # <<<<<<<<<<<<<<
+ *                     pass
+ *             return value
+ */
+        __pyx_t_10 = PyErr_ExceptionMatches(__pyx_builtin_UnicodeDecodeError);
+        if (__pyx_t_10) {
+          PyErr_Restore(0,0,0);
+          goto __pyx_L8_exception_handled;
+        }
+        goto __pyx_L9_except_error;
+        __pyx_L9_except_error:;
+
+        /* "unqlite.pyx":802
+ *             value = buf[:buf_size]
+ *             if str is not bytes:
+ *                 try:             # <<<<<<<<<<<<<<
+ *                     value = value.decode('utf-8')
+ *                 except UnicodeDecodeError:
+ */
+        __Pyx_XGIVEREF(__pyx_t_7);
+        __Pyx_XGIVEREF(__pyx_t_8);
+        __Pyx_XGIVEREF(__pyx_t_9);
+        __Pyx_ExceptionReset(__pyx_t_7, __pyx_t_8, __pyx_t_9);
+        goto __pyx_L4_error;
+        __pyx_L8_exception_handled:;
+        __Pyx_XGIVEREF(__pyx_t_7);
+        __Pyx_XGIVEREF(__pyx_t_8);
+        __Pyx_XGIVEREF(__pyx_t_9);
+        __Pyx_ExceptionReset(__pyx_t_7, __pyx_t_8, __pyx_t_9);
+        __pyx_L14_try_end:;
+      }
+
+      /* "unqlite.pyx":801
  * 
  *             value = buf[:buf_size]
  *             if str is not bytes:             # <<<<<<<<<<<<<<
- *                 value = value.decode('utf-8')
- *             return value
+ *                 try:
+ *                     value = value.decode('utf-8')
  */
     }
 
-    /* "unqlite.pyx":797
- *             if str is not bytes:
- *                 value = value.decode('utf-8')
+    /* "unqlite.pyx":806
+ *                 except UnicodeDecodeError:
+ *                     pass
  *             return value             # <<<<<<<<<<<<<<
  *         finally:
  *             free(buf)
@@ -11919,7 +12127,7 @@ static PyObject *__pyx_f_7unqlite_6Cursor_value(struct __pyx_obj_7unqlite_Cursor
     goto __pyx_L3_return;
   }
 
-  /* "unqlite.pyx":799
+  /* "unqlite.pyx":808
  *             return value
  *         finally:
  *             free(buf)             # <<<<<<<<<<<<<<
@@ -11929,20 +12137,20 @@ static PyObject *__pyx_f_7unqlite_6Cursor_value(struct __pyx_obj_7unqlite_Cursor
   /*finally:*/ {
     /*exception exit:*/{
       __pyx_L4_error:;
-      __pyx_t_10 = 0; __pyx_t_11 = 0; __pyx_t_12 = 0; __pyx_t_13 = 0; __pyx_t_14 = 0; __pyx_t_15 = 0;
+      __pyx_t_9 = 0; __pyx_t_8 = 0; __pyx_t_7 = 0; __pyx_t_13 = 0; __pyx_t_14 = 0; __pyx_t_15 = 0;
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
       if (PY_MAJOR_VERSION >= 3) __Pyx_ExceptionSwap(&__pyx_t_13, &__pyx_t_14, &__pyx_t_15);
-      if ((PY_MAJOR_VERSION < 3) || unlikely(__Pyx_GetException(&__pyx_t_10, &__pyx_t_11, &__pyx_t_12) < 0)) __Pyx_ErrFetch(&__pyx_t_10, &__pyx_t_11, &__pyx_t_12);
-      __Pyx_XGOTREF(__pyx_t_10);
-      __Pyx_XGOTREF(__pyx_t_11);
-      __Pyx_XGOTREF(__pyx_t_12);
+      if ((PY_MAJOR_VERSION < 3) || unlikely(__Pyx_GetException(&__pyx_t_9, &__pyx_t_8, &__pyx_t_7) < 0)) __Pyx_ErrFetch(&__pyx_t_9, &__pyx_t_8, &__pyx_t_7);
+      __Pyx_XGOTREF(__pyx_t_9);
+      __Pyx_XGOTREF(__pyx_t_8);
+      __Pyx_XGOTREF(__pyx_t_7);
       __Pyx_XGOTREF(__pyx_t_13);
       __Pyx_XGOTREF(__pyx_t_14);
       __Pyx_XGOTREF(__pyx_t_15);
-      __pyx_t_7 = __pyx_lineno; __pyx_t_8 = __pyx_clineno; __pyx_t_9 = __pyx_filename;
+      __pyx_t_10 = __pyx_lineno; __pyx_t_11 = __pyx_clineno; __pyx_t_12 = __pyx_filename;
       {
         free(__pyx_v_buf);
       }
@@ -11952,12 +12160,12 @@ static PyObject *__pyx_f_7unqlite_6Cursor_value(struct __pyx_obj_7unqlite_Cursor
         __Pyx_XGIVEREF(__pyx_t_15);
         __Pyx_ExceptionReset(__pyx_t_13, __pyx_t_14, __pyx_t_15);
       }
-      __Pyx_XGIVEREF(__pyx_t_10);
-      __Pyx_XGIVEREF(__pyx_t_11);
-      __Pyx_XGIVEREF(__pyx_t_12);
-      __Pyx_ErrRestore(__pyx_t_10, __pyx_t_11, __pyx_t_12);
-      __pyx_t_10 = 0; __pyx_t_11 = 0; __pyx_t_12 = 0; __pyx_t_13 = 0; __pyx_t_14 = 0; __pyx_t_15 = 0;
-      __pyx_lineno = __pyx_t_7; __pyx_clineno = __pyx_t_8; __pyx_filename = __pyx_t_9;
+      __Pyx_XGIVEREF(__pyx_t_9);
+      __Pyx_XGIVEREF(__pyx_t_8);
+      __Pyx_XGIVEREF(__pyx_t_7);
+      __Pyx_ErrRestore(__pyx_t_9, __pyx_t_8, __pyx_t_7);
+      __pyx_t_9 = 0; __pyx_t_8 = 0; __pyx_t_7 = 0; __pyx_t_13 = 0; __pyx_t_14 = 0; __pyx_t_15 = 0;
+      __pyx_lineno = __pyx_t_10; __pyx_clineno = __pyx_t_11; __pyx_filename = __pyx_t_12;
       goto __pyx_L1_error;
     }
     __pyx_L3_return: {
@@ -11970,7 +12178,7 @@ static PyObject *__pyx_f_7unqlite_6Cursor_value(struct __pyx_obj_7unqlite_Cursor
     }
   }
 
-  /* "unqlite.pyx":779
+  /* "unqlite.pyx":785
  *             free(buf)
  * 
  *     cpdef value(self):             # <<<<<<<<<<<<<<
@@ -12016,7 +12224,7 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_26value(struct __pyx_obj_7unqlite_Cur
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("value", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_7unqlite_6Cursor_value(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 779; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_f_7unqlite_6Cursor_value(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 785; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -12033,7 +12241,7 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_26value(struct __pyx_obj_7unqlite_Cur
   return __pyx_r;
 }
 
-/* "unqlite.pyx":801
+/* "unqlite.pyx":810
  *             free(buf)
  * 
  *     cpdef delete(self):             # <<<<<<<<<<<<<<
@@ -12057,7 +12265,7 @@ static PyObject *__pyx_f_7unqlite_6Cursor_delete(struct __pyx_obj_7unqlite_Curso
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
   else if (unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0)) {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_delete); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 801; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_delete); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 810; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)__pyx_pw_7unqlite_6Cursor_29delete)) {
       __Pyx_XDECREF(__pyx_r);
@@ -12073,10 +12281,10 @@ static PyObject *__pyx_f_7unqlite_6Cursor_delete(struct __pyx_obj_7unqlite_Curso
         }
       }
       if (__pyx_t_4) {
-        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 801; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 810; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       } else {
-        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 801; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 810; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       }
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -12088,18 +12296,18 @@ static PyObject *__pyx_f_7unqlite_6Cursor_delete(struct __pyx_obj_7unqlite_Curso
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "unqlite.pyx":803
+  /* "unqlite.pyx":812
  *     cpdef delete(self):
  *         """Delete the record at the cursor's current location."""
  *         self.unqlite.check_call(unqlite_kv_cursor_delete_entry(self.cursor))             # <<<<<<<<<<<<<<
  * 
  *     def __next__(self):
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->unqlite->__pyx_vtab)->check_call(__pyx_v_self->unqlite, unqlite_kv_cursor_delete_entry(__pyx_v_self->cursor)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 803; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->unqlite->__pyx_vtab)->check_call(__pyx_v_self->unqlite, unqlite_kv_cursor_delete_entry(__pyx_v_self->cursor)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 812; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":801
+  /* "unqlite.pyx":810
  *             free(buf)
  * 
  *     cpdef delete(self):             # <<<<<<<<<<<<<<
@@ -12146,7 +12354,7 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_28delete(struct __pyx_obj_7unqlite_Cu
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("delete", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_7unqlite_6Cursor_delete(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 801; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_f_7unqlite_6Cursor_delete(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 810; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -12163,12 +12371,12 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_28delete(struct __pyx_obj_7unqlite_Cu
   return __pyx_r;
 }
 
-/* "unqlite.pyx":805
+/* "unqlite.pyx":814
  *         self.unqlite.check_call(unqlite_kv_cursor_delete_entry(self.cursor))
  * 
  *     def __next__(self):             # <<<<<<<<<<<<<<
  *         cdef int ret
- *         cdef basestring key, value
+ * 
  */
 
 /* Python wrapper */
@@ -12186,8 +12394,8 @@ static PyObject *__pyx_pw_7unqlite_6Cursor_31__next__(PyObject *__pyx_v_self) {
 
 static PyObject *__pyx_pf_7unqlite_6Cursor_30__next__(struct __pyx_obj_7unqlite_Cursor *__pyx_v_self) {
   int __pyx_v_ret;
-  PyObject *__pyx_v_key = 0;
-  PyObject *__pyx_v_value = 0;
+  PyObject *__pyx_v_key = NULL;
+  PyObject *__pyx_v_value = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
@@ -12195,15 +12403,16 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_30__next__(struct __pyx_obj_7unqlite_
   PyObject *__pyx_t_3 = NULL;
   PyObject *__pyx_t_4 = NULL;
   PyObject *__pyx_t_5 = NULL;
-  PyObject *__pyx_t_6 = NULL;
+  int __pyx_t_6;
   PyObject *__pyx_t_7 = NULL;
+  PyObject *__pyx_t_8 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__next__", 0);
 
-  /* "unqlite.pyx":809
- *         cdef basestring key, value
+  /* "unqlite.pyx":817
+ *         cdef int ret
  * 
  *         if self.consumed:             # <<<<<<<<<<<<<<
  *             raise StopIteration
@@ -12212,7 +12421,7 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_30__next__(struct __pyx_obj_7unqlite_
   __pyx_t_1 = (__pyx_v_self->consumed != 0);
   if (__pyx_t_1) {
 
-    /* "unqlite.pyx":810
+    /* "unqlite.pyx":818
  * 
  *         if self.consumed:
  *             raise StopIteration             # <<<<<<<<<<<<<<
@@ -12220,10 +12429,10 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_30__next__(struct __pyx_obj_7unqlite_
  *         try:
  */
     __Pyx_Raise(__pyx_builtin_StopIteration, 0, 0, 0);
-    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 810; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 818; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-    /* "unqlite.pyx":809
- *         cdef basestring key, value
+    /* "unqlite.pyx":817
+ *         cdef int ret
  * 
  *         if self.consumed:             # <<<<<<<<<<<<<<
  *             raise StopIteration
@@ -12231,7 +12440,7 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_30__next__(struct __pyx_obj_7unqlite_
  */
   }
 
-  /* "unqlite.pyx":812
+  /* "unqlite.pyx":820
  *             raise StopIteration
  * 
  *         try:             # <<<<<<<<<<<<<<
@@ -12245,33 +12454,31 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_30__next__(struct __pyx_obj_7unqlite_
     __Pyx_XGOTREF(__pyx_t_4);
     /*try:*/ {
 
-      /* "unqlite.pyx":813
+      /* "unqlite.pyx":821
  * 
  *         try:
  *             key = self.key()             # <<<<<<<<<<<<<<
  *             value = self.value()
- *         except:
+ *         except Exception:
  */
-      __pyx_t_5 = ((struct __pyx_vtabstruct_7unqlite_Cursor *)__pyx_v_self->__pyx_vtab)->key(__pyx_v_self, 0); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 813; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
+      __pyx_t_5 = ((struct __pyx_vtabstruct_7unqlite_Cursor *)__pyx_v_self->__pyx_vtab)->key(__pyx_v_self, 0); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 821; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
       __Pyx_GOTREF(__pyx_t_5);
-      if (!(likely(__Pyx_PyBaseString_CheckExact(__pyx_t_5))||((__pyx_t_5) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", (PY_MAJOR_VERSION < 3 ? "basestring" : "str"), Py_TYPE(__pyx_t_5)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 813; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
-      __pyx_v_key = ((PyObject*)__pyx_t_5);
+      __pyx_v_key = __pyx_t_5;
       __pyx_t_5 = 0;
 
-      /* "unqlite.pyx":814
+      /* "unqlite.pyx":822
  *         try:
  *             key = self.key()
  *             value = self.value()             # <<<<<<<<<<<<<<
- *         except:
+ *         except Exception:
  *             raise StopIteration
  */
-      __pyx_t_5 = ((struct __pyx_vtabstruct_7unqlite_Cursor *)__pyx_v_self->__pyx_vtab)->value(__pyx_v_self, 0); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 814; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
+      __pyx_t_5 = ((struct __pyx_vtabstruct_7unqlite_Cursor *)__pyx_v_self->__pyx_vtab)->value(__pyx_v_self, 0); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 822; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
       __Pyx_GOTREF(__pyx_t_5);
-      if (!(likely(__Pyx_PyBaseString_CheckExact(__pyx_t_5))||((__pyx_t_5) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", (PY_MAJOR_VERSION < 3 ? "basestring" : "str"), Py_TYPE(__pyx_t_5)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 814; __pyx_clineno = __LINE__; goto __pyx_L4_error;}
-      __pyx_v_value = ((PyObject*)__pyx_t_5);
+      __pyx_v_value = __pyx_t_5;
       __pyx_t_5 = 0;
 
-      /* "unqlite.pyx":812
+      /* "unqlite.pyx":820
  *             raise StopIteration
  * 
  *         try:             # <<<<<<<<<<<<<<
@@ -12280,7 +12487,7 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_30__next__(struct __pyx_obj_7unqlite_
  */
     }
 
-    /* "unqlite.pyx":818
+    /* "unqlite.pyx":826
  *             raise StopIteration
  *         else:
  *             ret = unqlite_kv_cursor_next_entry(self.cursor)             # <<<<<<<<<<<<<<
@@ -12290,7 +12497,7 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_30__next__(struct __pyx_obj_7unqlite_
     /*else:*/ {
       __pyx_v_ret = unqlite_kv_cursor_next_entry(__pyx_v_self->cursor);
 
-      /* "unqlite.pyx":819
+      /* "unqlite.pyx":827
  *         else:
  *             ret = unqlite_kv_cursor_next_entry(self.cursor)
  *             if ret != UNQLITE_OK:             # <<<<<<<<<<<<<<
@@ -12300,7 +12507,7 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_30__next__(struct __pyx_obj_7unqlite_
       __pyx_t_1 = ((__pyx_v_ret != UNQLITE_OK) != 0);
       if (__pyx_t_1) {
 
-        /* "unqlite.pyx":820
+        /* "unqlite.pyx":828
  *             ret = unqlite_kv_cursor_next_entry(self.cursor)
  *             if ret != UNQLITE_OK:
  *                 self.consumed = True             # <<<<<<<<<<<<<<
@@ -12309,7 +12516,7 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_30__next__(struct __pyx_obj_7unqlite_
  */
         __pyx_v_self->consumed = 1;
 
-        /* "unqlite.pyx":819
+        /* "unqlite.pyx":827
  *         else:
  *             ret = unqlite_kv_cursor_next_entry(self.cursor)
  *             if ret != UNQLITE_OK:             # <<<<<<<<<<<<<<
@@ -12325,33 +12532,35 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_30__next__(struct __pyx_obj_7unqlite_
     __pyx_L4_error:;
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-    /* "unqlite.pyx":815
+    /* "unqlite.pyx":823
  *             key = self.key()
  *             value = self.value()
- *         except:             # <<<<<<<<<<<<<<
+ *         except Exception:             # <<<<<<<<<<<<<<
  *             raise StopIteration
  *         else:
  */
-    /*except:*/ {
+    __pyx_t_6 = PyErr_ExceptionMatches(__pyx_builtin_Exception);
+    if (__pyx_t_6) {
       __Pyx_AddTraceback("unqlite.Cursor.__next__", __pyx_clineno, __pyx_lineno, __pyx_filename);
-      if (__Pyx_GetException(&__pyx_t_5, &__pyx_t_6, &__pyx_t_7) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 815; __pyx_clineno = __LINE__; goto __pyx_L6_except_error;}
+      if (__Pyx_GetException(&__pyx_t_5, &__pyx_t_7, &__pyx_t_8) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 823; __pyx_clineno = __LINE__; goto __pyx_L6_except_error;}
       __Pyx_GOTREF(__pyx_t_5);
-      __Pyx_GOTREF(__pyx_t_6);
       __Pyx_GOTREF(__pyx_t_7);
+      __Pyx_GOTREF(__pyx_t_8);
 
-      /* "unqlite.pyx":816
+      /* "unqlite.pyx":824
  *             value = self.value()
- *         except:
+ *         except Exception:
  *             raise StopIteration             # <<<<<<<<<<<<<<
  *         else:
  *             ret = unqlite_kv_cursor_next_entry(self.cursor)
  */
       __Pyx_Raise(__pyx_builtin_StopIteration, 0, 0, 0);
-      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 816; __pyx_clineno = __LINE__; goto __pyx_L6_except_error;}
+      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 824; __pyx_clineno = __LINE__; goto __pyx_L6_except_error;}
     }
+    goto __pyx_L6_except_error;
     __pyx_L6_except_error:;
 
-    /* "unqlite.pyx":812
+    /* "unqlite.pyx":820
  *             raise StopIteration
  * 
  *         try:             # <<<<<<<<<<<<<<
@@ -12366,7 +12575,7 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_30__next__(struct __pyx_obj_7unqlite_
     __pyx_L11_try_end:;
   }
 
-  /* "unqlite.pyx":822
+  /* "unqlite.pyx":830
  *                 self.consumed = True
  * 
  *         return (key, value)             # <<<<<<<<<<<<<<
@@ -12374,31 +12583,31 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_30__next__(struct __pyx_obj_7unqlite_
  *     def fetch_until(self, basestring stop_key, bint include_stop_key=True):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_7 = PyTuple_New(2); if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 822; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_GOTREF(__pyx_t_7);
+  __pyx_t_8 = PyTuple_New(2); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 830; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __Pyx_GOTREF(__pyx_t_8);
   __Pyx_INCREF(__pyx_v_key);
   __Pyx_GIVEREF(__pyx_v_key);
-  PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_v_key);
+  PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_v_key);
   __Pyx_INCREF(__pyx_v_value);
   __Pyx_GIVEREF(__pyx_v_value);
-  PyTuple_SET_ITEM(__pyx_t_7, 1, __pyx_v_value);
-  __pyx_r = __pyx_t_7;
-  __pyx_t_7 = 0;
+  PyTuple_SET_ITEM(__pyx_t_8, 1, __pyx_v_value);
+  __pyx_r = __pyx_t_8;
+  __pyx_t_8 = 0;
   goto __pyx_L0;
 
-  /* "unqlite.pyx":805
+  /* "unqlite.pyx":814
  *         self.unqlite.check_call(unqlite_kv_cursor_delete_entry(self.cursor))
  * 
  *     def __next__(self):             # <<<<<<<<<<<<<<
  *         cdef int ret
- *         cdef basestring key, value
+ * 
  */
 
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7);
+  __Pyx_XDECREF(__pyx_t_8);
   __Pyx_AddTraceback("unqlite.Cursor.__next__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -12410,7 +12619,7 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_30__next__(struct __pyx_obj_7unqlite_
 }
 static PyObject *__pyx_gb_7unqlite_6Cursor_34generator4(__pyx_CoroutineObject *__pyx_generator, PyObject *__pyx_sent_value); /* proto */
 
-/* "unqlite.pyx":824
+/* "unqlite.pyx":832
  *         return (key, value)
  * 
  *     def fetch_until(self, basestring stop_key, bint include_stop_key=True):             # <<<<<<<<<<<<<<
@@ -12453,7 +12662,7 @@ static PyObject *__pyx_pw_7unqlite_6Cursor_33fetch_until(PyObject *__pyx_v_self,
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "fetch_until") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 824; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "fetch_until") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 832; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -12465,20 +12674,20 @@ static PyObject *__pyx_pw_7unqlite_6Cursor_33fetch_until(PyObject *__pyx_v_self,
     }
     __pyx_v_stop_key = ((PyObject*)values[0]);
     if (values[1]) {
-      __pyx_v_include_stop_key = __Pyx_PyObject_IsTrue(values[1]); if (unlikely((__pyx_v_include_stop_key == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 824; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+      __pyx_v_include_stop_key = __Pyx_PyObject_IsTrue(values[1]); if (unlikely((__pyx_v_include_stop_key == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 832; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
     } else {
       __pyx_v_include_stop_key = ((int)1);
     }
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("fetch_until", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 824; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("fetch_until", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 832; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("unqlite.Cursor.fetch_until", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_stop_key), (&PyBaseString_Type), 1, "stop_key", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 824; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_stop_key), (&PyBaseString_Type), 1, "stop_key", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 832; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_7unqlite_6Cursor_32fetch_until(((struct __pyx_obj_7unqlite_Cursor *)__pyx_v_self), __pyx_v_stop_key, __pyx_v_include_stop_key);
 
   /* function exit code */
@@ -12512,7 +12721,7 @@ static PyObject *__pyx_pf_7unqlite_6Cursor_32fetch_until(struct __pyx_obj_7unqli
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_stop_key);
   __pyx_cur_scope->__pyx_v_include_stop_key = __pyx_v_include_stop_key;
   {
-    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_7unqlite_6Cursor_34generator4, (PyObject *) __pyx_cur_scope, __pyx_n_s_fetch_until, __pyx_n_s_Cursor_fetch_until); if (unlikely(!gen)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 824; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_7unqlite_6Cursor_34generator4, (PyObject *) __pyx_cur_scope, __pyx_n_s_fetch_until, __pyx_n_s_Cursor_fetch_until); if (unlikely(!gen)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 832; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -12556,9 +12765,9 @@ static PyObject *__pyx_gb_7unqlite_6Cursor_34generator4(__pyx_CoroutineObject *_
     return NULL;
   }
   __pyx_L3_first_run:;
-  if (unlikely(!__pyx_sent_value)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 824; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__pyx_sent_value)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 832; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "unqlite.pyx":827
+  /* "unqlite.pyx":835
  *         cdef basestring key
  * 
  *         for key, value in self:             # <<<<<<<<<<<<<<
@@ -12569,26 +12778,26 @@ static PyObject *__pyx_gb_7unqlite_6Cursor_34generator4(__pyx_CoroutineObject *_
     __pyx_t_1 = ((PyObject *)__pyx_cur_scope->__pyx_v_self); __Pyx_INCREF(__pyx_t_1); __pyx_t_2 = 0;
     __pyx_t_3 = NULL;
   } else {
-    __pyx_t_2 = -1; __pyx_t_1 = PyObject_GetIter(((PyObject *)__pyx_cur_scope->__pyx_v_self)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 827; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = -1; __pyx_t_1 = PyObject_GetIter(((PyObject *)__pyx_cur_scope->__pyx_v_self)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 835; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 827; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 835; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   for (;;) {
     if (likely(!__pyx_t_3)) {
       if (likely(PyList_CheckExact(__pyx_t_1))) {
         if (__pyx_t_2 >= PyList_GET_SIZE(__pyx_t_1)) break;
         #if CYTHON_COMPILING_IN_CPYTHON
-        __pyx_t_4 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_2); __Pyx_INCREF(__pyx_t_4); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 827; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_4 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_2); __Pyx_INCREF(__pyx_t_4); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 835; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         #else
-        __pyx_t_4 = PySequence_ITEM(__pyx_t_1, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 827; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_4 = PySequence_ITEM(__pyx_t_1, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 835; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_4);
         #endif
       } else {
         if (__pyx_t_2 >= PyTuple_GET_SIZE(__pyx_t_1)) break;
         #if CYTHON_COMPILING_IN_CPYTHON
-        __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_2); __Pyx_INCREF(__pyx_t_4); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 827; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_2); __Pyx_INCREF(__pyx_t_4); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 835; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         #else
-        __pyx_t_4 = PySequence_ITEM(__pyx_t_1, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 827; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_4 = PySequence_ITEM(__pyx_t_1, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 835; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_4);
         #endif
       }
@@ -12598,7 +12807,7 @@ static PyObject *__pyx_gb_7unqlite_6Cursor_34generator4(__pyx_CoroutineObject *_
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 827; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 835; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         }
         break;
       }
@@ -12614,7 +12823,7 @@ static PyObject *__pyx_gb_7unqlite_6Cursor_34generator4(__pyx_CoroutineObject *_
       if (unlikely(size != 2)) {
         if (size > 2) __Pyx_RaiseTooManyValuesError(2);
         else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-        {__pyx_filename = __pyx_f[0]; __pyx_lineno = 827; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        {__pyx_filename = __pyx_f[0]; __pyx_lineno = 835; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       }
       #if CYTHON_COMPILING_IN_CPYTHON
       if (likely(PyTuple_CheckExact(sequence))) {
@@ -12627,15 +12836,15 @@ static PyObject *__pyx_gb_7unqlite_6Cursor_34generator4(__pyx_CoroutineObject *_
       __Pyx_INCREF(__pyx_t_5);
       __Pyx_INCREF(__pyx_t_6);
       #else
-      __pyx_t_5 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 827; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_5 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 835; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_6 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 827; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_6 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 835; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_6);
       #endif
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     } else {
       Py_ssize_t index = -1;
-      __pyx_t_7 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 827; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_7 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 835; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_t_8 = Py_TYPE(__pyx_t_7)->tp_iternext;
@@ -12643,7 +12852,7 @@ static PyObject *__pyx_gb_7unqlite_6Cursor_34generator4(__pyx_CoroutineObject *_
       __Pyx_GOTREF(__pyx_t_5);
       index = 1; __pyx_t_6 = __pyx_t_8(__pyx_t_7); if (unlikely(!__pyx_t_6)) goto __pyx_L6_unpacking_failed;
       __Pyx_GOTREF(__pyx_t_6);
-      if (__Pyx_IternextUnpackEndCheck(__pyx_t_8(__pyx_t_7), 2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 827; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      if (__Pyx_IternextUnpackEndCheck(__pyx_t_8(__pyx_t_7), 2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 835; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __pyx_t_8 = NULL;
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       goto __pyx_L7_unpacking_done;
@@ -12651,10 +12860,10 @@ static PyObject *__pyx_gb_7unqlite_6Cursor_34generator4(__pyx_CoroutineObject *_
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __pyx_t_8 = NULL;
       if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 827; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 835; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __pyx_L7_unpacking_done:;
     }
-    if (!(likely(__Pyx_PyBaseString_CheckExact(__pyx_t_5))||((__pyx_t_5) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", (PY_MAJOR_VERSION < 3 ? "basestring" : "str"), Py_TYPE(__pyx_t_5)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 827; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (!(likely(__Pyx_PyBaseString_CheckExact(__pyx_t_5))||((__pyx_t_5) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", (PY_MAJOR_VERSION < 3 ? "basestring" : "str"), Py_TYPE(__pyx_t_5)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 835; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_key);
     __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_key, ((PyObject*)__pyx_t_5));
     __Pyx_GIVEREF(__pyx_t_5);
@@ -12664,18 +12873,18 @@ static PyObject *__pyx_gb_7unqlite_6Cursor_34generator4(__pyx_CoroutineObject *_
     __Pyx_GIVEREF(__pyx_t_6);
     __pyx_t_6 = 0;
 
-    /* "unqlite.pyx":828
+    /* "unqlite.pyx":836
  * 
  *         for key, value in self:
  *             if key == stop_key:             # <<<<<<<<<<<<<<
  *                 if include_stop_key:
  *                     yield (key, value)
  */
-    __pyx_t_9 = (__Pyx_PyUnicode_Equals(__pyx_cur_scope->__pyx_v_key, __pyx_cur_scope->__pyx_v_stop_key, Py_EQ)); if (unlikely(__pyx_t_9 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 828; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_9 = (__Pyx_PyUnicode_Equals(__pyx_cur_scope->__pyx_v_key, __pyx_cur_scope->__pyx_v_stop_key, Py_EQ)); if (unlikely(__pyx_t_9 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 836; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __pyx_t_10 = (__pyx_t_9 != 0);
     if (__pyx_t_10) {
 
-      /* "unqlite.pyx":829
+      /* "unqlite.pyx":837
  *         for key, value in self:
  *             if key == stop_key:
  *                 if include_stop_key:             # <<<<<<<<<<<<<<
@@ -12685,14 +12894,14 @@ static PyObject *__pyx_gb_7unqlite_6Cursor_34generator4(__pyx_CoroutineObject *_
       __pyx_t_10 = (__pyx_cur_scope->__pyx_v_include_stop_key != 0);
       if (__pyx_t_10) {
 
-        /* "unqlite.pyx":830
+        /* "unqlite.pyx":838
  *             if key == stop_key:
  *                 if include_stop_key:
  *                     yield (key, value)             # <<<<<<<<<<<<<<
  *                 raise StopIteration
  *             else:
  */
-        __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 830; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 838; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_INCREF(__pyx_cur_scope->__pyx_v_key);
         __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_key);
@@ -12717,9 +12926,9 @@ static PyObject *__pyx_gb_7unqlite_6Cursor_34generator4(__pyx_CoroutineObject *_
         __Pyx_XGOTREF(__pyx_t_1);
         __pyx_t_2 = __pyx_cur_scope->__pyx_t_1;
         __pyx_t_3 = __pyx_cur_scope->__pyx_t_2;
-        if (unlikely(!__pyx_sent_value)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 830; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        if (unlikely(!__pyx_sent_value)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 838; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-        /* "unqlite.pyx":829
+        /* "unqlite.pyx":837
  *         for key, value in self:
  *             if key == stop_key:
  *                 if include_stop_key:             # <<<<<<<<<<<<<<
@@ -12728,7 +12937,7 @@ static PyObject *__pyx_gb_7unqlite_6Cursor_34generator4(__pyx_CoroutineObject *_
  */
       }
 
-      /* "unqlite.pyx":831
+      /* "unqlite.pyx":839
  *                 if include_stop_key:
  *                     yield (key, value)
  *                 raise StopIteration             # <<<<<<<<<<<<<<
@@ -12736,9 +12945,9 @@ static PyObject *__pyx_gb_7unqlite_6Cursor_34generator4(__pyx_CoroutineObject *_
  *                 yield (key, value)
  */
       __Pyx_Raise(__pyx_builtin_StopIteration, 0, 0, 0);
-      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 831; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 839; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-      /* "unqlite.pyx":828
+      /* "unqlite.pyx":836
  * 
  *         for key, value in self:
  *             if key == stop_key:             # <<<<<<<<<<<<<<
@@ -12747,7 +12956,7 @@ static PyObject *__pyx_gb_7unqlite_6Cursor_34generator4(__pyx_CoroutineObject *_
  */
     }
 
-    /* "unqlite.pyx":833
+    /* "unqlite.pyx":841
  *                 raise StopIteration
  *             else:
  *                 yield (key, value)             # <<<<<<<<<<<<<<
@@ -12755,7 +12964,7 @@ static PyObject *__pyx_gb_7unqlite_6Cursor_34generator4(__pyx_CoroutineObject *_
  * 
  */
     /*else*/ {
-      __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 833; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 841; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_INCREF(__pyx_cur_scope->__pyx_v_key);
       __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_key);
@@ -12780,10 +12989,10 @@ static PyObject *__pyx_gb_7unqlite_6Cursor_34generator4(__pyx_CoroutineObject *_
       __Pyx_XGOTREF(__pyx_t_1);
       __pyx_t_2 = __pyx_cur_scope->__pyx_t_1;
       __pyx_t_3 = __pyx_cur_scope->__pyx_t_2;
-      if (unlikely(!__pyx_sent_value)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 833; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      if (unlikely(!__pyx_sent_value)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 841; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
 
-    /* "unqlite.pyx":827
+    /* "unqlite.pyx":835
  *         cdef basestring key
  * 
  *         for key, value in self:             # <<<<<<<<<<<<<<
@@ -12793,7 +13002,7 @@ static PyObject *__pyx_gb_7unqlite_6Cursor_34generator4(__pyx_CoroutineObject *_
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":824
+  /* "unqlite.pyx":832
  *         return (key, value)
  * 
  *     def fetch_until(self, basestring stop_key, bint include_stop_key=True):             # <<<<<<<<<<<<<<
@@ -12819,7 +13028,7 @@ static PyObject *__pyx_gb_7unqlite_6Cursor_34generator4(__pyx_CoroutineObject *_
   return __pyx_r;
 }
 
-/* "unqlite.pyx":848
+/* "unqlite.pyx":856
  *     cdef set encoded_names
  * 
  *     def __cinit__(self, UnQLite unqlite, basestring code):             # <<<<<<<<<<<<<<
@@ -12858,11 +13067,11 @@ static int __pyx_pw_7unqlite_2VM_1__cinit__(PyObject *__pyx_v_self, PyObject *__
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_code)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 848; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 856; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 848; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 856; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -12875,14 +13084,14 @@ static int __pyx_pw_7unqlite_2VM_1__cinit__(PyObject *__pyx_v_self, PyObject *__
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 848; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 856; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("unqlite.VM.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_unqlite), __pyx_ptype_7unqlite_UnQLite, 1, "unqlite", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 848; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_code), (&PyBaseString_Type), 1, "code", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 848; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_unqlite), __pyx_ptype_7unqlite_UnQLite, 1, "unqlite", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 856; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_code), (&PyBaseString_Type), 1, "code", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 856; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_7unqlite_2VM___cinit__(((struct __pyx_obj_7unqlite_VM *)__pyx_v_self), __pyx_v_unqlite, __pyx_v_code);
 
   /* function exit code */
@@ -12906,7 +13115,7 @@ static int __pyx_pf_7unqlite_2VM___cinit__(struct __pyx_obj_7unqlite_VM *__pyx_v
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "unqlite.pyx":849
+  /* "unqlite.pyx":857
  * 
  *     def __cinit__(self, UnQLite unqlite, basestring code):
  *         self.unqlite = unqlite             # <<<<<<<<<<<<<<
@@ -12919,7 +13128,7 @@ static int __pyx_pf_7unqlite_2VM___cinit__(struct __pyx_obj_7unqlite_VM *__pyx_v
   __Pyx_DECREF(((PyObject *)__pyx_v_self->unqlite));
   __pyx_v_self->unqlite = __pyx_v_unqlite;
 
-  /* "unqlite.pyx":850
+  /* "unqlite.pyx":858
  *     def __cinit__(self, UnQLite unqlite, basestring code):
  *         self.unqlite = unqlite
  *         self.vm = <unqlite_vm *>0             # <<<<<<<<<<<<<<
@@ -12928,7 +13137,7 @@ static int __pyx_pf_7unqlite_2VM___cinit__(struct __pyx_obj_7unqlite_VM *__pyx_v
  */
   __pyx_v_self->vm = ((unqlite_vm *)0);
 
-  /* "unqlite.pyx":851
+  /* "unqlite.pyx":859
  *         self.unqlite = unqlite
  *         self.vm = <unqlite_vm *>0
  *         self.code = code             # <<<<<<<<<<<<<<
@@ -12941,7 +13150,7 @@ static int __pyx_pf_7unqlite_2VM___cinit__(struct __pyx_obj_7unqlite_VM *__pyx_v
   __Pyx_DECREF(__pyx_v_self->code);
   __pyx_v_self->code = __pyx_v_code;
 
-  /* "unqlite.pyx":852
+  /* "unqlite.pyx":860
  *         self.vm = <unqlite_vm *>0
  *         self.code = code
  *         if isinstance(code, unicode):             # <<<<<<<<<<<<<<
@@ -12952,26 +13161,26 @@ static int __pyx_pf_7unqlite_2VM___cinit__(struct __pyx_obj_7unqlite_VM *__pyx_v
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "unqlite.pyx":853
+    /* "unqlite.pyx":861
  *         self.code = code
  *         if isinstance(code, unicode):
  *             self.encoded_code = code.encode('utf-8')             # <<<<<<<<<<<<<<
  *         else:
  *             self.encoded_code = bytes(code)
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_code, __pyx_n_s_encode); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 853; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_code, __pyx_n_s_encode); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 861; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_tuple__21, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 853; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_tuple__21, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 861; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (!(likely(PyBytes_CheckExact(__pyx_t_4))||((__pyx_t_4) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "bytes", Py_TYPE(__pyx_t_4)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 853; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (!(likely(PyBytes_CheckExact(__pyx_t_4))||((__pyx_t_4) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "bytes", Py_TYPE(__pyx_t_4)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 861; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GIVEREF(__pyx_t_4);
     __Pyx_GOTREF(__pyx_v_self->encoded_code);
     __Pyx_DECREF(__pyx_v_self->encoded_code);
     __pyx_v_self->encoded_code = ((PyObject*)__pyx_t_4);
     __pyx_t_4 = 0;
 
-    /* "unqlite.pyx":852
+    /* "unqlite.pyx":860
  *         self.vm = <unqlite_vm *>0
  *         self.code = code
  *         if isinstance(code, unicode):             # <<<<<<<<<<<<<<
@@ -12981,7 +13190,7 @@ static int __pyx_pf_7unqlite_2VM___cinit__(struct __pyx_obj_7unqlite_VM *__pyx_v
     goto __pyx_L3;
   }
 
-  /* "unqlite.pyx":855
+  /* "unqlite.pyx":863
  *             self.encoded_code = code.encode('utf-8')
  *         else:
  *             self.encoded_code = bytes(code)             # <<<<<<<<<<<<<<
@@ -12989,12 +13198,12 @@ static int __pyx_pf_7unqlite_2VM___cinit__(struct __pyx_obj_7unqlite_VM *__pyx_v
  * 
  */
   /*else*/ {
-    __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 855; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 863; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_INCREF(__pyx_v_code);
     __Pyx_GIVEREF(__pyx_v_code);
     PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_v_code);
-    __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)(&PyBytes_Type)), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 855; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)(&PyBytes_Type)), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 863; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GIVEREF(__pyx_t_3);
@@ -13005,14 +13214,14 @@ static int __pyx_pf_7unqlite_2VM___cinit__(struct __pyx_obj_7unqlite_VM *__pyx_v
   }
   __pyx_L3:;
 
-  /* "unqlite.pyx":856
+  /* "unqlite.pyx":864
  *         else:
  *             self.encoded_code = bytes(code)
  *         self.encoded_names = set()             # <<<<<<<<<<<<<<
  * 
  *     def __dealloc__(self):
  */
-  __pyx_t_3 = PySet_New(0); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 856; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = PySet_New(0); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 864; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_3);
   __Pyx_GOTREF(__pyx_v_self->encoded_names);
@@ -13020,7 +13229,7 @@ static int __pyx_pf_7unqlite_2VM___cinit__(struct __pyx_obj_7unqlite_VM *__pyx_v
   __pyx_v_self->encoded_names = ((PyObject*)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "unqlite.pyx":848
+  /* "unqlite.pyx":856
  *     cdef set encoded_names
  * 
  *     def __cinit__(self, UnQLite unqlite, basestring code):             # <<<<<<<<<<<<<<
@@ -13041,7 +13250,7 @@ static int __pyx_pf_7unqlite_2VM___cinit__(struct __pyx_obj_7unqlite_VM *__pyx_v
   return __pyx_r;
 }
 
-/* "unqlite.pyx":858
+/* "unqlite.pyx":866
  *         self.encoded_names = set()
  * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
@@ -13068,7 +13277,7 @@ static void __pyx_pf_7unqlite_2VM_2__dealloc__(CYTHON_UNUSED struct __pyx_obj_7u
   __Pyx_RefNannyFinishContext();
 }
 
-/* "unqlite.pyx":863
+/* "unqlite.pyx":871
  *         pass
  * 
  *     cpdef compile(self):             # <<<<<<<<<<<<<<
@@ -13094,7 +13303,7 @@ static PyObject *__pyx_f_7unqlite_2VM_compile(struct __pyx_obj_7unqlite_VM *__py
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
   else if (unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0)) {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_compile); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 863; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_compile); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 871; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)__pyx_pw_7unqlite_2VM_5compile)) {
       __Pyx_XDECREF(__pyx_r);
@@ -13110,10 +13319,10 @@ static PyObject *__pyx_f_7unqlite_2VM_compile(struct __pyx_obj_7unqlite_VM *__py
         }
       }
       if (__pyx_t_4) {
-        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 863; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 871; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       } else {
-        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 863; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 871; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       }
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -13125,7 +13334,7 @@ static PyObject *__pyx_f_7unqlite_2VM_compile(struct __pyx_obj_7unqlite_VM *__py
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "unqlite.pyx":865
+  /* "unqlite.pyx":873
  *     cpdef compile(self):
  *         """Compile the Jx9 script."""
  *         self.encoded_names.clear()             # <<<<<<<<<<<<<<
@@ -13134,31 +13343,31 @@ static PyObject *__pyx_f_7unqlite_2VM_compile(struct __pyx_obj_7unqlite_VM *__py
  */
   if (unlikely(__pyx_v_self->encoded_names == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%s'", "clear");
-    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 865; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 873; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
-  __pyx_t_5 = PySet_Clear(__pyx_v_self->encoded_names); if (unlikely(__pyx_t_5 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 865; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = PySet_Clear(__pyx_v_self->encoded_names); if (unlikely(__pyx_t_5 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 873; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "unqlite.pyx":868
+  /* "unqlite.pyx":876
  *         self.unqlite.check_call(unqlite_compile(
  *             self.unqlite.database,
  *             <const char *>self.encoded_code,             # <<<<<<<<<<<<<<
  *             -1,
  *             &self.vm))
  */
-  __pyx_t_6 = __Pyx_PyObject_AsString(__pyx_v_self->encoded_code); if (unlikely((!__pyx_t_6) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 868; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_6 = __Pyx_PyObject_AsString(__pyx_v_self->encoded_code); if (unlikely((!__pyx_t_6) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 876; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "unqlite.pyx":866
+  /* "unqlite.pyx":874
  *         """Compile the Jx9 script."""
  *         self.encoded_names.clear()
  *         self.unqlite.check_call(unqlite_compile(             # <<<<<<<<<<<<<<
  *             self.unqlite.database,
  *             <const char *>self.encoded_code,
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->unqlite->__pyx_vtab)->check_call(__pyx_v_self->unqlite, unqlite_compile(__pyx_v_self->unqlite->database, ((char const *)__pyx_t_6), -1, (&__pyx_v_self->vm))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 866; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->unqlite->__pyx_vtab)->check_call(__pyx_v_self->unqlite, unqlite_compile(__pyx_v_self->unqlite->database, ((char const *)__pyx_t_6), -1, (&__pyx_v_self->vm))); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 874; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":863
+  /* "unqlite.pyx":871
  *         pass
  * 
  *     cpdef compile(self):             # <<<<<<<<<<<<<<
@@ -13205,7 +13414,7 @@ static PyObject *__pyx_pf_7unqlite_2VM_4compile(struct __pyx_obj_7unqlite_VM *__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("compile", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_7unqlite_2VM_compile(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 863; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_f_7unqlite_2VM_compile(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 871; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -13222,7 +13431,7 @@ static PyObject *__pyx_pf_7unqlite_2VM_4compile(struct __pyx_obj_7unqlite_VM *__
   return __pyx_r;
 }
 
-/* "unqlite.pyx":872
+/* "unqlite.pyx":880
  *             &self.vm))
  * 
  *     cpdef execute(self):             # <<<<<<<<<<<<<<
@@ -13247,7 +13456,7 @@ static PyObject *__pyx_f_7unqlite_2VM_execute(struct __pyx_obj_7unqlite_VM *__py
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
   else if (unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0)) {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_execute); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 872; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_execute); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 880; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)__pyx_pw_7unqlite_2VM_7execute)) {
       __Pyx_XDECREF(__pyx_r);
@@ -13263,10 +13472,10 @@ static PyObject *__pyx_f_7unqlite_2VM_execute(struct __pyx_obj_7unqlite_VM *__py
         }
       }
       if (__pyx_t_4) {
-        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 872; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 880; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       } else {
-        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 872; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 880; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       }
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -13278,18 +13487,18 @@ static PyObject *__pyx_f_7unqlite_2VM_execute(struct __pyx_obj_7unqlite_VM *__py
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "unqlite.pyx":874
+  /* "unqlite.pyx":882
  *     cpdef execute(self):
  *         """Execute the compiled Jx9 script."""
  *         self.unqlite.check_call(unqlite_vm_exec(self.vm))             # <<<<<<<<<<<<<<
  *         self.encoded_names.clear()
  * 
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->unqlite->__pyx_vtab)->check_call(__pyx_v_self->unqlite, unqlite_vm_exec(__pyx_v_self->vm)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 874; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->unqlite->__pyx_vtab)->check_call(__pyx_v_self->unqlite, unqlite_vm_exec(__pyx_v_self->vm)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 882; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":875
+  /* "unqlite.pyx":883
  *         """Execute the compiled Jx9 script."""
  *         self.unqlite.check_call(unqlite_vm_exec(self.vm))
  *         self.encoded_names.clear()             # <<<<<<<<<<<<<<
@@ -13298,11 +13507,11 @@ static PyObject *__pyx_f_7unqlite_2VM_execute(struct __pyx_obj_7unqlite_VM *__py
  */
   if (unlikely(__pyx_v_self->encoded_names == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%s'", "clear");
-    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 875; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 883; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
-  __pyx_t_5 = PySet_Clear(__pyx_v_self->encoded_names); if (unlikely(__pyx_t_5 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 875; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = PySet_Clear(__pyx_v_self->encoded_names); if (unlikely(__pyx_t_5 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 883; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "unqlite.pyx":872
+  /* "unqlite.pyx":880
  *             &self.vm))
  * 
  *     cpdef execute(self):             # <<<<<<<<<<<<<<
@@ -13349,7 +13558,7 @@ static PyObject *__pyx_pf_7unqlite_2VM_6execute(struct __pyx_obj_7unqlite_VM *__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("execute", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_7unqlite_2VM_execute(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 872; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_f_7unqlite_2VM_execute(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 880; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -13366,7 +13575,7 @@ static PyObject *__pyx_pf_7unqlite_2VM_6execute(struct __pyx_obj_7unqlite_VM *__
   return __pyx_r;
 }
 
-/* "unqlite.pyx":877
+/* "unqlite.pyx":885
  *         self.encoded_names.clear()
  * 
  *     cpdef close(self):             # <<<<<<<<<<<<<<
@@ -13391,7 +13600,7 @@ static PyObject *__pyx_f_7unqlite_2VM_close(struct __pyx_obj_7unqlite_VM *__pyx_
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
   else if (unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0)) {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_close); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 877; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_close); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 885; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)__pyx_pw_7unqlite_2VM_9close)) {
       __Pyx_XDECREF(__pyx_r);
@@ -13407,10 +13616,10 @@ static PyObject *__pyx_f_7unqlite_2VM_close(struct __pyx_obj_7unqlite_VM *__pyx_
         }
       }
       if (__pyx_t_4) {
-        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 877; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 885; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       } else {
-        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 877; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 885; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       }
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -13422,7 +13631,7 @@ static PyObject *__pyx_f_7unqlite_2VM_close(struct __pyx_obj_7unqlite_VM *__pyx_
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "unqlite.pyx":879
+  /* "unqlite.pyx":887
  *     cpdef close(self):
  *         """Close and release the virtual machine."""
  *         self.encoded_names.clear()             # <<<<<<<<<<<<<<
@@ -13431,11 +13640,11 @@ static PyObject *__pyx_f_7unqlite_2VM_close(struct __pyx_obj_7unqlite_VM *__pyx_
  */
   if (unlikely(__pyx_v_self->encoded_names == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%s'", "clear");
-    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 879; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 887; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
-  __pyx_t_5 = PySet_Clear(__pyx_v_self->encoded_names); if (unlikely(__pyx_t_5 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 879; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = PySet_Clear(__pyx_v_self->encoded_names); if (unlikely(__pyx_t_5 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 887; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "unqlite.pyx":880
+  /* "unqlite.pyx":888
  *         """Close and release the virtual machine."""
  *         self.encoded_names.clear()
  *         unqlite_vm_release(self.vm)             # <<<<<<<<<<<<<<
@@ -13444,7 +13653,7 @@ static PyObject *__pyx_f_7unqlite_2VM_close(struct __pyx_obj_7unqlite_VM *__pyx_
  */
   unqlite_vm_release(__pyx_v_self->vm);
 
-  /* "unqlite.pyx":877
+  /* "unqlite.pyx":885
  *         self.encoded_names.clear()
  * 
  *     cpdef close(self):             # <<<<<<<<<<<<<<
@@ -13491,7 +13700,7 @@ static PyObject *__pyx_pf_7unqlite_2VM_8close(struct __pyx_obj_7unqlite_VM *__py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("close", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_7unqlite_2VM_close(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 877; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_f_7unqlite_2VM_close(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 885; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -13508,7 +13717,7 @@ static PyObject *__pyx_pf_7unqlite_2VM_8close(struct __pyx_obj_7unqlite_VM *__py
   return __pyx_r;
 }
 
-/* "unqlite.pyx":882
+/* "unqlite.pyx":890
  *         unqlite_vm_release(self.vm)
  * 
  *     def __enter__(self):             # <<<<<<<<<<<<<<
@@ -13538,18 +13747,18 @@ static PyObject *__pyx_pf_7unqlite_2VM_10__enter__(struct __pyx_obj_7unqlite_VM 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__enter__", 0);
 
-  /* "unqlite.pyx":883
+  /* "unqlite.pyx":891
  * 
  *     def __enter__(self):
  *         self.compile()             # <<<<<<<<<<<<<<
  *         return self
  * 
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_VM *)__pyx_v_self->__pyx_vtab)->compile(__pyx_v_self, 0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 883; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_VM *)__pyx_v_self->__pyx_vtab)->compile(__pyx_v_self, 0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 891; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":884
+  /* "unqlite.pyx":892
  *     def __enter__(self):
  *         self.compile()
  *         return self             # <<<<<<<<<<<<<<
@@ -13561,7 +13770,7 @@ static PyObject *__pyx_pf_7unqlite_2VM_10__enter__(struct __pyx_obj_7unqlite_VM 
   __pyx_r = ((PyObject *)__pyx_v_self);
   goto __pyx_L0;
 
-  /* "unqlite.pyx":882
+  /* "unqlite.pyx":890
  *         unqlite_vm_release(self.vm)
  * 
  *     def __enter__(self):             # <<<<<<<<<<<<<<
@@ -13580,7 +13789,7 @@ static PyObject *__pyx_pf_7unqlite_2VM_10__enter__(struct __pyx_obj_7unqlite_VM 
   return __pyx_r;
 }
 
-/* "unqlite.pyx":886
+/* "unqlite.pyx":894
  *         return self
  * 
  *     def __exit__(self, exc_type, exc_val, exc_tb):             # <<<<<<<<<<<<<<
@@ -13621,16 +13830,16 @@ static PyObject *__pyx_pw_7unqlite_2VM_13__exit__(PyObject *__pyx_v_self, PyObje
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_exc_val)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__exit__", 1, 3, 3, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 886; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("__exit__", 1, 3, 3, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 894; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_exc_tb)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__exit__", 1, 3, 3, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 886; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("__exit__", 1, 3, 3, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 894; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__exit__") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 886; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__exit__") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 894; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -13645,7 +13854,7 @@ static PyObject *__pyx_pw_7unqlite_2VM_13__exit__(PyObject *__pyx_v_self, PyObje
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__exit__", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 886; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("__exit__", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 894; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("unqlite.VM.__exit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -13667,18 +13876,18 @@ static PyObject *__pyx_pf_7unqlite_2VM_12__exit__(struct __pyx_obj_7unqlite_VM *
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__exit__", 0);
 
-  /* "unqlite.pyx":887
+  /* "unqlite.pyx":895
  * 
  *     def __exit__(self, exc_type, exc_val, exc_tb):
  *         self.close()             # <<<<<<<<<<<<<<
  * 
  *     cdef unqlite_value* create_value(self, value):
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_VM *)__pyx_v_self->__pyx_vtab)->close(__pyx_v_self, 0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 887; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_VM *)__pyx_v_self->__pyx_vtab)->close(__pyx_v_self, 0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 895; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":886
+  /* "unqlite.pyx":894
  *         return self
  * 
  *     def __exit__(self, exc_type, exc_val, exc_tb):             # <<<<<<<<<<<<<<
@@ -13699,7 +13908,7 @@ static PyObject *__pyx_pf_7unqlite_2VM_12__exit__(struct __pyx_obj_7unqlite_VM *
   return __pyx_r;
 }
 
-/* "unqlite.pyx":889
+/* "unqlite.pyx":897
  *         self.close()
  * 
  *     cdef unqlite_value* create_value(self, value):             # <<<<<<<<<<<<<<
@@ -13720,7 +13929,7 @@ static unqlite_value *__pyx_f_7unqlite_2VM_create_value(struct __pyx_obj_7unqlit
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("create_value", 0);
 
-  /* "unqlite.pyx":894
+  /* "unqlite.pyx":902
  *         """
  *         cdef unqlite_value *ptr
  *         if isinstance(value, (list, tuple, dict)):             # <<<<<<<<<<<<<<
@@ -13748,7 +13957,7 @@ static unqlite_value *__pyx_f_7unqlite_2VM_create_value(struct __pyx_obj_7unqlit
   __pyx_t_3 = (__pyx_t_1 != 0);
   if (__pyx_t_3) {
 
-    /* "unqlite.pyx":895
+    /* "unqlite.pyx":903
  *         cdef unqlite_value *ptr
  *         if isinstance(value, (list, tuple, dict)):
  *             ptr = self.create_array()             # <<<<<<<<<<<<<<
@@ -13757,7 +13966,7 @@ static unqlite_value *__pyx_f_7unqlite_2VM_create_value(struct __pyx_obj_7unqlit
  */
     __pyx_v_ptr = ((struct __pyx_vtabstruct_7unqlite_VM *)__pyx_v_self->__pyx_vtab)->create_array(__pyx_v_self);
 
-    /* "unqlite.pyx":894
+    /* "unqlite.pyx":902
  *         """
  *         cdef unqlite_value *ptr
  *         if isinstance(value, (list, tuple, dict)):             # <<<<<<<<<<<<<<
@@ -13767,7 +13976,7 @@ static unqlite_value *__pyx_f_7unqlite_2VM_create_value(struct __pyx_obj_7unqlit
     goto __pyx_L3;
   }
 
-  /* "unqlite.pyx":897
+  /* "unqlite.pyx":905
  *             ptr = self.create_array()
  *         else:
  *             ptr = self.create_scalar()             # <<<<<<<<<<<<<<
@@ -13779,18 +13988,18 @@ static unqlite_value *__pyx_f_7unqlite_2VM_create_value(struct __pyx_obj_7unqlit
   }
   __pyx_L3:;
 
-  /* "unqlite.pyx":898
+  /* "unqlite.pyx":906
  *         else:
  *             ptr = self.create_scalar()
  *         python_to_unqlite_value(self, ptr, value)             # <<<<<<<<<<<<<<
  *         return ptr
  * 
  */
-  __pyx_t_4 = __pyx_f_7unqlite_python_to_unqlite_value(__pyx_v_self, __pyx_v_ptr, __pyx_v_value); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 898; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __pyx_f_7unqlite_python_to_unqlite_value(__pyx_v_self, __pyx_v_ptr, __pyx_v_value); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 906; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "unqlite.pyx":899
+  /* "unqlite.pyx":907
  *             ptr = self.create_scalar()
  *         python_to_unqlite_value(self, ptr, value)
  *         return ptr             # <<<<<<<<<<<<<<
@@ -13800,7 +14009,7 @@ static unqlite_value *__pyx_f_7unqlite_2VM_create_value(struct __pyx_obj_7unqlit
   __pyx_r = __pyx_v_ptr;
   goto __pyx_L0;
 
-  /* "unqlite.pyx":889
+  /* "unqlite.pyx":897
  *         self.close()
  * 
  *     cdef unqlite_value* create_value(self, value):             # <<<<<<<<<<<<<<
@@ -13818,7 +14027,7 @@ static unqlite_value *__pyx_f_7unqlite_2VM_create_value(struct __pyx_obj_7unqlit
   return __pyx_r;
 }
 
-/* "unqlite.pyx":901
+/* "unqlite.pyx":909
  *         return ptr
  * 
  *     cdef release_value(self, unqlite_value *ptr):             # <<<<<<<<<<<<<<
@@ -13835,18 +14044,18 @@ static PyObject *__pyx_f_7unqlite_2VM_release_value(struct __pyx_obj_7unqlite_VM
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("release_value", 0);
 
-  /* "unqlite.pyx":903
+  /* "unqlite.pyx":911
  *     cdef release_value(self, unqlite_value *ptr):
  *         """Release the given `unqlite_value`."""
  *         self.unqlite.check_call(unqlite_vm_release_value(self.vm, ptr))             # <<<<<<<<<<<<<<
  * 
  *     cdef unqlite_value* create_array(self):
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->unqlite->__pyx_vtab)->check_call(__pyx_v_self->unqlite, unqlite_vm_release_value(__pyx_v_self->vm, __pyx_v_ptr)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 903; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->unqlite->__pyx_vtab)->check_call(__pyx_v_self->unqlite, unqlite_vm_release_value(__pyx_v_self->vm, __pyx_v_ptr)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 911; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":901
+  /* "unqlite.pyx":909
  *         return ptr
  * 
  *     cdef release_value(self, unqlite_value *ptr):             # <<<<<<<<<<<<<<
@@ -13867,7 +14076,7 @@ static PyObject *__pyx_f_7unqlite_2VM_release_value(struct __pyx_obj_7unqlite_VM
   return __pyx_r;
 }
 
-/* "unqlite.pyx":905
+/* "unqlite.pyx":913
  *         self.unqlite.check_call(unqlite_vm_release_value(self.vm, ptr))
  * 
  *     cdef unqlite_value* create_array(self):             # <<<<<<<<<<<<<<
@@ -13880,7 +14089,7 @@ static unqlite_value *__pyx_f_7unqlite_2VM_create_array(struct __pyx_obj_7unqlit
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("create_array", 0);
 
-  /* "unqlite.pyx":906
+  /* "unqlite.pyx":914
  * 
  *     cdef unqlite_value* create_array(self):
  *         return unqlite_vm_new_array(self.vm)             # <<<<<<<<<<<<<<
@@ -13890,7 +14099,7 @@ static unqlite_value *__pyx_f_7unqlite_2VM_create_array(struct __pyx_obj_7unqlit
   __pyx_r = unqlite_vm_new_array(__pyx_v_self->vm);
   goto __pyx_L0;
 
-  /* "unqlite.pyx":905
+  /* "unqlite.pyx":913
  *         self.unqlite.check_call(unqlite_vm_release_value(self.vm, ptr))
  * 
  *     cdef unqlite_value* create_array(self):             # <<<<<<<<<<<<<<
@@ -13904,7 +14113,7 @@ static unqlite_value *__pyx_f_7unqlite_2VM_create_array(struct __pyx_obj_7unqlit
   return __pyx_r;
 }
 
-/* "unqlite.pyx":908
+/* "unqlite.pyx":916
  *         return unqlite_vm_new_array(self.vm)
  * 
  *     cdef unqlite_value* create_scalar(self):             # <<<<<<<<<<<<<<
@@ -13917,7 +14126,7 @@ static unqlite_value *__pyx_f_7unqlite_2VM_create_scalar(struct __pyx_obj_7unqli
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("create_scalar", 0);
 
-  /* "unqlite.pyx":909
+  /* "unqlite.pyx":917
  * 
  *     cdef unqlite_value* create_scalar(self):
  *         return unqlite_vm_new_scalar(self.vm)             # <<<<<<<<<<<<<<
@@ -13927,7 +14136,7 @@ static unqlite_value *__pyx_f_7unqlite_2VM_create_scalar(struct __pyx_obj_7unqli
   __pyx_r = unqlite_vm_new_scalar(__pyx_v_self->vm);
   goto __pyx_L0;
 
-  /* "unqlite.pyx":908
+  /* "unqlite.pyx":916
  *         return unqlite_vm_new_array(self.vm)
  * 
  *     cdef unqlite_value* create_scalar(self):             # <<<<<<<<<<<<<<
@@ -13941,7 +14150,7 @@ static unqlite_value *__pyx_f_7unqlite_2VM_create_scalar(struct __pyx_obj_7unqli
   return __pyx_r;
 }
 
-/* "unqlite.pyx":911
+/* "unqlite.pyx":919
  *         return unqlite_vm_new_scalar(self.vm)
  * 
  *     def set_value(self, name, value):             # <<<<<<<<<<<<<<
@@ -13981,11 +14190,11 @@ static PyObject *__pyx_pw_7unqlite_2VM_15set_value(PyObject *__pyx_v_self, PyObj
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_value)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("set_value", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 911; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("set_value", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 919; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "set_value") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 911; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "set_value") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 919; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -13998,7 +14207,7 @@ static PyObject *__pyx_pw_7unqlite_2VM_15set_value(PyObject *__pyx_v_self, PyObj
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("set_value", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 911; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("set_value", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 919; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("unqlite.VM.set_value", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -14027,7 +14236,7 @@ static PyObject *__pyx_pf_7unqlite_2VM_14set_value(struct __pyx_obj_7unqlite_VM 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("set_value", 0);
 
-  /* "unqlite.pyx":916
+  /* "unqlite.pyx":924
  *         cdef bytes encoded_name
  * 
  *         if isinstance(name, unicode):             # <<<<<<<<<<<<<<
@@ -14038,23 +14247,23 @@ static PyObject *__pyx_pf_7unqlite_2VM_14set_value(struct __pyx_obj_7unqlite_VM 
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "unqlite.pyx":917
+    /* "unqlite.pyx":925
  * 
  *         if isinstance(name, unicode):
  *             encoded_name = name.encode('utf-8')             # <<<<<<<<<<<<<<
  *         else:
  *             encoded_name = bytes(name)
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_name, __pyx_n_s_encode); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 917; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_name, __pyx_n_s_encode); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 925; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_tuple__22, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 917; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_tuple__22, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 925; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (!(likely(PyBytes_CheckExact(__pyx_t_4))||((__pyx_t_4) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "bytes", Py_TYPE(__pyx_t_4)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 917; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (!(likely(PyBytes_CheckExact(__pyx_t_4))||((__pyx_t_4) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "bytes", Py_TYPE(__pyx_t_4)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 925; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __pyx_v_encoded_name = ((PyObject*)__pyx_t_4);
     __pyx_t_4 = 0;
 
-    /* "unqlite.pyx":916
+    /* "unqlite.pyx":924
  *         cdef bytes encoded_name
  * 
  *         if isinstance(name, unicode):             # <<<<<<<<<<<<<<
@@ -14064,7 +14273,7 @@ static PyObject *__pyx_pf_7unqlite_2VM_14set_value(struct __pyx_obj_7unqlite_VM 
     goto __pyx_L3;
   }
 
-  /* "unqlite.pyx":919
+  /* "unqlite.pyx":927
  *             encoded_name = name.encode('utf-8')
  *         else:
  *             encoded_name = bytes(name)             # <<<<<<<<<<<<<<
@@ -14072,12 +14281,12 @@ static PyObject *__pyx_pf_7unqlite_2VM_14set_value(struct __pyx_obj_7unqlite_VM 
  *         # we need to keep it alive by adding it to a set
  */
   /*else*/ {
-    __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 919; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 927; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_INCREF(__pyx_v_name);
     __Pyx_GIVEREF(__pyx_v_name);
     PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_v_name);
-    __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)(&PyBytes_Type)), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 919; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)(&PyBytes_Type)), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 927; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_v_encoded_name = ((PyObject*)__pyx_t_3);
@@ -14085,7 +14294,7 @@ static PyObject *__pyx_pf_7unqlite_2VM_14set_value(struct __pyx_obj_7unqlite_VM 
   }
   __pyx_L3:;
 
-  /* "unqlite.pyx":922
+  /* "unqlite.pyx":930
  *         # since Jx9 does not make a private copy of the name,
  *         # we need to keep it alive by adding it to a set
  *         self.encoded_names.add(encoded_name)             # <<<<<<<<<<<<<<
@@ -14094,11 +14303,11 @@ static PyObject *__pyx_pf_7unqlite_2VM_14set_value(struct __pyx_obj_7unqlite_VM 
  */
   if (unlikely(__pyx_v_self->encoded_names == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%s'", "add");
-    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 922; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 930; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
-  __pyx_t_5 = PySet_Add(__pyx_v_self->encoded_names, __pyx_v_encoded_name); if (unlikely(__pyx_t_5 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 922; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = PySet_Add(__pyx_v_self->encoded_names, __pyx_v_encoded_name); if (unlikely(__pyx_t_5 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 930; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "unqlite.pyx":924
+  /* "unqlite.pyx":932
  *         self.encoded_names.add(encoded_name)
  * 
  *         ptr = self.create_value(value)             # <<<<<<<<<<<<<<
@@ -14107,38 +14316,38 @@ static PyObject *__pyx_pf_7unqlite_2VM_14set_value(struct __pyx_obj_7unqlite_VM 
  */
   __pyx_v_ptr = ((struct __pyx_vtabstruct_7unqlite_VM *)__pyx_v_self->__pyx_vtab)->create_value(__pyx_v_self, __pyx_v_value);
 
-  /* "unqlite.pyx":928
+  /* "unqlite.pyx":936
  *             self.vm,
  *             UNQLITE_VM_CONFIG_CREATE_VAR,
  *             <const char *>encoded_name,             # <<<<<<<<<<<<<<
  *             ptr))
  *         # since Jx9 makes a private copy of the value,
  */
-  __pyx_t_6 = __Pyx_PyObject_AsString(__pyx_v_encoded_name); if (unlikely((!__pyx_t_6) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 928; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_6 = __Pyx_PyObject_AsString(__pyx_v_encoded_name); if (unlikely((!__pyx_t_6) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 936; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "unqlite.pyx":925
+  /* "unqlite.pyx":933
  * 
  *         ptr = self.create_value(value)
  *         self.unqlite.check_call(unqlite_vm_config(             # <<<<<<<<<<<<<<
  *             self.vm,
  *             UNQLITE_VM_CONFIG_CREATE_VAR,
  */
-  __pyx_t_3 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->unqlite->__pyx_vtab)->check_call(__pyx_v_self->unqlite, unqlite_vm_config(__pyx_v_self->vm, UNQLITE_VM_CONFIG_CREATE_VAR, ((char const *)__pyx_t_6), __pyx_v_ptr)); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 925; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = ((struct __pyx_vtabstruct_7unqlite_UnQLite *)__pyx_v_self->unqlite->__pyx_vtab)->check_call(__pyx_v_self->unqlite, unqlite_vm_config(__pyx_v_self->vm, UNQLITE_VM_CONFIG_CREATE_VAR, ((char const *)__pyx_t_6), __pyx_v_ptr)); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 933; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "unqlite.pyx":932
+  /* "unqlite.pyx":940
  *         # since Jx9 makes a private copy of the value,
  *         # we do not need to keep the value alive
  *         self.release_value(ptr)             # <<<<<<<<<<<<<<
  * 
  *     def get_value(self, name):
  */
-  __pyx_t_3 = ((struct __pyx_vtabstruct_7unqlite_VM *)__pyx_v_self->__pyx_vtab)->release_value(__pyx_v_self, __pyx_v_ptr); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 932; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = ((struct __pyx_vtabstruct_7unqlite_VM *)__pyx_v_self->__pyx_vtab)->release_value(__pyx_v_self, __pyx_v_ptr); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 940; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "unqlite.pyx":911
+  /* "unqlite.pyx":919
  *         return unqlite_vm_new_scalar(self.vm)
  * 
  *     def set_value(self, name, value):             # <<<<<<<<<<<<<<
@@ -14161,7 +14370,7 @@ static PyObject *__pyx_pf_7unqlite_2VM_14set_value(struct __pyx_obj_7unqlite_VM 
   return __pyx_r;
 }
 
-/* "unqlite.pyx":934
+/* "unqlite.pyx":942
  *         self.release_value(ptr)
  * 
  *     def get_value(self, name):             # <<<<<<<<<<<<<<
@@ -14207,7 +14416,7 @@ static PyObject *__pyx_pf_7unqlite_2VM_16get_value(struct __pyx_obj_7unqlite_VM 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("get_value", 0);
 
-  /* "unqlite.pyx":942
+  /* "unqlite.pyx":950
  *         cdef bytes encoded_name
  * 
  *         if isinstance(name, unicode):             # <<<<<<<<<<<<<<
@@ -14218,23 +14427,23 @@ static PyObject *__pyx_pf_7unqlite_2VM_16get_value(struct __pyx_obj_7unqlite_VM 
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "unqlite.pyx":943
+    /* "unqlite.pyx":951
  * 
  *         if isinstance(name, unicode):
  *             encoded_name = name.encode('utf-8')             # <<<<<<<<<<<<<<
  *         else:
  *             encoded_name = bytes(name)
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_name, __pyx_n_s_encode); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 943; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_name, __pyx_n_s_encode); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 951; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_tuple__23, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 943; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_tuple__23, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 951; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (!(likely(PyBytes_CheckExact(__pyx_t_4))||((__pyx_t_4) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "bytes", Py_TYPE(__pyx_t_4)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 943; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (!(likely(PyBytes_CheckExact(__pyx_t_4))||((__pyx_t_4) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "bytes", Py_TYPE(__pyx_t_4)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 951; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __pyx_v_encoded_name = ((PyObject*)__pyx_t_4);
     __pyx_t_4 = 0;
 
-    /* "unqlite.pyx":942
+    /* "unqlite.pyx":950
  *         cdef bytes encoded_name
  * 
  *         if isinstance(name, unicode):             # <<<<<<<<<<<<<<
@@ -14244,7 +14453,7 @@ static PyObject *__pyx_pf_7unqlite_2VM_16get_value(struct __pyx_obj_7unqlite_VM 
     goto __pyx_L3;
   }
 
-  /* "unqlite.pyx":945
+  /* "unqlite.pyx":953
  *             encoded_name = name.encode('utf-8')
  *         else:
  *             encoded_name = bytes(name)             # <<<<<<<<<<<<<<
@@ -14252,12 +14461,12 @@ static PyObject *__pyx_pf_7unqlite_2VM_16get_value(struct __pyx_obj_7unqlite_VM 
  *         ptr = unqlite_vm_extract_variable(self.vm, <const char *>encoded_name)
  */
   /*else*/ {
-    __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 945; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 953; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_INCREF(__pyx_v_name);
     __Pyx_GIVEREF(__pyx_v_name);
     PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_v_name);
-    __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)(&PyBytes_Type)), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 945; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)(&PyBytes_Type)), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 953; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_v_encoded_name = ((PyObject*)__pyx_t_3);
@@ -14265,17 +14474,17 @@ static PyObject *__pyx_pf_7unqlite_2VM_16get_value(struct __pyx_obj_7unqlite_VM 
   }
   __pyx_L3:;
 
-  /* "unqlite.pyx":947
+  /* "unqlite.pyx":955
  *             encoded_name = bytes(name)
  * 
  *         ptr = unqlite_vm_extract_variable(self.vm, <const char *>encoded_name)             # <<<<<<<<<<<<<<
  *         if not ptr:
  *             raise KeyError(name)
  */
-  __pyx_t_5 = __Pyx_PyObject_AsString(__pyx_v_encoded_name); if (unlikely((!__pyx_t_5) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 947; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = __Pyx_PyObject_AsString(__pyx_v_encoded_name); if (unlikely((!__pyx_t_5) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 955; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_v_ptr = unqlite_vm_extract_variable(__pyx_v_self->vm, ((char const *)__pyx_t_5));
 
-  /* "unqlite.pyx":948
+  /* "unqlite.pyx":956
  * 
  *         ptr = unqlite_vm_extract_variable(self.vm, <const char *>encoded_name)
  *         if not ptr:             # <<<<<<<<<<<<<<
@@ -14285,26 +14494,26 @@ static PyObject *__pyx_pf_7unqlite_2VM_16get_value(struct __pyx_obj_7unqlite_VM 
   __pyx_t_2 = ((!(__pyx_v_ptr != 0)) != 0);
   if (__pyx_t_2) {
 
-    /* "unqlite.pyx":949
+    /* "unqlite.pyx":957
  *         ptr = unqlite_vm_extract_variable(self.vm, <const char *>encoded_name)
  *         if not ptr:
  *             raise KeyError(name)             # <<<<<<<<<<<<<<
  *         try:
  *             return unqlite_value_to_python(ptr)
  */
-    __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 949; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 957; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_INCREF(__pyx_v_name);
     __Pyx_GIVEREF(__pyx_v_name);
     PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_v_name);
-    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_KeyError, __pyx_t_3, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 949; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_KeyError, __pyx_t_3, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 957; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_Raise(__pyx_t_4, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 949; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 957; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-    /* "unqlite.pyx":948
+    /* "unqlite.pyx":956
  * 
  *         ptr = unqlite_vm_extract_variable(self.vm, <const char *>encoded_name)
  *         if not ptr:             # <<<<<<<<<<<<<<
@@ -14313,7 +14522,7 @@ static PyObject *__pyx_pf_7unqlite_2VM_16get_value(struct __pyx_obj_7unqlite_VM 
  */
   }
 
-  /* "unqlite.pyx":950
+  /* "unqlite.pyx":958
  *         if not ptr:
  *             raise KeyError(name)
  *         try:             # <<<<<<<<<<<<<<
@@ -14322,7 +14531,7 @@ static PyObject *__pyx_pf_7unqlite_2VM_16get_value(struct __pyx_obj_7unqlite_VM 
  */
   /*try:*/ {
 
-    /* "unqlite.pyx":951
+    /* "unqlite.pyx":959
  *             raise KeyError(name)
  *         try:
  *             return unqlite_value_to_python(ptr)             # <<<<<<<<<<<<<<
@@ -14330,14 +14539,14 @@ static PyObject *__pyx_pf_7unqlite_2VM_16get_value(struct __pyx_obj_7unqlite_VM 
  *             self.release_value(ptr)
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_4 = __pyx_f_7unqlite_unqlite_value_to_python(__pyx_v_ptr); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 951; __pyx_clineno = __LINE__; goto __pyx_L6_error;}
+    __pyx_t_4 = __pyx_f_7unqlite_unqlite_value_to_python(__pyx_v_ptr); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 959; __pyx_clineno = __LINE__; goto __pyx_L6_error;}
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_r = __pyx_t_4;
     __pyx_t_4 = 0;
     goto __pyx_L5_return;
   }
 
-  /* "unqlite.pyx":953
+  /* "unqlite.pyx":961
  *             return unqlite_value_to_python(ptr)
  *         finally:
  *             self.release_value(ptr)             # <<<<<<<<<<<<<<
@@ -14360,7 +14569,7 @@ static PyObject *__pyx_pf_7unqlite_2VM_16get_value(struct __pyx_obj_7unqlite_VM 
       __Pyx_XGOTREF(__pyx_t_14);
       __pyx_t_6 = __pyx_lineno; __pyx_t_7 = __pyx_clineno; __pyx_t_8 = __pyx_filename;
       {
-        __pyx_t_4 = ((struct __pyx_vtabstruct_7unqlite_VM *)__pyx_v_self->__pyx_vtab)->release_value(__pyx_v_self, __pyx_v_ptr); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 953; __pyx_clineno = __LINE__; goto __pyx_L9_error;}
+        __pyx_t_4 = ((struct __pyx_vtabstruct_7unqlite_VM *)__pyx_v_self->__pyx_vtab)->release_value(__pyx_v_self, __pyx_v_ptr); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 961; __pyx_clineno = __LINE__; goto __pyx_L9_error;}
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       }
@@ -14393,7 +14602,7 @@ static PyObject *__pyx_pf_7unqlite_2VM_16get_value(struct __pyx_obj_7unqlite_VM 
     __pyx_L5_return: {
       __pyx_t_14 = __pyx_r;
       __pyx_r = 0;
-      __pyx_t_4 = ((struct __pyx_vtabstruct_7unqlite_VM *)__pyx_v_self->__pyx_vtab)->release_value(__pyx_v_self, __pyx_v_ptr); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 953; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_4 = ((struct __pyx_vtabstruct_7unqlite_VM *)__pyx_v_self->__pyx_vtab)->release_value(__pyx_v_self, __pyx_v_ptr); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 961; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_r = __pyx_t_14;
@@ -14402,7 +14611,7 @@ static PyObject *__pyx_pf_7unqlite_2VM_16get_value(struct __pyx_obj_7unqlite_VM 
     }
   }
 
-  /* "unqlite.pyx":934
+  /* "unqlite.pyx":942
  *         self.release_value(ptr)
  * 
  *     def get_value(self, name):             # <<<<<<<<<<<<<<
@@ -14423,7 +14632,7 @@ static PyObject *__pyx_pf_7unqlite_2VM_16get_value(struct __pyx_obj_7unqlite_VM 
   return __pyx_r;
 }
 
-/* "unqlite.pyx":955
+/* "unqlite.pyx":963
  *             self.release_value(ptr)
  * 
  *     def __getitem__(self, name):             # <<<<<<<<<<<<<<
@@ -14456,7 +14665,7 @@ static PyObject *__pyx_pf_7unqlite_2VM_18__getitem__(struct __pyx_obj_7unqlite_V
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__getitem__", 0);
 
-  /* "unqlite.pyx":956
+  /* "unqlite.pyx":964
  * 
  *     def __getitem__(self, name):
  *         return self.get_value(name)             # <<<<<<<<<<<<<<
@@ -14464,7 +14673,7 @@ static PyObject *__pyx_pf_7unqlite_2VM_18__getitem__(struct __pyx_obj_7unqlite_V
  *     def __setitem__(self, name, value):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_get_value); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 956; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_get_value); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 964; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_2))) {
@@ -14477,16 +14686,16 @@ static PyObject *__pyx_pf_7unqlite_2VM_18__getitem__(struct __pyx_obj_7unqlite_V
     }
   }
   if (!__pyx_t_3) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_name); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 956; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_name); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 964; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
   } else {
-    __pyx_t_4 = PyTuple_New(1+1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 956; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = PyTuple_New(1+1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 964; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_3); __pyx_t_3 = NULL;
     __Pyx_INCREF(__pyx_v_name);
     __Pyx_GIVEREF(__pyx_v_name);
     PyTuple_SET_ITEM(__pyx_t_4, 0+1, __pyx_v_name);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 956; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 964; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
@@ -14495,7 +14704,7 @@ static PyObject *__pyx_pf_7unqlite_2VM_18__getitem__(struct __pyx_obj_7unqlite_V
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "unqlite.pyx":955
+  /* "unqlite.pyx":963
  *             self.release_value(ptr)
  * 
  *     def __getitem__(self, name):             # <<<<<<<<<<<<<<
@@ -14517,7 +14726,7 @@ static PyObject *__pyx_pf_7unqlite_2VM_18__getitem__(struct __pyx_obj_7unqlite_V
   return __pyx_r;
 }
 
-/* "unqlite.pyx":958
+/* "unqlite.pyx":966
  *         return self.get_value(name)
  * 
  *     def __setitem__(self, name, value):             # <<<<<<<<<<<<<<
@@ -14551,14 +14760,14 @@ static int __pyx_pf_7unqlite_2VM_20__setitem__(struct __pyx_obj_7unqlite_VM *__p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__setitem__", 0);
 
-  /* "unqlite.pyx":959
+  /* "unqlite.pyx":967
  * 
  *     def __setitem__(self, name, value):
  *         self.set_value(name, value)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_set_value); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 959; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_set_value); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 967; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   __pyx_t_4 = 0;
@@ -14572,7 +14781,7 @@ static int __pyx_pf_7unqlite_2VM_20__setitem__(struct __pyx_obj_7unqlite_VM *__p
       __pyx_t_4 = 1;
     }
   }
-  __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 959; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 967; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_5);
   if (__pyx_t_3) {
     __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -14583,13 +14792,13 @@ static int __pyx_pf_7unqlite_2VM_20__setitem__(struct __pyx_obj_7unqlite_VM *__p
   __Pyx_INCREF(__pyx_v_value);
   __Pyx_GIVEREF(__pyx_v_value);
   PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_4, __pyx_v_value);
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 959; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 967; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":958
+  /* "unqlite.pyx":966
  *         return self.get_value(name)
  * 
  *     def __setitem__(self, name, value):             # <<<<<<<<<<<<<<
@@ -14612,7 +14821,7 @@ static int __pyx_pf_7unqlite_2VM_20__setitem__(struct __pyx_obj_7unqlite_VM *__p
   return __pyx_r;
 }
 
-/* "unqlite.pyx":844
+/* "unqlite.pyx":852
  *     cdef UnQLite unqlite
  *     cdef unqlite_vm *vm
  *     cdef readonly basestring code             # <<<<<<<<<<<<<<
@@ -14649,7 +14858,7 @@ static PyObject *__pyx_pf_7unqlite_2VM_4code___get__(struct __pyx_obj_7unqlite_V
   return __pyx_r;
 }
 
-/* "unqlite.pyx":845
+/* "unqlite.pyx":853
  *     cdef unqlite_vm *vm
  *     cdef readonly basestring code
  *     cdef readonly bytes encoded_code             # <<<<<<<<<<<<<<
@@ -14686,7 +14895,7 @@ static PyObject *__pyx_pf_7unqlite_2VM_12encoded_code___get__(struct __pyx_obj_7
   return __pyx_r;
 }
 
-/* "unqlite.pyx":965
+/* "unqlite.pyx":973
  *     cdef unqlite_context *context
  * 
  *     def __cinit__(self):             # <<<<<<<<<<<<<<
@@ -14715,7 +14924,7 @@ static int __pyx_pf_7unqlite_7Context___cinit__(struct __pyx_obj_7unqlite_Contex
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "unqlite.pyx":966
+  /* "unqlite.pyx":974
  * 
  *     def __cinit__(self):
  *         self.context = NULL             # <<<<<<<<<<<<<<
@@ -14724,7 +14933,7 @@ static int __pyx_pf_7unqlite_7Context___cinit__(struct __pyx_obj_7unqlite_Contex
  */
   __pyx_v_self->context = NULL;
 
-  /* "unqlite.pyx":965
+  /* "unqlite.pyx":973
  *     cdef unqlite_context *context
  * 
  *     def __cinit__(self):             # <<<<<<<<<<<<<<
@@ -14738,7 +14947,7 @@ static int __pyx_pf_7unqlite_7Context___cinit__(struct __pyx_obj_7unqlite_Contex
   return __pyx_r;
 }
 
-/* "unqlite.pyx":968
+/* "unqlite.pyx":976
  *         self.context = NULL
  * 
  *     cdef set_context(self, unqlite_context *context):             # <<<<<<<<<<<<<<
@@ -14751,7 +14960,7 @@ static PyObject *__pyx_f_7unqlite_7Context_set_context(struct __pyx_obj_7unqlite
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("set_context", 0);
 
-  /* "unqlite.pyx":969
+  /* "unqlite.pyx":977
  * 
  *     cdef set_context(self, unqlite_context *context):
  *         self.context = context             # <<<<<<<<<<<<<<
@@ -14760,7 +14969,7 @@ static PyObject *__pyx_f_7unqlite_7Context_set_context(struct __pyx_obj_7unqlite
  */
   __pyx_v_self->context = __pyx_v_context;
 
-  /* "unqlite.pyx":968
+  /* "unqlite.pyx":976
  *         self.context = NULL
  * 
  *     cdef set_context(self, unqlite_context *context):             # <<<<<<<<<<<<<<
@@ -14775,7 +14984,7 @@ static PyObject *__pyx_f_7unqlite_7Context_set_context(struct __pyx_obj_7unqlite
   return __pyx_r;
 }
 
-/* "unqlite.pyx":971
+/* "unqlite.pyx":979
  *         self.context = context
  * 
  *     cdef unqlite_value * create_value(self, value):             # <<<<<<<<<<<<<<
@@ -14796,7 +15005,7 @@ static unqlite_value *__pyx_f_7unqlite_7Context_create_value(struct __pyx_obj_7u
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("create_value", 0);
 
-  /* "unqlite.pyx":974
+  /* "unqlite.pyx":982
  *         cdef unqlite_value *ptr
  * 
  *         if isinstance(value, (list, tuple, dict)):             # <<<<<<<<<<<<<<
@@ -14824,7 +15033,7 @@ static unqlite_value *__pyx_f_7unqlite_7Context_create_value(struct __pyx_obj_7u
   __pyx_t_3 = (__pyx_t_1 != 0);
   if (__pyx_t_3) {
 
-    /* "unqlite.pyx":975
+    /* "unqlite.pyx":983
  * 
  *         if isinstance(value, (list, tuple, dict)):
  *             ptr = self.create_array()             # <<<<<<<<<<<<<<
@@ -14833,7 +15042,7 @@ static unqlite_value *__pyx_f_7unqlite_7Context_create_value(struct __pyx_obj_7u
  */
     __pyx_v_ptr = ((struct __pyx_vtabstruct_7unqlite_Context *)__pyx_v_self->__pyx_vtab)->create_array(__pyx_v_self);
 
-    /* "unqlite.pyx":974
+    /* "unqlite.pyx":982
  *         cdef unqlite_value *ptr
  * 
  *         if isinstance(value, (list, tuple, dict)):             # <<<<<<<<<<<<<<
@@ -14843,7 +15052,7 @@ static unqlite_value *__pyx_f_7unqlite_7Context_create_value(struct __pyx_obj_7u
     goto __pyx_L3;
   }
 
-  /* "unqlite.pyx":977
+  /* "unqlite.pyx":985
  *             ptr = self.create_array()
  *         else:
  *             ptr = self.create_scalar()             # <<<<<<<<<<<<<<
@@ -14855,18 +15064,18 @@ static unqlite_value *__pyx_f_7unqlite_7Context_create_value(struct __pyx_obj_7u
   }
   __pyx_L3:;
 
-  /* "unqlite.pyx":979
+  /* "unqlite.pyx":987
  *             ptr = self.create_scalar()
  * 
  *         self.python_to_unqlite_value(ptr, value)             # <<<<<<<<<<<<<<
  *         return ptr
  * 
  */
-  __pyx_t_4 = ((struct __pyx_vtabstruct_7unqlite_Context *)__pyx_v_self->__pyx_vtab)->python_to_unqlite_value(__pyx_v_self, __pyx_v_ptr, __pyx_v_value); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 979; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = ((struct __pyx_vtabstruct_7unqlite_Context *)__pyx_v_self->__pyx_vtab)->python_to_unqlite_value(__pyx_v_self, __pyx_v_ptr, __pyx_v_value); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 987; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "unqlite.pyx":980
+  /* "unqlite.pyx":988
  * 
  *         self.python_to_unqlite_value(ptr, value)
  *         return ptr             # <<<<<<<<<<<<<<
@@ -14876,7 +15085,7 @@ static unqlite_value *__pyx_f_7unqlite_7Context_create_value(struct __pyx_obj_7u
   __pyx_r = __pyx_v_ptr;
   goto __pyx_L0;
 
-  /* "unqlite.pyx":971
+  /* "unqlite.pyx":979
  *         self.context = context
  * 
  *     cdef unqlite_value * create_value(self, value):             # <<<<<<<<<<<<<<
@@ -14894,7 +15103,7 @@ static unqlite_value *__pyx_f_7unqlite_7Context_create_value(struct __pyx_obj_7u
   return __pyx_r;
 }
 
-/* "unqlite.pyx":982
+/* "unqlite.pyx":990
  *         return ptr
  * 
  *     cdef release_value(self, unqlite_value *ptr):             # <<<<<<<<<<<<<<
@@ -14907,7 +15116,7 @@ static PyObject *__pyx_f_7unqlite_7Context_release_value(struct __pyx_obj_7unqli
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("release_value", 0);
 
-  /* "unqlite.pyx":983
+  /* "unqlite.pyx":991
  * 
  *     cdef release_value(self, unqlite_value *ptr):
  *         unqlite_context_release_value(self.context, ptr)             # <<<<<<<<<<<<<<
@@ -14916,7 +15125,7 @@ static PyObject *__pyx_f_7unqlite_7Context_release_value(struct __pyx_obj_7unqli
  */
   unqlite_context_release_value(__pyx_v_self->context, __pyx_v_ptr);
 
-  /* "unqlite.pyx":982
+  /* "unqlite.pyx":990
  *         return ptr
  * 
  *     cdef release_value(self, unqlite_value *ptr):             # <<<<<<<<<<<<<<
@@ -14931,7 +15140,7 @@ static PyObject *__pyx_f_7unqlite_7Context_release_value(struct __pyx_obj_7unqli
   return __pyx_r;
 }
 
-/* "unqlite.pyx":985
+/* "unqlite.pyx":993
  *         unqlite_context_release_value(self.context, ptr)
  * 
  *     cdef unqlite_value* create_array(self):             # <<<<<<<<<<<<<<
@@ -14944,7 +15153,7 @@ static unqlite_value *__pyx_f_7unqlite_7Context_create_array(struct __pyx_obj_7u
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("create_array", 0);
 
-  /* "unqlite.pyx":986
+  /* "unqlite.pyx":994
  * 
  *     cdef unqlite_value* create_array(self):
  *         return unqlite_context_new_array(self.context)             # <<<<<<<<<<<<<<
@@ -14954,7 +15163,7 @@ static unqlite_value *__pyx_f_7unqlite_7Context_create_array(struct __pyx_obj_7u
   __pyx_r = unqlite_context_new_array(__pyx_v_self->context);
   goto __pyx_L0;
 
-  /* "unqlite.pyx":985
+  /* "unqlite.pyx":993
  *         unqlite_context_release_value(self.context, ptr)
  * 
  *     cdef unqlite_value* create_array(self):             # <<<<<<<<<<<<<<
@@ -14968,7 +15177,7 @@ static unqlite_value *__pyx_f_7unqlite_7Context_create_array(struct __pyx_obj_7u
   return __pyx_r;
 }
 
-/* "unqlite.pyx":988
+/* "unqlite.pyx":996
  *         return unqlite_context_new_array(self.context)
  * 
  *     cdef unqlite_value* create_scalar(self):             # <<<<<<<<<<<<<<
@@ -14981,7 +15190,7 @@ static unqlite_value *__pyx_f_7unqlite_7Context_create_scalar(struct __pyx_obj_7
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("create_scalar", 0);
 
-  /* "unqlite.pyx":989
+  /* "unqlite.pyx":997
  * 
  *     cdef unqlite_value* create_scalar(self):
  *         return unqlite_context_new_scalar(self.context)             # <<<<<<<<<<<<<<
@@ -14991,7 +15200,7 @@ static unqlite_value *__pyx_f_7unqlite_7Context_create_scalar(struct __pyx_obj_7
   __pyx_r = unqlite_context_new_scalar(__pyx_v_self->context);
   goto __pyx_L0;
 
-  /* "unqlite.pyx":988
+  /* "unqlite.pyx":996
  *         return unqlite_context_new_array(self.context)
  * 
  *     cdef unqlite_value* create_scalar(self):             # <<<<<<<<<<<<<<
@@ -15005,7 +15214,7 @@ static unqlite_value *__pyx_f_7unqlite_7Context_create_scalar(struct __pyx_obj_7
   return __pyx_r;
 }
 
-/* "unqlite.pyx":991
+/* "unqlite.pyx":999
  *         return unqlite_context_new_scalar(self.context)
  * 
  *     cpdef push_result(self, value):             # <<<<<<<<<<<<<<
@@ -15031,7 +15240,7 @@ static PyObject *__pyx_f_7unqlite_7Context_push_result(struct __pyx_obj_7unqlite
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
   else if (unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0)) {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_push_result); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 991; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_push_result); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 999; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)__pyx_pw_7unqlite_7Context_3push_result)) {
       __Pyx_XDECREF(__pyx_r);
@@ -15047,16 +15256,16 @@ static PyObject *__pyx_f_7unqlite_7Context_push_result(struct __pyx_obj_7unqlite
         }
       }
       if (!__pyx_t_4) {
-        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_value); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 991; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_value); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 999; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_2);
       } else {
-        __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 991; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 999; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_4); __pyx_t_4 = NULL;
         __Pyx_INCREF(__pyx_v_value);
         __Pyx_GIVEREF(__pyx_v_value);
         PyTuple_SET_ITEM(__pyx_t_5, 0+1, __pyx_v_value);
-        __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 991; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 999; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       }
@@ -15069,7 +15278,7 @@ static PyObject *__pyx_f_7unqlite_7Context_push_result(struct __pyx_obj_7unqlite
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "unqlite.pyx":993
+  /* "unqlite.pyx":1001
  *     cpdef push_result(self, value):
  *         cdef unqlite_value *ptr
  *         ptr = self.create_value(value)             # <<<<<<<<<<<<<<
@@ -15078,7 +15287,7 @@ static PyObject *__pyx_f_7unqlite_7Context_push_result(struct __pyx_obj_7unqlite
  */
   __pyx_v_ptr = ((struct __pyx_vtabstruct_7unqlite_Context *)__pyx_v_self->__pyx_vtab)->create_value(__pyx_v_self, __pyx_v_value);
 
-  /* "unqlite.pyx":994
+  /* "unqlite.pyx":1002
  *         cdef unqlite_value *ptr
  *         ptr = self.create_value(value)
  *         unqlite_result_value(self.context, ptr)             # <<<<<<<<<<<<<<
@@ -15087,18 +15296,18 @@ static PyObject *__pyx_f_7unqlite_7Context_push_result(struct __pyx_obj_7unqlite
  */
   unqlite_result_value(__pyx_v_self->context, __pyx_v_ptr);
 
-  /* "unqlite.pyx":995
+  /* "unqlite.pyx":1003
  *         ptr = self.create_value(value)
  *         unqlite_result_value(self.context, ptr)
  *         self.release_value(ptr)             # <<<<<<<<<<<<<<
  * 
  *     cdef python_to_unqlite_value(self, unqlite_value *ptr, python_value):
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_Context *)__pyx_v_self->__pyx_vtab)->release_value(__pyx_v_self, __pyx_v_ptr); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 995; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_Context *)__pyx_v_self->__pyx_vtab)->release_value(__pyx_v_self, __pyx_v_ptr); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1003; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":991
+  /* "unqlite.pyx":999
  *         return unqlite_context_new_scalar(self.context)
  * 
  *     cpdef push_result(self, value):             # <<<<<<<<<<<<<<
@@ -15145,7 +15354,7 @@ static PyObject *__pyx_pf_7unqlite_7Context_2push_result(struct __pyx_obj_7unqli
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("push_result", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_7unqlite_7Context_push_result(__pyx_v_self, __pyx_v_value, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 991; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_f_7unqlite_7Context_push_result(__pyx_v_self, __pyx_v_value, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 999; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -15162,7 +15371,7 @@ static PyObject *__pyx_pf_7unqlite_7Context_2push_result(struct __pyx_obj_7unqli
   return __pyx_r;
 }
 
-/* "unqlite.pyx":997
+/* "unqlite.pyx":1005
  *         self.release_value(ptr)
  * 
  *     cdef python_to_unqlite_value(self, unqlite_value *ptr, python_value):             # <<<<<<<<<<<<<<
@@ -15199,7 +15408,7 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("python_to_unqlite_value", 0);
 
-  /* "unqlite.pyx":998
+  /* "unqlite.pyx":1006
  * 
  *     cdef python_to_unqlite_value(self, unqlite_value *ptr, python_value):
  *         cdef unqlite_value *item_ptr = <unqlite_value *>0             # <<<<<<<<<<<<<<
@@ -15208,7 +15417,7 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
  */
   __pyx_v_item_ptr = ((unqlite_value *)0);
 
-  /* "unqlite.pyx":1001
+  /* "unqlite.pyx":1009
  *         cdef bytes encoded_value
  * 
  *         if isinstance(python_value, unicode):             # <<<<<<<<<<<<<<
@@ -15219,33 +15428,33 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "unqlite.pyx":1002
+    /* "unqlite.pyx":1010
  * 
  *         if isinstance(python_value, unicode):
  *             encoded_value = python_value.encode('utf-8')             # <<<<<<<<<<<<<<
  *             unqlite_value_string(ptr, encoded_value, -1)
  *         elif isinstance(python_value, bytes):
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_python_value, __pyx_n_s_encode); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1002; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_python_value, __pyx_n_s_encode); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1010; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_tuple__24, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1002; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_tuple__24, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1010; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (!(likely(PyBytes_CheckExact(__pyx_t_4))||((__pyx_t_4) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "bytes", Py_TYPE(__pyx_t_4)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1002; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (!(likely(PyBytes_CheckExact(__pyx_t_4))||((__pyx_t_4) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "bytes", Py_TYPE(__pyx_t_4)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1010; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __pyx_v_encoded_value = ((PyObject*)__pyx_t_4);
     __pyx_t_4 = 0;
 
-    /* "unqlite.pyx":1003
+    /* "unqlite.pyx":1011
  *         if isinstance(python_value, unicode):
  *             encoded_value = python_value.encode('utf-8')
  *             unqlite_value_string(ptr, encoded_value, -1)             # <<<<<<<<<<<<<<
  *         elif isinstance(python_value, bytes):
  *             unqlite_value_string(ptr, python_value, -1)
  */
-    __pyx_t_5 = __Pyx_PyObject_AsString(__pyx_v_encoded_value); if (unlikely((!__pyx_t_5) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1003; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_5 = __Pyx_PyObject_AsString(__pyx_v_encoded_value); if (unlikely((!__pyx_t_5) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1011; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     unqlite_value_string(__pyx_v_ptr, __pyx_t_5, -1);
 
-    /* "unqlite.pyx":1001
+    /* "unqlite.pyx":1009
  *         cdef bytes encoded_value
  * 
  *         if isinstance(python_value, unicode):             # <<<<<<<<<<<<<<
@@ -15255,7 +15464,7 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
     goto __pyx_L3;
   }
 
-  /* "unqlite.pyx":1004
+  /* "unqlite.pyx":1012
  *             encoded_value = python_value.encode('utf-8')
  *             unqlite_value_string(ptr, encoded_value, -1)
  *         elif isinstance(python_value, bytes):             # <<<<<<<<<<<<<<
@@ -15266,17 +15475,17 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
   __pyx_t_1 = (__pyx_t_2 != 0);
   if (__pyx_t_1) {
 
-    /* "unqlite.pyx":1005
+    /* "unqlite.pyx":1013
  *             unqlite_value_string(ptr, encoded_value, -1)
  *         elif isinstance(python_value, bytes):
  *             unqlite_value_string(ptr, python_value, -1)             # <<<<<<<<<<<<<<
  *         elif isinstance(python_value, (list, tuple)):
  *             for item in python_value:
  */
-    __pyx_t_5 = __Pyx_PyObject_AsString(__pyx_v_python_value); if (unlikely((!__pyx_t_5) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1005; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_5 = __Pyx_PyObject_AsString(__pyx_v_python_value); if (unlikely((!__pyx_t_5) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1013; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     unqlite_value_string(__pyx_v_ptr, __pyx_t_5, -1);
 
-    /* "unqlite.pyx":1004
+    /* "unqlite.pyx":1012
  *             encoded_value = python_value.encode('utf-8')
  *             unqlite_value_string(ptr, encoded_value, -1)
  *         elif isinstance(python_value, bytes):             # <<<<<<<<<<<<<<
@@ -15286,7 +15495,7 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
     goto __pyx_L3;
   }
 
-  /* "unqlite.pyx":1006
+  /* "unqlite.pyx":1014
  *         elif isinstance(python_value, bytes):
  *             unqlite_value_string(ptr, python_value, -1)
  *         elif isinstance(python_value, (list, tuple)):             # <<<<<<<<<<<<<<
@@ -15307,7 +15516,7 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "unqlite.pyx":1007
+    /* "unqlite.pyx":1015
  *             unqlite_value_string(ptr, python_value, -1)
  *         elif isinstance(python_value, (list, tuple)):
  *             for item in python_value:             # <<<<<<<<<<<<<<
@@ -15318,26 +15527,26 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
       __pyx_t_4 = __pyx_v_python_value; __Pyx_INCREF(__pyx_t_4); __pyx_t_7 = 0;
       __pyx_t_8 = NULL;
     } else {
-      __pyx_t_7 = -1; __pyx_t_4 = PyObject_GetIter(__pyx_v_python_value); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1007; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_7 = -1; __pyx_t_4 = PyObject_GetIter(__pyx_v_python_value); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1015; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_8 = Py_TYPE(__pyx_t_4)->tp_iternext; if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1007; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_8 = Py_TYPE(__pyx_t_4)->tp_iternext; if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1015; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
     for (;;) {
       if (likely(!__pyx_t_8)) {
         if (likely(PyList_CheckExact(__pyx_t_4))) {
           if (__pyx_t_7 >= PyList_GET_SIZE(__pyx_t_4)) break;
           #if CYTHON_COMPILING_IN_CPYTHON
-          __pyx_t_3 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1007; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_3 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1015; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           #else
-          __pyx_t_3 = PySequence_ITEM(__pyx_t_4, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1007; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_3 = PySequence_ITEM(__pyx_t_4, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1015; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_3);
           #endif
         } else {
           if (__pyx_t_7 >= PyTuple_GET_SIZE(__pyx_t_4)) break;
           #if CYTHON_COMPILING_IN_CPYTHON
-          __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_4, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1007; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_4, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1015; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           #else
-          __pyx_t_3 = PySequence_ITEM(__pyx_t_4, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1007; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_3 = PySequence_ITEM(__pyx_t_4, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1015; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_3);
           #endif
         }
@@ -15347,7 +15556,7 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
             if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1007; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1015; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           }
           break;
         }
@@ -15356,7 +15565,7 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
       __Pyx_XDECREF_SET(__pyx_v_item, __pyx_t_3);
       __pyx_t_3 = 0;
 
-      /* "unqlite.pyx":1008
+      /* "unqlite.pyx":1016
  *         elif isinstance(python_value, (list, tuple)):
  *             for item in python_value:
  *                 item_ptr = self.create_value(item)             # <<<<<<<<<<<<<<
@@ -15365,7 +15574,7 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
  */
       __pyx_v_item_ptr = ((struct __pyx_vtabstruct_7unqlite_Context *)__pyx_v_self->__pyx_vtab)->create_value(__pyx_v_self, __pyx_v_item);
 
-      /* "unqlite.pyx":1009
+      /* "unqlite.pyx":1017
  *             for item in python_value:
  *                 item_ptr = self.create_value(item)
  *                 unqlite_array_add_elem(ptr, NULL, item_ptr)             # <<<<<<<<<<<<<<
@@ -15374,18 +15583,18 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
  */
       unqlite_array_add_elem(__pyx_v_ptr, NULL, __pyx_v_item_ptr);
 
-      /* "unqlite.pyx":1010
+      /* "unqlite.pyx":1018
  *                 item_ptr = self.create_value(item)
  *                 unqlite_array_add_elem(ptr, NULL, item_ptr)
  *                 self.release_value(item_ptr)             # <<<<<<<<<<<<<<
  *         elif isinstance(python_value, dict):
  *             for key, value in python_value.items():
  */
-      __pyx_t_3 = ((struct __pyx_vtabstruct_7unqlite_Context *)__pyx_v_self->__pyx_vtab)->release_value(__pyx_v_self, __pyx_v_item_ptr); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1010; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_3 = ((struct __pyx_vtabstruct_7unqlite_Context *)__pyx_v_self->__pyx_vtab)->release_value(__pyx_v_self, __pyx_v_item_ptr); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1018; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "unqlite.pyx":1007
+      /* "unqlite.pyx":1015
  *             unqlite_value_string(ptr, python_value, -1)
  *         elif isinstance(python_value, (list, tuple)):
  *             for item in python_value:             # <<<<<<<<<<<<<<
@@ -15395,7 +15604,7 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
     }
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "unqlite.pyx":1006
+    /* "unqlite.pyx":1014
  *         elif isinstance(python_value, bytes):
  *             unqlite_value_string(ptr, python_value, -1)
  *         elif isinstance(python_value, (list, tuple)):             # <<<<<<<<<<<<<<
@@ -15405,7 +15614,7 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
     goto __pyx_L3;
   }
 
-  /* "unqlite.pyx":1011
+  /* "unqlite.pyx":1019
  *                 unqlite_array_add_elem(ptr, NULL, item_ptr)
  *                 self.release_value(item_ptr)
  *         elif isinstance(python_value, dict):             # <<<<<<<<<<<<<<
@@ -15416,14 +15625,14 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
   __pyx_t_1 = (__pyx_t_2 != 0);
   if (__pyx_t_1) {
 
-    /* "unqlite.pyx":1012
+    /* "unqlite.pyx":1020
  *                 self.release_value(item_ptr)
  *         elif isinstance(python_value, dict):
  *             for key, value in python_value.items():             # <<<<<<<<<<<<<<
  *                 if not isinstance(key, basestring):
  *                     key = str(key)
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_python_value, __pyx_n_s_items); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1012; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_python_value, __pyx_n_s_items); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1020; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_9 = NULL;
     if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_3))) {
@@ -15436,10 +15645,10 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
       }
     }
     if (__pyx_t_9) {
-      __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_9); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1012; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_9); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1020; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     } else {
-      __pyx_t_4 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1012; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_4 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1020; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -15447,9 +15656,9 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
       __pyx_t_3 = __pyx_t_4; __Pyx_INCREF(__pyx_t_3); __pyx_t_7 = 0;
       __pyx_t_8 = NULL;
     } else {
-      __pyx_t_7 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1012; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_7 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1020; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_8 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1012; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_8 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1020; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     for (;;) {
@@ -15457,17 +15666,17 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
         if (likely(PyList_CheckExact(__pyx_t_3))) {
           if (__pyx_t_7 >= PyList_GET_SIZE(__pyx_t_3)) break;
           #if CYTHON_COMPILING_IN_CPYTHON
-          __pyx_t_4 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_7); __Pyx_INCREF(__pyx_t_4); __pyx_t_7++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1012; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_4 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_7); __Pyx_INCREF(__pyx_t_4); __pyx_t_7++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1020; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           #else
-          __pyx_t_4 = PySequence_ITEM(__pyx_t_3, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1012; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_4 = PySequence_ITEM(__pyx_t_3, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1020; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_4);
           #endif
         } else {
           if (__pyx_t_7 >= PyTuple_GET_SIZE(__pyx_t_3)) break;
           #if CYTHON_COMPILING_IN_CPYTHON
-          __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_7); __Pyx_INCREF(__pyx_t_4); __pyx_t_7++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1012; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_7); __Pyx_INCREF(__pyx_t_4); __pyx_t_7++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1020; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           #else
-          __pyx_t_4 = PySequence_ITEM(__pyx_t_3, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1012; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_4 = PySequence_ITEM(__pyx_t_3, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1020; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_4);
           #endif
         }
@@ -15477,7 +15686,7 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
             if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1012; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1020; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           }
           break;
         }
@@ -15493,7 +15702,7 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
         if (unlikely(size != 2)) {
           if (size > 2) __Pyx_RaiseTooManyValuesError(2);
           else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-          {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1012; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1020; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         }
         #if CYTHON_COMPILING_IN_CPYTHON
         if (likely(PyTuple_CheckExact(sequence))) {
@@ -15506,15 +15715,15 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
         __Pyx_INCREF(__pyx_t_9);
         __Pyx_INCREF(__pyx_t_10);
         #else
-        __pyx_t_9 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1012; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_9 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1020; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_9);
-        __pyx_t_10 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1012; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_10 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1020; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_10);
         #endif
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       } else {
         Py_ssize_t index = -1;
-        __pyx_t_11 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1012; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_11 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1020; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_11);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __pyx_t_12 = Py_TYPE(__pyx_t_11)->tp_iternext;
@@ -15522,7 +15731,7 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
         __Pyx_GOTREF(__pyx_t_9);
         index = 1; __pyx_t_10 = __pyx_t_12(__pyx_t_11); if (unlikely(!__pyx_t_10)) goto __pyx_L10_unpacking_failed;
         __Pyx_GOTREF(__pyx_t_10);
-        if (__Pyx_IternextUnpackEndCheck(__pyx_t_12(__pyx_t_11), 2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1012; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        if (__Pyx_IternextUnpackEndCheck(__pyx_t_12(__pyx_t_11), 2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1020; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __pyx_t_12 = NULL;
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
         goto __pyx_L11_unpacking_done;
@@ -15530,7 +15739,7 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
         __pyx_t_12 = NULL;
         if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-        {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1012; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1020; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __pyx_L11_unpacking_done:;
       }
       __Pyx_XDECREF_SET(__pyx_v_key, __pyx_t_9);
@@ -15538,7 +15747,7 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
       __Pyx_XDECREF_SET(__pyx_v_value, __pyx_t_10);
       __pyx_t_10 = 0;
 
-      /* "unqlite.pyx":1013
+      /* "unqlite.pyx":1021
  *         elif isinstance(python_value, dict):
  *             for key, value in python_value.items():
  *                 if not isinstance(key, basestring):             # <<<<<<<<<<<<<<
@@ -15549,25 +15758,25 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
       __pyx_t_2 = ((!(__pyx_t_1 != 0)) != 0);
       if (__pyx_t_2) {
 
-        /* "unqlite.pyx":1014
+        /* "unqlite.pyx":1022
  *             for key, value in python_value.items():
  *                 if not isinstance(key, basestring):
  *                     key = str(key)             # <<<<<<<<<<<<<<
  *                 if isinstance(key, unicode):
  *                     key = key.encode('utf-8')
  */
-        __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1014; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1022; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_INCREF(__pyx_v_key);
         __Pyx_GIVEREF(__pyx_v_key);
         PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_v_key);
-        __pyx_t_10 = __Pyx_PyObject_Call(((PyObject *)(&PyString_Type)), __pyx_t_4, NULL); if (unlikely(!__pyx_t_10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1014; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_10 = __Pyx_PyObject_Call(((PyObject *)(&PyString_Type)), __pyx_t_4, NULL); if (unlikely(!__pyx_t_10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1022; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_DECREF_SET(__pyx_v_key, __pyx_t_10);
         __pyx_t_10 = 0;
 
-        /* "unqlite.pyx":1013
+        /* "unqlite.pyx":1021
  *         elif isinstance(python_value, dict):
  *             for key, value in python_value.items():
  *                 if not isinstance(key, basestring):             # <<<<<<<<<<<<<<
@@ -15576,7 +15785,7 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
  */
       }
 
-      /* "unqlite.pyx":1015
+      /* "unqlite.pyx":1023
  *                 if not isinstance(key, basestring):
  *                     key = str(key)
  *                 if isinstance(key, unicode):             # <<<<<<<<<<<<<<
@@ -15587,22 +15796,22 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
       __pyx_t_1 = (__pyx_t_2 != 0);
       if (__pyx_t_1) {
 
-        /* "unqlite.pyx":1016
+        /* "unqlite.pyx":1024
  *                     key = str(key)
  *                 if isinstance(key, unicode):
  *                     key = key.encode('utf-8')             # <<<<<<<<<<<<<<
  *                 item_ptr = self.create_value(value)
  *                 unqlite_array_add_strkey_elem(
  */
-        __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_key, __pyx_n_s_encode); if (unlikely(!__pyx_t_10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1016; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_key, __pyx_n_s_encode); if (unlikely(!__pyx_t_10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1024; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_10);
-        __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_tuple__25, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1016; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_tuple__25, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1024; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         __Pyx_DECREF_SET(__pyx_v_key, __pyx_t_4);
         __pyx_t_4 = 0;
 
-        /* "unqlite.pyx":1015
+        /* "unqlite.pyx":1023
  *                 if not isinstance(key, basestring):
  *                     key = str(key)
  *                 if isinstance(key, unicode):             # <<<<<<<<<<<<<<
@@ -15611,7 +15820,7 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
  */
       }
 
-      /* "unqlite.pyx":1017
+      /* "unqlite.pyx":1025
  *                 if isinstance(key, unicode):
  *                     key = key.encode('utf-8')
  *                 item_ptr = self.create_value(value)             # <<<<<<<<<<<<<<
@@ -15620,16 +15829,16 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
  */
       __pyx_v_item_ptr = ((struct __pyx_vtabstruct_7unqlite_Context *)__pyx_v_self->__pyx_vtab)->create_value(__pyx_v_self, __pyx_v_value);
 
-      /* "unqlite.pyx":1020
+      /* "unqlite.pyx":1028
  *                 unqlite_array_add_strkey_elem(
  *                     ptr,
  *                     <const char *>key,             # <<<<<<<<<<<<<<
  *                     item_ptr)
  *                 self.release_value(item_ptr)
  */
-      __pyx_t_13 = __Pyx_PyObject_AsString(__pyx_v_key); if (unlikely((!__pyx_t_13) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1020; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_13 = __Pyx_PyObject_AsString(__pyx_v_key); if (unlikely((!__pyx_t_13) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1028; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-      /* "unqlite.pyx":1018
+      /* "unqlite.pyx":1026
  *                     key = key.encode('utf-8')
  *                 item_ptr = self.create_value(value)
  *                 unqlite_array_add_strkey_elem(             # <<<<<<<<<<<<<<
@@ -15638,18 +15847,18 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
  */
       unqlite_array_add_strkey_elem(__pyx_v_ptr, ((char const *)__pyx_t_13), __pyx_v_item_ptr);
 
-      /* "unqlite.pyx":1022
+      /* "unqlite.pyx":1030
  *                     <const char *>key,
  *                     item_ptr)
  *                 self.release_value(item_ptr)             # <<<<<<<<<<<<<<
  *         elif isinstance(python_value, (int, long)):
  *             unqlite_value_int64(ptr, python_value)
  */
-      __pyx_t_4 = ((struct __pyx_vtabstruct_7unqlite_Context *)__pyx_v_self->__pyx_vtab)->release_value(__pyx_v_self, __pyx_v_item_ptr); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1022; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_4 = ((struct __pyx_vtabstruct_7unqlite_Context *)__pyx_v_self->__pyx_vtab)->release_value(__pyx_v_self, __pyx_v_item_ptr); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1030; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "unqlite.pyx":1012
+      /* "unqlite.pyx":1020
  *                 self.release_value(item_ptr)
  *         elif isinstance(python_value, dict):
  *             for key, value in python_value.items():             # <<<<<<<<<<<<<<
@@ -15659,7 +15868,7 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
     }
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "unqlite.pyx":1011
+    /* "unqlite.pyx":1019
  *                 unqlite_array_add_elem(ptr, NULL, item_ptr)
  *                 self.release_value(item_ptr)
  *         elif isinstance(python_value, dict):             # <<<<<<<<<<<<<<
@@ -15669,7 +15878,7 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
     goto __pyx_L3;
   }
 
-  /* "unqlite.pyx":1023
+  /* "unqlite.pyx":1031
  *                     item_ptr)
  *                 self.release_value(item_ptr)
  *         elif isinstance(python_value, (int, long)):             # <<<<<<<<<<<<<<
@@ -15690,17 +15899,17 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "unqlite.pyx":1024
+    /* "unqlite.pyx":1032
  *                 self.release_value(item_ptr)
  *         elif isinstance(python_value, (int, long)):
  *             unqlite_value_int64(ptr, python_value)             # <<<<<<<<<<<<<<
  *         elif isinstance(python_value, bool):
  *             unqlite_value_bool(ptr, python_value)
  */
-    __pyx_t_14 = __Pyx_PyInt_As_sxi64(__pyx_v_python_value); if (unlikely((__pyx_t_14 == (unqlite_int64)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1024; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_14 = __Pyx_PyInt_As_sxi64(__pyx_v_python_value); if (unlikely((__pyx_t_14 == (unqlite_int64)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1032; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     unqlite_value_int64(__pyx_v_ptr, __pyx_t_14);
 
-    /* "unqlite.pyx":1023
+    /* "unqlite.pyx":1031
  *                     item_ptr)
  *                 self.release_value(item_ptr)
  *         elif isinstance(python_value, (int, long)):             # <<<<<<<<<<<<<<
@@ -15710,7 +15919,7 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
     goto __pyx_L3;
   }
 
-  /* "unqlite.pyx":1025
+  /* "unqlite.pyx":1033
  *         elif isinstance(python_value, (int, long)):
  *             unqlite_value_int64(ptr, python_value)
  *         elif isinstance(python_value, bool):             # <<<<<<<<<<<<<<
@@ -15719,22 +15928,22 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
  */
   __pyx_t_3 = ((PyObject*)&PyBool_Type);
   __Pyx_INCREF(__pyx_t_3);
-  __pyx_t_2 = PyObject_IsInstance(__pyx_v_python_value, __pyx_t_3); if (unlikely(__pyx_t_2 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1025; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyObject_IsInstance(__pyx_v_python_value, __pyx_t_3); if (unlikely(__pyx_t_2 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1033; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_1 = (__pyx_t_2 != 0);
   if (__pyx_t_1) {
 
-    /* "unqlite.pyx":1026
+    /* "unqlite.pyx":1034
  *             unqlite_value_int64(ptr, python_value)
  *         elif isinstance(python_value, bool):
  *             unqlite_value_bool(ptr, python_value)             # <<<<<<<<<<<<<<
  *         elif isinstance(python_value, float):
  *             unqlite_value_double(ptr, python_value)
  */
-    __pyx_t_15 = __Pyx_PyInt_As_int(__pyx_v_python_value); if (unlikely((__pyx_t_15 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1026; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_15 = __Pyx_PyInt_As_int(__pyx_v_python_value); if (unlikely((__pyx_t_15 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1034; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     unqlite_value_bool(__pyx_v_ptr, __pyx_t_15);
 
-    /* "unqlite.pyx":1025
+    /* "unqlite.pyx":1033
  *         elif isinstance(python_value, (int, long)):
  *             unqlite_value_int64(ptr, python_value)
  *         elif isinstance(python_value, bool):             # <<<<<<<<<<<<<<
@@ -15744,7 +15953,7 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
     goto __pyx_L3;
   }
 
-  /* "unqlite.pyx":1027
+  /* "unqlite.pyx":1035
  *         elif isinstance(python_value, bool):
  *             unqlite_value_bool(ptr, python_value)
  *         elif isinstance(python_value, float):             # <<<<<<<<<<<<<<
@@ -15755,17 +15964,17 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "unqlite.pyx":1028
+    /* "unqlite.pyx":1036
  *             unqlite_value_bool(ptr, python_value)
  *         elif isinstance(python_value, float):
  *             unqlite_value_double(ptr, python_value)             # <<<<<<<<<<<<<<
  *         else:
  *             unqlite_value_null(ptr)
  */
-    __pyx_t_16 = __pyx_PyFloat_AsDouble(__pyx_v_python_value); if (unlikely((__pyx_t_16 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1028; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_16 = __pyx_PyFloat_AsDouble(__pyx_v_python_value); if (unlikely((__pyx_t_16 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1036; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     unqlite_value_double(__pyx_v_ptr, __pyx_t_16);
 
-    /* "unqlite.pyx":1027
+    /* "unqlite.pyx":1035
  *         elif isinstance(python_value, bool):
  *             unqlite_value_bool(ptr, python_value)
  *         elif isinstance(python_value, float):             # <<<<<<<<<<<<<<
@@ -15775,7 +15984,7 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
     goto __pyx_L3;
   }
 
-  /* "unqlite.pyx":1030
+  /* "unqlite.pyx":1038
  *             unqlite_value_double(ptr, python_value)
  *         else:
  *             unqlite_value_null(ptr)             # <<<<<<<<<<<<<<
@@ -15787,7 +15996,7 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
   }
   __pyx_L3:;
 
-  /* "unqlite.pyx":997
+  /* "unqlite.pyx":1005
  *         self.release_value(ptr)
  * 
  *     cdef python_to_unqlite_value(self, unqlite_value *ptr, python_value):             # <<<<<<<<<<<<<<
@@ -15816,7 +16025,7 @@ static PyObject *__pyx_f_7unqlite_7Context_python_to_unqlite_value(struct __pyx_
   return __pyx_r;
 }
 
-/* "unqlite.pyx":1035
+/* "unqlite.pyx":1043
  * cdef object py_filter_fn = None
  * 
  * cdef int py_filter_wrapper(unqlite_context *context, int nargs, unqlite_value **values):             # <<<<<<<<<<<<<<
@@ -15845,42 +16054,42 @@ static int __pyx_f_7unqlite_py_filter_wrapper(unqlite_context *__pyx_v_context, 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("py_filter_wrapper", 0);
 
-  /* "unqlite.pyx":1037
+  /* "unqlite.pyx":1045
  * cdef int py_filter_wrapper(unqlite_context *context, int nargs, unqlite_value **values):
  *     cdef int i
  *     cdef list converted = []             # <<<<<<<<<<<<<<
  *     cdef Context context_wrapper = Context()
  * 
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1037; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1045; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_converted = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":1038
+  /* "unqlite.pyx":1046
  *     cdef int i
  *     cdef list converted = []
  *     cdef Context context_wrapper = Context()             # <<<<<<<<<<<<<<
  * 
  *     context_wrapper.set_context(context)
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_7unqlite_Context), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1038; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_7unqlite_Context), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1046; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_context_wrapper = ((struct __pyx_obj_7unqlite_Context *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":1040
+  /* "unqlite.pyx":1048
  *     cdef Context context_wrapper = Context()
  * 
  *     context_wrapper.set_context(context)             # <<<<<<<<<<<<<<
  * 
  *     for i in range(nargs):
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_Context *)__pyx_v_context_wrapper->__pyx_vtab)->set_context(__pyx_v_context_wrapper, __pyx_v_context); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1040; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((struct __pyx_vtabstruct_7unqlite_Context *)__pyx_v_context_wrapper->__pyx_vtab)->set_context(__pyx_v_context_wrapper, __pyx_v_context); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1048; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":1042
+  /* "unqlite.pyx":1050
  *     context_wrapper.set_context(context)
  * 
  *     for i in range(nargs):             # <<<<<<<<<<<<<<
@@ -15891,25 +16100,25 @@ static int __pyx_f_7unqlite_py_filter_wrapper(unqlite_context *__pyx_v_context, 
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "unqlite.pyx":1043
+    /* "unqlite.pyx":1051
  * 
  *     for i in range(nargs):
  *         converted.append(unqlite_value_to_python(values[i]))             # <<<<<<<<<<<<<<
  * 
  *     try:
  */
-    __pyx_t_1 = __pyx_f_7unqlite_unqlite_value_to_python((__pyx_v_values[__pyx_v_i])); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1043; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __pyx_f_7unqlite_unqlite_value_to_python((__pyx_v_values[__pyx_v_i])); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1051; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_4 = __Pyx_PyList_Append(__pyx_v_converted, __pyx_t_1); if (unlikely(__pyx_t_4 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1043; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyList_Append(__pyx_v_converted, __pyx_t_1); if (unlikely(__pyx_t_4 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1051; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "unqlite.pyx":1045
+  /* "unqlite.pyx":1053
  *         converted.append(unqlite_value_to_python(values[i]))
  * 
  *     try:             # <<<<<<<<<<<<<<
  *         ret = py_filter_fn(*converted)
- *     except:
+ *     except Exception:
  */
   {
     __Pyx_ExceptionSave(&__pyx_t_5, &__pyx_t_6, &__pyx_t_7);
@@ -15918,31 +16127,31 @@ static int __pyx_f_7unqlite_py_filter_wrapper(unqlite_context *__pyx_v_context, 
     __Pyx_XGOTREF(__pyx_t_7);
     /*try:*/ {
 
-      /* "unqlite.pyx":1046
+      /* "unqlite.pyx":1054
  * 
  *     try:
  *         ret = py_filter_fn(*converted)             # <<<<<<<<<<<<<<
- *     except:
+ *     except Exception:
  *         return UNQLITE_ABORT
  */
-      __pyx_t_1 = PySequence_Tuple(__pyx_v_converted); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1046; __pyx_clineno = __LINE__; goto __pyx_L5_error;}
+      __pyx_t_1 = PySequence_Tuple(__pyx_v_converted); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1054; __pyx_clineno = __LINE__; goto __pyx_L5_error;}
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_8 = __Pyx_PyObject_Call(__pyx_v_7unqlite_py_filter_fn, __pyx_t_1, NULL); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1046; __pyx_clineno = __LINE__; goto __pyx_L5_error;}
+      __pyx_t_8 = __Pyx_PyObject_Call(__pyx_v_7unqlite_py_filter_fn, __pyx_t_1, NULL); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1054; __pyx_clineno = __LINE__; goto __pyx_L5_error;}
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __pyx_v_ret = __pyx_t_8;
       __pyx_t_8 = 0;
 
-      /* "unqlite.pyx":1045
+      /* "unqlite.pyx":1053
  *         converted.append(unqlite_value_to_python(values[i]))
  * 
  *     try:             # <<<<<<<<<<<<<<
  *         ret = py_filter_fn(*converted)
- *     except:
+ *     except Exception:
  */
     }
 
-    /* "unqlite.pyx":1050
+    /* "unqlite.pyx":1058
  *         return UNQLITE_ABORT
  *     else:
  *         context_wrapper.push_result(ret)             # <<<<<<<<<<<<<<
@@ -15950,11 +16159,11 @@ static int __pyx_f_7unqlite_py_filter_wrapper(unqlite_context *__pyx_v_context, 
  * 
  */
     /*else:*/ {
-      __pyx_t_8 = ((struct __pyx_vtabstruct_7unqlite_Context *)__pyx_v_context_wrapper->__pyx_vtab)->push_result(__pyx_v_context_wrapper, __pyx_v_ret, 0); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1050; __pyx_clineno = __LINE__; goto __pyx_L7_except_error;}
+      __pyx_t_8 = ((struct __pyx_vtabstruct_7unqlite_Context *)__pyx_v_context_wrapper->__pyx_vtab)->push_result(__pyx_v_context_wrapper, __pyx_v_ret, 0); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1058; __pyx_clineno = __LINE__; goto __pyx_L7_except_error;}
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-      /* "unqlite.pyx":1051
+      /* "unqlite.pyx":1059
  *     else:
  *         context_wrapper.push_result(ret)
  *         return UNQLITE_OK             # <<<<<<<<<<<<<<
@@ -15968,23 +16177,24 @@ static int __pyx_f_7unqlite_py_filter_wrapper(unqlite_context *__pyx_v_context, 
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-    /* "unqlite.pyx":1047
+    /* "unqlite.pyx":1055
  *     try:
  *         ret = py_filter_fn(*converted)
- *     except:             # <<<<<<<<<<<<<<
+ *     except Exception:             # <<<<<<<<<<<<<<
  *         return UNQLITE_ABORT
  *     else:
  */
-    /*except:*/ {
+    __pyx_t_2 = PyErr_ExceptionMatches(__pyx_builtin_Exception);
+    if (__pyx_t_2) {
       __Pyx_AddTraceback("unqlite.py_filter_wrapper", __pyx_clineno, __pyx_lineno, __pyx_filename);
-      if (__Pyx_GetException(&__pyx_t_8, &__pyx_t_1, &__pyx_t_9) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1047; __pyx_clineno = __LINE__; goto __pyx_L7_except_error;}
+      if (__Pyx_GetException(&__pyx_t_8, &__pyx_t_1, &__pyx_t_9) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1055; __pyx_clineno = __LINE__; goto __pyx_L7_except_error;}
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_GOTREF(__pyx_t_9);
 
-      /* "unqlite.pyx":1048
+      /* "unqlite.pyx":1056
  *         ret = py_filter_fn(*converted)
- *     except:
+ *     except Exception:
  *         return UNQLITE_ABORT             # <<<<<<<<<<<<<<
  *     else:
  *         context_wrapper.push_result(ret)
@@ -15995,14 +16205,15 @@ static int __pyx_f_7unqlite_py_filter_wrapper(unqlite_context *__pyx_v_context, 
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       goto __pyx_L8_except_return;
     }
+    goto __pyx_L7_except_error;
     __pyx_L7_except_error:;
 
-    /* "unqlite.pyx":1045
+    /* "unqlite.pyx":1053
  *         converted.append(unqlite_value_to_python(values[i]))
  * 
  *     try:             # <<<<<<<<<<<<<<
  *         ret = py_filter_fn(*converted)
- *     except:
+ *     except Exception:
  */
     __Pyx_XGIVEREF(__pyx_t_5);
     __Pyx_XGIVEREF(__pyx_t_6);
@@ -16017,7 +16228,7 @@ static int __pyx_f_7unqlite_py_filter_wrapper(unqlite_context *__pyx_v_context, 
     goto __pyx_L0;
   }
 
-  /* "unqlite.pyx":1035
+  /* "unqlite.pyx":1043
  * cdef object py_filter_fn = None
  * 
  * cdef int py_filter_wrapper(unqlite_context *context, int nargs, unqlite_value **values):             # <<<<<<<<<<<<<<
@@ -16040,7 +16251,7 @@ static int __pyx_f_7unqlite_py_filter_wrapper(unqlite_context *__pyx_v_context, 
   return __pyx_r;
 }
 
-/* "unqlite.pyx":1061
+/* "unqlite.pyx":1069
  *     cdef basestring name
  * 
  *     def __init__(self, UnQLite unqlite, basestring name):             # <<<<<<<<<<<<<<
@@ -16079,11 +16290,11 @@ static int __pyx_pw_7unqlite_10Collection_1__init__(PyObject *__pyx_v_self, PyOb
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_name)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1061; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1069; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1061; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1069; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -16096,14 +16307,14 @@ static int __pyx_pw_7unqlite_10Collection_1__init__(PyObject *__pyx_v_self, PyOb
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1061; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1069; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("unqlite.Collection.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_unqlite), __pyx_ptype_7unqlite_UnQLite, 1, "unqlite", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1061; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyBaseString_Type), 1, "name", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1061; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_unqlite), __pyx_ptype_7unqlite_UnQLite, 1, "unqlite", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1069; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyBaseString_Type), 1, "name", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1069; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_7unqlite_10Collection___init__(((struct __pyx_obj_7unqlite_Collection *)__pyx_v_self), __pyx_v_unqlite, __pyx_v_name);
 
   /* function exit code */
@@ -16120,7 +16331,7 @@ static int __pyx_pf_7unqlite_10Collection___init__(struct __pyx_obj_7unqlite_Col
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "unqlite.pyx":1062
+  /* "unqlite.pyx":1070
  * 
  *     def __init__(self, UnQLite unqlite, basestring name):
  *         self.unqlite = unqlite             # <<<<<<<<<<<<<<
@@ -16133,7 +16344,7 @@ static int __pyx_pf_7unqlite_10Collection___init__(struct __pyx_obj_7unqlite_Col
   __Pyx_DECREF(((PyObject *)__pyx_v_self->unqlite));
   __pyx_v_self->unqlite = __pyx_v_unqlite;
 
-  /* "unqlite.pyx":1063
+  /* "unqlite.pyx":1071
  *     def __init__(self, UnQLite unqlite, basestring name):
  *         self.unqlite = unqlite
  *         self.name = name             # <<<<<<<<<<<<<<
@@ -16146,7 +16357,7 @@ static int __pyx_pf_7unqlite_10Collection___init__(struct __pyx_obj_7unqlite_Col
   __Pyx_DECREF(__pyx_v_self->name);
   __pyx_v_self->name = __pyx_v_name;
 
-  /* "unqlite.pyx":1061
+  /* "unqlite.pyx":1069
  *     cdef basestring name
  * 
  *     def __init__(self, UnQLite unqlite, basestring name):             # <<<<<<<<<<<<<<
@@ -16160,7 +16371,7 @@ static int __pyx_pf_7unqlite_10Collection___init__(struct __pyx_obj_7unqlite_Col
   return __pyx_r;
 }
 
-/* "unqlite.pyx":1065
+/* "unqlite.pyx":1073
  *         self.name = name
  * 
  *     def _execute(self, basestring script, **kwargs):             # <<<<<<<<<<<<<<
@@ -16199,7 +16410,7 @@ static PyObject *__pyx_pw_7unqlite_10Collection_3_execute(PyObject *__pyx_v_self
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, __pyx_v_kwargs, values, pos_args, "_execute") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1065; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, __pyx_v_kwargs, values, pos_args, "_execute") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1073; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
@@ -16210,14 +16421,14 @@ static PyObject *__pyx_pw_7unqlite_10Collection_3_execute(PyObject *__pyx_v_self
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("_execute", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1065; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("_execute", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1073; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_DECREF(__pyx_v_kwargs); __pyx_v_kwargs = 0;
   __Pyx_AddTraceback("unqlite.Collection._execute", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_script), (&PyBaseString_Type), 1, "script", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1065; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_script), (&PyBaseString_Type), 1, "script", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1073; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_7unqlite_10Collection_2_execute(((struct __pyx_obj_7unqlite_Collection *)__pyx_v_self), __pyx_v_script, __pyx_v_kwargs);
 
   /* function exit code */
@@ -16256,418 +16467,8 @@ static PyObject *__pyx_pf_7unqlite_10Collection_2_execute(struct __pyx_obj_7unql
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_execute", 0);
 
-  /* "unqlite.pyx":1067
- *     def _execute(self, basestring script, **kwargs):
- *         cdef VM vm
- *         with VM(self.unqlite, script) as vm:             # <<<<<<<<<<<<<<
- *             vm['collection'] = self.name
- *             for key, value in kwargs.items():
- */
-  /*with:*/ {
-    __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1067; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_INCREF(((PyObject *)__pyx_v_self->unqlite));
-    __Pyx_GIVEREF(((PyObject *)__pyx_v_self->unqlite));
-    PyTuple_SET_ITEM(__pyx_t_1, 0, ((PyObject *)__pyx_v_self->unqlite));
-    __Pyx_INCREF(__pyx_v_script);
-    __Pyx_GIVEREF(__pyx_v_script);
-    PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_script);
-    __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_7unqlite_VM), __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1067; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_3 = __Pyx_PyObject_LookupSpecial(__pyx_t_2, __pyx_n_s_exit); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1067; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyObject_LookupSpecial(__pyx_t_2, __pyx_n_s_enter); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1067; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
-    __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = NULL;
-    if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_4))) {
-      __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_4);
-      if (likely(__pyx_t_5)) {
-        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
-        __Pyx_INCREF(__pyx_t_5);
-        __Pyx_INCREF(function);
-        __Pyx_DECREF_SET(__pyx_t_4, function);
-      }
-    }
-    if (__pyx_t_5) {
-      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1067; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
-      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    } else {
-      __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_4); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1067; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
-    }
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = __pyx_t_1;
-    __pyx_t_1 = 0;
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    /*try:*/ {
-      {
-        __Pyx_ExceptionSave(&__pyx_t_6, &__pyx_t_7, &__pyx_t_8);
-        __Pyx_XGOTREF(__pyx_t_6);
-        __Pyx_XGOTREF(__pyx_t_7);
-        __Pyx_XGOTREF(__pyx_t_8);
-        /*try:*/ {
-          if (!(likely(((__pyx_t_4) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_4, __pyx_ptype_7unqlite_VM))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1067; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
-          __pyx_v_vm = ((struct __pyx_obj_7unqlite_VM *)__pyx_t_4);
-          __pyx_t_4 = 0;
-
-          /* "unqlite.pyx":1068
- *         cdef VM vm
- *         with VM(self.unqlite, script) as vm:
- *             vm['collection'] = self.name             # <<<<<<<<<<<<<<
- *             for key, value in kwargs.items():
- *                 vm[key] = value
- */
-          __pyx_t_4 = __pyx_v_self->name;
-          __Pyx_INCREF(__pyx_t_4);
-          if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_vm), __pyx_n_s_collection, __pyx_t_4) < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1068; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
-          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-
-          /* "unqlite.pyx":1069
- *         with VM(self.unqlite, script) as vm:
- *             vm['collection'] = self.name
- *             for key, value in kwargs.items():             # <<<<<<<<<<<<<<
- *                 vm[key] = value
- *             vm.execute()
- */
-          __pyx_t_4 = __Pyx_PyDict_Items(__pyx_v_kwargs); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1069; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
-          __Pyx_GOTREF(__pyx_t_4);
-          if (likely(PyList_CheckExact(__pyx_t_4)) || PyTuple_CheckExact(__pyx_t_4)) {
-            __pyx_t_2 = __pyx_t_4; __Pyx_INCREF(__pyx_t_2); __pyx_t_9 = 0;
-            __pyx_t_10 = NULL;
-          } else {
-            __pyx_t_9 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1069; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
-            __Pyx_GOTREF(__pyx_t_2);
-            __pyx_t_10 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1069; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
-          }
-          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          for (;;) {
-            if (likely(!__pyx_t_10)) {
-              if (likely(PyList_CheckExact(__pyx_t_2))) {
-                if (__pyx_t_9 >= PyList_GET_SIZE(__pyx_t_2)) break;
-                #if CYTHON_COMPILING_IN_CPYTHON
-                __pyx_t_4 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_9); __Pyx_INCREF(__pyx_t_4); __pyx_t_9++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1069; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
-                #else
-                __pyx_t_4 = PySequence_ITEM(__pyx_t_2, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1069; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
-                __Pyx_GOTREF(__pyx_t_4);
-                #endif
-              } else {
-                if (__pyx_t_9 >= PyTuple_GET_SIZE(__pyx_t_2)) break;
-                #if CYTHON_COMPILING_IN_CPYTHON
-                __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_9); __Pyx_INCREF(__pyx_t_4); __pyx_t_9++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1069; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
-                #else
-                __pyx_t_4 = PySequence_ITEM(__pyx_t_2, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1069; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
-                __Pyx_GOTREF(__pyx_t_4);
-                #endif
-              }
-            } else {
-              __pyx_t_4 = __pyx_t_10(__pyx_t_2);
-              if (unlikely(!__pyx_t_4)) {
-                PyObject* exc_type = PyErr_Occurred();
-                if (exc_type) {
-                  if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-                  else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1069; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
-                }
-                break;
-              }
-              __Pyx_GOTREF(__pyx_t_4);
-            }
-            if ((likely(PyTuple_CheckExact(__pyx_t_4))) || (PyList_CheckExact(__pyx_t_4))) {
-              PyObject* sequence = __pyx_t_4;
-              #if CYTHON_COMPILING_IN_CPYTHON
-              Py_ssize_t size = Py_SIZE(sequence);
-              #else
-              Py_ssize_t size = PySequence_Size(sequence);
-              #endif
-              if (unlikely(size != 2)) {
-                if (size > 2) __Pyx_RaiseTooManyValuesError(2);
-                else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-                {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1069; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
-              }
-              #if CYTHON_COMPILING_IN_CPYTHON
-              if (likely(PyTuple_CheckExact(sequence))) {
-                __pyx_t_1 = PyTuple_GET_ITEM(sequence, 0); 
-                __pyx_t_5 = PyTuple_GET_ITEM(sequence, 1); 
-              } else {
-                __pyx_t_1 = PyList_GET_ITEM(sequence, 0); 
-                __pyx_t_5 = PyList_GET_ITEM(sequence, 1); 
-              }
-              __Pyx_INCREF(__pyx_t_1);
-              __Pyx_INCREF(__pyx_t_5);
-              #else
-              __pyx_t_1 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1069; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
-              __Pyx_GOTREF(__pyx_t_1);
-              __pyx_t_5 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1069; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
-              __Pyx_GOTREF(__pyx_t_5);
-              #endif
-              __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-            } else {
-              Py_ssize_t index = -1;
-              __pyx_t_11 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1069; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
-              __Pyx_GOTREF(__pyx_t_11);
-              __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-              __pyx_t_12 = Py_TYPE(__pyx_t_11)->tp_iternext;
-              index = 0; __pyx_t_1 = __pyx_t_12(__pyx_t_11); if (unlikely(!__pyx_t_1)) goto __pyx_L17_unpacking_failed;
-              __Pyx_GOTREF(__pyx_t_1);
-              index = 1; __pyx_t_5 = __pyx_t_12(__pyx_t_11); if (unlikely(!__pyx_t_5)) goto __pyx_L17_unpacking_failed;
-              __Pyx_GOTREF(__pyx_t_5);
-              if (__Pyx_IternextUnpackEndCheck(__pyx_t_12(__pyx_t_11), 2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1069; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
-              __pyx_t_12 = NULL;
-              __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-              goto __pyx_L18_unpacking_done;
-              __pyx_L17_unpacking_failed:;
-              __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-              __pyx_t_12 = NULL;
-              if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-              {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1069; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
-              __pyx_L18_unpacking_done:;
-            }
-            __Pyx_XDECREF_SET(__pyx_v_key, __pyx_t_1);
-            __pyx_t_1 = 0;
-            __Pyx_XDECREF_SET(__pyx_v_value, __pyx_t_5);
-            __pyx_t_5 = 0;
-
-            /* "unqlite.pyx":1070
- *             vm['collection'] = self.name
- *             for key, value in kwargs.items():
- *                 vm[key] = value             # <<<<<<<<<<<<<<
- *             vm.execute()
- * 
- */
-            if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_vm), __pyx_v_key, __pyx_v_value) < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1070; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
-
-            /* "unqlite.pyx":1069
- *         with VM(self.unqlite, script) as vm:
- *             vm['collection'] = self.name
- *             for key, value in kwargs.items():             # <<<<<<<<<<<<<<
- *                 vm[key] = value
- *             vm.execute()
- */
-          }
-          __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-          /* "unqlite.pyx":1071
- *             for key, value in kwargs.items():
- *                 vm[key] = value
- *             vm.execute()             # <<<<<<<<<<<<<<
- * 
- *     def _simple_execute(self, basestring script, **kwargs):
- */
-          __pyx_t_2 = ((struct __pyx_vtabstruct_7unqlite_VM *)__pyx_v_vm->__pyx_vtab)->execute(__pyx_v_vm, 0); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1071; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
-          __Pyx_GOTREF(__pyx_t_2);
-          __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-          /* "unqlite.pyx":1067
- *     def _execute(self, basestring script, **kwargs):
- *         cdef VM vm
- *         with VM(self.unqlite, script) as vm:             # <<<<<<<<<<<<<<
- *             vm['collection'] = self.name
- *             for key, value in kwargs.items():
- */
-        }
-        __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-        __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-        __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-        goto __pyx_L14_try_end;
-        __pyx_L7_error:;
-        __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
-        __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-        __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-        /*except:*/ {
-          __Pyx_AddTraceback("unqlite.Collection._execute", __pyx_clineno, __pyx_lineno, __pyx_filename);
-          if (__Pyx_GetException(&__pyx_t_2, &__pyx_t_4, &__pyx_t_5) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1067; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
-          __Pyx_GOTREF(__pyx_t_2);
-          __Pyx_GOTREF(__pyx_t_4);
-          __Pyx_GOTREF(__pyx_t_5);
-          __pyx_t_1 = PyTuple_Pack(3, __pyx_t_2, __pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1067; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
-          __Pyx_GOTREF(__pyx_t_1);
-          __pyx_t_13 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_1, NULL);
-          __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-          __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-          if (unlikely(!__pyx_t_13)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1067; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
-          __Pyx_GOTREF(__pyx_t_13);
-          __pyx_t_14 = __Pyx_PyObject_IsTrue(__pyx_t_13);
-          __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
-          if (__pyx_t_14 < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1067; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
-          __pyx_t_15 = ((!(__pyx_t_14 != 0)) != 0);
-          if (__pyx_t_15) {
-            __Pyx_GIVEREF(__pyx_t_2);
-            __Pyx_GIVEREF(__pyx_t_4);
-            __Pyx_XGIVEREF(__pyx_t_5);
-            __Pyx_ErrRestore(__pyx_t_2, __pyx_t_4, __pyx_t_5);
-            __pyx_t_2 = 0; __pyx_t_4 = 0; __pyx_t_5 = 0; 
-            {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1067; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
-          }
-          __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          goto __pyx_L8_exception_handled;
-        }
-        __pyx_L9_except_error:;
-        __Pyx_XGIVEREF(__pyx_t_6);
-        __Pyx_XGIVEREF(__pyx_t_7);
-        __Pyx_XGIVEREF(__pyx_t_8);
-        __Pyx_ExceptionReset(__pyx_t_6, __pyx_t_7, __pyx_t_8);
-        goto __pyx_L1_error;
-        __pyx_L8_exception_handled:;
-        __Pyx_XGIVEREF(__pyx_t_6);
-        __Pyx_XGIVEREF(__pyx_t_7);
-        __Pyx_XGIVEREF(__pyx_t_8);
-        __Pyx_ExceptionReset(__pyx_t_6, __pyx_t_7, __pyx_t_8);
-        __pyx_L14_try_end:;
-      }
-    }
-    /*finally:*/ {
-      /*normal exit:*/{
-        if (__pyx_t_3) {
-          __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_tuple__26, NULL);
-          __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-          if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1067; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-          __Pyx_GOTREF(__pyx_t_8);
-          __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-        }
-        goto __pyx_L6;
-      }
-      __pyx_L6:;
-    }
-    goto __pyx_L22;
-    __pyx_L3_error:;
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    goto __pyx_L1_error;
-    __pyx_L22:;
-  }
-
-  /* "unqlite.pyx":1065
- *         self.name = name
- * 
- *     def _execute(self, basestring script, **kwargs):             # <<<<<<<<<<<<<<
- *         cdef VM vm
- *         with VM(self.unqlite, script) as vm:
- */
-
-  /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  goto __pyx_L0;
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_XDECREF(__pyx_t_11);
-  __Pyx_AddTraceback("unqlite.Collection._execute", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XDECREF((PyObject *)__pyx_v_vm);
-  __Pyx_XDECREF(__pyx_v_key);
-  __Pyx_XDECREF(__pyx_v_value);
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "unqlite.pyx":1073
- *             vm.execute()
- * 
- *     def _simple_execute(self, basestring script, **kwargs):             # <<<<<<<<<<<<<<
- *         cdef VM vm
- *         with VM(self.unqlite, script) as vm:
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_7unqlite_10Collection_5_simple_execute(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_pw_7unqlite_10Collection_5_simple_execute(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
-  PyObject *__pyx_v_script = 0;
-  PyObject *__pyx_v_kwargs = 0;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("_simple_execute (wrapper)", 0);
-  __pyx_v_kwargs = PyDict_New(); if (unlikely(!__pyx_v_kwargs)) return NULL;
-  __Pyx_GOTREF(__pyx_v_kwargs);
-  {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_script,0};
-    PyObject* values[1] = {0};
-    if (unlikely(__pyx_kwds)) {
-      Py_ssize_t kw_args;
-      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
-      switch (pos_args) {
-        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-        case  0: break;
-        default: goto __pyx_L5_argtuple_error;
-      }
-      kw_args = PyDict_Size(__pyx_kwds);
-      switch (pos_args) {
-        case  0:
-        if (likely((values[0] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_script)) != 0)) kw_args--;
-        else goto __pyx_L5_argtuple_error;
-      }
-      if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, __pyx_v_kwargs, values, pos_args, "_simple_execute") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1073; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
-      }
-    } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
-      goto __pyx_L5_argtuple_error;
-    } else {
-      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-    }
-    __pyx_v_script = ((PyObject*)values[0]);
-  }
-  goto __pyx_L4_argument_unpacking_done;
-  __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("_simple_execute", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1073; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
-  __pyx_L3_error:;
-  __Pyx_DECREF(__pyx_v_kwargs); __pyx_v_kwargs = 0;
-  __Pyx_AddTraceback("unqlite.Collection._simple_execute", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __Pyx_RefNannyFinishContext();
-  return NULL;
-  __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_script), (&PyBaseString_Type), 1, "script", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1073; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_r = __pyx_pf_7unqlite_10Collection_4_simple_execute(((struct __pyx_obj_7unqlite_Collection *)__pyx_v_self), __pyx_v_script, __pyx_v_kwargs);
-
-  /* function exit code */
-  goto __pyx_L0;
-  __pyx_L1_error:;
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XDECREF(__pyx_v_kwargs);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_7unqlite_10Collection_4_simple_execute(struct __pyx_obj_7unqlite_Collection *__pyx_v_self, PyObject *__pyx_v_script, PyObject *__pyx_v_kwargs) {
-  struct __pyx_obj_7unqlite_VM *__pyx_v_vm = 0;
-  PyObject *__pyx_v_key = NULL;
-  PyObject *__pyx_v_value = NULL;
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  PyObject *__pyx_t_2 = NULL;
-  PyObject *__pyx_t_3 = NULL;
-  PyObject *__pyx_t_4 = NULL;
-  PyObject *__pyx_t_5 = NULL;
-  PyObject *__pyx_t_6 = NULL;
-  PyObject *__pyx_t_7 = NULL;
-  PyObject *__pyx_t_8 = NULL;
-  Py_ssize_t __pyx_t_9;
-  PyObject *(*__pyx_t_10)(PyObject *);
-  PyObject *__pyx_t_11 = NULL;
-  PyObject *(*__pyx_t_12)(PyObject *);
-  PyObject *__pyx_t_13 = NULL;
-  PyObject *__pyx_t_14 = NULL;
-  PyObject *__pyx_t_15 = NULL;
-  int __pyx_t_16;
-  int __pyx_t_17;
-  int __pyx_t_18;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("_simple_execute", 0);
-
   /* "unqlite.pyx":1075
- *     def _simple_execute(self, basestring script, **kwargs):
+ *     def _execute(self, basestring script, **kwargs):
  *         cdef VM vm
  *         with VM(self.unqlite, script) as vm:             # <<<<<<<<<<<<<<
  *             vm['collection'] = self.name
@@ -16842,7 +16643,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_4_simple_execute(struct __pyx_ob
  *             for key, value in kwargs.items():
  *                 vm[key] = value             # <<<<<<<<<<<<<<
  *             vm.execute()
- *             try:
+ * 
  */
             if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_vm), __pyx_v_key, __pyx_v_value) < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1078; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
 
@@ -16860,14 +16661,424 @@ static PyObject *__pyx_pf_7unqlite_10Collection_4_simple_execute(struct __pyx_ob
  *             for key, value in kwargs.items():
  *                 vm[key] = value
  *             vm.execute()             # <<<<<<<<<<<<<<
- *             try:
- *                 return vm['ret']
+ * 
+ *     def _simple_execute(self, basestring script, **kwargs):
  */
           __pyx_t_2 = ((struct __pyx_vtabstruct_7unqlite_VM *)__pyx_v_vm->__pyx_vtab)->execute(__pyx_v_vm, 0); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1079; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-          /* "unqlite.pyx":1080
+          /* "unqlite.pyx":1075
+ *     def _execute(self, basestring script, **kwargs):
+ *         cdef VM vm
+ *         with VM(self.unqlite, script) as vm:             # <<<<<<<<<<<<<<
+ *             vm['collection'] = self.name
+ *             for key, value in kwargs.items():
+ */
+        }
+        __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+        __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
+        __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
+        goto __pyx_L14_try_end;
+        __pyx_L7_error:;
+        __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
+        __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+        __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+        __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+        __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+        /*except:*/ {
+          __Pyx_AddTraceback("unqlite.Collection._execute", __pyx_clineno, __pyx_lineno, __pyx_filename);
+          if (__Pyx_GetException(&__pyx_t_2, &__pyx_t_4, &__pyx_t_5) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1075; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_GOTREF(__pyx_t_4);
+          __Pyx_GOTREF(__pyx_t_5);
+          __pyx_t_1 = PyTuple_Pack(3, __pyx_t_2, __pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1075; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
+          __Pyx_GOTREF(__pyx_t_1);
+          __pyx_t_13 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_1, NULL);
+          __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+          __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+          if (unlikely(!__pyx_t_13)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1075; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
+          __Pyx_GOTREF(__pyx_t_13);
+          __pyx_t_14 = __Pyx_PyObject_IsTrue(__pyx_t_13);
+          __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
+          if (__pyx_t_14 < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1075; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
+          __pyx_t_15 = ((!(__pyx_t_14 != 0)) != 0);
+          if (__pyx_t_15) {
+            __Pyx_GIVEREF(__pyx_t_2);
+            __Pyx_GIVEREF(__pyx_t_4);
+            __Pyx_XGIVEREF(__pyx_t_5);
+            __Pyx_ErrRestore(__pyx_t_2, __pyx_t_4, __pyx_t_5);
+            __pyx_t_2 = 0; __pyx_t_4 = 0; __pyx_t_5 = 0; 
+            {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1075; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
+          }
+          __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+          goto __pyx_L8_exception_handled;
+        }
+        __pyx_L9_except_error:;
+        __Pyx_XGIVEREF(__pyx_t_6);
+        __Pyx_XGIVEREF(__pyx_t_7);
+        __Pyx_XGIVEREF(__pyx_t_8);
+        __Pyx_ExceptionReset(__pyx_t_6, __pyx_t_7, __pyx_t_8);
+        goto __pyx_L1_error;
+        __pyx_L8_exception_handled:;
+        __Pyx_XGIVEREF(__pyx_t_6);
+        __Pyx_XGIVEREF(__pyx_t_7);
+        __Pyx_XGIVEREF(__pyx_t_8);
+        __Pyx_ExceptionReset(__pyx_t_6, __pyx_t_7, __pyx_t_8);
+        __pyx_L14_try_end:;
+      }
+    }
+    /*finally:*/ {
+      /*normal exit:*/{
+        if (__pyx_t_3) {
+          __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_tuple__26, NULL);
+          __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+          if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1075; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __Pyx_GOTREF(__pyx_t_8);
+          __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+        }
+        goto __pyx_L6;
+      }
+      __pyx_L6:;
+    }
+    goto __pyx_L22;
+    __pyx_L3_error:;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    goto __pyx_L1_error;
+    __pyx_L22:;
+  }
+
+  /* "unqlite.pyx":1073
+ *         self.name = name
+ * 
+ *     def _execute(self, basestring script, **kwargs):             # <<<<<<<<<<<<<<
+ *         cdef VM vm
+ *         with VM(self.unqlite, script) as vm:
+ */
+
+  /* function exit code */
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_11);
+  __Pyx_AddTraceback("unqlite.Collection._execute", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XDECREF((PyObject *)__pyx_v_vm);
+  __Pyx_XDECREF(__pyx_v_key);
+  __Pyx_XDECREF(__pyx_v_value);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "unqlite.pyx":1081
+ *             vm.execute()
+ * 
+ *     def _simple_execute(self, basestring script, **kwargs):             # <<<<<<<<<<<<<<
+ *         cdef VM vm
+ *         with VM(self.unqlite, script) as vm:
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_7unqlite_10Collection_5_simple_execute(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_7unqlite_10Collection_5_simple_execute(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  PyObject *__pyx_v_script = 0;
+  PyObject *__pyx_v_kwargs = 0;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("_simple_execute (wrapper)", 0);
+  __pyx_v_kwargs = PyDict_New(); if (unlikely(!__pyx_v_kwargs)) return NULL;
+  __Pyx_GOTREF(__pyx_v_kwargs);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_script,0};
+    PyObject* values[1] = {0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_script)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, __pyx_v_kwargs, values, pos_args, "_simple_execute") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1081; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+      }
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+    }
+    __pyx_v_script = ((PyObject*)values[0]);
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("_simple_execute", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1081; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __pyx_L3_error:;
+  __Pyx_DECREF(__pyx_v_kwargs); __pyx_v_kwargs = 0;
+  __Pyx_AddTraceback("unqlite.Collection._simple_execute", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_script), (&PyBaseString_Type), 1, "script", 1))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1081; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_r = __pyx_pf_7unqlite_10Collection_4_simple_execute(((struct __pyx_obj_7unqlite_Collection *)__pyx_v_self), __pyx_v_script, __pyx_v_kwargs);
+
+  /* function exit code */
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v_kwargs);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_7unqlite_10Collection_4_simple_execute(struct __pyx_obj_7unqlite_Collection *__pyx_v_self, PyObject *__pyx_v_script, PyObject *__pyx_v_kwargs) {
+  struct __pyx_obj_7unqlite_VM *__pyx_v_vm = 0;
+  PyObject *__pyx_v_key = NULL;
+  PyObject *__pyx_v_value = NULL;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  PyObject *__pyx_t_6 = NULL;
+  PyObject *__pyx_t_7 = NULL;
+  PyObject *__pyx_t_8 = NULL;
+  Py_ssize_t __pyx_t_9;
+  PyObject *(*__pyx_t_10)(PyObject *);
+  PyObject *__pyx_t_11 = NULL;
+  PyObject *(*__pyx_t_12)(PyObject *);
+  PyObject *__pyx_t_13 = NULL;
+  PyObject *__pyx_t_14 = NULL;
+  PyObject *__pyx_t_15 = NULL;
+  int __pyx_t_16;
+  int __pyx_t_17;
+  int __pyx_t_18;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("_simple_execute", 0);
+
+  /* "unqlite.pyx":1083
+ *     def _simple_execute(self, basestring script, **kwargs):
+ *         cdef VM vm
+ *         with VM(self.unqlite, script) as vm:             # <<<<<<<<<<<<<<
+ *             vm['collection'] = self.name
+ *             for key, value in kwargs.items():
+ */
+  /*with:*/ {
+    __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1083; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_INCREF(((PyObject *)__pyx_v_self->unqlite));
+    __Pyx_GIVEREF(((PyObject *)__pyx_v_self->unqlite));
+    PyTuple_SET_ITEM(__pyx_t_1, 0, ((PyObject *)__pyx_v_self->unqlite));
+    __Pyx_INCREF(__pyx_v_script);
+    __Pyx_GIVEREF(__pyx_v_script);
+    PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_script);
+    __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_7unqlite_VM), __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1083; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_3 = __Pyx_PyObject_LookupSpecial(__pyx_t_2, __pyx_n_s_exit); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1083; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_4 = __Pyx_PyObject_LookupSpecial(__pyx_t_2, __pyx_n_s_enter); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1083; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+    __Pyx_GOTREF(__pyx_t_4);
+    __pyx_t_5 = NULL;
+    if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_4))) {
+      __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_4);
+      if (likely(__pyx_t_5)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
+        __Pyx_INCREF(__pyx_t_5);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_4, function);
+      }
+    }
+    if (__pyx_t_5) {
+      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1083; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    } else {
+      __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_4); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1083; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+    }
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __pyx_t_4 = __pyx_t_1;
+    __pyx_t_1 = 0;
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    /*try:*/ {
+      {
+        __Pyx_ExceptionSave(&__pyx_t_6, &__pyx_t_7, &__pyx_t_8);
+        __Pyx_XGOTREF(__pyx_t_6);
+        __Pyx_XGOTREF(__pyx_t_7);
+        __Pyx_XGOTREF(__pyx_t_8);
+        /*try:*/ {
+          if (!(likely(((__pyx_t_4) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_4, __pyx_ptype_7unqlite_VM))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1083; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
+          __pyx_v_vm = ((struct __pyx_obj_7unqlite_VM *)__pyx_t_4);
+          __pyx_t_4 = 0;
+
+          /* "unqlite.pyx":1084
+ *         cdef VM vm
+ *         with VM(self.unqlite, script) as vm:
+ *             vm['collection'] = self.name             # <<<<<<<<<<<<<<
+ *             for key, value in kwargs.items():
+ *                 vm[key] = value
+ */
+          __pyx_t_4 = __pyx_v_self->name;
+          __Pyx_INCREF(__pyx_t_4);
+          if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_vm), __pyx_n_s_collection, __pyx_t_4) < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1084; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+
+          /* "unqlite.pyx":1085
+ *         with VM(self.unqlite, script) as vm:
+ *             vm['collection'] = self.name
+ *             for key, value in kwargs.items():             # <<<<<<<<<<<<<<
+ *                 vm[key] = value
+ *             vm.execute()
+ */
+          __pyx_t_4 = __Pyx_PyDict_Items(__pyx_v_kwargs); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1085; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
+          __Pyx_GOTREF(__pyx_t_4);
+          if (likely(PyList_CheckExact(__pyx_t_4)) || PyTuple_CheckExact(__pyx_t_4)) {
+            __pyx_t_2 = __pyx_t_4; __Pyx_INCREF(__pyx_t_2); __pyx_t_9 = 0;
+            __pyx_t_10 = NULL;
+          } else {
+            __pyx_t_9 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1085; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
+            __Pyx_GOTREF(__pyx_t_2);
+            __pyx_t_10 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1085; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
+          }
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+          for (;;) {
+            if (likely(!__pyx_t_10)) {
+              if (likely(PyList_CheckExact(__pyx_t_2))) {
+                if (__pyx_t_9 >= PyList_GET_SIZE(__pyx_t_2)) break;
+                #if CYTHON_COMPILING_IN_CPYTHON
+                __pyx_t_4 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_9); __Pyx_INCREF(__pyx_t_4); __pyx_t_9++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1085; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
+                #else
+                __pyx_t_4 = PySequence_ITEM(__pyx_t_2, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1085; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
+                __Pyx_GOTREF(__pyx_t_4);
+                #endif
+              } else {
+                if (__pyx_t_9 >= PyTuple_GET_SIZE(__pyx_t_2)) break;
+                #if CYTHON_COMPILING_IN_CPYTHON
+                __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_9); __Pyx_INCREF(__pyx_t_4); __pyx_t_9++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1085; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
+                #else
+                __pyx_t_4 = PySequence_ITEM(__pyx_t_2, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1085; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
+                __Pyx_GOTREF(__pyx_t_4);
+                #endif
+              }
+            } else {
+              __pyx_t_4 = __pyx_t_10(__pyx_t_2);
+              if (unlikely(!__pyx_t_4)) {
+                PyObject* exc_type = PyErr_Occurred();
+                if (exc_type) {
+                  if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
+                  else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1085; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
+                }
+                break;
+              }
+              __Pyx_GOTREF(__pyx_t_4);
+            }
+            if ((likely(PyTuple_CheckExact(__pyx_t_4))) || (PyList_CheckExact(__pyx_t_4))) {
+              PyObject* sequence = __pyx_t_4;
+              #if CYTHON_COMPILING_IN_CPYTHON
+              Py_ssize_t size = Py_SIZE(sequence);
+              #else
+              Py_ssize_t size = PySequence_Size(sequence);
+              #endif
+              if (unlikely(size != 2)) {
+                if (size > 2) __Pyx_RaiseTooManyValuesError(2);
+                else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
+                {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1085; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
+              }
+              #if CYTHON_COMPILING_IN_CPYTHON
+              if (likely(PyTuple_CheckExact(sequence))) {
+                __pyx_t_1 = PyTuple_GET_ITEM(sequence, 0); 
+                __pyx_t_5 = PyTuple_GET_ITEM(sequence, 1); 
+              } else {
+                __pyx_t_1 = PyList_GET_ITEM(sequence, 0); 
+                __pyx_t_5 = PyList_GET_ITEM(sequence, 1); 
+              }
+              __Pyx_INCREF(__pyx_t_1);
+              __Pyx_INCREF(__pyx_t_5);
+              #else
+              __pyx_t_1 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1085; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
+              __Pyx_GOTREF(__pyx_t_1);
+              __pyx_t_5 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1085; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
+              __Pyx_GOTREF(__pyx_t_5);
+              #endif
+              __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+            } else {
+              Py_ssize_t index = -1;
+              __pyx_t_11 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1085; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
+              __Pyx_GOTREF(__pyx_t_11);
+              __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+              __pyx_t_12 = Py_TYPE(__pyx_t_11)->tp_iternext;
+              index = 0; __pyx_t_1 = __pyx_t_12(__pyx_t_11); if (unlikely(!__pyx_t_1)) goto __pyx_L17_unpacking_failed;
+              __Pyx_GOTREF(__pyx_t_1);
+              index = 1; __pyx_t_5 = __pyx_t_12(__pyx_t_11); if (unlikely(!__pyx_t_5)) goto __pyx_L17_unpacking_failed;
+              __Pyx_GOTREF(__pyx_t_5);
+              if (__Pyx_IternextUnpackEndCheck(__pyx_t_12(__pyx_t_11), 2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1085; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
+              __pyx_t_12 = NULL;
+              __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+              goto __pyx_L18_unpacking_done;
+              __pyx_L17_unpacking_failed:;
+              __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+              __pyx_t_12 = NULL;
+              if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
+              {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1085; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
+              __pyx_L18_unpacking_done:;
+            }
+            __Pyx_XDECREF_SET(__pyx_v_key, __pyx_t_1);
+            __pyx_t_1 = 0;
+            __Pyx_XDECREF_SET(__pyx_v_value, __pyx_t_5);
+            __pyx_t_5 = 0;
+
+            /* "unqlite.pyx":1086
+ *             vm['collection'] = self.name
+ *             for key, value in kwargs.items():
+ *                 vm[key] = value             # <<<<<<<<<<<<<<
+ *             vm.execute()
+ *             try:
+ */
+            if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_vm), __pyx_v_key, __pyx_v_value) < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1086; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
+
+            /* "unqlite.pyx":1085
+ *         with VM(self.unqlite, script) as vm:
+ *             vm['collection'] = self.name
+ *             for key, value in kwargs.items():             # <<<<<<<<<<<<<<
+ *                 vm[key] = value
+ *             vm.execute()
+ */
+          }
+          __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+          /* "unqlite.pyx":1087
+ *             for key, value in kwargs.items():
+ *                 vm[key] = value
+ *             vm.execute()             # <<<<<<<<<<<<<<
+ *             try:
+ *                 return vm['ret']
+ */
+          __pyx_t_2 = ((struct __pyx_vtabstruct_7unqlite_VM *)__pyx_v_vm->__pyx_vtab)->execute(__pyx_v_vm, 0); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1087; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+          /* "unqlite.pyx":1088
  *                 vm[key] = value
  *             vm.execute()
  *             try:             # <<<<<<<<<<<<<<
@@ -16881,7 +17092,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_4_simple_execute(struct __pyx_ob
             __Pyx_XGOTREF(__pyx_t_15);
             /*try:*/ {
 
-              /* "unqlite.pyx":1081
+              /* "unqlite.pyx":1089
  *             vm.execute()
  *             try:
  *                 return vm['ret']             # <<<<<<<<<<<<<<
@@ -16889,13 +17100,13 @@ static PyObject *__pyx_pf_7unqlite_10Collection_4_simple_execute(struct __pyx_ob
  *                 raise ValueError('Error fetching return value from script.')
  */
               __Pyx_XDECREF(__pyx_r);
-              __pyx_t_2 = PyObject_GetItem(((PyObject *)__pyx_v_vm), __pyx_n_s_ret); if (unlikely(__pyx_t_2 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1081; __pyx_clineno = __LINE__; goto __pyx_L19_error;};
+              __pyx_t_2 = PyObject_GetItem(((PyObject *)__pyx_v_vm), __pyx_n_s_ret); if (unlikely(__pyx_t_2 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1089; __pyx_clineno = __LINE__; goto __pyx_L19_error;};
               __Pyx_GOTREF(__pyx_t_2);
               __pyx_r = __pyx_t_2;
               __pyx_t_2 = 0;
               goto __pyx_L23_try_return;
 
-              /* "unqlite.pyx":1080
+              /* "unqlite.pyx":1088
  *                 vm[key] = value
  *             vm.execute()
  *             try:             # <<<<<<<<<<<<<<
@@ -16910,7 +17121,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_4_simple_execute(struct __pyx_ob
             __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
             __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-            /* "unqlite.pyx":1082
+            /* "unqlite.pyx":1090
  *             try:
  *                 return vm['ret']
  *             except KeyError:             # <<<<<<<<<<<<<<
@@ -16920,28 +17131,28 @@ static PyObject *__pyx_pf_7unqlite_10Collection_4_simple_execute(struct __pyx_ob
             __pyx_t_16 = PyErr_ExceptionMatches(__pyx_builtin_KeyError);
             if (__pyx_t_16) {
               __Pyx_AddTraceback("unqlite.Collection._simple_execute", __pyx_clineno, __pyx_lineno, __pyx_filename);
-              if (__Pyx_GetException(&__pyx_t_2, &__pyx_t_4, &__pyx_t_5) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1082; __pyx_clineno = __LINE__; goto __pyx_L21_except_error;}
+              if (__Pyx_GetException(&__pyx_t_2, &__pyx_t_4, &__pyx_t_5) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1090; __pyx_clineno = __LINE__; goto __pyx_L21_except_error;}
               __Pyx_GOTREF(__pyx_t_2);
               __Pyx_GOTREF(__pyx_t_4);
               __Pyx_GOTREF(__pyx_t_5);
 
-              /* "unqlite.pyx":1083
+              /* "unqlite.pyx":1091
  *                 return vm['ret']
  *             except KeyError:
  *                 raise ValueError('Error fetching return value from script.')             # <<<<<<<<<<<<<<
  * 
  *     def all(self):
  */
-              __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__27, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1083; __pyx_clineno = __LINE__; goto __pyx_L21_except_error;}
+              __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__27, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1091; __pyx_clineno = __LINE__; goto __pyx_L21_except_error;}
               __Pyx_GOTREF(__pyx_t_1);
               __Pyx_Raise(__pyx_t_1, 0, 0, 0);
               __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-              {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1083; __pyx_clineno = __LINE__; goto __pyx_L21_except_error;}
+              {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1091; __pyx_clineno = __LINE__; goto __pyx_L21_except_error;}
             }
             goto __pyx_L21_except_error;
             __pyx_L21_except_error:;
 
-            /* "unqlite.pyx":1080
+            /* "unqlite.pyx":1088
  *                 vm[key] = value
  *             vm.execute()
  *             try:             # <<<<<<<<<<<<<<
@@ -16961,7 +17172,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_4_simple_execute(struct __pyx_ob
             goto __pyx_L11_try_return;
           }
 
-          /* "unqlite.pyx":1075
+          /* "unqlite.pyx":1083
  *     def _simple_execute(self, basestring script, **kwargs):
  *         cdef VM vm
  *         with VM(self.unqlite, script) as vm:             # <<<<<<<<<<<<<<
@@ -16977,20 +17188,20 @@ static PyObject *__pyx_pf_7unqlite_10Collection_4_simple_execute(struct __pyx_ob
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
         /*except:*/ {
           __Pyx_AddTraceback("unqlite.Collection._simple_execute", __pyx_clineno, __pyx_lineno, __pyx_filename);
-          if (__Pyx_GetException(&__pyx_t_5, &__pyx_t_4, &__pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1075; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
+          if (__Pyx_GetException(&__pyx_t_5, &__pyx_t_4, &__pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1083; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
           __Pyx_GOTREF(__pyx_t_5);
           __Pyx_GOTREF(__pyx_t_4);
           __Pyx_GOTREF(__pyx_t_2);
-          __pyx_t_1 = PyTuple_Pack(3, __pyx_t_5, __pyx_t_4, __pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1075; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
+          __pyx_t_1 = PyTuple_Pack(3, __pyx_t_5, __pyx_t_4, __pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1083; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
           __Pyx_GOTREF(__pyx_t_1);
           __pyx_t_15 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_1, NULL);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-          if (unlikely(!__pyx_t_15)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1075; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
+          if (unlikely(!__pyx_t_15)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1083; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
           __Pyx_GOTREF(__pyx_t_15);
           __pyx_t_17 = __Pyx_PyObject_IsTrue(__pyx_t_15);
           __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
-          if (__pyx_t_17 < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1075; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
+          if (__pyx_t_17 < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1083; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
           __pyx_t_18 = ((!(__pyx_t_17 != 0)) != 0);
           if (__pyx_t_18) {
             __Pyx_GIVEREF(__pyx_t_5);
@@ -16998,7 +17209,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_4_simple_execute(struct __pyx_ob
             __Pyx_XGIVEREF(__pyx_t_2);
             __Pyx_ErrRestore(__pyx_t_5, __pyx_t_4, __pyx_t_2);
             __pyx_t_5 = 0; __pyx_t_4 = 0; __pyx_t_2 = 0; 
-            {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1075; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
+            {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1083; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
           }
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -17029,7 +17240,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_4_simple_execute(struct __pyx_ob
         if (__pyx_t_3) {
           __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_tuple__28, NULL);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-          if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1075; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1083; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_8);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         }
@@ -17041,7 +17252,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_4_simple_execute(struct __pyx_ob
         if (__pyx_t_3) {
           __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_tuple__29, NULL);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-          if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1075; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1083; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_7);
           __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
         }
@@ -17058,7 +17269,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_4_simple_execute(struct __pyx_ob
     __pyx_L32:;
   }
 
-  /* "unqlite.pyx":1073
+  /* "unqlite.pyx":1081
  *             vm.execute()
  * 
  *     def _simple_execute(self, basestring script, **kwargs):             # <<<<<<<<<<<<<<
@@ -17086,7 +17297,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_4_simple_execute(struct __pyx_ob
   return __pyx_r;
 }
 
-/* "unqlite.pyx":1085
+/* "unqlite.pyx":1093
  *                 raise ValueError('Error fetching return value from script.')
  * 
  *     def all(self):             # <<<<<<<<<<<<<<
@@ -17118,7 +17329,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_6all(struct __pyx_obj_7unqlite_C
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("all", 0);
 
-  /* "unqlite.pyx":1087
+  /* "unqlite.pyx":1095
  *     def all(self):
  *         """Retrieve all records in the given collection."""
  *         return self._simple_execute('$ret = db_fetch_all($collection);')             # <<<<<<<<<<<<<<
@@ -17126,16 +17337,16 @@ static PyObject *__pyx_pf_7unqlite_10Collection_6all(struct __pyx_obj_7unqlite_C
  *     cpdef filter(self, filter_fn):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_simple_execute); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1087; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_simple_execute); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1095; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__30, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1087; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__30, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1095; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "unqlite.pyx":1085
+  /* "unqlite.pyx":1093
  *                 raise ValueError('Error fetching return value from script.')
  * 
  *     def all(self):             # <<<<<<<<<<<<<<
@@ -17155,7 +17366,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_6all(struct __pyx_obj_7unqlite_C
   return __pyx_r;
 }
 
-/* "unqlite.pyx":1089
+/* "unqlite.pyx":1097
  *         return self._simple_execute('$ret = db_fetch_all($collection);')
  * 
  *     cpdef filter(self, filter_fn):             # <<<<<<<<<<<<<<
@@ -17191,7 +17402,7 @@ static PyObject *__pyx_f_7unqlite_10Collection_filter(struct __pyx_obj_7unqlite_
   if (unlikely(__pyx_skip_dispatch)) ;
   /* Check if overridden in Python */
   else if (unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0)) {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_filter); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1089; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_filter); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1097; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)__pyx_pw_7unqlite_10Collection_9filter)) {
       __Pyx_XDECREF(__pyx_r);
@@ -17207,16 +17418,16 @@ static PyObject *__pyx_f_7unqlite_10Collection_filter(struct __pyx_obj_7unqlite_
         }
       }
       if (!__pyx_t_4) {
-        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_filter_fn); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1089; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_filter_fn); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1097; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_2);
       } else {
-        __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1089; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1097; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_4); __pyx_t_4 = NULL;
         __Pyx_INCREF(__pyx_v_filter_fn);
         __Pyx_GIVEREF(__pyx_v_filter_fn);
         PyTuple_SET_ITEM(__pyx_t_5, 0+1, __pyx_v_filter_fn);
-        __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1089; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1097; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       }
@@ -17229,7 +17440,7 @@ static PyObject *__pyx_f_7unqlite_10Collection_filter(struct __pyx_obj_7unqlite_
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "unqlite.pyx":1098
+  /* "unqlite.pyx":1106
  *         global py_filter_fn
  * 
  *         script = '$ret = db_fetch_all($collection, _filter_fn)'             # <<<<<<<<<<<<<<
@@ -17239,7 +17450,7 @@ static PyObject *__pyx_f_7unqlite_10Collection_filter(struct __pyx_obj_7unqlite_
   __Pyx_INCREF(__pyx_kp_s_ret_db_fetch_all_collection__fi);
   __pyx_v_script = __pyx_kp_s_ret_db_fetch_all_collection__fi;
 
-  /* "unqlite.pyx":1099
+  /* "unqlite.pyx":1107
  * 
  *         script = '$ret = db_fetch_all($collection, _filter_fn)'
  *         with VM(self.unqlite, script) as vm:             # <<<<<<<<<<<<<<
@@ -17247,7 +17458,7 @@ static PyObject *__pyx_f_7unqlite_10Collection_filter(struct __pyx_obj_7unqlite_
  *             filter_callback = py_filter_wrapper
  */
   /*with:*/ {
-    __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1099; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1107; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_INCREF(((PyObject *)__pyx_v_self->unqlite));
     __Pyx_GIVEREF(((PyObject *)__pyx_v_self->unqlite));
@@ -17255,12 +17466,12 @@ static PyObject *__pyx_f_7unqlite_10Collection_filter(struct __pyx_obj_7unqlite_
     __Pyx_INCREF(__pyx_v_script);
     __Pyx_GIVEREF(__pyx_v_script);
     PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_script);
-    __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_7unqlite_VM), __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1099; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_7unqlite_VM), __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1107; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_6 = __Pyx_PyObject_LookupSpecial(__pyx_t_2, __pyx_n_s_exit); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1099; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_6 = __Pyx_PyObject_LookupSpecial(__pyx_t_2, __pyx_n_s_exit); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1107; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_3 = __Pyx_PyObject_LookupSpecial(__pyx_t_2, __pyx_n_s_enter); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1099; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+    __pyx_t_3 = __Pyx_PyObject_LookupSpecial(__pyx_t_2, __pyx_n_s_enter); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1107; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_5 = NULL;
     if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_3))) {
@@ -17273,10 +17484,10 @@ static PyObject *__pyx_f_7unqlite_10Collection_filter(struct __pyx_obj_7unqlite_
       }
     }
     if (__pyx_t_5) {
-      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1099; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1107; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     } else {
-      __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1099; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+      __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1107; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
     }
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -17290,11 +17501,11 @@ static PyObject *__pyx_f_7unqlite_10Collection_filter(struct __pyx_obj_7unqlite_
         __Pyx_XGOTREF(__pyx_t_8);
         __Pyx_XGOTREF(__pyx_t_9);
         /*try:*/ {
-          if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_7unqlite_VM))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1099; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
+          if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_7unqlite_VM))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1107; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
           __pyx_v_vm = ((struct __pyx_obj_7unqlite_VM *)__pyx_t_3);
           __pyx_t_3 = 0;
 
-          /* "unqlite.pyx":1100
+          /* "unqlite.pyx":1108
  *         script = '$ret = db_fetch_all($collection, _filter_fn)'
  *         with VM(self.unqlite, script) as vm:
  *             py_filter_fn = filter_fn             # <<<<<<<<<<<<<<
@@ -17306,7 +17517,7 @@ static PyObject *__pyx_f_7unqlite_10Collection_filter(struct __pyx_obj_7unqlite_
           __Pyx_DECREF_SET(__pyx_v_7unqlite_py_filter_fn, __pyx_v_filter_fn);
           __Pyx_GIVEREF(__pyx_v_filter_fn);
 
-          /* "unqlite.pyx":1101
+          /* "unqlite.pyx":1109
  *         with VM(self.unqlite, script) as vm:
  *             py_filter_fn = filter_fn
  *             filter_callback = py_filter_wrapper             # <<<<<<<<<<<<<<
@@ -17315,7 +17526,7 @@ static PyObject *__pyx_f_7unqlite_10Collection_filter(struct __pyx_obj_7unqlite_
  */
           __pyx_v_filter_callback = __pyx_f_7unqlite_py_filter_wrapper;
 
-          /* "unqlite.pyx":1102
+          /* "unqlite.pyx":1110
  *             py_filter_fn = filter_fn
  *             filter_callback = py_filter_wrapper
  *             unqlite_create_function(             # <<<<<<<<<<<<<<
@@ -17324,7 +17535,7 @@ static PyObject *__pyx_f_7unqlite_10Collection_filter(struct __pyx_obj_7unqlite_
  */
           unqlite_create_function(__pyx_v_vm->vm, __pyx_k_filter_fn, __pyx_v_filter_callback, NULL);
 
-          /* "unqlite.pyx":1107
+          /* "unqlite.pyx":1115
  *                 filter_callback,
  *                 NULL)
  *             vm['collection'] = self.name             # <<<<<<<<<<<<<<
@@ -17333,33 +17544,33 @@ static PyObject *__pyx_f_7unqlite_10Collection_filter(struct __pyx_obj_7unqlite_
  */
           __pyx_t_3 = __pyx_v_self->name;
           __Pyx_INCREF(__pyx_t_3);
-          if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_vm), __pyx_n_s_collection, __pyx_t_3) < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1107; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
+          if (unlikely(PyObject_SetItem(((PyObject *)__pyx_v_vm), __pyx_n_s_collection, __pyx_t_3) < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1115; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-          /* "unqlite.pyx":1108
+          /* "unqlite.pyx":1116
  *                 NULL)
  *             vm['collection'] = self.name
  *             vm.execute()             # <<<<<<<<<<<<<<
  *             ret = vm['ret']
  *             unqlite_delete_function(
  */
-          __pyx_t_3 = ((struct __pyx_vtabstruct_7unqlite_VM *)__pyx_v_vm->__pyx_vtab)->execute(__pyx_v_vm, 0); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1108; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
+          __pyx_t_3 = ((struct __pyx_vtabstruct_7unqlite_VM *)__pyx_v_vm->__pyx_vtab)->execute(__pyx_v_vm, 0); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1116; __pyx_clineno = __LINE__; goto __pyx_L7_error;}
           __Pyx_GOTREF(__pyx_t_3);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-          /* "unqlite.pyx":1109
+          /* "unqlite.pyx":1117
  *             vm['collection'] = self.name
  *             vm.execute()
  *             ret = vm['ret']             # <<<<<<<<<<<<<<
  *             unqlite_delete_function(
  *                 vm.vm,
  */
-          __pyx_t_3 = PyObject_GetItem(((PyObject *)__pyx_v_vm), __pyx_n_s_ret); if (unlikely(__pyx_t_3 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1109; __pyx_clineno = __LINE__; goto __pyx_L7_error;};
+          __pyx_t_3 = PyObject_GetItem(((PyObject *)__pyx_v_vm), __pyx_n_s_ret); if (unlikely(__pyx_t_3 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1117; __pyx_clineno = __LINE__; goto __pyx_L7_error;};
           __Pyx_GOTREF(__pyx_t_3);
           __pyx_v_ret = __pyx_t_3;
           __pyx_t_3 = 0;
 
-          /* "unqlite.pyx":1110
+          /* "unqlite.pyx":1118
  *             vm.execute()
  *             ret = vm['ret']
  *             unqlite_delete_function(             # <<<<<<<<<<<<<<
@@ -17368,7 +17579,7 @@ static PyObject *__pyx_f_7unqlite_10Collection_filter(struct __pyx_obj_7unqlite_
  */
           unqlite_delete_function(__pyx_v_vm->vm, __pyx_k_filter_fn);
 
-          /* "unqlite.pyx":1099
+          /* "unqlite.pyx":1107
  * 
  *         script = '$ret = db_fetch_all($collection, _filter_fn)'
  *         with VM(self.unqlite, script) as vm:             # <<<<<<<<<<<<<<
@@ -17388,20 +17599,20 @@ static PyObject *__pyx_f_7unqlite_10Collection_filter(struct __pyx_obj_7unqlite_
         __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
         /*except:*/ {
           __Pyx_AddTraceback("unqlite.Collection.filter", __pyx_clineno, __pyx_lineno, __pyx_filename);
-          if (__Pyx_GetException(&__pyx_t_3, &__pyx_t_2, &__pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1099; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
+          if (__Pyx_GetException(&__pyx_t_3, &__pyx_t_2, &__pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1107; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
           __Pyx_GOTREF(__pyx_t_3);
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_GOTREF(__pyx_t_1);
-          __pyx_t_5 = PyTuple_Pack(3, __pyx_t_3, __pyx_t_2, __pyx_t_1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1099; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
+          __pyx_t_5 = PyTuple_Pack(3, __pyx_t_3, __pyx_t_2, __pyx_t_1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1107; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
           __Pyx_GOTREF(__pyx_t_5);
           __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_5, NULL);
           __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          if (unlikely(!__pyx_t_10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1099; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
+          if (unlikely(!__pyx_t_10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1107; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
           __Pyx_GOTREF(__pyx_t_10);
           __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_10);
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-          if (__pyx_t_11 < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1099; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
+          if (__pyx_t_11 < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1107; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
           __pyx_t_12 = ((!(__pyx_t_11 != 0)) != 0);
           if (__pyx_t_12) {
             __Pyx_GIVEREF(__pyx_t_3);
@@ -17409,7 +17620,7 @@ static PyObject *__pyx_f_7unqlite_10Collection_filter(struct __pyx_obj_7unqlite_
             __Pyx_XGIVEREF(__pyx_t_1);
             __Pyx_ErrRestore(__pyx_t_3, __pyx_t_2, __pyx_t_1);
             __pyx_t_3 = 0; __pyx_t_2 = 0; __pyx_t_1 = 0; 
-            {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1099; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
+            {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1107; __pyx_clineno = __LINE__; goto __pyx_L9_except_error;}
           }
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -17435,7 +17646,7 @@ static PyObject *__pyx_f_7unqlite_10Collection_filter(struct __pyx_obj_7unqlite_
         if (__pyx_t_6) {
           __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_tuple__31, NULL);
           __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-          if (unlikely(!__pyx_t_9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1099; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          if (unlikely(!__pyx_t_9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1107; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_9);
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         }
@@ -17450,7 +17661,7 @@ static PyObject *__pyx_f_7unqlite_10Collection_filter(struct __pyx_obj_7unqlite_
     __pyx_L18:;
   }
 
-  /* "unqlite.pyx":1114
+  /* "unqlite.pyx":1122
  *                 '_filter_fn')
  * 
  *         return ret             # <<<<<<<<<<<<<<
@@ -17458,12 +17669,12 @@ static PyObject *__pyx_f_7unqlite_10Collection_filter(struct __pyx_obj_7unqlite_
  *     def create(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  if (unlikely(!__pyx_v_ret)) { __Pyx_RaiseUnboundLocalError("ret"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1114; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+  if (unlikely(!__pyx_v_ret)) { __Pyx_RaiseUnboundLocalError("ret"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1122; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
   __Pyx_INCREF(__pyx_v_ret);
   __pyx_r = __pyx_v_ret;
   goto __pyx_L0;
 
-  /* "unqlite.pyx":1089
+  /* "unqlite.pyx":1097
  *         return self._simple_execute('$ret = db_fetch_all($collection);')
  * 
  *     cpdef filter(self, filter_fn):             # <<<<<<<<<<<<<<
@@ -17512,7 +17723,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_8filter(struct __pyx_obj_7unqlit
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("filter", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_7unqlite_10Collection_filter(__pyx_v_self, __pyx_v_filter_fn, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1089; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_f_7unqlite_10Collection_filter(__pyx_v_self, __pyx_v_filter_fn, 1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1097; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -17529,7 +17740,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_8filter(struct __pyx_obj_7unqlit
   return __pyx_r;
 }
 
-/* "unqlite.pyx":1116
+/* "unqlite.pyx":1124
  *         return ret
  * 
  *     def create(self):             # <<<<<<<<<<<<<<
@@ -17561,21 +17772,21 @@ static PyObject *__pyx_pf_7unqlite_10Collection_10create(struct __pyx_obj_7unqli
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("create", 0);
 
-  /* "unqlite.pyx":1123
+  /* "unqlite.pyx":1131
  *         used to create the collection itself.
  *         """
  *         self._execute('if (!db_exists($collection)) {db_create($collection);}')             # <<<<<<<<<<<<<<
  * 
  *     def drop(self):
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_execute_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1123; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_execute_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1131; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__32, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1123; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__32, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1131; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "unqlite.pyx":1116
+  /* "unqlite.pyx":1124
  *         return ret
  * 
  *     def create(self):             # <<<<<<<<<<<<<<
@@ -17597,7 +17808,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_10create(struct __pyx_obj_7unqli
   return __pyx_r;
 }
 
-/* "unqlite.pyx":1125
+/* "unqlite.pyx":1133
  *         self._execute('if (!db_exists($collection)) {db_create($collection);}')
  * 
  *     def drop(self):             # <<<<<<<<<<<<<<
@@ -17629,21 +17840,21 @@ static PyObject *__pyx_pf_7unqlite_10Collection_12drop(struct __pyx_obj_7unqlite
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("drop", 0);
 
-  /* "unqlite.pyx":1127
+  /* "unqlite.pyx":1135
  *     def drop(self):
  *         """Drop the collection and all associated records."""
  *         self._execute('if (db_exists($collection)) { '             # <<<<<<<<<<<<<<
  *                       'db_drop_collection($collection); }')
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_execute_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1127; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_execute_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1135; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__33, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1127; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__33, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1135; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "unqlite.pyx":1125
+  /* "unqlite.pyx":1133
  *         self._execute('if (!db_exists($collection)) {db_create($collection);}')
  * 
  *     def drop(self):             # <<<<<<<<<<<<<<
@@ -17665,7 +17876,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_12drop(struct __pyx_obj_7unqlite
   return __pyx_r;
 }
 
-/* "unqlite.pyx":1130
+/* "unqlite.pyx":1138
  *                       'db_drop_collection($collection); }')
  * 
  *     def exists(self):             # <<<<<<<<<<<<<<
@@ -17697,7 +17908,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_14exists(struct __pyx_obj_7unqli
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("exists", 0);
 
-  /* "unqlite.pyx":1132
+  /* "unqlite.pyx":1140
  *     def exists(self):
  *         """Return boolean indicating whether the collection exists."""
  *         return self._simple_execute('$ret = db_exists($collection);')             # <<<<<<<<<<<<<<
@@ -17705,16 +17916,16 @@ static PyObject *__pyx_pf_7unqlite_10Collection_14exists(struct __pyx_obj_7unqli
  *     def last_record_id(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_simple_execute); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1132; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_simple_execute); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1140; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__34, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1132; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__34, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1140; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "unqlite.pyx":1130
+  /* "unqlite.pyx":1138
  *                       'db_drop_collection($collection); }')
  * 
  *     def exists(self):             # <<<<<<<<<<<<<<
@@ -17734,7 +17945,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_14exists(struct __pyx_obj_7unqli
   return __pyx_r;
 }
 
-/* "unqlite.pyx":1134
+/* "unqlite.pyx":1142
  *         return self._simple_execute('$ret = db_exists($collection);')
  * 
  *     def last_record_id(self):             # <<<<<<<<<<<<<<
@@ -17766,7 +17977,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_16last_record_id(struct __pyx_ob
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("last_record_id", 0);
 
-  /* "unqlite.pyx":1136
+  /* "unqlite.pyx":1144
  *     def last_record_id(self):
  *         """Return the ID of the last document to be stored."""
  *         return self._simple_execute('$ret = db_last_record_id($collection);')             # <<<<<<<<<<<<<<
@@ -17774,16 +17985,16 @@ static PyObject *__pyx_pf_7unqlite_10Collection_16last_record_id(struct __pyx_ob
  *     def current_record_id(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_simple_execute); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1136; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_simple_execute); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1144; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__35, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1136; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__35, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1144; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "unqlite.pyx":1134
+  /* "unqlite.pyx":1142
  *         return self._simple_execute('$ret = db_exists($collection);')
  * 
  *     def last_record_id(self):             # <<<<<<<<<<<<<<
@@ -17803,7 +18014,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_16last_record_id(struct __pyx_ob
   return __pyx_r;
 }
 
-/* "unqlite.pyx":1138
+/* "unqlite.pyx":1146
  *         return self._simple_execute('$ret = db_last_record_id($collection);')
  * 
  *     def current_record_id(self):             # <<<<<<<<<<<<<<
@@ -17835,7 +18046,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_18current_record_id(struct __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("current_record_id", 0);
 
-  /* "unqlite.pyx":1140
+  /* "unqlite.pyx":1148
  *     def current_record_id(self):
  *         """Return the ID of the current JSON document."""
  *         return self._simple_execute(             # <<<<<<<<<<<<<<
@@ -17843,16 +18054,16 @@ static PyObject *__pyx_pf_7unqlite_10Collection_18current_record_id(struct __pyx
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_simple_execute); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1140; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_simple_execute); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1148; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__36, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1140; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__36, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1148; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "unqlite.pyx":1138
+  /* "unqlite.pyx":1146
  *         return self._simple_execute('$ret = db_last_record_id($collection);')
  * 
  *     def current_record_id(self):             # <<<<<<<<<<<<<<
@@ -17872,7 +18083,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_18current_record_id(struct __pyx
   return __pyx_r;
 }
 
-/* "unqlite.pyx":1143
+/* "unqlite.pyx":1151
  *             '$ret = db_current_record_id($collection);')
  * 
  *     def reset_cursor(self):             # <<<<<<<<<<<<<<
@@ -17903,21 +18114,21 @@ static PyObject *__pyx_pf_7unqlite_10Collection_20reset_cursor(struct __pyx_obj_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("reset_cursor", 0);
 
-  /* "unqlite.pyx":1144
+  /* "unqlite.pyx":1152
  * 
  *     def reset_cursor(self):
  *         self._execute('db_reset_record_cursor($collection);')             # <<<<<<<<<<<<<<
  * 
  *     def __len__(self):
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_execute_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1144; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_execute_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1152; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__37, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1144; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__37, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1152; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "unqlite.pyx":1143
+  /* "unqlite.pyx":1151
  *             '$ret = db_current_record_id($collection);')
  * 
  *     def reset_cursor(self):             # <<<<<<<<<<<<<<
@@ -17939,7 +18150,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_20reset_cursor(struct __pyx_obj_
   return __pyx_r;
 }
 
-/* "unqlite.pyx":1146
+/* "unqlite.pyx":1154
  *         self._execute('db_reset_record_cursor($collection);')
  * 
  *     def __len__(self):             # <<<<<<<<<<<<<<
@@ -17975,24 +18186,24 @@ static Py_ssize_t __pyx_pf_7unqlite_10Collection_22__len__(struct __pyx_obj_7unq
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__len__", 0);
 
-  /* "unqlite.pyx":1148
+  /* "unqlite.pyx":1156
  *     def __len__(self):
  *         """Return the number of records in the document collection."""
  *         return self._simple_execute('$ret = db_total_records($collection);')             # <<<<<<<<<<<<<<
  * 
  *     def delete(self, record_id):
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_simple_execute); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1148; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_simple_execute); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1156; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__38, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1148; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__38, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1156; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_3 = __Pyx_PyIndex_AsSsize_t(__pyx_t_2); if (unlikely((__pyx_t_3 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1148; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyIndex_AsSsize_t(__pyx_t_2); if (unlikely((__pyx_t_3 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1156; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_3;
   goto __pyx_L0;
 
-  /* "unqlite.pyx":1146
+  /* "unqlite.pyx":1154
  *         self._execute('db_reset_record_cursor($collection);')
  * 
  *     def __len__(self):             # <<<<<<<<<<<<<<
@@ -18011,7 +18222,7 @@ static Py_ssize_t __pyx_pf_7unqlite_10Collection_22__len__(struct __pyx_obj_7unq
   return __pyx_r;
 }
 
-/* "unqlite.pyx":1150
+/* "unqlite.pyx":1158
  *         return self._simple_execute('$ret = db_total_records($collection);')
  * 
  *     def delete(self, record_id):             # <<<<<<<<<<<<<<
@@ -18046,7 +18257,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_24delete(struct __pyx_obj_7unqli
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("delete", 0);
 
-  /* "unqlite.pyx":1152
+  /* "unqlite.pyx":1160
  *     def delete(self, record_id):
  *         """Delete the document associated with the given ID."""
  *         script = '$ret = db_drop_record($collection, $record_id);'             # <<<<<<<<<<<<<<
@@ -18056,7 +18267,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_24delete(struct __pyx_obj_7unqli
   __Pyx_INCREF(__pyx_kp_s_ret_db_drop_record_collection_r);
   __pyx_v_script = __pyx_kp_s_ret_db_drop_record_collection_r;
 
-  /* "unqlite.pyx":1153
+  /* "unqlite.pyx":1161
  *         """Delete the document associated with the given ID."""
  *         script = '$ret = db_drop_record($collection, $record_id);'
  *         return self._simple_execute(script, record_id=record_id)             # <<<<<<<<<<<<<<
@@ -18064,17 +18275,17 @@ static PyObject *__pyx_pf_7unqlite_10Collection_24delete(struct __pyx_obj_7unqli
  *     def fetch(self, record_id):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_simple_execute); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1153; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_simple_execute); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1161; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1153; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1161; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_v_script);
   __Pyx_GIVEREF(__pyx_v_script);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_script);
-  __pyx_t_3 = PyDict_New(); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1153; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = PyDict_New(); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1161; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_record_id, __pyx_v_record_id) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1153; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1153; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_record_id, __pyx_v_record_id) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1161; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1161; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -18083,7 +18294,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_24delete(struct __pyx_obj_7unqli
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "unqlite.pyx":1150
+  /* "unqlite.pyx":1158
  *         return self._simple_execute('$ret = db_total_records($collection);')
  * 
  *     def delete(self, record_id):             # <<<<<<<<<<<<<<
@@ -18106,7 +18317,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_24delete(struct __pyx_obj_7unqli
   return __pyx_r;
 }
 
-/* "unqlite.pyx":1155
+/* "unqlite.pyx":1163
  *         return self._simple_execute(script, record_id=record_id)
  * 
  *     def fetch(self, record_id):             # <<<<<<<<<<<<<<
@@ -18141,7 +18352,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_26fetch(struct __pyx_obj_7unqlit
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("fetch", 0);
 
-  /* "unqlite.pyx":1157
+  /* "unqlite.pyx":1165
  *     def fetch(self, record_id):
  *         """Fetch the document associated with the given ID."""
  *         script = '$ret = db_fetch_by_id($collection, $record_id);'             # <<<<<<<<<<<<<<
@@ -18151,7 +18362,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_26fetch(struct __pyx_obj_7unqlit
   __Pyx_INCREF(__pyx_kp_s_ret_db_fetch_by_id_collection_r);
   __pyx_v_script = __pyx_kp_s_ret_db_fetch_by_id_collection_r;
 
-  /* "unqlite.pyx":1158
+  /* "unqlite.pyx":1166
  *         """Fetch the document associated with the given ID."""
  *         script = '$ret = db_fetch_by_id($collection, $record_id);'
  *         return self._simple_execute(script, record_id=record_id)             # <<<<<<<<<<<<<<
@@ -18159,17 +18370,17 @@ static PyObject *__pyx_pf_7unqlite_10Collection_26fetch(struct __pyx_obj_7unqlit
  *     def store(self, record, return_id=True):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_simple_execute); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1158; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_simple_execute); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1166; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1158; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1166; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_v_script);
   __Pyx_GIVEREF(__pyx_v_script);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_script);
-  __pyx_t_3 = PyDict_New(); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1158; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = PyDict_New(); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1166; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_record_id, __pyx_v_record_id) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1158; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1158; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_record_id, __pyx_v_record_id) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1166; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1166; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -18178,7 +18389,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_26fetch(struct __pyx_obj_7unqlit
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "unqlite.pyx":1155
+  /* "unqlite.pyx":1163
  *         return self._simple_execute(script, record_id=record_id)
  * 
  *     def fetch(self, record_id):             # <<<<<<<<<<<<<<
@@ -18201,7 +18412,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_26fetch(struct __pyx_obj_7unqlit
   return __pyx_r;
 }
 
-/* "unqlite.pyx":1160
+/* "unqlite.pyx":1168
  *         return self._simple_execute(script, record_id=record_id)
  * 
  *     def store(self, record, return_id=True):             # <<<<<<<<<<<<<<
@@ -18246,7 +18457,7 @@ static PyObject *__pyx_pw_7unqlite_10Collection_29store(PyObject *__pyx_v_self, 
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "store") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1160; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "store") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1168; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -18261,7 +18472,7 @@ static PyObject *__pyx_pw_7unqlite_10Collection_29store(PyObject *__pyx_v_self, 
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("store", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1160; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("store", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1168; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("unqlite.Collection.store", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -18288,17 +18499,17 @@ static PyObject *__pyx_pf_7unqlite_10Collection_28store(struct __pyx_obj_7unqlit
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("store", 0);
 
-  /* "unqlite.pyx":1165
+  /* "unqlite.pyx":1173
  *         the new record's ID.
  *         """
  *         if return_id:             # <<<<<<<<<<<<<<
  *             script = ('if (db_store($collection, $record)) { '
  *                       '$ret = db_last_record_id($collection); }')
  */
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_return_id); if (unlikely(__pyx_t_1 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1165; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_return_id); if (unlikely(__pyx_t_1 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1173; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   if (__pyx_t_1) {
 
-    /* "unqlite.pyx":1166
+    /* "unqlite.pyx":1174
  *         """
  *         if return_id:
  *             script = ('if (db_store($collection, $record)) { '             # <<<<<<<<<<<<<<
@@ -18308,7 +18519,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_28store(struct __pyx_obj_7unqlit
     __Pyx_INCREF(__pyx_kp_s_if_db_store_collection_record_re);
     __pyx_v_script = __pyx_kp_s_if_db_store_collection_record_re;
 
-    /* "unqlite.pyx":1165
+    /* "unqlite.pyx":1173
  *         the new record's ID.
  *         """
  *         if return_id:             # <<<<<<<<<<<<<<
@@ -18318,7 +18529,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_28store(struct __pyx_obj_7unqlit
     goto __pyx_L3;
   }
 
-  /* "unqlite.pyx":1169
+  /* "unqlite.pyx":1177
  *                       '$ret = db_last_record_id($collection); }')
  *         else:
  *             script = '$ret = db_store($collection, $record);'             # <<<<<<<<<<<<<<
@@ -18331,7 +18542,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_28store(struct __pyx_obj_7unqlit
   }
   __pyx_L3:;
 
-  /* "unqlite.pyx":1170
+  /* "unqlite.pyx":1178
  *         else:
  *             script = '$ret = db_store($collection, $record);'
  *         return self._simple_execute(script, record=record)             # <<<<<<<<<<<<<<
@@ -18339,17 +18550,17 @@ static PyObject *__pyx_pf_7unqlite_10Collection_28store(struct __pyx_obj_7unqlit
  *     def update(self, record_id, record):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_simple_execute); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1170; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_simple_execute); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1178; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1170; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1178; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_INCREF(__pyx_v_script);
   __Pyx_GIVEREF(__pyx_v_script);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_v_script);
-  __pyx_t_4 = PyDict_New(); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1170; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = PyDict_New(); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1178; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_record, __pyx_v_record) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1170; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1170; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_record, __pyx_v_record) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1178; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1178; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -18358,7 +18569,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_28store(struct __pyx_obj_7unqlit
   __pyx_t_5 = 0;
   goto __pyx_L0;
 
-  /* "unqlite.pyx":1160
+  /* "unqlite.pyx":1168
  *         return self._simple_execute(script, record_id=record_id)
  * 
  *     def store(self, record, return_id=True):             # <<<<<<<<<<<<<<
@@ -18381,7 +18592,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_28store(struct __pyx_obj_7unqlit
   return __pyx_r;
 }
 
-/* "unqlite.pyx":1172
+/* "unqlite.pyx":1180
  *         return self._simple_execute(script, record=record)
  * 
  *     def update(self, record_id, record):             # <<<<<<<<<<<<<<
@@ -18421,11 +18632,11 @@ static PyObject *__pyx_pw_7unqlite_10Collection_31update(PyObject *__pyx_v_self,
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_record)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("update", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1172; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("update", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1180; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "update") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1172; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "update") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1180; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -18438,7 +18649,7 @@ static PyObject *__pyx_pw_7unqlite_10Collection_31update(PyObject *__pyx_v_self,
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("update", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1172; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("update", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1180; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("unqlite.Collection.update", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -18464,7 +18675,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_30update(struct __pyx_obj_7unqli
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("update", 0);
 
-  /* "unqlite.pyx":1176
+  /* "unqlite.pyx":1184
  *         Update the record identified by the given ID.
  *         """
  *         script = '$ret = db_update_record($collection, $record_id, $record);'             # <<<<<<<<<<<<<<
@@ -18474,7 +18685,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_30update(struct __pyx_obj_7unqli
   __Pyx_INCREF(__pyx_kp_s_ret_db_update_record_collection);
   __pyx_v_script = __pyx_kp_s_ret_db_update_record_collection;
 
-  /* "unqlite.pyx":1177
+  /* "unqlite.pyx":1185
  *         """
  *         script = '$ret = db_update_record($collection, $record_id, $record);'
  *         return self._simple_execute(script, record_id=record_id, record=record)             # <<<<<<<<<<<<<<
@@ -18482,18 +18693,18 @@ static PyObject *__pyx_pf_7unqlite_10Collection_30update(struct __pyx_obj_7unqli
  *     def fetch_current(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_simple_execute); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1177; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_simple_execute); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1185; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1177; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1185; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_v_script);
   __Pyx_GIVEREF(__pyx_v_script);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_script);
-  __pyx_t_3 = PyDict_New(); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1177; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = PyDict_New(); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1185; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_record_id, __pyx_v_record_id) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1177; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_record, __pyx_v_record) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1177; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1177; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_record_id, __pyx_v_record_id) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1185; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_record, __pyx_v_record) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1185; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1185; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -18502,7 +18713,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_30update(struct __pyx_obj_7unqli
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "unqlite.pyx":1172
+  /* "unqlite.pyx":1180
  *         return self._simple_execute(script, record=record)
  * 
  *     def update(self, record_id, record):             # <<<<<<<<<<<<<<
@@ -18525,7 +18736,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_30update(struct __pyx_obj_7unqli
   return __pyx_r;
 }
 
-/* "unqlite.pyx":1179
+/* "unqlite.pyx":1187
  *         return self._simple_execute(script, record_id=record_id, record=record)
  * 
  *     def fetch_current(self):             # <<<<<<<<<<<<<<
@@ -18556,7 +18767,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_32fetch_current(struct __pyx_obj
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("fetch_current", 0);
 
-  /* "unqlite.pyx":1180
+  /* "unqlite.pyx":1188
  * 
  *     def fetch_current(self):
  *         return self._simple_execute('$ret = db_fetch($collection);')             # <<<<<<<<<<<<<<
@@ -18564,16 +18775,16 @@ static PyObject *__pyx_pf_7unqlite_10Collection_32fetch_current(struct __pyx_obj
  *     def __delitem__(self, record_id):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_simple_execute); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1180; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_simple_execute); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1188; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__39, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1180; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__39, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1188; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "unqlite.pyx":1179
+  /* "unqlite.pyx":1187
  *         return self._simple_execute(script, record_id=record_id, record=record)
  * 
  *     def fetch_current(self):             # <<<<<<<<<<<<<<
@@ -18593,7 +18804,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_32fetch_current(struct __pyx_obj
   return __pyx_r;
 }
 
-/* "unqlite.pyx":1182
+/* "unqlite.pyx":1190
  *         return self._simple_execute('$ret = db_fetch($collection);')
  * 
  *     def __delitem__(self, record_id):             # <<<<<<<<<<<<<<
@@ -18626,14 +18837,14 @@ static int __pyx_pf_7unqlite_10Collection_34__delitem__(struct __pyx_obj_7unqlit
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__delitem__", 0);
 
-  /* "unqlite.pyx":1183
+  /* "unqlite.pyx":1191
  * 
  *     def __delitem__(self, record_id):
  *         self.delete(record_id)             # <<<<<<<<<<<<<<
  * 
  *     def __getitem__(self, record_id):
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_delete); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1183; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_delete); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1191; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_2))) {
@@ -18646,23 +18857,23 @@ static int __pyx_pf_7unqlite_10Collection_34__delitem__(struct __pyx_obj_7unqlit
     }
   }
   if (!__pyx_t_3) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_record_id); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1183; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_record_id); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1191; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
   } else {
-    __pyx_t_4 = PyTuple_New(1+1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1183; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = PyTuple_New(1+1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1191; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_3); __pyx_t_3 = NULL;
     __Pyx_INCREF(__pyx_v_record_id);
     __Pyx_GIVEREF(__pyx_v_record_id);
     PyTuple_SET_ITEM(__pyx_t_4, 0+1, __pyx_v_record_id);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1183; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1191; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":1182
+  /* "unqlite.pyx":1190
  *         return self._simple_execute('$ret = db_fetch($collection);')
  * 
  *     def __delitem__(self, record_id):             # <<<<<<<<<<<<<<
@@ -18685,7 +18896,7 @@ static int __pyx_pf_7unqlite_10Collection_34__delitem__(struct __pyx_obj_7unqlit
   return __pyx_r;
 }
 
-/* "unqlite.pyx":1185
+/* "unqlite.pyx":1193
  *         self.delete(record_id)
  * 
  *     def __getitem__(self, record_id):             # <<<<<<<<<<<<<<
@@ -18718,7 +18929,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_36__getitem__(struct __pyx_obj_7
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__getitem__", 0);
 
-  /* "unqlite.pyx":1186
+  /* "unqlite.pyx":1194
  * 
  *     def __getitem__(self, record_id):
  *         return self.fetch(record_id)             # <<<<<<<<<<<<<<
@@ -18726,7 +18937,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_36__getitem__(struct __pyx_obj_7
  *     def error_log(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_fetch); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1186; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_fetch); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1194; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_2))) {
@@ -18739,16 +18950,16 @@ static PyObject *__pyx_pf_7unqlite_10Collection_36__getitem__(struct __pyx_obj_7
     }
   }
   if (!__pyx_t_3) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_record_id); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1186; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_record_id); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1194; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
   } else {
-    __pyx_t_4 = PyTuple_New(1+1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1186; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = PyTuple_New(1+1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1194; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_3); __pyx_t_3 = NULL;
     __Pyx_INCREF(__pyx_v_record_id);
     __Pyx_GIVEREF(__pyx_v_record_id);
     PyTuple_SET_ITEM(__pyx_t_4, 0+1, __pyx_v_record_id);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1186; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1194; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
@@ -18757,7 +18968,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_36__getitem__(struct __pyx_obj_7
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "unqlite.pyx":1185
+  /* "unqlite.pyx":1193
  *         self.delete(record_id)
  * 
  *     def __getitem__(self, record_id):             # <<<<<<<<<<<<<<
@@ -18779,7 +18990,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_36__getitem__(struct __pyx_obj_7
   return __pyx_r;
 }
 
-/* "unqlite.pyx":1188
+/* "unqlite.pyx":1196
  *         return self.fetch(record_id)
  * 
  *     def error_log(self):             # <<<<<<<<<<<<<<
@@ -18810,7 +19021,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_38error_log(struct __pyx_obj_7un
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("error_log", 0);
 
-  /* "unqlite.pyx":1189
+  /* "unqlite.pyx":1197
  * 
  *     def error_log(self):
  *         return self._simple_execute('$ret = db_errlog();')             # <<<<<<<<<<<<<<
@@ -18818,16 +19029,16 @@ static PyObject *__pyx_pf_7unqlite_10Collection_38error_log(struct __pyx_obj_7un
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_simple_execute); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1189; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_simple_execute); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1197; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__40, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1189; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__40, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1197; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "unqlite.pyx":1188
+  /* "unqlite.pyx":1196
  *         return self.fetch(record_id)
  * 
  *     def error_log(self):             # <<<<<<<<<<<<<<
@@ -18847,7 +19058,7 @@ static PyObject *__pyx_pf_7unqlite_10Collection_38error_log(struct __pyx_obj_7un
   return __pyx_r;
 }
 
-/* "unqlite.pyx":1192
+/* "unqlite.pyx":1200
  * 
  * 
  * cdef unqlite_value_to_python(unqlite_value *ptr):             # <<<<<<<<<<<<<<
@@ -18865,12 +19076,16 @@ static PyObject *__pyx_f_7unqlite_unqlite_value_to_python(unqlite_value *__pyx_v
   PyObject *__pyx_t_2 = NULL;
   int __pyx_t_3;
   PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  PyObject *__pyx_t_6 = NULL;
+  PyObject *__pyx_t_7 = NULL;
+  int __pyx_t_8;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("unqlite_value_to_python", 0);
 
-  /* "unqlite.pyx":1196
+  /* "unqlite.pyx":1204
  *     cdef dict json_object
  * 
  *     if unqlite_value_is_json_object(ptr):             # <<<<<<<<<<<<<<
@@ -18880,19 +19095,19 @@ static PyObject *__pyx_f_7unqlite_unqlite_value_to_python(unqlite_value *__pyx_v
   __pyx_t_1 = (unqlite_value_is_json_object(__pyx_v_ptr) != 0);
   if (__pyx_t_1) {
 
-    /* "unqlite.pyx":1197
+    /* "unqlite.pyx":1205
  * 
  *     if unqlite_value_is_json_object(ptr):
  *         json_object = {}             # <<<<<<<<<<<<<<
  *         unqlite_array_walk(
  *             ptr,
  */
-    __pyx_t_2 = PyDict_New(); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1197; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = PyDict_New(); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1205; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_v_json_object = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "unqlite.pyx":1198
+    /* "unqlite.pyx":1206
  *     if unqlite_value_is_json_object(ptr):
  *         json_object = {}
  *         unqlite_array_walk(             # <<<<<<<<<<<<<<
@@ -18901,7 +19116,7 @@ static PyObject *__pyx_f_7unqlite_unqlite_value_to_python(unqlite_value *__pyx_v
  */
     unqlite_array_walk(__pyx_v_ptr, __pyx_f_7unqlite_unqlite_value_to_dict, ((void *)__pyx_v_json_object));
 
-    /* "unqlite.pyx":1202
+    /* "unqlite.pyx":1210
  *             unqlite_value_to_dict,
  *             <void *>json_object)
  *         return json_object             # <<<<<<<<<<<<<<
@@ -18913,7 +19128,7 @@ static PyObject *__pyx_f_7unqlite_unqlite_value_to_python(unqlite_value *__pyx_v
     __pyx_r = __pyx_v_json_object;
     goto __pyx_L0;
 
-    /* "unqlite.pyx":1196
+    /* "unqlite.pyx":1204
  *     cdef dict json_object
  * 
  *     if unqlite_value_is_json_object(ptr):             # <<<<<<<<<<<<<<
@@ -18922,7 +19137,7 @@ static PyObject *__pyx_f_7unqlite_unqlite_value_to_python(unqlite_value *__pyx_v
  */
   }
 
-  /* "unqlite.pyx":1203
+  /* "unqlite.pyx":1211
  *             <void *>json_object)
  *         return json_object
  *     elif unqlite_value_is_json_array(ptr):             # <<<<<<<<<<<<<<
@@ -18932,19 +19147,19 @@ static PyObject *__pyx_f_7unqlite_unqlite_value_to_python(unqlite_value *__pyx_v
   __pyx_t_1 = (unqlite_value_is_json_array(__pyx_v_ptr) != 0);
   if (__pyx_t_1) {
 
-    /* "unqlite.pyx":1204
+    /* "unqlite.pyx":1212
  *         return json_object
  *     elif unqlite_value_is_json_array(ptr):
  *         json_array = []             # <<<<<<<<<<<<<<
  *         unqlite_array_walk(
  *             ptr,
  */
-    __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1204; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1212; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_v_json_array = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "unqlite.pyx":1205
+    /* "unqlite.pyx":1213
  *     elif unqlite_value_is_json_array(ptr):
  *         json_array = []
  *         unqlite_array_walk(             # <<<<<<<<<<<<<<
@@ -18953,7 +19168,7 @@ static PyObject *__pyx_f_7unqlite_unqlite_value_to_python(unqlite_value *__pyx_v
  */
     unqlite_array_walk(__pyx_v_ptr, __pyx_f_7unqlite_unqlite_value_to_list, ((void *)__pyx_v_json_array));
 
-    /* "unqlite.pyx":1209
+    /* "unqlite.pyx":1217
  *             unqlite_value_to_list,
  *             <void *>json_array)
  *         return json_array             # <<<<<<<<<<<<<<
@@ -18965,7 +19180,7 @@ static PyObject *__pyx_f_7unqlite_unqlite_value_to_python(unqlite_value *__pyx_v
     __pyx_r = __pyx_v_json_array;
     goto __pyx_L0;
 
-    /* "unqlite.pyx":1203
+    /* "unqlite.pyx":1211
  *             <void *>json_object)
  *         return json_object
  *     elif unqlite_value_is_json_array(ptr):             # <<<<<<<<<<<<<<
@@ -18974,7 +19189,7 @@ static PyObject *__pyx_f_7unqlite_unqlite_value_to_python(unqlite_value *__pyx_v
  */
   }
 
-  /* "unqlite.pyx":1210
+  /* "unqlite.pyx":1218
  *             <void *>json_array)
  *         return json_array
  *     elif unqlite_value_is_string(ptr):             # <<<<<<<<<<<<<<
@@ -18984,56 +19199,121 @@ static PyObject *__pyx_f_7unqlite_unqlite_value_to_python(unqlite_value *__pyx_v
   __pyx_t_1 = (unqlite_value_is_string(__pyx_v_ptr) != 0);
   if (__pyx_t_1) {
 
-    /* "unqlite.pyx":1211
+    /* "unqlite.pyx":1219
  *         return json_array
  *     elif unqlite_value_is_string(ptr):
  *         value = unqlite_value_to_string(ptr, NULL)             # <<<<<<<<<<<<<<
  *         if str is not bytes:
- *             value = value.decode('utf-8')
+ *             try:
  */
-    __pyx_t_2 = __Pyx_PyBytes_FromString(unqlite_value_to_string(__pyx_v_ptr, NULL)); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1211; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyBytes_FromString(unqlite_value_to_string(__pyx_v_ptr, NULL)); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1219; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_v_value = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "unqlite.pyx":1212
+    /* "unqlite.pyx":1220
  *     elif unqlite_value_is_string(ptr):
  *         value = unqlite_value_to_string(ptr, NULL)
  *         if str is not bytes:             # <<<<<<<<<<<<<<
- *             value = value.decode('utf-8')
- *         return value
+ *             try:
+ *                 value = value.decode('utf-8')
  */
     __pyx_t_1 = ((&PyString_Type) != (&PyBytes_Type));
     __pyx_t_3 = (__pyx_t_1 != 0);
     if (__pyx_t_3) {
 
-      /* "unqlite.pyx":1213
+      /* "unqlite.pyx":1221
  *         value = unqlite_value_to_string(ptr, NULL)
  *         if str is not bytes:
- *             value = value.decode('utf-8')             # <<<<<<<<<<<<<<
- *         return value
- *     elif unqlite_value_is_int(ptr):
+ *             try:             # <<<<<<<<<<<<<<
+ *                 value = value.decode('utf-8')
+ *             except UnicodeDecodeError:
  */
-      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_value, __pyx_n_s_decode); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1213; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-      __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__41, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1213; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-      __Pyx_GOTREF(__pyx_t_4);
-      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __Pyx_DECREF_SET(__pyx_v_value, __pyx_t_4);
-      __pyx_t_4 = 0;
+      {
+        __Pyx_ExceptionSave(&__pyx_t_4, &__pyx_t_5, &__pyx_t_6);
+        __Pyx_XGOTREF(__pyx_t_4);
+        __Pyx_XGOTREF(__pyx_t_5);
+        __Pyx_XGOTREF(__pyx_t_6);
+        /*try:*/ {
 
-      /* "unqlite.pyx":1212
+          /* "unqlite.pyx":1222
+ *         if str is not bytes:
+ *             try:
+ *                 value = value.decode('utf-8')             # <<<<<<<<<<<<<<
+ *             except UnicodeDecodeError:
+ *                 pass
+ */
+          __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_value, __pyx_n_s_decode); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1222; __pyx_clineno = __LINE__; goto __pyx_L5_error;}
+          __Pyx_GOTREF(__pyx_t_2);
+          __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__41, NULL); if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1222; __pyx_clineno = __LINE__; goto __pyx_L5_error;}
+          __Pyx_GOTREF(__pyx_t_7);
+          __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+          __Pyx_DECREF_SET(__pyx_v_value, __pyx_t_7);
+          __pyx_t_7 = 0;
+
+          /* "unqlite.pyx":1221
+ *         value = unqlite_value_to_string(ptr, NULL)
+ *         if str is not bytes:
+ *             try:             # <<<<<<<<<<<<<<
+ *                 value = value.decode('utf-8')
+ *             except UnicodeDecodeError:
+ */
+        }
+        __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+        __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+        __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+        goto __pyx_L12_try_end;
+        __pyx_L5_error:;
+        __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+        __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
+
+        /* "unqlite.pyx":1223
+ *             try:
+ *                 value = value.decode('utf-8')
+ *             except UnicodeDecodeError:             # <<<<<<<<<<<<<<
+ *                 pass
+ *         return value
+ */
+        __pyx_t_8 = PyErr_ExceptionMatches(__pyx_builtin_UnicodeDecodeError);
+        if (__pyx_t_8) {
+          PyErr_Restore(0,0,0);
+          goto __pyx_L6_exception_handled;
+        }
+        goto __pyx_L7_except_error;
+        __pyx_L7_except_error:;
+
+        /* "unqlite.pyx":1221
+ *         value = unqlite_value_to_string(ptr, NULL)
+ *         if str is not bytes:
+ *             try:             # <<<<<<<<<<<<<<
+ *                 value = value.decode('utf-8')
+ *             except UnicodeDecodeError:
+ */
+        __Pyx_XGIVEREF(__pyx_t_4);
+        __Pyx_XGIVEREF(__pyx_t_5);
+        __Pyx_XGIVEREF(__pyx_t_6);
+        __Pyx_ExceptionReset(__pyx_t_4, __pyx_t_5, __pyx_t_6);
+        goto __pyx_L1_error;
+        __pyx_L6_exception_handled:;
+        __Pyx_XGIVEREF(__pyx_t_4);
+        __Pyx_XGIVEREF(__pyx_t_5);
+        __Pyx_XGIVEREF(__pyx_t_6);
+        __Pyx_ExceptionReset(__pyx_t_4, __pyx_t_5, __pyx_t_6);
+        __pyx_L12_try_end:;
+      }
+
+      /* "unqlite.pyx":1220
  *     elif unqlite_value_is_string(ptr):
  *         value = unqlite_value_to_string(ptr, NULL)
  *         if str is not bytes:             # <<<<<<<<<<<<<<
- *             value = value.decode('utf-8')
- *         return value
+ *             try:
+ *                 value = value.decode('utf-8')
  */
     }
 
-    /* "unqlite.pyx":1214
- *         if str is not bytes:
- *             value = value.decode('utf-8')
+    /* "unqlite.pyx":1225
+ *             except UnicodeDecodeError:
+ *                 pass
  *         return value             # <<<<<<<<<<<<<<
  *     elif unqlite_value_is_int(ptr):
  *         return unqlite_value_to_int64(ptr)
@@ -19043,7 +19323,7 @@ static PyObject *__pyx_f_7unqlite_unqlite_value_to_python(unqlite_value *__pyx_v
     __pyx_r = __pyx_v_value;
     goto __pyx_L0;
 
-    /* "unqlite.pyx":1210
+    /* "unqlite.pyx":1218
  *             <void *>json_array)
  *         return json_array
  *     elif unqlite_value_is_string(ptr):             # <<<<<<<<<<<<<<
@@ -19052,8 +19332,8 @@ static PyObject *__pyx_f_7unqlite_unqlite_value_to_python(unqlite_value *__pyx_v
  */
   }
 
-  /* "unqlite.pyx":1215
- *             value = value.decode('utf-8')
+  /* "unqlite.pyx":1226
+ *                 pass
  *         return value
  *     elif unqlite_value_is_int(ptr):             # <<<<<<<<<<<<<<
  *         return unqlite_value_to_int64(ptr)
@@ -19062,7 +19342,7 @@ static PyObject *__pyx_f_7unqlite_unqlite_value_to_python(unqlite_value *__pyx_v
   __pyx_t_3 = (unqlite_value_is_int(__pyx_v_ptr) != 0);
   if (__pyx_t_3) {
 
-    /* "unqlite.pyx":1216
+    /* "unqlite.pyx":1227
  *         return value
  *     elif unqlite_value_is_int(ptr):
  *         return unqlite_value_to_int64(ptr)             # <<<<<<<<<<<<<<
@@ -19070,14 +19350,14 @@ static PyObject *__pyx_f_7unqlite_unqlite_value_to_python(unqlite_value *__pyx_v
  *         return unqlite_value_to_double(ptr)
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_4 = __Pyx_PyInt_From_sxi64(unqlite_value_to_int64(__pyx_v_ptr)); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1216; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __Pyx_GOTREF(__pyx_t_4);
-    __pyx_r = __pyx_t_4;
-    __pyx_t_4 = 0;
+    __pyx_t_7 = __Pyx_PyInt_From_sxi64(unqlite_value_to_int64(__pyx_v_ptr)); if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1227; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __Pyx_GOTREF(__pyx_t_7);
+    __pyx_r = __pyx_t_7;
+    __pyx_t_7 = 0;
     goto __pyx_L0;
 
-    /* "unqlite.pyx":1215
- *             value = value.decode('utf-8')
+    /* "unqlite.pyx":1226
+ *                 pass
  *         return value
  *     elif unqlite_value_is_int(ptr):             # <<<<<<<<<<<<<<
  *         return unqlite_value_to_int64(ptr)
@@ -19085,7 +19365,7 @@ static PyObject *__pyx_f_7unqlite_unqlite_value_to_python(unqlite_value *__pyx_v
  */
   }
 
-  /* "unqlite.pyx":1217
+  /* "unqlite.pyx":1228
  *     elif unqlite_value_is_int(ptr):
  *         return unqlite_value_to_int64(ptr)
  *     elif unqlite_value_is_float(ptr):             # <<<<<<<<<<<<<<
@@ -19095,7 +19375,7 @@ static PyObject *__pyx_f_7unqlite_unqlite_value_to_python(unqlite_value *__pyx_v
   __pyx_t_3 = (unqlite_value_is_float(__pyx_v_ptr) != 0);
   if (__pyx_t_3) {
 
-    /* "unqlite.pyx":1218
+    /* "unqlite.pyx":1229
  *         return unqlite_value_to_int64(ptr)
  *     elif unqlite_value_is_float(ptr):
  *         return unqlite_value_to_double(ptr)             # <<<<<<<<<<<<<<
@@ -19103,13 +19383,13 @@ static PyObject *__pyx_f_7unqlite_unqlite_value_to_python(unqlite_value *__pyx_v
  *         return bool(unqlite_value_to_bool(ptr))
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_4 = PyFloat_FromDouble(unqlite_value_to_double(__pyx_v_ptr)); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1218; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __Pyx_GOTREF(__pyx_t_4);
-    __pyx_r = __pyx_t_4;
-    __pyx_t_4 = 0;
+    __pyx_t_7 = PyFloat_FromDouble(unqlite_value_to_double(__pyx_v_ptr)); if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1229; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __Pyx_GOTREF(__pyx_t_7);
+    __pyx_r = __pyx_t_7;
+    __pyx_t_7 = 0;
     goto __pyx_L0;
 
-    /* "unqlite.pyx":1217
+    /* "unqlite.pyx":1228
  *     elif unqlite_value_is_int(ptr):
  *         return unqlite_value_to_int64(ptr)
  *     elif unqlite_value_is_float(ptr):             # <<<<<<<<<<<<<<
@@ -19118,7 +19398,7 @@ static PyObject *__pyx_f_7unqlite_unqlite_value_to_python(unqlite_value *__pyx_v
  */
   }
 
-  /* "unqlite.pyx":1219
+  /* "unqlite.pyx":1230
  *     elif unqlite_value_is_float(ptr):
  *         return unqlite_value_to_double(ptr)
  *     elif unqlite_value_is_bool(ptr):             # <<<<<<<<<<<<<<
@@ -19128,7 +19408,7 @@ static PyObject *__pyx_f_7unqlite_unqlite_value_to_python(unqlite_value *__pyx_v
   __pyx_t_3 = (unqlite_value_is_bool(__pyx_v_ptr) != 0);
   if (__pyx_t_3) {
 
-    /* "unqlite.pyx":1220
+    /* "unqlite.pyx":1231
  *         return unqlite_value_to_double(ptr)
  *     elif unqlite_value_is_bool(ptr):
  *         return bool(unqlite_value_to_bool(ptr))             # <<<<<<<<<<<<<<
@@ -19136,17 +19416,17 @@ static PyObject *__pyx_f_7unqlite_unqlite_value_to_python(unqlite_value *__pyx_v
  *         return None
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_4 = __Pyx_PyInt_From_int(unqlite_value_to_bool(__pyx_v_ptr)); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1220; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_3 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1220; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyBool_FromLong((!(!__pyx_t_3))); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1220; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __Pyx_GOTREF(__pyx_t_4);
-    __pyx_r = __pyx_t_4;
-    __pyx_t_4 = 0;
+    __pyx_t_7 = __Pyx_PyInt_From_int(unqlite_value_to_bool(__pyx_v_ptr)); if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1231; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __Pyx_GOTREF(__pyx_t_7);
+    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_7); if (unlikely(__pyx_t_3 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1231; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    __pyx_t_7 = __Pyx_PyBool_FromLong((!(!__pyx_t_3))); if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1231; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __Pyx_GOTREF(__pyx_t_7);
+    __pyx_r = __pyx_t_7;
+    __pyx_t_7 = 0;
     goto __pyx_L0;
 
-    /* "unqlite.pyx":1219
+    /* "unqlite.pyx":1230
  *     elif unqlite_value_is_float(ptr):
  *         return unqlite_value_to_double(ptr)
  *     elif unqlite_value_is_bool(ptr):             # <<<<<<<<<<<<<<
@@ -19155,7 +19435,7 @@ static PyObject *__pyx_f_7unqlite_unqlite_value_to_python(unqlite_value *__pyx_v
  */
   }
 
-  /* "unqlite.pyx":1221
+  /* "unqlite.pyx":1232
  *     elif unqlite_value_is_bool(ptr):
  *         return bool(unqlite_value_to_bool(ptr))
  *     elif unqlite_value_is_null(ptr):             # <<<<<<<<<<<<<<
@@ -19165,7 +19445,7 @@ static PyObject *__pyx_f_7unqlite_unqlite_value_to_python(unqlite_value *__pyx_v
   __pyx_t_3 = (unqlite_value_is_null(__pyx_v_ptr) != 0);
   if (__pyx_t_3) {
 
-    /* "unqlite.pyx":1222
+    /* "unqlite.pyx":1233
  *         return bool(unqlite_value_to_bool(ptr))
  *     elif unqlite_value_is_null(ptr):
  *         return None             # <<<<<<<<<<<<<<
@@ -19177,7 +19457,7 @@ static PyObject *__pyx_f_7unqlite_unqlite_value_to_python(unqlite_value *__pyx_v
     __pyx_r = Py_None;
     goto __pyx_L0;
 
-    /* "unqlite.pyx":1221
+    /* "unqlite.pyx":1232
  *     elif unqlite_value_is_bool(ptr):
  *         return bool(unqlite_value_to_bool(ptr))
  *     elif unqlite_value_is_null(ptr):             # <<<<<<<<<<<<<<
@@ -19186,20 +19466,20 @@ static PyObject *__pyx_f_7unqlite_unqlite_value_to_python(unqlite_value *__pyx_v
  */
   }
 
-  /* "unqlite.pyx":1223
+  /* "unqlite.pyx":1234
  *     elif unqlite_value_is_null(ptr):
  *         return None
  *     raise TypeError('Unrecognized type.')             # <<<<<<<<<<<<<<
  * 
  * cdef python_to_unqlite_value(VM vm, unqlite_value *ptr, python_value):
  */
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__42, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1223; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_Raise(__pyx_t_4, 0, 0, 0);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1223; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_7 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__42, NULL); if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1234; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __Pyx_GOTREF(__pyx_t_7);
+  __Pyx_Raise(__pyx_t_7, 0, 0, 0);
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1234; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "unqlite.pyx":1192
+  /* "unqlite.pyx":1200
  * 
  * 
  * cdef unqlite_value_to_python(unqlite_value *ptr):             # <<<<<<<<<<<<<<
@@ -19210,7 +19490,7 @@ static PyObject *__pyx_f_7unqlite_unqlite_value_to_python(unqlite_value *__pyx_v
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_7);
   __Pyx_AddTraceback("unqlite.unqlite_value_to_python", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
@@ -19222,7 +19502,7 @@ static PyObject *__pyx_f_7unqlite_unqlite_value_to_python(unqlite_value *__pyx_v
   return __pyx_r;
 }
 
-/* "unqlite.pyx":1225
+/* "unqlite.pyx":1236
  *     raise TypeError('Unrecognized type.')
  * 
  * cdef python_to_unqlite_value(VM vm, unqlite_value *ptr, python_value):             # <<<<<<<<<<<<<<
@@ -19259,7 +19539,7 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("python_to_unqlite_value", 0);
 
-  /* "unqlite.pyx":1226
+  /* "unqlite.pyx":1237
  * 
  * cdef python_to_unqlite_value(VM vm, unqlite_value *ptr, python_value):
  *     cdef unqlite_value *item_ptr = <unqlite_value *>0             # <<<<<<<<<<<<<<
@@ -19268,7 +19548,7 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
  */
   __pyx_v_item_ptr = ((unqlite_value *)0);
 
-  /* "unqlite.pyx":1229
+  /* "unqlite.pyx":1240
  *     cdef bytes encoded_value
  * 
  *     if isinstance(python_value, unicode):             # <<<<<<<<<<<<<<
@@ -19279,33 +19559,33 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "unqlite.pyx":1230
+    /* "unqlite.pyx":1241
  * 
  *     if isinstance(python_value, unicode):
  *         encoded_value = python_value.encode('utf-8')             # <<<<<<<<<<<<<<
  *         unqlite_value_string(ptr, encoded_value, -1)
  *     elif isinstance(python_value, bytes):
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_python_value, __pyx_n_s_encode); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1230; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_python_value, __pyx_n_s_encode); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1241; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_tuple__43, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1230; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_tuple__43, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1241; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (!(likely(PyBytes_CheckExact(__pyx_t_4))||((__pyx_t_4) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "bytes", Py_TYPE(__pyx_t_4)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1230; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (!(likely(PyBytes_CheckExact(__pyx_t_4))||((__pyx_t_4) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "bytes", Py_TYPE(__pyx_t_4)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1241; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __pyx_v_encoded_value = ((PyObject*)__pyx_t_4);
     __pyx_t_4 = 0;
 
-    /* "unqlite.pyx":1231
+    /* "unqlite.pyx":1242
  *     if isinstance(python_value, unicode):
  *         encoded_value = python_value.encode('utf-8')
  *         unqlite_value_string(ptr, encoded_value, -1)             # <<<<<<<<<<<<<<
  *     elif isinstance(python_value, bytes):
  *         unqlite_value_string(ptr, python_value, -1)
  */
-    __pyx_t_5 = __Pyx_PyObject_AsString(__pyx_v_encoded_value); if (unlikely((!__pyx_t_5) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1231; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_5 = __Pyx_PyObject_AsString(__pyx_v_encoded_value); if (unlikely((!__pyx_t_5) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1242; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     unqlite_value_string(__pyx_v_ptr, __pyx_t_5, -1);
 
-    /* "unqlite.pyx":1229
+    /* "unqlite.pyx":1240
  *     cdef bytes encoded_value
  * 
  *     if isinstance(python_value, unicode):             # <<<<<<<<<<<<<<
@@ -19315,7 +19595,7 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
     goto __pyx_L3;
   }
 
-  /* "unqlite.pyx":1232
+  /* "unqlite.pyx":1243
  *         encoded_value = python_value.encode('utf-8')
  *         unqlite_value_string(ptr, encoded_value, -1)
  *     elif isinstance(python_value, bytes):             # <<<<<<<<<<<<<<
@@ -19326,17 +19606,17 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
   __pyx_t_1 = (__pyx_t_2 != 0);
   if (__pyx_t_1) {
 
-    /* "unqlite.pyx":1233
+    /* "unqlite.pyx":1244
  *         unqlite_value_string(ptr, encoded_value, -1)
  *     elif isinstance(python_value, bytes):
  *         unqlite_value_string(ptr, python_value, -1)             # <<<<<<<<<<<<<<
  *     elif isinstance(python_value, (list, tuple)):
  *         for item in python_value:
  */
-    __pyx_t_5 = __Pyx_PyObject_AsString(__pyx_v_python_value); if (unlikely((!__pyx_t_5) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1233; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_5 = __Pyx_PyObject_AsString(__pyx_v_python_value); if (unlikely((!__pyx_t_5) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1244; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     unqlite_value_string(__pyx_v_ptr, __pyx_t_5, -1);
 
-    /* "unqlite.pyx":1232
+    /* "unqlite.pyx":1243
  *         encoded_value = python_value.encode('utf-8')
  *         unqlite_value_string(ptr, encoded_value, -1)
  *     elif isinstance(python_value, bytes):             # <<<<<<<<<<<<<<
@@ -19346,7 +19626,7 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
     goto __pyx_L3;
   }
 
-  /* "unqlite.pyx":1234
+  /* "unqlite.pyx":1245
  *     elif isinstance(python_value, bytes):
  *         unqlite_value_string(ptr, python_value, -1)
  *     elif isinstance(python_value, (list, tuple)):             # <<<<<<<<<<<<<<
@@ -19367,7 +19647,7 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "unqlite.pyx":1235
+    /* "unqlite.pyx":1246
  *         unqlite_value_string(ptr, python_value, -1)
  *     elif isinstance(python_value, (list, tuple)):
  *         for item in python_value:             # <<<<<<<<<<<<<<
@@ -19378,26 +19658,26 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
       __pyx_t_4 = __pyx_v_python_value; __Pyx_INCREF(__pyx_t_4); __pyx_t_7 = 0;
       __pyx_t_8 = NULL;
     } else {
-      __pyx_t_7 = -1; __pyx_t_4 = PyObject_GetIter(__pyx_v_python_value); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1235; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_7 = -1; __pyx_t_4 = PyObject_GetIter(__pyx_v_python_value); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1246; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_8 = Py_TYPE(__pyx_t_4)->tp_iternext; if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1235; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_8 = Py_TYPE(__pyx_t_4)->tp_iternext; if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1246; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
     for (;;) {
       if (likely(!__pyx_t_8)) {
         if (likely(PyList_CheckExact(__pyx_t_4))) {
           if (__pyx_t_7 >= PyList_GET_SIZE(__pyx_t_4)) break;
           #if CYTHON_COMPILING_IN_CPYTHON
-          __pyx_t_3 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1235; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_3 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1246; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           #else
-          __pyx_t_3 = PySequence_ITEM(__pyx_t_4, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1235; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_3 = PySequence_ITEM(__pyx_t_4, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1246; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_3);
           #endif
         } else {
           if (__pyx_t_7 >= PyTuple_GET_SIZE(__pyx_t_4)) break;
           #if CYTHON_COMPILING_IN_CPYTHON
-          __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_4, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1235; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_4, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1246; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           #else
-          __pyx_t_3 = PySequence_ITEM(__pyx_t_4, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1235; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_3 = PySequence_ITEM(__pyx_t_4, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1246; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_3);
           #endif
         }
@@ -19407,7 +19687,7 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
             if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1235; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1246; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           }
           break;
         }
@@ -19416,7 +19696,7 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
       __Pyx_XDECREF_SET(__pyx_v_item, __pyx_t_3);
       __pyx_t_3 = 0;
 
-      /* "unqlite.pyx":1236
+      /* "unqlite.pyx":1247
  *     elif isinstance(python_value, (list, tuple)):
  *         for item in python_value:
  *             item_ptr = vm.create_value(item)             # <<<<<<<<<<<<<<
@@ -19425,7 +19705,7 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
  */
       __pyx_v_item_ptr = ((struct __pyx_vtabstruct_7unqlite_VM *)__pyx_v_vm->__pyx_vtab)->create_value(__pyx_v_vm, __pyx_v_item);
 
-      /* "unqlite.pyx":1237
+      /* "unqlite.pyx":1248
  *         for item in python_value:
  *             item_ptr = vm.create_value(item)
  *             unqlite_array_add_elem(ptr, NULL, item_ptr)             # <<<<<<<<<<<<<<
@@ -19434,18 +19714,18 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
  */
       unqlite_array_add_elem(__pyx_v_ptr, NULL, __pyx_v_item_ptr);
 
-      /* "unqlite.pyx":1238
+      /* "unqlite.pyx":1249
  *             item_ptr = vm.create_value(item)
  *             unqlite_array_add_elem(ptr, NULL, item_ptr)
  *             vm.release_value(item_ptr)             # <<<<<<<<<<<<<<
  *     elif isinstance(python_value, dict):
  *         for key, value in python_value.items():
  */
-      __pyx_t_3 = ((struct __pyx_vtabstruct_7unqlite_VM *)__pyx_v_vm->__pyx_vtab)->release_value(__pyx_v_vm, __pyx_v_item_ptr); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1238; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_3 = ((struct __pyx_vtabstruct_7unqlite_VM *)__pyx_v_vm->__pyx_vtab)->release_value(__pyx_v_vm, __pyx_v_item_ptr); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1249; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "unqlite.pyx":1235
+      /* "unqlite.pyx":1246
  *         unqlite_value_string(ptr, python_value, -1)
  *     elif isinstance(python_value, (list, tuple)):
  *         for item in python_value:             # <<<<<<<<<<<<<<
@@ -19455,7 +19735,7 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
     }
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "unqlite.pyx":1234
+    /* "unqlite.pyx":1245
  *     elif isinstance(python_value, bytes):
  *         unqlite_value_string(ptr, python_value, -1)
  *     elif isinstance(python_value, (list, tuple)):             # <<<<<<<<<<<<<<
@@ -19465,7 +19745,7 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
     goto __pyx_L3;
   }
 
-  /* "unqlite.pyx":1239
+  /* "unqlite.pyx":1250
  *             unqlite_array_add_elem(ptr, NULL, item_ptr)
  *             vm.release_value(item_ptr)
  *     elif isinstance(python_value, dict):             # <<<<<<<<<<<<<<
@@ -19476,14 +19756,14 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
   __pyx_t_1 = (__pyx_t_2 != 0);
   if (__pyx_t_1) {
 
-    /* "unqlite.pyx":1240
+    /* "unqlite.pyx":1251
  *             vm.release_value(item_ptr)
  *     elif isinstance(python_value, dict):
  *         for key, value in python_value.items():             # <<<<<<<<<<<<<<
  *             if not isinstance(key, basestring):
  *                 key = str(key)
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_python_value, __pyx_n_s_items); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1240; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_python_value, __pyx_n_s_items); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1251; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_9 = NULL;
     if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_3))) {
@@ -19496,10 +19776,10 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
       }
     }
     if (__pyx_t_9) {
-      __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_9); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1240; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_9); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1251; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     } else {
-      __pyx_t_4 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1240; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_4 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1251; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -19507,9 +19787,9 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
       __pyx_t_3 = __pyx_t_4; __Pyx_INCREF(__pyx_t_3); __pyx_t_7 = 0;
       __pyx_t_8 = NULL;
     } else {
-      __pyx_t_7 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1240; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_7 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1251; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_8 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1240; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_8 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1251; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     for (;;) {
@@ -19517,17 +19797,17 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
         if (likely(PyList_CheckExact(__pyx_t_3))) {
           if (__pyx_t_7 >= PyList_GET_SIZE(__pyx_t_3)) break;
           #if CYTHON_COMPILING_IN_CPYTHON
-          __pyx_t_4 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_7); __Pyx_INCREF(__pyx_t_4); __pyx_t_7++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1240; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_4 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_7); __Pyx_INCREF(__pyx_t_4); __pyx_t_7++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1251; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           #else
-          __pyx_t_4 = PySequence_ITEM(__pyx_t_3, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1240; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_4 = PySequence_ITEM(__pyx_t_3, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1251; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_4);
           #endif
         } else {
           if (__pyx_t_7 >= PyTuple_GET_SIZE(__pyx_t_3)) break;
           #if CYTHON_COMPILING_IN_CPYTHON
-          __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_7); __Pyx_INCREF(__pyx_t_4); __pyx_t_7++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1240; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_7); __Pyx_INCREF(__pyx_t_4); __pyx_t_7++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1251; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           #else
-          __pyx_t_4 = PySequence_ITEM(__pyx_t_3, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1240; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_4 = PySequence_ITEM(__pyx_t_3, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1251; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_4);
           #endif
         }
@@ -19537,7 +19817,7 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
             if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1240; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1251; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           }
           break;
         }
@@ -19553,7 +19833,7 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
         if (unlikely(size != 2)) {
           if (size > 2) __Pyx_RaiseTooManyValuesError(2);
           else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-          {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1240; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1251; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         }
         #if CYTHON_COMPILING_IN_CPYTHON
         if (likely(PyTuple_CheckExact(sequence))) {
@@ -19566,15 +19846,15 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
         __Pyx_INCREF(__pyx_t_9);
         __Pyx_INCREF(__pyx_t_10);
         #else
-        __pyx_t_9 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1240; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_9 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1251; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_9);
-        __pyx_t_10 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1240; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_10 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1251; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_10);
         #endif
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       } else {
         Py_ssize_t index = -1;
-        __pyx_t_11 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1240; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_11 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1251; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_11);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __pyx_t_12 = Py_TYPE(__pyx_t_11)->tp_iternext;
@@ -19582,7 +19862,7 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
         __Pyx_GOTREF(__pyx_t_9);
         index = 1; __pyx_t_10 = __pyx_t_12(__pyx_t_11); if (unlikely(!__pyx_t_10)) goto __pyx_L10_unpacking_failed;
         __Pyx_GOTREF(__pyx_t_10);
-        if (__Pyx_IternextUnpackEndCheck(__pyx_t_12(__pyx_t_11), 2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1240; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        if (__Pyx_IternextUnpackEndCheck(__pyx_t_12(__pyx_t_11), 2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1251; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __pyx_t_12 = NULL;
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
         goto __pyx_L11_unpacking_done;
@@ -19590,7 +19870,7 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
         __pyx_t_12 = NULL;
         if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-        {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1240; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1251; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __pyx_L11_unpacking_done:;
       }
       __Pyx_XDECREF_SET(__pyx_v_key, __pyx_t_9);
@@ -19598,7 +19878,7 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
       __Pyx_XDECREF_SET(__pyx_v_value, __pyx_t_10);
       __pyx_t_10 = 0;
 
-      /* "unqlite.pyx":1241
+      /* "unqlite.pyx":1252
  *     elif isinstance(python_value, dict):
  *         for key, value in python_value.items():
  *             if not isinstance(key, basestring):             # <<<<<<<<<<<<<<
@@ -19609,25 +19889,25 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
       __pyx_t_2 = ((!(__pyx_t_1 != 0)) != 0);
       if (__pyx_t_2) {
 
-        /* "unqlite.pyx":1242
+        /* "unqlite.pyx":1253
  *         for key, value in python_value.items():
  *             if not isinstance(key, basestring):
  *                 key = str(key)             # <<<<<<<<<<<<<<
  *             if isinstance(key, unicode):
  *                 key = key.encode('utf-8')
  */
-        __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1242; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1253; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_INCREF(__pyx_v_key);
         __Pyx_GIVEREF(__pyx_v_key);
         PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_v_key);
-        __pyx_t_10 = __Pyx_PyObject_Call(((PyObject *)(&PyString_Type)), __pyx_t_4, NULL); if (unlikely(!__pyx_t_10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1242; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_10 = __Pyx_PyObject_Call(((PyObject *)(&PyString_Type)), __pyx_t_4, NULL); if (unlikely(!__pyx_t_10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1253; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_DECREF_SET(__pyx_v_key, __pyx_t_10);
         __pyx_t_10 = 0;
 
-        /* "unqlite.pyx":1241
+        /* "unqlite.pyx":1252
  *     elif isinstance(python_value, dict):
  *         for key, value in python_value.items():
  *             if not isinstance(key, basestring):             # <<<<<<<<<<<<<<
@@ -19636,7 +19916,7 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
  */
       }
 
-      /* "unqlite.pyx":1243
+      /* "unqlite.pyx":1254
  *             if not isinstance(key, basestring):
  *                 key = str(key)
  *             if isinstance(key, unicode):             # <<<<<<<<<<<<<<
@@ -19647,22 +19927,22 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
       __pyx_t_1 = (__pyx_t_2 != 0);
       if (__pyx_t_1) {
 
-        /* "unqlite.pyx":1244
+        /* "unqlite.pyx":1255
  *                 key = str(key)
  *             if isinstance(key, unicode):
  *                 key = key.encode('utf-8')             # <<<<<<<<<<<<<<
  *             item_ptr = vm.create_value(value)
  *             unqlite_array_add_strkey_elem(
  */
-        __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_key, __pyx_n_s_encode); if (unlikely(!__pyx_t_10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1244; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_key, __pyx_n_s_encode); if (unlikely(!__pyx_t_10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1255; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_10);
-        __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_tuple__44, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1244; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_tuple__44, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1255; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         __Pyx_DECREF_SET(__pyx_v_key, __pyx_t_4);
         __pyx_t_4 = 0;
 
-        /* "unqlite.pyx":1243
+        /* "unqlite.pyx":1254
  *             if not isinstance(key, basestring):
  *                 key = str(key)
  *             if isinstance(key, unicode):             # <<<<<<<<<<<<<<
@@ -19671,7 +19951,7 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
  */
       }
 
-      /* "unqlite.pyx":1245
+      /* "unqlite.pyx":1256
  *             if isinstance(key, unicode):
  *                 key = key.encode('utf-8')
  *             item_ptr = vm.create_value(value)             # <<<<<<<<<<<<<<
@@ -19680,16 +19960,16 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
  */
       __pyx_v_item_ptr = ((struct __pyx_vtabstruct_7unqlite_VM *)__pyx_v_vm->__pyx_vtab)->create_value(__pyx_v_vm, __pyx_v_value);
 
-      /* "unqlite.pyx":1248
+      /* "unqlite.pyx":1259
  *             unqlite_array_add_strkey_elem(
  *                 ptr,
  *                 <const char *>key,             # <<<<<<<<<<<<<<
  *                 item_ptr)
  *             vm.release_value(item_ptr)
  */
-      __pyx_t_13 = __Pyx_PyObject_AsString(__pyx_v_key); if (unlikely((!__pyx_t_13) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1248; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_13 = __Pyx_PyObject_AsString(__pyx_v_key); if (unlikely((!__pyx_t_13) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1259; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-      /* "unqlite.pyx":1246
+      /* "unqlite.pyx":1257
  *                 key = key.encode('utf-8')
  *             item_ptr = vm.create_value(value)
  *             unqlite_array_add_strkey_elem(             # <<<<<<<<<<<<<<
@@ -19698,18 +19978,18 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
  */
       unqlite_array_add_strkey_elem(__pyx_v_ptr, ((char const *)__pyx_t_13), __pyx_v_item_ptr);
 
-      /* "unqlite.pyx":1250
+      /* "unqlite.pyx":1261
  *                 <const char *>key,
  *                 item_ptr)
  *             vm.release_value(item_ptr)             # <<<<<<<<<<<<<<
  *     elif isinstance(python_value, (int, long)):
  *         unqlite_value_int64(ptr, python_value)
  */
-      __pyx_t_4 = ((struct __pyx_vtabstruct_7unqlite_VM *)__pyx_v_vm->__pyx_vtab)->release_value(__pyx_v_vm, __pyx_v_item_ptr); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1250; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_4 = ((struct __pyx_vtabstruct_7unqlite_VM *)__pyx_v_vm->__pyx_vtab)->release_value(__pyx_v_vm, __pyx_v_item_ptr); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1261; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "unqlite.pyx":1240
+      /* "unqlite.pyx":1251
  *             vm.release_value(item_ptr)
  *     elif isinstance(python_value, dict):
  *         for key, value in python_value.items():             # <<<<<<<<<<<<<<
@@ -19719,7 +19999,7 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
     }
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "unqlite.pyx":1239
+    /* "unqlite.pyx":1250
  *             unqlite_array_add_elem(ptr, NULL, item_ptr)
  *             vm.release_value(item_ptr)
  *     elif isinstance(python_value, dict):             # <<<<<<<<<<<<<<
@@ -19729,7 +20009,7 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
     goto __pyx_L3;
   }
 
-  /* "unqlite.pyx":1251
+  /* "unqlite.pyx":1262
  *                 item_ptr)
  *             vm.release_value(item_ptr)
  *     elif isinstance(python_value, (int, long)):             # <<<<<<<<<<<<<<
@@ -19750,17 +20030,17 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "unqlite.pyx":1252
+    /* "unqlite.pyx":1263
  *             vm.release_value(item_ptr)
  *     elif isinstance(python_value, (int, long)):
  *         unqlite_value_int64(ptr, python_value)             # <<<<<<<<<<<<<<
  *     elif isinstance(python_value, bool):
  *         unqlite_value_bool(ptr, python_value)
  */
-    __pyx_t_14 = __Pyx_PyInt_As_sxi64(__pyx_v_python_value); if (unlikely((__pyx_t_14 == (unqlite_int64)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1252; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_14 = __Pyx_PyInt_As_sxi64(__pyx_v_python_value); if (unlikely((__pyx_t_14 == (unqlite_int64)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1263; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     unqlite_value_int64(__pyx_v_ptr, __pyx_t_14);
 
-    /* "unqlite.pyx":1251
+    /* "unqlite.pyx":1262
  *                 item_ptr)
  *             vm.release_value(item_ptr)
  *     elif isinstance(python_value, (int, long)):             # <<<<<<<<<<<<<<
@@ -19770,7 +20050,7 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
     goto __pyx_L3;
   }
 
-  /* "unqlite.pyx":1253
+  /* "unqlite.pyx":1264
  *     elif isinstance(python_value, (int, long)):
  *         unqlite_value_int64(ptr, python_value)
  *     elif isinstance(python_value, bool):             # <<<<<<<<<<<<<<
@@ -19779,22 +20059,22 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
  */
   __pyx_t_3 = ((PyObject*)&PyBool_Type);
   __Pyx_INCREF(__pyx_t_3);
-  __pyx_t_2 = PyObject_IsInstance(__pyx_v_python_value, __pyx_t_3); if (unlikely(__pyx_t_2 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1253; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyObject_IsInstance(__pyx_v_python_value, __pyx_t_3); if (unlikely(__pyx_t_2 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1264; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_1 = (__pyx_t_2 != 0);
   if (__pyx_t_1) {
 
-    /* "unqlite.pyx":1254
+    /* "unqlite.pyx":1265
  *         unqlite_value_int64(ptr, python_value)
  *     elif isinstance(python_value, bool):
  *         unqlite_value_bool(ptr, python_value)             # <<<<<<<<<<<<<<
  *     elif isinstance(python_value, float):
  *         unqlite_value_double(ptr, python_value)
  */
-    __pyx_t_15 = __Pyx_PyInt_As_int(__pyx_v_python_value); if (unlikely((__pyx_t_15 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1254; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_15 = __Pyx_PyInt_As_int(__pyx_v_python_value); if (unlikely((__pyx_t_15 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1265; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     unqlite_value_bool(__pyx_v_ptr, __pyx_t_15);
 
-    /* "unqlite.pyx":1253
+    /* "unqlite.pyx":1264
  *     elif isinstance(python_value, (int, long)):
  *         unqlite_value_int64(ptr, python_value)
  *     elif isinstance(python_value, bool):             # <<<<<<<<<<<<<<
@@ -19804,7 +20084,7 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
     goto __pyx_L3;
   }
 
-  /* "unqlite.pyx":1255
+  /* "unqlite.pyx":1266
  *     elif isinstance(python_value, bool):
  *         unqlite_value_bool(ptr, python_value)
  *     elif isinstance(python_value, float):             # <<<<<<<<<<<<<<
@@ -19815,17 +20095,17 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "unqlite.pyx":1256
+    /* "unqlite.pyx":1267
  *         unqlite_value_bool(ptr, python_value)
  *     elif isinstance(python_value, float):
  *         unqlite_value_double(ptr, python_value)             # <<<<<<<<<<<<<<
  *     else:
  *         unqlite_value_null(ptr)
  */
-    __pyx_t_16 = __pyx_PyFloat_AsDouble(__pyx_v_python_value); if (unlikely((__pyx_t_16 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1256; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_16 = __pyx_PyFloat_AsDouble(__pyx_v_python_value); if (unlikely((__pyx_t_16 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1267; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     unqlite_value_double(__pyx_v_ptr, __pyx_t_16);
 
-    /* "unqlite.pyx":1255
+    /* "unqlite.pyx":1266
  *     elif isinstance(python_value, bool):
  *         unqlite_value_bool(ptr, python_value)
  *     elif isinstance(python_value, float):             # <<<<<<<<<<<<<<
@@ -19835,7 +20115,7 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
     goto __pyx_L3;
   }
 
-  /* "unqlite.pyx":1258
+  /* "unqlite.pyx":1269
  *         unqlite_value_double(ptr, python_value)
  *     else:
  *         unqlite_value_null(ptr)             # <<<<<<<<<<<<<<
@@ -19847,7 +20127,7 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
   }
   __pyx_L3:;
 
-  /* "unqlite.pyx":1225
+  /* "unqlite.pyx":1236
  *     raise TypeError('Unrecognized type.')
  * 
  * cdef python_to_unqlite_value(VM vm, unqlite_value *ptr, python_value):             # <<<<<<<<<<<<<<
@@ -19876,7 +20156,7 @@ static PyObject *__pyx_f_7unqlite_python_to_unqlite_value(struct __pyx_obj_7unql
   return __pyx_r;
 }
 
-/* "unqlite.pyx":1260
+/* "unqlite.pyx":1271
  *         unqlite_value_null(ptr)
  * 
  * cdef int unqlite_value_to_list(unqlite_value *key, unqlite_value *value, void *user_data):             # <<<<<<<<<<<<<<
@@ -19895,7 +20175,7 @@ static int __pyx_f_7unqlite_unqlite_value_to_list(CYTHON_UNUSED unqlite_value *_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("unqlite_value_to_list", 0);
 
-  /* "unqlite.pyx":1262
+  /* "unqlite.pyx":1273
  * cdef int unqlite_value_to_list(unqlite_value *key, unqlite_value *value, void *user_data):
  *     cdef list accum
  *     accum = <list>user_data             # <<<<<<<<<<<<<<
@@ -19907,7 +20187,7 @@ static int __pyx_f_7unqlite_unqlite_value_to_list(CYTHON_UNUSED unqlite_value *_
   __pyx_v_accum = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":1263
+  /* "unqlite.pyx":1274
  *     cdef list accum
  *     accum = <list>user_data
  *     accum.append(unqlite_value_to_python(value))             # <<<<<<<<<<<<<<
@@ -19916,14 +20196,14 @@ static int __pyx_f_7unqlite_unqlite_value_to_list(CYTHON_UNUSED unqlite_value *_
  */
   if (unlikely(__pyx_v_accum == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%s'", "append");
-    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1263; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1274; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
-  __pyx_t_1 = __pyx_f_7unqlite_unqlite_value_to_python(__pyx_v_value); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1263; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_f_7unqlite_unqlite_value_to_python(__pyx_v_value); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1274; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyList_Append(__pyx_v_accum, __pyx_t_1); if (unlikely(__pyx_t_2 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1263; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyList_Append(__pyx_v_accum, __pyx_t_1); if (unlikely(__pyx_t_2 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1274; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":1260
+  /* "unqlite.pyx":1271
  *         unqlite_value_null(ptr)
  * 
  * cdef int unqlite_value_to_list(unqlite_value *key, unqlite_value *value, void *user_data):             # <<<<<<<<<<<<<<
@@ -19944,7 +20224,7 @@ static int __pyx_f_7unqlite_unqlite_value_to_list(CYTHON_UNUSED unqlite_value *_
   return __pyx_r;
 }
 
-/* "unqlite.pyx":1265
+/* "unqlite.pyx":1276
  *     accum.append(unqlite_value_to_python(value))
  * 
  * cdef int unqlite_value_to_dict(unqlite_value *key, unqlite_value *value, void *user_data):             # <<<<<<<<<<<<<<
@@ -19963,7 +20243,7 @@ static int __pyx_f_7unqlite_unqlite_value_to_dict(unqlite_value *__pyx_v_key, un
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("unqlite_value_to_dict", 0);
 
-  /* "unqlite.pyx":1267
+  /* "unqlite.pyx":1278
  * cdef int unqlite_value_to_dict(unqlite_value *key, unqlite_value *value, void *user_data):
  *     cdef dict accum
  *     accum = <dict>user_data             # <<<<<<<<<<<<<<
@@ -19974,24 +20254,24 @@ static int __pyx_f_7unqlite_unqlite_value_to_dict(unqlite_value *__pyx_v_key, un
   __pyx_v_accum = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":1268
+  /* "unqlite.pyx":1279
  *     cdef dict accum
  *     accum = <dict>user_data
  *     accum[unqlite_value_to_python(key)] = unqlite_value_to_python(value)             # <<<<<<<<<<<<<<
  */
-  __pyx_t_1 = __pyx_f_7unqlite_unqlite_value_to_python(__pyx_v_value); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1268; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_f_7unqlite_unqlite_value_to_python(__pyx_v_value); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1279; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   if (unlikely(__pyx_v_accum == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1268; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1279; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
-  __pyx_t_2 = __pyx_f_7unqlite_unqlite_value_to_python(__pyx_v_key); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1268; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_f_7unqlite_unqlite_value_to_python(__pyx_v_key); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1279; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  if (unlikely(PyDict_SetItem(__pyx_v_accum, __pyx_t_2, __pyx_t_1) < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1268; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(PyDict_SetItem(__pyx_v_accum, __pyx_t_2, __pyx_t_1) < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1279; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "unqlite.pyx":1265
+  /* "unqlite.pyx":1276
  *     accum.append(unqlite_value_to_python(value))
  * 
  * cdef int unqlite_value_to_dict(unqlite_value *key, unqlite_value *value, void *user_data):             # <<<<<<<<<<<<<<
@@ -21717,6 +21997,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_UnQLite_keys, __pyx_k_UnQLite_keys, sizeof(__pyx_k_UnQLite_keys), 0, 0, 1, 1},
   {&__pyx_n_s_UnQLite_range, __pyx_k_UnQLite_range, sizeof(__pyx_k_UnQLite_range), 0, 0, 1, 1},
   {&__pyx_n_s_UnQLite_values, __pyx_k_UnQLite_values, sizeof(__pyx_k_UnQLite_values), 0, 0, 1, 1},
+  {&__pyx_n_s_UnicodeDecodeError, __pyx_k_UnicodeDecodeError, sizeof(__pyx_k_UnicodeDecodeError), 0, 0, 1, 1},
   {&__pyx_kp_s_Unrecognized_type, __pyx_k_Unrecognized_type, sizeof(__pyx_k_Unrecognized_type), 0, 0, 1, 0},
   {&__pyx_n_s_ValueError, __pyx_k_ValueError, sizeof(__pyx_k_ValueError), 0, 0, 1, 1},
   {&__pyx_n_s_append, __pyx_k_append, sizeof(__pyx_k_append), 0, 0, 1, 1},
@@ -21822,14 +22103,15 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
 static int __Pyx_InitCachedBuiltins(void) {
   __pyx_builtin_ImportError = __Pyx_GetBuiltinName(__pyx_n_s_ImportError); if (!__pyx_builtin_ImportError) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 16; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_builtin_NotImplementedError = __Pyx_GetBuiltinName(__pyx_n_s_NotImplementedError); if (!__pyx_builtin_NotImplementedError) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 339; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 477; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_builtin_IOError = __Pyx_GetBuiltinName(__pyx_n_s_IOError); if (!__pyx_builtin_IOError) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 478; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_builtin_KeyError = __Pyx_GetBuiltinName(__pyx_n_s_KeyError); if (!__pyx_builtin_KeyError) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 484; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_builtin_Exception = __Pyx_GetBuiltinName(__pyx_n_s_Exception); if (!__pyx_builtin_Exception) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 492; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_builtin_StopIteration = __Pyx_GetBuiltinName(__pyx_n_s_StopIteration); if (!__pyx_builtin_StopIteration) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 570; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1042; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1083; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1223; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_builtin_UnicodeDecodeError = __Pyx_GetBuiltinName(__pyx_n_s_UnicodeDecodeError); if (!__pyx_builtin_UnicodeDecodeError) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 393; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 480; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_builtin_IOError = __Pyx_GetBuiltinName(__pyx_n_s_IOError); if (!__pyx_builtin_IOError) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 481; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_builtin_KeyError = __Pyx_GetBuiltinName(__pyx_n_s_KeyError); if (!__pyx_builtin_KeyError) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 487; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_builtin_Exception = __Pyx_GetBuiltinName(__pyx_n_s_Exception); if (!__pyx_builtin_Exception) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 495; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_builtin_StopIteration = __Pyx_GetBuiltinName(__pyx_n_s_StopIteration); if (!__pyx_builtin_StopIteration) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 573; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1050; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1091; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1234; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -21883,395 +22165,395 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__5);
   __Pyx_GIVEREF(__pyx_tuple__5);
 
-  /* "unqlite.pyx":401
+  /* "unqlite.pyx":404
  * 
  *         if isinstance(key, unicode):
  *             encoded_key = key.encode('utf-8')             # <<<<<<<<<<<<<<
  *         else:
  *             encoded_key = bytes(key)
  */
-  __pyx_tuple__6 = PyTuple_Pack(1, __pyx_kp_s_utf_8); if (unlikely(!__pyx_tuple__6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 401; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__6 = PyTuple_Pack(1, __pyx_kp_s_utf_8); if (unlikely(!__pyx_tuple__6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 404; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__6);
   __Pyx_GIVEREF(__pyx_tuple__6);
 
-  /* "unqlite.pyx":414
+  /* "unqlite.pyx":417
  * 
  *         if isinstance(key, unicode):
  *             encoded_key = key.encode('utf-8')             # <<<<<<<<<<<<<<
  *         else:
  *             encoded_key = bytes(key)
  */
-  __pyx_tuple__7 = PyTuple_Pack(1, __pyx_kp_s_utf_8); if (unlikely(!__pyx_tuple__7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 414; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__7 = PyTuple_Pack(1, __pyx_kp_s_utf_8); if (unlikely(!__pyx_tuple__7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 417; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__7);
   __Pyx_GIVEREF(__pyx_tuple__7);
 
-  /* "unqlite.pyx":418
+  /* "unqlite.pyx":421
  *             encoded_key = bytes(key)
  *         if isinstance(value, unicode):
  *             encoded_value = value.encode('utf-8')             # <<<<<<<<<<<<<<
  *         else:
  *             encoded_value = bytes(value)
  */
-  __pyx_tuple__8 = PyTuple_Pack(1, __pyx_kp_s_utf_8); if (unlikely(!__pyx_tuple__8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 418; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__8 = PyTuple_Pack(1, __pyx_kp_s_utf_8); if (unlikely(!__pyx_tuple__8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 421; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__8);
   __Pyx_GIVEREF(__pyx_tuple__8);
 
-  /* "unqlite.pyx":436
+  /* "unqlite.pyx":439
  * 
  *         if isinstance(key, unicode):
  *             encoded_key = key.encode('utf-8')             # <<<<<<<<<<<<<<
  *         else:
  *             encoded_key = bytes(key)
  */
-  __pyx_tuple__9 = PyTuple_Pack(1, __pyx_kp_s_utf_8); if (unlikely(!__pyx_tuple__9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 436; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__9 = PyTuple_Pack(1, __pyx_kp_s_utf_8); if (unlikely(!__pyx_tuple__9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 439; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__9);
   __Pyx_GIVEREF(__pyx_tuple__9);
 
-  /* "unqlite.pyx":541
+  /* "unqlite.pyx":544
  *     def commit_on_success(self, fn):
  *         def wrapper(*args, **kwargs):
  *             with self.transaction():             # <<<<<<<<<<<<<<
  *                 return fn(*args, **kwargs)
  *         return wrapper
  */
-  __pyx_tuple__10 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 541; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__10 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 544; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__10);
   __Pyx_GIVEREF(__pyx_tuple__10);
-  __pyx_tuple__11 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 541; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__11 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 544; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__11);
   __Pyx_GIVEREF(__pyx_tuple__11);
 
-  /* "unqlite.pyx":540
+  /* "unqlite.pyx":543
  * 
  *     def commit_on_success(self, fn):
  *         def wrapper(*args, **kwargs):             # <<<<<<<<<<<<<<
  *             with self.transaction():
  *                 return fn(*args, **kwargs)
  */
-  __pyx_tuple__12 = PyTuple_Pack(2, __pyx_n_s_args, __pyx_n_s_kwargs); if (unlikely(!__pyx_tuple__12)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 540; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__12 = PyTuple_Pack(2, __pyx_n_s_args, __pyx_n_s_kwargs); if (unlikely(!__pyx_tuple__12)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 543; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__12);
   __Pyx_GIVEREF(__pyx_tuple__12);
-  __pyx_codeobj__13 = (PyObject*)__Pyx_PyCode_New(0, 0, 2, 0, CO_VARARGS|CO_VARKEYWORDS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__12, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_D_Data_Projekte_OSS_unqlite_pyth, __pyx_n_s_wrapper, 540, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__13)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 540; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__13 = (PyObject*)__Pyx_PyCode_New(0, 0, 2, 0, CO_VARARGS|CO_VARKEYWORDS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__12, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_D_Data_Projekte_OSS_unqlite_pyth, __pyx_n_s_wrapper, 543, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__13)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 543; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "unqlite.pyx":565
+  /* "unqlite.pyx":568
  *         """Efficiently iterate through the database's keys."""
  *         cdef Cursor cursor
  *         with self.cursor() as cursor:             # <<<<<<<<<<<<<<
  *             while cursor.is_valid():
  *                 yield cursor.key()
  */
-  __pyx_tuple__14 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__14)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 565; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__14 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__14)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 568; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__14);
   __Pyx_GIVEREF(__pyx_tuple__14);
 
-  /* "unqlite.pyx":576
+  /* "unqlite.pyx":579
  *         """Efficiently iterate through the database's values."""
  *         cdef Cursor cursor
  *         with self.cursor() as cursor:             # <<<<<<<<<<<<<<
  *             while cursor.is_valid():
  *                 yield cursor.value()
  */
-  __pyx_tuple__15 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__15)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 576; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__15 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__15)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 579; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__15);
   __Pyx_GIVEREF(__pyx_tuple__15);
 
-  /* "unqlite.pyx":589
+  /* "unqlite.pyx":592
  *         cdef tuple item
  * 
  *         with self.cursor() as cursor:             # <<<<<<<<<<<<<<
  *             for item in cursor:
  *                 yield item
  */
-  __pyx_tuple__16 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__16)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 589; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__16 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__16)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 592; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__16);
   __Pyx_GIVEREF(__pyx_tuple__16);
 
-  /* "unqlite.pyx":614
+  /* "unqlite.pyx":617
  *         cdef Cursor cursor
  *         cdef long count = 0
  *         with self.cursor() as cursor:             # <<<<<<<<<<<<<<
  *             for item in cursor:
  *                 count += 1
  */
-  __pyx_tuple__17 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__17)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 614; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__17 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__17)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 617; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__17);
   __Pyx_GIVEREF(__pyx_tuple__17);
 
-  /* "unqlite.pyx":628
+  /* "unqlite.pyx":631
  *         cdef Cursor cursor
  *         cdef long i = 0
  *         with self.cursor() as cursor:             # <<<<<<<<<<<<<<
  *             while cursor.is_valid():
  *                 cursor.delete()
  */
-  __pyx_tuple__18 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__18)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 628; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__18 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__18)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 631; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__18);
   __Pyx_GIVEREF(__pyx_tuple__18);
 
-  /* "unqlite.pyx":711
+  /* "unqlite.pyx":714
  * 
  *         if isinstance(key, unicode):
  *             encoded_key = key.encode('utf-8')             # <<<<<<<<<<<<<<
  *         else:
  *             encoded_key = bytes(key)
  */
-  __pyx_tuple__20 = PyTuple_Pack(1, __pyx_kp_s_utf_8); if (unlikely(!__pyx_tuple__20)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 711; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__20 = PyTuple_Pack(1, __pyx_kp_s_utf_8); if (unlikely(!__pyx_tuple__20)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 714; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__20);
   __Pyx_GIVEREF(__pyx_tuple__20);
 
-  /* "unqlite.pyx":853
+  /* "unqlite.pyx":861
  *         self.code = code
  *         if isinstance(code, unicode):
  *             self.encoded_code = code.encode('utf-8')             # <<<<<<<<<<<<<<
  *         else:
  *             self.encoded_code = bytes(code)
  */
-  __pyx_tuple__21 = PyTuple_Pack(1, __pyx_kp_s_utf_8); if (unlikely(!__pyx_tuple__21)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 853; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__21 = PyTuple_Pack(1, __pyx_kp_s_utf_8); if (unlikely(!__pyx_tuple__21)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 861; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__21);
   __Pyx_GIVEREF(__pyx_tuple__21);
 
-  /* "unqlite.pyx":917
+  /* "unqlite.pyx":925
  * 
  *         if isinstance(name, unicode):
  *             encoded_name = name.encode('utf-8')             # <<<<<<<<<<<<<<
  *         else:
  *             encoded_name = bytes(name)
  */
-  __pyx_tuple__22 = PyTuple_Pack(1, __pyx_kp_s_utf_8); if (unlikely(!__pyx_tuple__22)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 917; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__22 = PyTuple_Pack(1, __pyx_kp_s_utf_8); if (unlikely(!__pyx_tuple__22)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 925; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__22);
   __Pyx_GIVEREF(__pyx_tuple__22);
 
-  /* "unqlite.pyx":943
+  /* "unqlite.pyx":951
  * 
  *         if isinstance(name, unicode):
  *             encoded_name = name.encode('utf-8')             # <<<<<<<<<<<<<<
  *         else:
  *             encoded_name = bytes(name)
  */
-  __pyx_tuple__23 = PyTuple_Pack(1, __pyx_kp_s_utf_8); if (unlikely(!__pyx_tuple__23)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 943; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__23 = PyTuple_Pack(1, __pyx_kp_s_utf_8); if (unlikely(!__pyx_tuple__23)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 951; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__23);
   __Pyx_GIVEREF(__pyx_tuple__23);
 
-  /* "unqlite.pyx":1002
+  /* "unqlite.pyx":1010
  * 
  *         if isinstance(python_value, unicode):
  *             encoded_value = python_value.encode('utf-8')             # <<<<<<<<<<<<<<
  *             unqlite_value_string(ptr, encoded_value, -1)
  *         elif isinstance(python_value, bytes):
  */
-  __pyx_tuple__24 = PyTuple_Pack(1, __pyx_kp_s_utf_8); if (unlikely(!__pyx_tuple__24)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1002; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__24 = PyTuple_Pack(1, __pyx_kp_s_utf_8); if (unlikely(!__pyx_tuple__24)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1010; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__24);
   __Pyx_GIVEREF(__pyx_tuple__24);
 
-  /* "unqlite.pyx":1016
+  /* "unqlite.pyx":1024
  *                     key = str(key)
  *                 if isinstance(key, unicode):
  *                     key = key.encode('utf-8')             # <<<<<<<<<<<<<<
  *                 item_ptr = self.create_value(value)
  *                 unqlite_array_add_strkey_elem(
  */
-  __pyx_tuple__25 = PyTuple_Pack(1, __pyx_kp_s_utf_8); if (unlikely(!__pyx_tuple__25)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1016; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__25 = PyTuple_Pack(1, __pyx_kp_s_utf_8); if (unlikely(!__pyx_tuple__25)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1024; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__25);
   __Pyx_GIVEREF(__pyx_tuple__25);
 
-  /* "unqlite.pyx":1067
+  /* "unqlite.pyx":1075
  *     def _execute(self, basestring script, **kwargs):
  *         cdef VM vm
  *         with VM(self.unqlite, script) as vm:             # <<<<<<<<<<<<<<
  *             vm['collection'] = self.name
  *             for key, value in kwargs.items():
  */
-  __pyx_tuple__26 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__26)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1067; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__26 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__26)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1075; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__26);
   __Pyx_GIVEREF(__pyx_tuple__26);
 
-  /* "unqlite.pyx":1083
+  /* "unqlite.pyx":1091
  *                 return vm['ret']
  *             except KeyError:
  *                 raise ValueError('Error fetching return value from script.')             # <<<<<<<<<<<<<<
  * 
  *     def all(self):
  */
-  __pyx_tuple__27 = PyTuple_Pack(1, __pyx_kp_s_Error_fetching_return_value_from); if (unlikely(!__pyx_tuple__27)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1083; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__27 = PyTuple_Pack(1, __pyx_kp_s_Error_fetching_return_value_from); if (unlikely(!__pyx_tuple__27)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1091; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__27);
   __Pyx_GIVEREF(__pyx_tuple__27);
 
-  /* "unqlite.pyx":1075
+  /* "unqlite.pyx":1083
  *     def _simple_execute(self, basestring script, **kwargs):
  *         cdef VM vm
  *         with VM(self.unqlite, script) as vm:             # <<<<<<<<<<<<<<
  *             vm['collection'] = self.name
  *             for key, value in kwargs.items():
  */
-  __pyx_tuple__28 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__28)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1075; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__28 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__28)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1083; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__28);
   __Pyx_GIVEREF(__pyx_tuple__28);
-  __pyx_tuple__29 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__29)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1075; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__29 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__29)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1083; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__29);
   __Pyx_GIVEREF(__pyx_tuple__29);
 
-  /* "unqlite.pyx":1087
+  /* "unqlite.pyx":1095
  *     def all(self):
  *         """Retrieve all records in the given collection."""
  *         return self._simple_execute('$ret = db_fetch_all($collection);')             # <<<<<<<<<<<<<<
  * 
  *     cpdef filter(self, filter_fn):
  */
-  __pyx_tuple__30 = PyTuple_Pack(1, __pyx_kp_s_ret_db_fetch_all_collection); if (unlikely(!__pyx_tuple__30)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1087; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__30 = PyTuple_Pack(1, __pyx_kp_s_ret_db_fetch_all_collection); if (unlikely(!__pyx_tuple__30)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1095; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__30);
   __Pyx_GIVEREF(__pyx_tuple__30);
 
-  /* "unqlite.pyx":1099
+  /* "unqlite.pyx":1107
  * 
  *         script = '$ret = db_fetch_all($collection, _filter_fn)'
  *         with VM(self.unqlite, script) as vm:             # <<<<<<<<<<<<<<
  *             py_filter_fn = filter_fn
  *             filter_callback = py_filter_wrapper
  */
-  __pyx_tuple__31 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__31)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1099; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__31 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__31)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1107; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__31);
   __Pyx_GIVEREF(__pyx_tuple__31);
 
-  /* "unqlite.pyx":1123
+  /* "unqlite.pyx":1131
  *         used to create the collection itself.
  *         """
  *         self._execute('if (!db_exists($collection)) {db_create($collection);}')             # <<<<<<<<<<<<<<
  * 
  *     def drop(self):
  */
-  __pyx_tuple__32 = PyTuple_Pack(1, __pyx_kp_s_if_db_exists_collection_db_creat); if (unlikely(!__pyx_tuple__32)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1123; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__32 = PyTuple_Pack(1, __pyx_kp_s_if_db_exists_collection_db_creat); if (unlikely(!__pyx_tuple__32)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1131; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__32);
   __Pyx_GIVEREF(__pyx_tuple__32);
 
-  /* "unqlite.pyx":1127
+  /* "unqlite.pyx":1135
  *     def drop(self):
  *         """Drop the collection and all associated records."""
  *         self._execute('if (db_exists($collection)) { '             # <<<<<<<<<<<<<<
  *                       'db_drop_collection($collection); }')
  * 
  */
-  __pyx_tuple__33 = PyTuple_Pack(1, __pyx_kp_s_if_db_exists_collection_db_drop); if (unlikely(!__pyx_tuple__33)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1127; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__33 = PyTuple_Pack(1, __pyx_kp_s_if_db_exists_collection_db_drop); if (unlikely(!__pyx_tuple__33)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1135; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__33);
   __Pyx_GIVEREF(__pyx_tuple__33);
 
-  /* "unqlite.pyx":1132
+  /* "unqlite.pyx":1140
  *     def exists(self):
  *         """Return boolean indicating whether the collection exists."""
  *         return self._simple_execute('$ret = db_exists($collection);')             # <<<<<<<<<<<<<<
  * 
  *     def last_record_id(self):
  */
-  __pyx_tuple__34 = PyTuple_Pack(1, __pyx_kp_s_ret_db_exists_collection); if (unlikely(!__pyx_tuple__34)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1132; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__34 = PyTuple_Pack(1, __pyx_kp_s_ret_db_exists_collection); if (unlikely(!__pyx_tuple__34)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1140; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__34);
   __Pyx_GIVEREF(__pyx_tuple__34);
 
-  /* "unqlite.pyx":1136
+  /* "unqlite.pyx":1144
  *     def last_record_id(self):
  *         """Return the ID of the last document to be stored."""
  *         return self._simple_execute('$ret = db_last_record_id($collection);')             # <<<<<<<<<<<<<<
  * 
  *     def current_record_id(self):
  */
-  __pyx_tuple__35 = PyTuple_Pack(1, __pyx_kp_s_ret_db_last_record_id_collectio); if (unlikely(!__pyx_tuple__35)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1136; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__35 = PyTuple_Pack(1, __pyx_kp_s_ret_db_last_record_id_collectio); if (unlikely(!__pyx_tuple__35)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1144; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__35);
   __Pyx_GIVEREF(__pyx_tuple__35);
 
-  /* "unqlite.pyx":1140
+  /* "unqlite.pyx":1148
  *     def current_record_id(self):
  *         """Return the ID of the current JSON document."""
  *         return self._simple_execute(             # <<<<<<<<<<<<<<
  *             '$ret = db_current_record_id($collection);')
  * 
  */
-  __pyx_tuple__36 = PyTuple_Pack(1, __pyx_kp_s_ret_db_current_record_id_collec); if (unlikely(!__pyx_tuple__36)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1140; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__36 = PyTuple_Pack(1, __pyx_kp_s_ret_db_current_record_id_collec); if (unlikely(!__pyx_tuple__36)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1148; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__36);
   __Pyx_GIVEREF(__pyx_tuple__36);
 
-  /* "unqlite.pyx":1144
+  /* "unqlite.pyx":1152
  * 
  *     def reset_cursor(self):
  *         self._execute('db_reset_record_cursor($collection);')             # <<<<<<<<<<<<<<
  * 
  *     def __len__(self):
  */
-  __pyx_tuple__37 = PyTuple_Pack(1, __pyx_kp_s_db_reset_record_cursor_collectio); if (unlikely(!__pyx_tuple__37)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1144; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__37 = PyTuple_Pack(1, __pyx_kp_s_db_reset_record_cursor_collectio); if (unlikely(!__pyx_tuple__37)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1152; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__37);
   __Pyx_GIVEREF(__pyx_tuple__37);
 
-  /* "unqlite.pyx":1148
+  /* "unqlite.pyx":1156
  *     def __len__(self):
  *         """Return the number of records in the document collection."""
  *         return self._simple_execute('$ret = db_total_records($collection);')             # <<<<<<<<<<<<<<
  * 
  *     def delete(self, record_id):
  */
-  __pyx_tuple__38 = PyTuple_Pack(1, __pyx_kp_s_ret_db_total_records_collection); if (unlikely(!__pyx_tuple__38)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1148; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__38 = PyTuple_Pack(1, __pyx_kp_s_ret_db_total_records_collection); if (unlikely(!__pyx_tuple__38)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1156; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__38);
   __Pyx_GIVEREF(__pyx_tuple__38);
 
-  /* "unqlite.pyx":1180
+  /* "unqlite.pyx":1188
  * 
  *     def fetch_current(self):
  *         return self._simple_execute('$ret = db_fetch($collection);')             # <<<<<<<<<<<<<<
  * 
  *     def __delitem__(self, record_id):
  */
-  __pyx_tuple__39 = PyTuple_Pack(1, __pyx_kp_s_ret_db_fetch_collection); if (unlikely(!__pyx_tuple__39)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1180; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__39 = PyTuple_Pack(1, __pyx_kp_s_ret_db_fetch_collection); if (unlikely(!__pyx_tuple__39)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1188; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__39);
   __Pyx_GIVEREF(__pyx_tuple__39);
 
-  /* "unqlite.pyx":1189
+  /* "unqlite.pyx":1197
  * 
  *     def error_log(self):
  *         return self._simple_execute('$ret = db_errlog();')             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_tuple__40 = PyTuple_Pack(1, __pyx_kp_s_ret_db_errlog); if (unlikely(!__pyx_tuple__40)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1189; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__40 = PyTuple_Pack(1, __pyx_kp_s_ret_db_errlog); if (unlikely(!__pyx_tuple__40)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1197; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__40);
   __Pyx_GIVEREF(__pyx_tuple__40);
 
-  /* "unqlite.pyx":1213
- *         value = unqlite_value_to_string(ptr, NULL)
+  /* "unqlite.pyx":1222
  *         if str is not bytes:
- *             value = value.decode('utf-8')             # <<<<<<<<<<<<<<
- *         return value
- *     elif unqlite_value_is_int(ptr):
+ *             try:
+ *                 value = value.decode('utf-8')             # <<<<<<<<<<<<<<
+ *             except UnicodeDecodeError:
+ *                 pass
  */
-  __pyx_tuple__41 = PyTuple_Pack(1, __pyx_kp_s_utf_8); if (unlikely(!__pyx_tuple__41)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1213; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__41 = PyTuple_Pack(1, __pyx_kp_s_utf_8); if (unlikely(!__pyx_tuple__41)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1222; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__41);
   __Pyx_GIVEREF(__pyx_tuple__41);
 
-  /* "unqlite.pyx":1223
+  /* "unqlite.pyx":1234
  *     elif unqlite_value_is_null(ptr):
  *         return None
  *     raise TypeError('Unrecognized type.')             # <<<<<<<<<<<<<<
  * 
  * cdef python_to_unqlite_value(VM vm, unqlite_value *ptr, python_value):
  */
-  __pyx_tuple__42 = PyTuple_Pack(1, __pyx_kp_s_Unrecognized_type); if (unlikely(!__pyx_tuple__42)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1223; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__42 = PyTuple_Pack(1, __pyx_kp_s_Unrecognized_type); if (unlikely(!__pyx_tuple__42)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1234; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__42);
   __Pyx_GIVEREF(__pyx_tuple__42);
 
-  /* "unqlite.pyx":1230
+  /* "unqlite.pyx":1241
  * 
  *     if isinstance(python_value, unicode):
  *         encoded_value = python_value.encode('utf-8')             # <<<<<<<<<<<<<<
  *         unqlite_value_string(ptr, encoded_value, -1)
  *     elif isinstance(python_value, bytes):
  */
-  __pyx_tuple__43 = PyTuple_Pack(1, __pyx_kp_s_utf_8); if (unlikely(!__pyx_tuple__43)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1230; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__43 = PyTuple_Pack(1, __pyx_kp_s_utf_8); if (unlikely(!__pyx_tuple__43)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1241; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__43);
   __Pyx_GIVEREF(__pyx_tuple__43);
 
-  /* "unqlite.pyx":1244
+  /* "unqlite.pyx":1255
  *                 key = str(key)
  *             if isinstance(key, unicode):
  *                 key = key.encode('utf-8')             # <<<<<<<<<<<<<<
  *             item_ptr = vm.create_value(value)
  *             unqlite_array_add_strkey_elem(
  */
-  __pyx_tuple__44 = PyTuple_Pack(1, __pyx_kp_s_utf_8); if (unlikely(!__pyx_tuple__44)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1244; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__44 = PyTuple_Pack(1, __pyx_kp_s_utf_8); if (unlikely(!__pyx_tuple__44)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1255; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__44);
   __Pyx_GIVEREF(__pyx_tuple__44);
   __Pyx_RefNannyFinishContext();
@@ -22419,9 +22701,9 @@ PyMODINIT_FUNC PyInit_unqlite(void)
   if (__Pyx_SetVtable(__pyx_type_7unqlite_UnQLite.tp_dict, __pyx_vtabptr_7unqlite_UnQLite) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 268; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   if (PyObject_SetAttrString(__pyx_m, "UnQLite", (PyObject *)&__pyx_type_7unqlite_UnQLite) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 268; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_ptype_7unqlite_UnQLite = &__pyx_type_7unqlite_UnQLite;
-  if (PyType_Ready(&__pyx_type_7unqlite_Transaction) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 652; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_7unqlite_Transaction) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 655; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_7unqlite_Transaction.tp_print = 0;
-  if (PyObject_SetAttrString(__pyx_m, "Transaction", (PyObject *)&__pyx_type_7unqlite_Transaction) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 652; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyObject_SetAttrString(__pyx_m, "Transaction", (PyObject *)&__pyx_type_7unqlite_Transaction) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 655; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_ptype_7unqlite_Transaction = &__pyx_type_7unqlite_Transaction;
   __pyx_vtabptr_7unqlite_Cursor = &__pyx_vtable_7unqlite_Cursor;
   __pyx_vtable_7unqlite_Cursor.reset = (PyObject *(*)(struct __pyx_obj_7unqlite_Cursor *, int __pyx_skip_dispatch))__pyx_f_7unqlite_6Cursor_reset;
@@ -22434,10 +22716,10 @@ PyMODINIT_FUNC PyInit_unqlite(void)
   __pyx_vtable_7unqlite_Cursor.key = (PyObject *(*)(struct __pyx_obj_7unqlite_Cursor *, int __pyx_skip_dispatch))__pyx_f_7unqlite_6Cursor_key;
   __pyx_vtable_7unqlite_Cursor.value = (PyObject *(*)(struct __pyx_obj_7unqlite_Cursor *, int __pyx_skip_dispatch))__pyx_f_7unqlite_6Cursor_value;
   __pyx_vtable_7unqlite_Cursor.delete = (PyObject *(*)(struct __pyx_obj_7unqlite_Cursor *, int __pyx_skip_dispatch))__pyx_f_7unqlite_6Cursor_delete;
-  if (PyType_Ready(&__pyx_type_7unqlite_Cursor) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 674; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_7unqlite_Cursor) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 677; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_7unqlite_Cursor.tp_print = 0;
-  if (__Pyx_SetVtable(__pyx_type_7unqlite_Cursor.tp_dict, __pyx_vtabptr_7unqlite_Cursor) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 674; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (PyObject_SetAttrString(__pyx_m, "Cursor", (PyObject *)&__pyx_type_7unqlite_Cursor) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 674; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (__Pyx_SetVtable(__pyx_type_7unqlite_Cursor.tp_dict, __pyx_vtabptr_7unqlite_Cursor) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 677; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyObject_SetAttrString(__pyx_m, "Cursor", (PyObject *)&__pyx_type_7unqlite_Cursor) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 677; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_ptype_7unqlite_Cursor = &__pyx_type_7unqlite_Cursor;
   __pyx_vtabptr_7unqlite_VM = &__pyx_vtable_7unqlite_VM;
   __pyx_vtable_7unqlite_VM.compile = (PyObject *(*)(struct __pyx_obj_7unqlite_VM *, int __pyx_skip_dispatch))__pyx_f_7unqlite_2VM_compile;
@@ -22447,10 +22729,10 @@ PyMODINIT_FUNC PyInit_unqlite(void)
   __pyx_vtable_7unqlite_VM.release_value = (PyObject *(*)(struct __pyx_obj_7unqlite_VM *, unqlite_value *))__pyx_f_7unqlite_2VM_release_value;
   __pyx_vtable_7unqlite_VM.create_array = (unqlite_value *(*)(struct __pyx_obj_7unqlite_VM *))__pyx_f_7unqlite_2VM_create_array;
   __pyx_vtable_7unqlite_VM.create_scalar = (unqlite_value *(*)(struct __pyx_obj_7unqlite_VM *))__pyx_f_7unqlite_2VM_create_scalar;
-  if (PyType_Ready(&__pyx_type_7unqlite_VM) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 840; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_7unqlite_VM) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 848; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_7unqlite_VM.tp_print = 0;
-  if (__Pyx_SetVtable(__pyx_type_7unqlite_VM.tp_dict, __pyx_vtabptr_7unqlite_VM) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 840; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (PyObject_SetAttrString(__pyx_m, "VM", (PyObject *)&__pyx_type_7unqlite_VM) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 840; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (__Pyx_SetVtable(__pyx_type_7unqlite_VM.tp_dict, __pyx_vtabptr_7unqlite_VM) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 848; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyObject_SetAttrString(__pyx_m, "VM", (PyObject *)&__pyx_type_7unqlite_VM) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 848; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_ptype_7unqlite_VM = &__pyx_type_7unqlite_VM;
   __pyx_vtabptr_7unqlite_Context = &__pyx_vtable_7unqlite_Context;
   __pyx_vtable_7unqlite_Context.set_context = (PyObject *(*)(struct __pyx_obj_7unqlite_Context *, unqlite_context *))__pyx_f_7unqlite_7Context_set_context;
@@ -22460,18 +22742,18 @@ PyMODINIT_FUNC PyInit_unqlite(void)
   __pyx_vtable_7unqlite_Context.create_scalar = (unqlite_value *(*)(struct __pyx_obj_7unqlite_Context *))__pyx_f_7unqlite_7Context_create_scalar;
   __pyx_vtable_7unqlite_Context.push_result = (PyObject *(*)(struct __pyx_obj_7unqlite_Context *, PyObject *, int __pyx_skip_dispatch))__pyx_f_7unqlite_7Context_push_result;
   __pyx_vtable_7unqlite_Context.python_to_unqlite_value = (PyObject *(*)(struct __pyx_obj_7unqlite_Context *, unqlite_value *, PyObject *))__pyx_f_7unqlite_7Context_python_to_unqlite_value;
-  if (PyType_Ready(&__pyx_type_7unqlite_Context) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 962; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_7unqlite_Context) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 970; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_7unqlite_Context.tp_print = 0;
-  if (__Pyx_SetVtable(__pyx_type_7unqlite_Context.tp_dict, __pyx_vtabptr_7unqlite_Context) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 962; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (PyObject_SetAttrString(__pyx_m, "Context", (PyObject *)&__pyx_type_7unqlite_Context) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 962; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (__Pyx_SetVtable(__pyx_type_7unqlite_Context.tp_dict, __pyx_vtabptr_7unqlite_Context) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 970; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyObject_SetAttrString(__pyx_m, "Context", (PyObject *)&__pyx_type_7unqlite_Context) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 970; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_ptype_7unqlite_Context = &__pyx_type_7unqlite_Context;
   __pyx_vtabptr_7unqlite_Collection = &__pyx_vtable_7unqlite_Collection;
   __pyx_vtable_7unqlite_Collection.filter = (PyObject *(*)(struct __pyx_obj_7unqlite_Collection *, PyObject *, int __pyx_skip_dispatch))__pyx_f_7unqlite_10Collection_filter;
-  if (PyType_Ready(&__pyx_type_7unqlite_Collection) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1054; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_7unqlite_Collection) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1062; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_7unqlite_Collection.tp_print = 0;
   #if CYTHON_COMPILING_IN_CPYTHON
   {
-    PyObject *wrapper = PyObject_GetAttrString((PyObject *)&__pyx_type_7unqlite_Collection, "__len__"); if (unlikely(!wrapper)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1054; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    PyObject *wrapper = PyObject_GetAttrString((PyObject *)&__pyx_type_7unqlite_Collection, "__len__"); if (unlikely(!wrapper)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1062; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     if (Py_TYPE(wrapper) == &PyWrapperDescr_Type) {
       __pyx_wrapperbase_7unqlite_10Collection_22__len__ = *((PyWrapperDescrObject *)wrapper)->d_base;
       __pyx_wrapperbase_7unqlite_10Collection_22__len__.doc = __pyx_doc_7unqlite_10Collection_22__len__;
@@ -22479,25 +22761,25 @@ PyMODINIT_FUNC PyInit_unqlite(void)
     }
   }
   #endif
-  if (__Pyx_SetVtable(__pyx_type_7unqlite_Collection.tp_dict, __pyx_vtabptr_7unqlite_Collection) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1054; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (PyObject_SetAttrString(__pyx_m, "Collection", (PyObject *)&__pyx_type_7unqlite_Collection) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1054; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (__Pyx_SetVtable(__pyx_type_7unqlite_Collection.tp_dict, __pyx_vtabptr_7unqlite_Collection) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1062; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyObject_SetAttrString(__pyx_m, "Collection", (PyObject *)&__pyx_type_7unqlite_Collection) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1062; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_ptype_7unqlite_Collection = &__pyx_type_7unqlite_Collection;
-  if (PyType_Ready(&__pyx_type_7unqlite___pyx_scope_struct__commit_on_success) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 539; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_7unqlite___pyx_scope_struct__commit_on_success) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 542; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_7unqlite___pyx_scope_struct__commit_on_success.tp_print = 0;
   __pyx_ptype_7unqlite___pyx_scope_struct__commit_on_success = &__pyx_type_7unqlite___pyx_scope_struct__commit_on_success;
-  if (PyType_Ready(&__pyx_type_7unqlite___pyx_scope_struct_1_keys) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 562; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_7unqlite___pyx_scope_struct_1_keys) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 565; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_7unqlite___pyx_scope_struct_1_keys.tp_print = 0;
   __pyx_ptype_7unqlite___pyx_scope_struct_1_keys = &__pyx_type_7unqlite___pyx_scope_struct_1_keys;
-  if (PyType_Ready(&__pyx_type_7unqlite___pyx_scope_struct_2_values) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 573; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_7unqlite___pyx_scope_struct_2_values) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 576; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_7unqlite___pyx_scope_struct_2_values.tp_print = 0;
   __pyx_ptype_7unqlite___pyx_scope_struct_2_values = &__pyx_type_7unqlite___pyx_scope_struct_2_values;
-  if (PyType_Ready(&__pyx_type_7unqlite___pyx_scope_struct_3_items) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 584; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_7unqlite___pyx_scope_struct_3_items) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 587; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_7unqlite___pyx_scope_struct_3_items.tp_print = 0;
   __pyx_ptype_7unqlite___pyx_scope_struct_3_items = &__pyx_type_7unqlite___pyx_scope_struct_3_items;
-  if (PyType_Ready(&__pyx_type_7unqlite___pyx_scope_struct_4_range) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 598; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_7unqlite___pyx_scope_struct_4_range) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 601; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_7unqlite___pyx_scope_struct_4_range.tp_print = 0;
   __pyx_ptype_7unqlite___pyx_scope_struct_4_range = &__pyx_type_7unqlite___pyx_scope_struct_4_range;
-  if (PyType_Ready(&__pyx_type_7unqlite___pyx_scope_struct_5_fetch_until) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 824; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_7unqlite___pyx_scope_struct_5_fetch_until) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 832; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_7unqlite___pyx_scope_struct_5_fetch_until.tp_print = 0;
   __pyx_ptype_7unqlite___pyx_scope_struct_5_fetch_until = &__pyx_type_7unqlite___pyx_scope_struct_5_fetch_until;
   /*--- Type import code ---*/
@@ -22760,7 +23042,7 @@ PyMODINIT_FUNC PyInit_unqlite(void)
   __Pyx_GIVEREF(__pyx_t_7);
   __pyx_t_7 = 0;
 
-  /* "unqlite.pyx":699
+  /* "unqlite.pyx":702
  *         unqlite_kv_cursor_reset(self.cursor)
  * 
  *     cpdef seek(self, basestring key, int flags=UNQLITE_CURSOR_MATCH_EXACT):             # <<<<<<<<<<<<<<
@@ -22770,7 +23052,7 @@ PyMODINIT_FUNC PyInit_unqlite(void)
   __pyx_k__19 = UNQLITE_CURSOR_MATCH_EXACT;
   __pyx_k__19 = UNQLITE_CURSOR_MATCH_EXACT;
 
-  /* "unqlite.pyx":1033
+  /* "unqlite.pyx":1041
  * 
  * 
  * cdef object py_filter_fn = None             # <<<<<<<<<<<<<<
@@ -23374,6 +23656,37 @@ static CYTHON_INLINE PyObject* __Pyx_decode_c_bytes(
     }
 }
 
+static CYTHON_INLINE void __Pyx_ExceptionSave(PyObject **type, PyObject **value, PyObject **tb) {
+#if CYTHON_COMPILING_IN_CPYTHON
+    PyThreadState *tstate = PyThreadState_GET();
+    *type = tstate->exc_type;
+    *value = tstate->exc_value;
+    *tb = tstate->exc_traceback;
+    Py_XINCREF(*type);
+    Py_XINCREF(*value);
+    Py_XINCREF(*tb);
+#else
+    PyErr_GetExcInfo(type, value, tb);
+#endif
+}
+static void __Pyx_ExceptionReset(PyObject *type, PyObject *value, PyObject *tb) {
+#if CYTHON_COMPILING_IN_CPYTHON
+    PyObject *tmp_type, *tmp_value, *tmp_tb;
+    PyThreadState *tstate = PyThreadState_GET();
+    tmp_type = tstate->exc_type;
+    tmp_value = tstate->exc_value;
+    tmp_tb = tstate->exc_traceback;
+    tstate->exc_type = type;
+    tstate->exc_value = value;
+    tstate->exc_traceback = tb;
+    Py_XDECREF(tmp_type);
+    Py_XDECREF(tmp_value);
+    Py_XDECREF(tmp_tb);
+#else
+    PyErr_SetExcInfo(type, value, tb);
+#endif
+}
+
 static int __Pyx_GetException(PyObject **type, PyObject **value, PyObject **tb) {
     PyObject *local_type, *local_value, *local_tb;
 #if CYTHON_COMPILING_IN_CPYTHON
@@ -23448,37 +23761,6 @@ static CYTHON_INLINE void __Pyx_ExceptionSwap(PyObject **type, PyObject **value,
     *type = tmp_type;
     *value = tmp_value;
     *tb = tmp_tb;
-}
-
-static CYTHON_INLINE void __Pyx_ExceptionSave(PyObject **type, PyObject **value, PyObject **tb) {
-#if CYTHON_COMPILING_IN_CPYTHON
-    PyThreadState *tstate = PyThreadState_GET();
-    *type = tstate->exc_type;
-    *value = tstate->exc_value;
-    *tb = tstate->exc_traceback;
-    Py_XINCREF(*type);
-    Py_XINCREF(*value);
-    Py_XINCREF(*tb);
-#else
-    PyErr_GetExcInfo(type, value, tb);
-#endif
-}
-static void __Pyx_ExceptionReset(PyObject *type, PyObject *value, PyObject *tb) {
-#if CYTHON_COMPILING_IN_CPYTHON
-    PyObject *tmp_type, *tmp_value, *tmp_tb;
-    PyThreadState *tstate = PyThreadState_GET();
-    tmp_type = tstate->exc_type;
-    tmp_value = tstate->exc_value;
-    tmp_tb = tstate->exc_traceback;
-    tstate->exc_type = type;
-    tstate->exc_value = value;
-    tstate->exc_traceback = tb;
-    Py_XDECREF(tmp_type);
-    Py_XDECREF(tmp_value);
-    Py_XDECREF(tmp_tb);
-#else
-    PyErr_SetExcInfo(type, value, tb);
-#endif
 }
 
 static PyObject* __Pyx_PyDict_GetItemDefault(PyObject* d, PyObject* key, PyObject* default_value) {

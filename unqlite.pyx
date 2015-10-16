@@ -388,7 +388,10 @@ cdef class UnQLite(object):
                 &buf_size))
             value = buf[:buf_size]
             if str is not bytes:
-                value = value.decode('utf-8')
+                try:
+                    value = value.decode('utf-8')
+                except UnicodeDecodeError:
+                    pass
             return value
         finally:
             free(buf)
@@ -771,7 +774,10 @@ cdef class Cursor(object):
 
             key = buf[:buf_size]
             if str is not bytes:
-                key = key.decode('utf-8')
+                try:
+                    key = key.decode('utf-8')
+                except UnicodeDecodeError:
+                    pass
             return key
         finally:
             free(buf)
@@ -793,7 +799,10 @@ cdef class Cursor(object):
 
             value = buf[:buf_size]
             if str is not bytes:
-                value = value.decode('utf-8')
+                try:
+                    value = value.decode('utf-8')
+                except UnicodeDecodeError:
+                    pass
             return value
         finally:
             free(buf)
@@ -804,7 +813,6 @@ cdef class Cursor(object):
 
     def __next__(self):
         cdef int ret
-        cdef basestring key, value
 
         if self.consumed:
             raise StopIteration
@@ -1210,7 +1218,10 @@ cdef unqlite_value_to_python(unqlite_value *ptr):
     elif unqlite_value_is_string(ptr):
         value = unqlite_value_to_string(ptr, NULL)
         if str is not bytes:
-            value = value.decode('utf-8')
+            try:
+                value = value.decode('utf-8')
+            except UnicodeDecodeError:
+                pass
         return value
     elif unqlite_value_is_int(ptr):
         return unqlite_value_to_int64(ptr)
