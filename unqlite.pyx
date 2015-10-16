@@ -666,7 +666,7 @@ cdef class Transaction(object):
         else:
             try:
                 self.unqlite.commit()
-            except:
+            except Exception:
                 self.unqlite.rollback()
                 raise
 
@@ -812,7 +812,7 @@ cdef class Cursor(object):
         try:
             key = self.key()
             value = self.value()
-        except:
+        except Exception:
             raise StopIteration
         else:
             ret = unqlite_kv_cursor_next_entry(self.cursor)
@@ -1044,7 +1044,7 @@ cdef int py_filter_wrapper(unqlite_context *context, int nargs, unqlite_value **
 
     try:
         ret = py_filter_fn(*converted)
-    except:
+    except Exception:
         return UNQLITE_ABORT
     else:
         context_wrapper.push_result(ret)
