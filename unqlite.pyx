@@ -339,7 +339,7 @@ cdef class UnQLite(object):
                 raise NotImplementedError('Error disabling autocommit for '
                                           'in-memory database.')
 
-    cpdef store(self, basestring key, basestring value):
+    cpdef store(self, key, value):
         """Store key/value."""
         cdef bytes encoded_key
         cdef bytes encoded_value
@@ -360,7 +360,7 @@ cdef class UnQLite(object):
             <const char *>encoded_value,
             len(encoded_value)))
 
-    cpdef fetch(self, basestring key):
+    cpdef fetch(self, key):
         """Retrieve value at given key. Raises `KeyError` if key not found."""
         cdef char *buf = <char *>0
         cdef unqlite_int64 buf_size = 0
@@ -396,7 +396,7 @@ cdef class UnQLite(object):
         finally:
             free(buf)
 
-    cpdef delete(self, basestring key):
+    cpdef delete(self, key):
         """Delete the value stored at the given key."""
         cdef bytes encoded_key
 
@@ -408,7 +408,7 @@ cdef class UnQLite(object):
         self.check_call(unqlite_kv_delete(
             self.database, <char *>encoded_key, -1))
 
-    cpdef append(self, basestring key, basestring value):
+    cpdef append(self, key, value):
         """Append to the value stored in the given key."""
         cdef bytes encoded_key
         cdef bytes encoded_value
@@ -429,7 +429,7 @@ cdef class UnQLite(object):
             <const char *>encoded_value,
             len(encoded_value)))
 
-    cpdef exists(self, basestring key):
+    cpdef exists(self, key):
         cdef bytes encoded_key
         cdef char *buf = <char *>0
         cdef unqlite_int64 buf_size = 0
@@ -453,16 +453,16 @@ cdef class UnQLite(object):
 
         raise self._build_exception_for_error(ret)
 
-    def __setitem__(self, basestring key, basestring value):
+    def __setitem__(self, key, value):
         self.store(key, value)
 
-    def __getitem__(self, basestring key):
+    def __getitem__(self, key):
         return self.fetch(key)
 
-    def __delitem__(self, basestring key):
+    def __delitem__(self, key):
         self.delete(key)
 
-    def __contains__(self, basestring key):
+    def __contains__(self, key):
         return self.exists(key)
 
     cdef check_call(self, int result):
@@ -558,7 +558,6 @@ cdef class UnQLite(object):
         return Collection(self, name)
 
     cpdef update(self, dict values):
-        cdef basestring key
         for key in values:
             self.store(key, values[key])
 
@@ -598,7 +597,7 @@ cdef class UnQLite(object):
         cursor.reset()
         return cursor
 
-    def range(self, basestring start_key, basestring end_key,
+    def range(self, start_key, end_key,
                 bint include_end_key=True):
         cdef Cursor cursor = self.cursor()
         cursor.seek(start_key)
@@ -699,7 +698,7 @@ cdef class Cursor(object):
         """Reset the cursor's position."""
         unqlite_kv_cursor_reset(self.cursor)
 
-    cpdef seek(self, basestring key, int flags=UNQLITE_CURSOR_MATCH_EXACT):
+    cpdef seek(self, key, int flags=UNQLITE_CURSOR_MATCH_EXACT):
         """
         Seek to the given key. The flags specify how UnQLite will determine
         when to stop. Values are:
@@ -829,9 +828,7 @@ cdef class Cursor(object):
 
         return (key, value)
 
-    def fetch_until(self, basestring stop_key, bint include_stop_key=True):
-        cdef basestring key
-
+    def fetch_until(self, stop_key, bint include_stop_key=True):
         for key, value in self:
             if key == stop_key:
                 if include_stop_key:

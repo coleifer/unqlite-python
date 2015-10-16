@@ -193,10 +193,24 @@ class TestKeyValueStorage(BaseTestCase):
             self.assertEqual(db['foo'], 'bar')
             self.assertEqual(db['baz'], 'nug')
 
+    def test_byte_strings(self):
+        byte_data = [
+            (b'k\xe4se', b'sp\xe4tzle'),
+            (b'kn\xf6dli', b'br\xf6tli'),
+            (b'w\xfcrstel', b's\xfclzli')]
+        for db in (self.db, self.file_db):
+            for k, v in byte_data:
+                db.store(k, v)
+            for k, v in byte_data:
+                w = db.fetch(k)
+                self.assertTrue(isinstance(w, bytes))
+                self.assertEqual(w, v)
+
     def test_unicode_strings(self):
         unicode_data = [
-            (u('k\xe4se'), u('br\xf6tli')),
-            (u('w\xf6rstel'), u('kn\f6dli'))]
+            (u('k\xe4se'), u('sp\xe4tzle')),
+            (u('kn\xf6dli'), u('br\xf6tli')),
+            (u('w\xfcrstel'), u('s\xfclzli'))]
         for db in (self.db, self.file_db):
             for k, v in unicode_data:
                 db.store(k, v)
