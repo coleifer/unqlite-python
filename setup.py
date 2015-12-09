@@ -1,6 +1,6 @@
-import os
 
 from distutils.core import setup, Extension
+
 try:
     from Cython.Build import cythonize
 except ImportError:
@@ -9,7 +9,6 @@ except ImportError:
     warnings.warn('Cython not installed, using pre-generated C source file.')
 else:
     cython_installed = True
-
 
 if cython_installed:
     python_source = 'unqlite.pyx'
@@ -24,9 +23,33 @@ unqlite_extension = Extension(
 
 setup(
     name='unqlite',
-    version='0.4.1',
+    version='0.5dev',
     description='Fast Python bindings for the UnQLite embedded NoSQL database.',
     author='Charles Leifer',
     author_email='',
-    ext_modules=cythonize(unqlite_extension),
+    url='https://github.com/coleifer/unqlite-python',
+    license='MIT',
+    classifiers=[
+        'Development Status :: 3 - Alpha',
+        'Environment :: Web Environment',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: MIT License',
+        'Operating System :: OS Independent',
+        'Programming Language :: C',
+        'Programming Language :: Cython',
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 2.6',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.2',
+        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: Implementation :: CPython',
+        'Topic :: Database',
+        'Topic :: Database :: Database Engines/Servers',
+        'Topic :: Software Development :: Embedded Systems',
+        'Topic :: Software Development :: Libraries :: Python Modules'],
+    ext_modules=cythonize(unqlite_extension)
 )

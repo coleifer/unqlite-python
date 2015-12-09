@@ -21,11 +21,7 @@ UnQLite-Python features:
 * Supports key/value operations, cursors, and transactions using Pythonic APIs.
 * Support for Jx9 scripting.
 * APIs for working with Jx9 JSON document collections.
-
-Limitations:
-
-* Python 2.x only. No support for Python 3.
-* Not tested on Windoze.
+* Supports both Python 2 and Python 3.
 
 The previous version (0.2.0) of `unqlite-python` utilized `ctypes` to wrap the UnQLite C library. By switching to Cython, key/value, cursor and Jx9 collection operations are an order of magnitude faster. In particular, filtering collections using user-defined Python functions is now *much*, *much* more performant.
 
