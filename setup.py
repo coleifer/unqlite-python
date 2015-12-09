@@ -4,17 +4,10 @@ from distutils.core import setup, Extension
 try:
     from Cython.Build import cythonize
 except ImportError:
-    import warnings
-    cython_installed = False
-    warnings.warn('Cython not installed, using pre-generated C source file.')
-else:
-    cython_installed = True
+    raise RuntimeError('Cython must be installed to build unqlite-python.')
 
-if cython_installed:
-    python_source = 'unqlite.pyx'
-else:
-    python_source = 'unqlite.c'
-    cythonize = lambda obj: [obj]
+
+python_source = 'unqlite.pyx'
 library_source = 'src/unqlite.c'
 
 unqlite_extension = Extension(
