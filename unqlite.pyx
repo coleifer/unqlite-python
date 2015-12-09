@@ -11,6 +11,7 @@
 # ASCII art designed by "pils".
 from libc.stdlib cimport free, malloc
 
+import sys
 try:
     from os import fsencode
 except ImportError:
@@ -265,6 +266,15 @@ cdef extern from "src/unqlite.h":
     cdef int UNQLITE_VM_CONFIG_EXTRACT_OUTPUT = 13  # TWO ARGUMENTS: const void **ppOut, unsigned int *pOutputLen
 
 
+cdef bytes encode(obj):
+    if isinstance(obj, unicode):
+        return obj.encode('utf-8')
+    return bytes(obj)
+
+
+cdef bint IS_PY3K = sys.version_info[0] == 3
+
+
 cdef class UnQLite(object):
     """
     UnQLite database wrapper.
@@ -341,17 +351,8 @@ cdef class UnQLite(object):
 
     cpdef store(self, key, value):
         """Store key/value."""
-        cdef bytes encoded_key
-        cdef bytes encoded_value
-
-        if isinstance(key, unicode):
-            encoded_key = key.encode('utf-8')
-        else:
-            encoded_key = bytes(key)
-        if isinstance(value, unicode):
-            encoded_value = value.encode('utf-8')
-        else:
-            encoded_value = bytes(value)
+        cdef bytes encoded_key = encode(key)
+        cdef bytes encoded_value = encode(value)
 
         self.check_call(unqlite_kv_store(
             self.database,
@@ -364,12 +365,7 @@ cdef class UnQLite(object):
         """Retrieve value at given key. Raises `KeyError` if key not found."""
         cdef char *buf = <char *>0
         cdef unqlite_int64 buf_size = 0
-        cdef bytes encoded_key
-
-        if isinstance(key, unicode):
-            encoded_key = key.encode('utf-8')
-        else:
-            encoded_key = bytes(key)
+        cdef bytes encoded_key = encode(key)
 
         self.check_call(unqlite_kv_fetch(
             self.database,
@@ -387,7 +383,7 @@ cdef class UnQLite(object):
                 <void *>buf,
                 &buf_size))
             value = buf[:buf_size]
-            if str is not bytes:
+            if IS_PY3K:
                 try:
                     value = value.decode('utf-8')
                 except UnicodeDecodeError:
@@ -398,29 +394,15 @@ cdef class UnQLite(object):
 
     cpdef delete(self, key):
         """Delete the value stored at the given key."""
-        cdef bytes encoded_key
-
-        if isinstance(key, unicode):
-            encoded_key = key.encode('utf-8')
-        else:
-            encoded_key = bytes(key)
+        cdef bytes encoded_key = encode(key)
 
         self.check_call(unqlite_kv_delete(
             self.database, <char *>encoded_key, -1))
 
     cpdef append(self, key, value):
         """Append to the value stored in the given key."""
-        cdef bytes encoded_key
-        cdef bytes encoded_value
-
-        if isinstance(key, unicode):
-            encoded_key = key.encode('utf-8')
-        else:
-            encoded_key = bytes(key)
-        if isinstance(value, unicode):
-            encoded_value = value.encode('utf-8')
-        else:
-            encoded_value = bytes(value)
+        cdef bytes encoded_key = encode(key)
+        cdef bytes encoded_value = encode(value)
 
         self.check_call(unqlite_kv_append(
             self.database,
@@ -430,15 +412,10 @@ cdef class UnQLite(object):
             len(encoded_value)))
 
     cpdef exists(self, key):
-        cdef bytes encoded_key
+        cdef bytes encoded_key = encode(key)
         cdef char *buf = <char *>0
         cdef unqlite_int64 buf_size = 0
         cdef int ret
-
-        if isinstance(key, unicode):
-            encoded_key = key.encode('utf-8')
-        else:
-            encoded_key = bytes(key)
 
         ret = unqlite_kv_fetch(
             self.database,
@@ -502,17 +479,17 @@ cdef class UnQLite(object):
     cdef _get_last_error(self):
         cdef int ret
         cdef int size
-        cdef char buf[1024]
+        cdef char *zBuf
 
         ret = unqlite_config(
             self.database,
             UNQLITE_CONFIG_ERR_LOG,
-            &buf,
+            &zBuf,
             &size)
-        if ret != UNQLITE_OK:
+        if ret != UNQLITE_OK or size == 0:
             return None
 
-        return buf[:size]
+        return zBuf[:size]
 
     cpdef begin(self):
         """Begin a new transaction. Only works for file-based databases."""
@@ -549,11 +526,11 @@ cdef class UnQLite(object):
         """Create a cursor for iterating through the database."""
         return Cursor(self)
 
-    def vm(self, basestring code):
+    def vm(self, code):
         """Create an UnQLite Jx9 virtual machine."""
         return VM(self, code)
 
-    def collection(self, basestring name):
+    def collection(self, name):
         """Create a wrapper for working with Jx9 collections."""
         return Collection(self, name)
 
@@ -639,7 +616,7 @@ cdef class UnQLite(object):
         buf = <char *>malloc(nbytes * sizeof(char))
         try:
             unqlite_util_random_string(self.database, buf, nbytes)
-            return buf[:nbytes]
+            return bytes(buf[:nbytes])
         finally:
             free(buf)
 
@@ -707,12 +684,7 @@ cdef class Cursor(object):
         * UNQLITE_CURSOR_MATCH_LE
         * UNQLITE_CURSOR_MATCH_GE
         """
-        cdef bytes encoded_key
-
-        if isinstance(key, unicode):
-            encoded_key = key.encode('utf-8')
-        else:
-            encoded_key = bytes(key)
+        cdef bytes encoded_key = encode(key)
 
         self.unqlite.check_call(unqlite_kv_cursor_seek(
             self.cursor,
@@ -760,7 +732,6 @@ cdef class Cursor(object):
         cdef char *buf
         cdef int buf_size
 
-
         self.unqlite.check_call(
             unqlite_kv_cursor_key(self.cursor, <void *>0, &buf_size))
 
@@ -772,7 +743,7 @@ cdef class Cursor(object):
                 &buf_size)
 
             key = buf[:buf_size]
-            if str is not bytes:
+            if IS_PY3K:
                 try:
                     key = key.decode('utf-8')
                 except UnicodeDecodeError:
@@ -797,7 +768,7 @@ cdef class Cursor(object):
                 &buf_size)
 
             value = buf[:buf_size]
-            if str is not bytes:
+            if IS_PY3K:
                 try:
                     value = value.decode('utf-8')
                 except UnicodeDecodeError:
@@ -846,18 +817,15 @@ cdef class VM(object):
     """Jx9 virtual-machine interface."""
     cdef UnQLite unqlite
     cdef unqlite_vm *vm
-    cdef readonly basestring code
+    cdef readonly code
     cdef readonly bytes encoded_code
     cdef set encoded_names
 
-    def __cinit__(self, UnQLite unqlite, basestring code):
+    def __cinit__(self, UnQLite unqlite, code):
         self.unqlite = unqlite
         self.vm = <unqlite_vm *>0
         self.code = code
-        if isinstance(code, unicode):
-            self.encoded_code = code.encode('utf-8')
-        else:
-            self.encoded_code = bytes(code)
+        self.encoded_code = encode(code)
         self.encoded_names = set()
 
     def __dealloc__(self):
@@ -916,12 +884,8 @@ cdef class VM(object):
     def set_value(self, name, value):
         """Set the value of a variable in the Jx9 script."""
         cdef unqlite_value *ptr
-        cdef bytes encoded_name
+        cdef bytes encoded_name = encode(name)
 
-        if isinstance(name, unicode):
-            encoded_name = name.encode('utf-8')
-        else:
-            encoded_name = bytes(name)
         # since Jx9 does not make a private copy of the name,
         # we need to keep it alive by adding it to a set
         self.encoded_names.add(encoded_name)
@@ -942,12 +906,7 @@ cdef class VM(object):
         Jx9 script.
         """
         cdef unqlite_value *ptr
-        cdef bytes encoded_name
-
-        if isinstance(name, unicode):
-            encoded_name = name.encode('utf-8')
-        else:
-            encoded_name = bytes(name)
+        cdef bytes encoded_name = encode(name)
 
         ptr = unqlite_vm_extract_variable(self.vm, <const char *>encoded_name)
         if not ptr:
@@ -1214,7 +1173,7 @@ cdef unqlite_value_to_python(unqlite_value *ptr):
         return json_array
     elif unqlite_value_is_string(ptr):
         value = unqlite_value_to_string(ptr, NULL)
-        if str is not bytes:
+        if IS_PY3K:
             try:
                 value = value.decode('utf-8')
             except UnicodeDecodeError:
