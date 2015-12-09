@@ -22,6 +22,7 @@ setup(
     author_email='',
     url='https://github.com/coleifer/unqlite-python',
     license='MIT',
+    install_requires=['cython'],
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Environment :: Web Environment',
