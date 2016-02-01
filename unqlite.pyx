@@ -9,6 +9,8 @@
 #
 # Thanks to buaabyl for pyUnQLite, whose source-code this library is based on.
 # ASCII art designed by "pils".
+from cpython.string cimport PyString_AsStringAndSize
+from cpython.string cimport PyString_FromStringAndSize
 from libc.stdlib cimport free, malloc
 
 import sys
@@ -266,13 +268,18 @@ cdef extern from "src/unqlite.h":
     cdef int UNQLITE_VM_CONFIG_EXTRACT_OUTPUT = 13  # TWO ARGUMENTS: const void **ppOut, unsigned int *pOutputLen
 
 
+cdef bint IS_PY3K = sys.version_info[0] == 3
+
 cdef bytes encode(obj):
     if isinstance(obj, unicode):
         return obj.encode('utf-8')
+    elif isinstance(obj, bytes):
+        return obj
+    elif obj is None:
+        return obj
+    elif IS_PY3K:
+        return bytes(str(obj), 'utf-8')
     return bytes(obj)
-
-
-cdef bint IS_PY3K = sys.version_info[0] == 3
 
 
 cdef class UnQLite(object):
