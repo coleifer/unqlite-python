@@ -720,10 +720,11 @@ API Documentation
             >>> users[0]
             {'name': 'Charlie', 'color': 'green', '__id': 0}
 
-    .. py:method:: store(record)
+    .. py:method:: store(record[, return_id=True])
 
         :param record: Either a dictionary (single-record), or a list of dictionaries.
-        :returns: Boolean indicating if the record was stored successfully.
+        :param bool return_id: Return the ID of the newly-created object.
+        :returns: New object's ID, or a boolean indicating if the record was stored successfully.
 
         Store the record(s) in the collection.
 
