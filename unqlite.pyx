@@ -991,10 +991,10 @@ cdef class Context(object):
                     <const char *>key,
                     item_ptr)
                 self.release_value(item_ptr)
-        elif isinstance(python_value, (int, long)):
-            unqlite_value_int64(ptr, python_value)
         elif isinstance(python_value, bool):
             unqlite_value_bool(ptr, python_value)
+        elif isinstance(python_value, (int, long)):
+            unqlite_value_int64(ptr, python_value)
         elif isinstance(python_value, float):
             unqlite_value_double(ptr, python_value)
         else:
@@ -1222,10 +1222,10 @@ cdef python_to_unqlite_value(VM vm, unqlite_value *ptr, python_value):
                 <const char *>key,
                 item_ptr)
             vm.release_value(item_ptr)
-    elif isinstance(python_value, (int, long)):
-        unqlite_value_int64(ptr, python_value)
     elif isinstance(python_value, bool):
         unqlite_value_bool(ptr, python_value)
+    elif isinstance(python_value, (int, long)):
+        unqlite_value_int64(ptr, python_value)
     elif isinstance(python_value, float):
         unqlite_value_double(ptr, python_value)
     else:

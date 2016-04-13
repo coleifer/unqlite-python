@@ -564,6 +564,31 @@ class TestCollection(BaseTestCase):
         # Try storing in non-existent collection?
         self.assertRaises(ValueError, lambda: coll.store({'f': 'f'}))
 
+    def test_data_type_integrity(self):
+        coll = self.db.collection('testing')
+        coll.create()
+
+        self.assertEqual(coll.store({
+            'a': 'A',
+            'b': 2,
+            'c': 3.1,
+            'd': True,
+            'e': False,
+            'f': 0}), 0)
+
+        res = coll.fetch(coll.last_record_id())
+        self.assertEqual(res, {
+            'a': 'A',
+            'b': 2,
+            'c': 3.1,
+            'd': True,
+            'e': False,
+            'f': 0,
+            '__id': 0})
+        self.assertTrue(isinstance(res['d'], bool))
+        self.assertTrue(isinstance(res['e'], bool))
+        self.assertTrue(isinstance(res['f'], int))
+
 
 if __name__ == '__main__':
     unittest.main(argv=sys.argv)
