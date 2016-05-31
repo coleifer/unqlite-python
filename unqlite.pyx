@@ -282,6 +282,16 @@ cdef bytes encode(obj):
     return bytes(obj)
 
 
+class UnQLiteError(Exception):
+    def __init__(self, msg, errno):
+        self.errno = errno
+        self.error_message = msg
+        super(UnQLiteError, self).__init__(msg)
+
+    def __repr__(self):
+        return '<UnQLiteError %s: %s>' % (self.errno, self.error_message)
+
+
 cdef class UnQLite(object):
     """
     UnQLite database wrapper.
@@ -462,26 +472,20 @@ cdef class UnQLite(object):
 
         exc_map = {
             UNQLITE_NOMEM: MemoryError,
-            UNQLITE_IOERR: IOError,
-            UNQLITE_CORRUPT: IOError,
-            UNQLITE_LOCKED: IOError,
-            UNQLITE_BUSY: IOError,
-            UNQLITE_LOCKERR: IOError,
             UNQLITE_NOTIMPLEMENTED: NotImplementedError,
             UNQLITE_NOTFOUND: KeyError,
             UNQLITE_NOOP: NotImplementedError,
-            UNQLITE_EOF: IOError,
-            UNQLITE_FULL: IOError,
-            UNQLITE_CANTOPEN: IOError,
-            UNQLITE_READ_ONLY: IOError,
         }
 
-        exc_klass = exc_map.get(status, Exception)
-        if status != UNQLITE_NOTFOUND:
-            message = self._get_last_error()
+        if status in exc_map:
+            exc_klass = exc_map[status]
+            if status == UNQLITE_NOTFOUND:
+                message = 'key not found'
+            else:
+                message = self._get_last_error()
             return exc_klass(message)
         else:
-            return exc_klass()
+            return UnQLiteError(self._get_last_error(), status)
 
     cdef _get_last_error(self):
         cdef int ret
