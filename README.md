@@ -27,10 +27,10 @@ The previous version (0.2.0) of `unqlite-python` utilized `ctypes` to wrap the U
 
 Links:
 
-* [unqlite-python documentation](http://unqlite-python.readthedocs.org/)
+* [unqlite-python documentation](https://unqlite-python.readthedocs.io/)
 * [UnQLite's C API](http://unqlite.symisc.net/c_api.html)
 
-If you like UnQLite, you might also want to check out [Vedis](http://vedis.symisc.net), an embedded key/value database modeled after Redis (python bindings: [vedis-python](http://vedis-python.readthedocs.org)).
+If you like UnQLite, you might also want to check out [Vedis](http://vedis.symisc.net), an embedded key/value database modeled after Redis (python bindings: [vedis-python](https://vedis-python.readthedocs.io)).
 
 ## Installation
 
@@ -40,7 +40,7 @@ You can install unqlite using `pip`.
 
 ## Basic usage
 
-Below is a sample interactive console session designed to show some of the basic features and functionality of the unqlite-python library. Also check out the [full API documentation](http://unqlite-python.readthedocs.org/en/latest/api.html).
+Below is a sample interactive console session designed to show some of the basic features and functionality of the unqlite-python library. Also check out the [full API documentation](https://unqlite-python.readthedocs.io/en/latest/api.html).
 
 To begin, instantiate an ``UnQLite`` object. You can specify either the path to a database file, or use UnQLite as an in-memory database.
 
@@ -107,7 +107,7 @@ k2 => 2XXXX
 [('k0', '0'), ('k1', '1')]
 ```
 
-There are many different ways of interacting with cursors, which are described in the [Cursor API documentation](http://unqlite-python.readthedocs.org/en/latest/api.html#Cursor).
+There are many different ways of interacting with cursors, which are described in the [Cursor API documentation](https://unqlite-python.readthedocs.io/en/latest/api.html#Cursor).
 
 ### Document store features
 
@@ -141,7 +141,7 @@ True
 
 This is just a taste of what is possible with Jx9. In the near future I may add some wrappers around common Jx9 collection operations, but for now hopefully it is not too difficult to work with.
 
-More information can be found in the [VM API documentation](http://unqlite-python.readthedocs.org/en/latest/api.html#VM).
+More information can be found in the [VM API documentation](https://unqlite-python.readthedocs.io/en/latest/api.html#VM).
 
 ### Collections
 

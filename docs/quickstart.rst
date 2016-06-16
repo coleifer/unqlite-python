@@ -3,7 +3,7 @@
 Quick-start
 ===========
 
-Below is a sample interactive console session designed to show some of the basic features and functionality of the unqlite-python library. Also check out the `full API documentation <http://unqlite-python.readthedocs.org/en/latest/api.html>`_.
+Below is a sample interactive console session designed to show some of the basic features and functionality of the unqlite-python library. Also check out the `full API documentation <https://unqlite-python.readthedocs.io/en/latest/api.html>`_.
 
 To begin, instantiate an :py:class:`UnQLite` object. You can specify either the path to a database file, or use UnQLite as an in-memory database.
 
