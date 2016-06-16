@@ -37,7 +37,7 @@ The source code for unqlite-python is `hosted on GitHub <https://github.com/cole
   If you encounter any bugs in the library, please `open an issue <https://github.com/coleifer/unqlite-python/issues/new>`_, including a description of the bug and any related traceback.
 
 .. note::
-  If you like UnQLite, you might also want to check out `Vedis <http://vedis.symisc.net>`_, an embedded key/value database modeled after Redis (python bindings: `vedis-python <http://vedis-python.readthedocs.org>`_).
+  If you like UnQLite, you might also want to check out `Vedis <http://vedis.symisc.net>`_, an embedded key/value database modeled after Redis (python bindings: `vedis-python <https://vedis-python.readthedocs.io>`_).
 
 Contents:
 
