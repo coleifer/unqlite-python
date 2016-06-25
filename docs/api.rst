@@ -634,10 +634,10 @@ API Documentation
         >>> users.store({'name': 'Leslie', 'color': 'also green'})
         True
 
-        >>> users.fetch(0)  # Fetch the first record.
+        >>> users.fetch(0)  # Fetch the first record (user "__id" = 0).
         {'__id': 0, 'color': 'green', 'name': 'Charlie'}
 
-        >>> users.delete(0)  # Delete the first record.
+        >>> users.delete(0)  # Delete the first record (user "__id" = 0).
         True
         >>> users.delete(users.last_record_id())  # Delete the last record.
         True
@@ -707,7 +707,7 @@ API Documentation
         .. code-block:: pycon
 
             >>> users = db.collection('users')
-            >>> users.fetch(0)  # Fetch the first record in the collection
+            >>> users.fetch(0)  # Fetch the first record in collection (id=0).
             {'name': 'Charlie', 'color': 'green', '__id': 0}
 
             >>> users[1]  # You can also use dictionary-style lookup.

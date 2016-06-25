@@ -137,10 +137,10 @@ You can use the :py:meth:`Collection.store` method to add one or many records. T
     >>> users.store({'name': 'Leslie', 'color': 'also green'})
     True
 
-    >>> users.fetch(0)  # Fetch the first record.
+    >>> users.fetch(0)  # Fetch the first record, user with "__id" = 0.
     {'__id': 0, 'color': 'green', 'name': 'Charlie'}
 
-    >>> users.delete(0)  # Delete the first record.
+    >>> users.delete(0)  # Delete the first record (user "__id" = 0).
     True
     >>> users.delete(users.last_record_id())  # Delete the last record.
     True
