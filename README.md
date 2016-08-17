@@ -1,3 +1,11 @@
+# WARNING
+
+**Read the issue tracker for this project** before considering using it. There
+are serious bugs and the project's maintainers do not seem to be very
+forthright about the issues. I strongly urge you to use a different database.
+
+------------------------------------
+
 ![](http://media.charlesleifer.com/blog/photos/unqlite-python-logo.png)
 
 Fast Python bindings for [UnQLite](http://unqlite.org/), a lightweight, embedded NoSQL database and JSON document store.
