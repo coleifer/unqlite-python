@@ -1,8 +1,8 @@
 # WARNING
 
-**Read the issue tracker for this project** before considering using it. There
-are serious bugs and the project's maintainers do not seem to be very
-forthright about the issues. I strongly urge you to use a different database.
+**Read the issue tracker for [this database](https://github.com/symisc/unqlite/issues/)** before considering using it. There
+are serious bugs and Symisc, UnQLite's maintainers, do not seem to be very
+forthright about these issues. I strongly urge you to use a different database. [Example issue](https://github.com/symisc/unqlite/issues/41). Check here for a comprehensive list of embedded databases: http://engine.so/
 
 ------------------------------------
 
