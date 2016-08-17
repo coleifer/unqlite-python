@@ -417,6 +417,24 @@ class TestJx9(BaseTestCase):
             ])
 
 
+class TestCursorSilentError(BaseTestCase):
+    def test_double_iteration_miscount(self):
+        val = 'x' * 100
+        for i in range(500):
+            self.db['k%07d' % i] = val
+
+        self.assertEqual(
+            len([k for k in self.db]),
+            len([k for k in self.db]))
+
+        self.db.close()
+        self.db.open()
+
+        self.assertEqual(
+            len([k for k in self.db]),
+            len([k for k in self.db]))
+
+
 class TestUtils(BaseTestCase):
     def test_random(self):
         ri = self.db.random_int()
