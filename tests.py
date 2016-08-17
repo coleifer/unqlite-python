@@ -419,20 +419,22 @@ class TestJx9(BaseTestCase):
 
 class TestCursorSilentError(BaseTestCase):
     def test_double_iteration_miscount(self):
+        db = self.file_db
         val = 'x' * 100
         for i in range(500):
-            self.db['k%07d' % i] = val
+            db['k%07d' % i] = val
 
         self.assertEqual(
-            len([k for k in self.db]),
-            len([k for k in self.db]))
+            len([k for k in db]),
+            len([k for k in db]))
 
-        self.db.close()
-        self.db.open()
+        db.close()
+        db.open()
 
+        # Raising "AssertionError: 500 != 490". What the fucking fuck.
         self.assertEqual(
-            len([k for k in self.db]),
-            len([k for k in self.db]))
+            len([k for k in db]),
+            len([k for k in db]))
 
 
 class TestUtils(BaseTestCase):
