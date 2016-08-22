@@ -1,4 +1,4 @@
-
+import glob
 from distutils.core import setup, Extension
 
 try:
@@ -8,11 +8,11 @@ except ImportError:
 
 
 python_source = 'unqlite.pyx'
-library_source = 'src/unqlite.c'
+library_source = glob.glob('src/*.c')
 
 unqlite_extension = Extension(
     'unqlite',
-    sources=[python_source, library_source])
+    sources=[python_source] + library_source)
 
 setup(
     name='unqlite',
