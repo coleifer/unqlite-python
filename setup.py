@@ -1,12 +1,6 @@
 import glob
 from distutils.core import setup, Extension
 
-try:
-    from Cython.Build import cythonize
-except ImportError:
-    raise RuntimeError('Cython must be installed to build unqlite-python.')
-
-
 python_source = 'unqlite.pyx'
 library_source = glob.glob('src/*.c')
 
@@ -45,5 +39,5 @@ setup(
         'Topic :: Database :: Database Engines/Servers',
         'Topic :: Software Development :: Embedded Systems',
         'Topic :: Software Development :: Libraries :: Python Modules'],
-    ext_modules=cythonize(unqlite_extension)
+    ext_modules=[unqlite_extension]
 )
