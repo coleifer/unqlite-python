@@ -1,14 +1,11 @@
-# WARNING
-
-**Read the issue tracker for [this database](https://github.com/symisc/unqlite/issues/)** before considering using it. There
-are serious bugs and Symisc, UnQLite's maintainers, do not seem to be very
-forthright about these issues. I strongly urge you to use a different database. [Example issue](https://github.com/symisc/unqlite/issues/41). Check here for a comprehensive list of embedded databases: http://engine.so/
-
-------------------------------------
-
 ![](http://media.charlesleifer.com/blog/photos/unqlite-python-logo.png)
 
 Fast Python bindings for [UnQLite](http://unqlite.org/), a lightweight, embedded NoSQL database and JSON document store.
+
+### Please note
+
+**Read the issue tracker for [this database](https://github.com/symisc/unqlite/issues/)**
+before considering using it.
 
 ### Features
 
