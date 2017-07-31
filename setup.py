@@ -45,5 +45,5 @@ setup(
         'Topic :: Database :: Database Engines/Servers',
         'Topic :: Software Development :: Embedded Systems',
         'Topic :: Software Development :: Libraries :: Python Modules'],
-    ext_modules=cythonize(unqlite_extension)
+    ext_modules=cythonize([unqlite_extension])
 )
