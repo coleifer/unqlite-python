@@ -1,6 +1,6 @@
 /*
  * Symisc unQLite: An Embeddable NoSQL (Post Modern) Database Engine.
- * Copyright (C) 2012-2013, Symisc Systems http://unqlite.org/
+ * Copyright (C) 2012-2018, Symisc Systems http://unqlite.org/
  * Copyright (C) 2014, Yuras Shumovich <shumovichy@gmail.com>
  * Version 1.1.6
  * For information on licensing, redistribution of this file, and for a DISCLAIMER OF ALL WARRANTIES
@@ -1133,8 +1133,8 @@ static int lhPageDefragment(lhpage *pPage)
 	lhcell *pCell;
 	/* Get a temporary page from the pager. This opertaion never fail */
 	zTmp = pEngine->pIo->xTmpPage(pEngine->pIo->pHandle);
-	/* Move the target cells to the begining */
-	pCell = pPage->pList;
+	/* Move the target cells to the beginning */
+	pCell = pPage->pMaster->pList;
 	/* Write the slave page number */
 	SyBigEndianPack64(&zTmp[2/*Offset of the first cell */+2/*Offset of the first free block */],pPage->sHdr.iSlave);
 	zPtr = &zTmp[L_HASH_PAGE_HDR_SZ]; /* Offset to start writing from */
@@ -1430,11 +1430,11 @@ static int lhCellWriteOvflPayload(lhcell *pCell,const void *pKey,sxu32 nKeylen,.
 		sxu32 nDatalen;
 		sxu64 nData;
 		pData = va_arg(ap,const void *);
-		nData = va_arg(ap,sxu64);
 		if( pData == 0 ){
 			/* No more chunks */
 			break;
 		}
+		nData = va_arg(ap,sxu64);
 		/* Write this chunk */
 		zPtr = (const unsigned char *)pData;
 		zEnd = &zPtr[nData];
