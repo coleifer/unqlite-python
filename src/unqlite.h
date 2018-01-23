@@ -1,10 +1,14 @@
 /* This file was automatically generated.  Do not edit (Except for compile time directives)! */ 
 #ifndef _UNQLITE_H_
 #define _UNQLITE_H_
+/* Make sure we can call this stuff from C++ */
+#ifdef __cplusplus
+ extern "C" {
+#endif 
 /*
  * Symisc UnQLite: An Embeddable NoSQL (Post Modern) Database Engine.
- * Copyright (C) 2012-2013, Symisc Systems http://unqlite.org/
- * Version 1.1.6
+ * Copyright (C) 2012-2018, Symisc Systems http://unqlite.org/
+ * Version 1.1.8
  * For information on licensing, redistribution of this file, and for a DISCLAIMER OF ALL WARRANTIES
  * please contact Symisc Systems via:
  *       legal@symisc.net
@@ -14,7 +18,7 @@
  *      http://unqlite.org/licensing.html
  */
 /*
- * Copyright (C) 2012, 2013 Symisc Systems, S.U.A.R.L [M.I.A.G Mrad Chems Eddine <chm@symisc.net>].
+ * Copyright (C) 2012, 2018 Symisc Systems, S.U.A.R.L [M.I.A.G Mrad Chems Eddine <chm@symisc.net>].
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -38,7 +42,7 @@
  * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
- /* $SymiscID: unqlite.h v1.1 UNIX|WIN32/64 2012-11-02 02:10 stable <chm@symisc.net> $ */
+ /* $SymiscID: unqlite.h v1.2 Win10 2108-01-21 23:59:12 stable <chm@symisc.net>  $ */
 #include <stdarg.h> /* needed for the definition of va_list */
 /*
  * Compile time engine version, signature, identification in the symisc source tree
@@ -54,13 +58,13 @@
  * version number and Y is the minor version number and Z is the release
  * number.
  */
-#define UNQLITE_VERSION "1.1.6"
+#define UNQLITE_VERSION "1.1.8"
 /*
  * The UNQLITE_VERSION_NUMBER C preprocessor macro resolves to an integer
  * with the value (X*1000000 + Y*1000 + Z) where X, Y, and Z are the same
  * numbers used in [UNQLITE_VERSION].
  */
-#define UNQLITE_VERSION_NUMBER 1001006
+#define UNQLITE_VERSION_NUMBER 1001008
 /*
  * The UNQLITE_SIG C preprocessor macro evaluates to a string
  * literal which is the public signature of the unqlite engine.
@@ -68,7 +72,7 @@
  * generated Server MIME header as follows:
  *   Server: YourWebServer/x.x unqlite/x.x.x \r\n
  */
-#define UNQLITE_SIG "unqlite/1.1.6"
+#define UNQLITE_SIG "unqlite/1.1.8"
 /*
  * UnQLite identification in the Symisc source tree:
  * Each particular check-in of a particular software released
@@ -85,11 +89,8 @@
  *   licensing@symisc.net
  *   contact@symisc.net
  */
-#define UNQLITE_COPYRIGHT "Copyright (C) Symisc Systems, S.U.A.R.L [Mrad Chems Eddine <chm@symisc.net>] 2012-2013, http://unqlite.org/"
-/* Make sure we can call this stuff from C++ */
-#ifdef __cplusplus
-extern "C" { 
-#endif
+#define UNQLITE_COPYRIGHT "Copyright (C) Symisc Systems, S.U.A.R.L [Mrad Chems Eddine <chm@symisc.net>] 2012-2018, http://unqlite.org/"
+
 /* Forward declaration to public objects */
 typedef struct unqlite_io_methods unqlite_io_methods;
 typedef struct unqlite_kv_methods unqlite_kv_methods;
@@ -806,9 +807,6 @@ UNQLITE_APIEXPORT int unqlite_open(unqlite **ppDB,const char *zFilename,unsigned
 UNQLITE_APIEXPORT int unqlite_config(unqlite *pDb,int nOp,...);
 UNQLITE_APIEXPORT int unqlite_close(unqlite *pDb);
 
-/* Memory Allocation */
-UNQLITE_APIEXPORT void* unqlite_malloc(unsigned int nByte);
-UNQLITE_APIEXPORT void unqlite_free(void *p);
 
 /* Key/Value (KV) Store Interfaces */
 UNQLITE_APIEXPORT int unqlite_kv_store(unqlite *pDb,const void *pKey,int nKeyLen,const void *pData,unqlite_int64 nDataLen);
@@ -953,6 +951,6 @@ UNQLITE_APIEXPORT const char * unqlite_lib_signature(void);
 UNQLITE_APIEXPORT const char * unqlite_lib_ident(void);
 UNQLITE_APIEXPORT const char * unqlite_lib_copyright(void);
 #ifdef __cplusplus
-}
-#endif /* __cplusplus */
+ }
+#endif
 #endif /* _UNQLITE_H_ */
