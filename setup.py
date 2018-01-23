@@ -8,7 +8,7 @@ except ImportError:
 
 
 python_source = 'unqlite.pyx'
-library_source = glob.glob('src/*.c')
+library_source = ['src/unqlite.c']
 
 unqlite_extension = Extension(
     'unqlite',
