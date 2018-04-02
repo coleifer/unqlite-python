@@ -9,8 +9,11 @@
 #
 # Thanks to buaabyl for pyUnQLite, whose source-code this library is based on.
 # ASCII art designed by "pils".
+from cpython.bytes cimport PyBytes_Check
 from cpython.string cimport PyString_AsStringAndSize
 from cpython.string cimport PyString_FromStringAndSize
+from cpython.unicode cimport PyUnicode_AsUTF8String
+from cpython.unicode cimport PyUnicode_Check
 from libc.stdlib cimport free, malloc
 
 import sys
@@ -270,16 +273,19 @@ cdef extern from "src/unqlite.h":
 
 cdef bint IS_PY3K = sys.version_info[0] == 3
 
-cdef bytes encode(obj):
-    if isinstance(obj, unicode):
-        return obj.encode('utf-8')
-    elif isinstance(obj, bytes):
-        return obj
+cdef inline bytes encode(obj):
+    cdef bytes result
+    if PyUnicode_Check(obj):
+        result = PyUnicode_AsUTF8String(obj)
+    elif PyBytes_Check(obj):
+        result = <bytes>obj
     elif obj is None:
-        return obj
+        return None
     elif IS_PY3K:
-        return bytes(str(obj), 'utf-8')
-    return bytes(obj)
+        result = PyUnicode_AsUTF8String(str(obj))
+    else:
+        result = bytes(obj)
+    return result
 
 
 class UnQLiteError(Exception):

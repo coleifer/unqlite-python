@@ -2,6 +2,7 @@ include README.md
 include LICENSE
 include src/*.c
 include src/*.h
+include unqlite.c
 include unqlite.pyx
 include tests.py
 recursive-include docs *
