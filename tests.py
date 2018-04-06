@@ -566,6 +566,14 @@ class TestCollection(BaseTestCase):
             {'__id': 11, 'val': 11},
         ])
 
+        kv = self.db.collection('kv')
+        kv.create()
+        for i in range(1, 10):
+            kv.store({'k%d' % i: 'v%d' % i})
+
+        filtered = kv.filter(lambda obj: obj.get('k1') == 'v1')
+        self.assertEqual(filtered, [{'__id': 0, 'k1': 'v1'}])
+
     def test_odd_values_mem(self):
         self._test_odd_values(self.db)
 
