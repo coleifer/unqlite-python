@@ -1025,11 +1025,13 @@ cdef int py_filter_wrapper(unqlite_context *context, int nargs, unqlite_value **
 
     try:
         ret = py_filter_fn(*converted)
+    except KeyError:
+        context_wrapper.push_result(False)
     except Exception:
         return UNQLITE_ABORT
     else:
         context_wrapper.push_result(ret)
-        return UNQLITE_OK
+    return UNQLITE_OK
 
 
 cdef class Collection(object):
