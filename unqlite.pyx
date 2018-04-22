@@ -325,7 +325,7 @@ cdef class UnQLite(object):
         if isinstance(filename, unicode):
             self.encoded_filename = fsencode(filename)
         else:
-            self.encoded_filename = bytes(filename)
+            self.encoded_filename = encode(filename)
         self.flags = flags
         self.is_memory = filename == ':mem:'
         self.open_database = open_database
@@ -336,8 +336,7 @@ cdef class UnQLite(object):
         """Open database connection."""
         cdef int ret
 
-        if self.is_open:
-            self.close()
+        if self.is_open: return False
 
         self.check_call(unqlite_open(
             &self.database,
@@ -345,13 +344,16 @@ cdef class UnQLite(object):
             self.flags))
 
         self.is_open = True
+        return True
 
     def close(self):
         """Close database connection."""
-        if self.is_open:
-            self.check_call(unqlite_close(self.database))
-            self.is_open = 0
-            self.database = <unqlite *>0
+        if not self.is_open: return False
+
+        self.check_call(unqlite_close(self.database))
+        self.is_open = False
+        self.database = <unqlite *>0
+        return True
 
     def __enter__(self):
         """Use database connection as a context manager."""
@@ -363,14 +365,16 @@ cdef class UnQLite(object):
         self.close()
 
     cpdef disable_autocommit(self):
-        if not self.is_memory:
-            # Disable autocommit for file-based databases.
-            ret = unqlite_config(
-                self.database,
-                UNQLITE_CONFIG_DISABLE_AUTO_COMMIT)
-            if ret != UNQLITE_OK:
-                raise NotImplementedError('Error disabling autocommit for '
-                                          'in-memory database.')
+        if self.is_memory: return False
+
+        # Disable autocommit for file-based databases.
+        ret = unqlite_config(
+            self.database,
+            UNQLITE_CONFIG_DISABLE_AUTO_COMMIT)
+        if ret != UNQLITE_OK:
+            raise NotImplementedError('Error disabling autocommit for '
+                                      'in-memory database.')
+        return True
 
     cpdef store(self, key, value):
         """Store key/value."""
@@ -406,11 +410,6 @@ cdef class UnQLite(object):
                 <void *>buf,
                 &buf_size))
             value = buf[:buf_size]
-            if IS_PY3K:
-                try:
-                    value = value.decode('utf-8')
-                except UnicodeDecodeError:
-                    pass
             return value
         finally:
             free(buf)
@@ -510,24 +509,24 @@ cdef class UnQLite(object):
 
     cpdef begin(self):
         """Begin a new transaction. Only works for file-based databases."""
-        if self.is_memory:
-            return
+        if self.is_memory: return False
 
         self.check_call(unqlite_begin(self.database))
+        return True
 
     cpdef commit(self):
         """Commit current transaction. Only works for file-based databases."""
-        if self.is_memory:
-            return
+        if self.is_memory: return False
 
         self.check_call(unqlite_commit(self.database))
+        return True
 
     cpdef rollback(self):
         """Rollback current transaction. Only works for file-based databases."""
-        if self.is_memory:
-            return
+        if self.is_memory: return False
 
         self.check_call(unqlite_rollback(self.database))
+        return True
 
     def transaction(self):
         """Create context manager for wrapping a transaction."""
@@ -594,9 +593,13 @@ cdef class UnQLite(object):
     def range(self, start_key, end_key,
                 bint include_end_key=True):
         cdef Cursor cursor = self.cursor()
-        cursor.seek(start_key)
-        for item in cursor.fetch_until(end_key, include_end_key):
-            yield item
+        try:
+            cursor.seek(start_key)
+        except KeyError:
+            pass
+        else:
+            for item in cursor.fetch_until(end_key, include_end_key):
+                yield item
 
     def __len__(self):
         """
@@ -760,12 +763,10 @@ cdef class Cursor(object):
                 &buf_size)
 
             key = buf[:buf_size]
-            if IS_PY3K:
-                try:
-                    key = key.decode('utf-8')
-                except UnicodeDecodeError:
-                    pass
-            return key
+            try:
+                return key.decode('utf-8')
+            except UnicodeDecodeError:
+                return key
         finally:
             free(buf)
 
@@ -785,11 +786,6 @@ cdef class Cursor(object):
                 &buf_size)
 
             value = buf[:buf_size]
-            if IS_PY3K:
-                try:
-                    value = value.decode('utf-8')
-                except UnicodeDecodeError:
-                    pass
             return value
         finally:
             free(buf)
@@ -1191,13 +1187,7 @@ cdef unqlite_value_to_python(unqlite_value *ptr):
             <void *>json_array)
         return json_array
     elif unqlite_value_is_string(ptr):
-        value = unqlite_value_to_string(ptr, NULL)
-        if IS_PY3K:
-            try:
-                value = value.decode('utf-8')
-            except UnicodeDecodeError:
-                pass
-        return value
+        return unqlite_value_to_string(ptr, NULL)
     elif unqlite_value_is_int(ptr):
         return unqlite_value_to_int64(ptr)
     elif unqlite_value_is_float(ptr):
@@ -1251,4 +1241,9 @@ cdef int unqlite_value_to_list(unqlite_value *key, unqlite_value *value, void *u
 cdef int unqlite_value_to_dict(unqlite_value *key, unqlite_value *value, void *user_data):
     cdef dict accum
     accum = <dict>user_data
-    accum[unqlite_value_to_python(key)] = unqlite_value_to_python(value)
+    pkey = unqlite_value_to_python(key)
+    try:
+        pkey = pkey.decode('utf-8')
+    except UnicodeDecodeError:
+        pass
+    accum[pkey] = unqlite_value_to_python(value)

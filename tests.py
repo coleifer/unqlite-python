@@ -52,8 +52,8 @@ class TestKeyValueStorage(BaseTestCase):
         for db in (self.db, self.file_db):
             db.store('k1', 'v1')
             db.store('k2', 'v2')
-            self.assertEqual(db.fetch('k1'), 'v1')
-            self.assertEqual(db.fetch('k2'), 'v2')
+            self.assertEqual(db.fetch('k1'), b'v1')
+            self.assertEqual(db.fetch('k2'), b'v2')
             self.assertRaises(KeyError, db.fetch, 'k3')
 
             db.delete('k2')
@@ -66,8 +66,8 @@ class TestKeyValueStorage(BaseTestCase):
         for db in (self.db, self.file_db):
             db['k1'] = 'v1'
             db['k2'] = 'v2'
-            self.assertEqual(db['k1'], 'v1')
-            self.assertEqual(db['k2'], 'v2')
+            self.assertEqual(db['k1'], b'v1')
+            self.assertEqual(db['k2'], b'v2')
             self.assertRaises(KeyError, lambda: db['k3'])
 
             del db['k2']
@@ -79,19 +79,19 @@ class TestKeyValueStorage(BaseTestCase):
     def test_append(self):
         self.db['k1'] = 'v1'
         self.db.append('k1', 'V1')
-        self.assertEqual(self.db['k1'], 'v1V1')
+        self.assertEqual(self.db['k1'], b'v1V1')
 
         self.db.append('k2', 'V2')
-        self.assertEqual(self.db['k2'], 'V2')
+        self.assertEqual(self.db['k2'], b'V2')
 
     def test_iteration(self):
         self.store_range(4, self.db)
         data = [item for item in self.db]
         self.assertEqual(data, [
-            ('k0', '0'),
-            ('k1', '1'),
-            ('k2', '2'),
-            ('k3', '3'),
+            ('k0', b'0'),
+            ('k1', b'1'),
+            ('k2', b'2'),
+            ('k3', b'3'),
         ])
 
         del self.db['k2']
@@ -101,10 +101,10 @@ class TestKeyValueStorage(BaseTestCase):
         self.store_range(4, self.file_db)
         data = [item for item in self.file_db]
         self.assertEqual(data, [
-            ('k3', '3'),
-            ('k2', '2'),
-            ('k1', '1'),
-            ('k0', '0'),
+            ('k3', b'3'),
+            ('k2', b'2'),
+            ('k1', b'1'),
+            ('k0', b'0'),
         ])
 
         del self.file_db['k2']
@@ -114,40 +114,38 @@ class TestKeyValueStorage(BaseTestCase):
         self.store_range(10, self.db)
         data = [item for item in self.db.range('k4', 'k6')]
         self.assertEqual(data, [
-            ('k4', '4'),
-            ('k5', '5'),
-            ('k6', '6'),
+            ('k4', b'4'),
+            ('k5', b'5'),
+            ('k6', b'6'),
         ])
 
         data = [item for item in self.db.range('k8', 'kX')]
         self.assertEqual(data, [
-            ('k8', '8'),
-            ('k9', '9'),
+            ('k8', b'8'),
+            ('k9', b'9'),
         ])
 
-        def invalid_start():
-            data = [item for item in self.db.range('kx', 'k2')]
-        self.assertRaises(KeyError, invalid_start)
+        invalid_start = [item for item in self.db.range('kx', 'k2')]
+        self.assertEqual(invalid_start, [])
 
     def test_file_range(self):
         self.store_range(10, self.file_db)
         data = [item for item in self.file_db.range('k6', 'k4')]
         self.assertEqual(data, [
-            ('k6', '6'),
-            ('k5', '5'),
-            ('k4', '4'),
+            ('k6', b'6'),
+            ('k5', b'5'),
+            ('k4', b'4'),
         ])
 
         data = [item for item in self.file_db.range('k2', 'k0')]
         self.assertEqual(data, [
-            ('k2', '2'),
-            ('k1', '1'),
-            ('k0', '0'),
+            ('k2', b'2'),
+            ('k1', b'1'),
+            ('k0', b'0'),
         ])
 
-        def invalid_start():
-            data = [item for item in self.file_db.range('kx', 'k2')]
-        self.assertRaises(KeyError, invalid_start)
+        invalid_start = [item for item in self.file_db.range('kx', 'k2')]
+        self.assertEqual(invalid_start, [])
 
     def test_flush(self):
         for db in (self.db, self.file_db):
@@ -171,7 +169,7 @@ class TestKeyValueStorage(BaseTestCase):
         self.file_db['k1'] = 'v1'
         self.file_db.close()
         self.file_db.open()
-        self.assertEqual(self.file_db['k1'], 'v1')
+        self.assertEqual(self.file_db['k1'], b'v1')
 
         self.file_db.disable_autocommit()
         self.file_db['k2'] = 'v2'
@@ -183,15 +181,15 @@ class TestKeyValueStorage(BaseTestCase):
         for db in (self.db, self.file_db):
             self.store_range(3, db)
             self.assertEqual(sorted(db.keys()), ['k0', 'k1', 'k2'])
-            self.assertEqual(sorted(db.values()), ['0', '1', '2'])
+            self.assertEqual(sorted(db.values()), [b'0', b'1', b'2'])
             self.assertEqual(sorted(db.items()), [
-                ('k0', '0'),
-                ('k1', '1'),
-                ('k2', '2')])
+                ('k0', b'0'),
+                ('k1', b'1'),
+                ('k2', b'2')])
 
             db.update({'foo': 'bar', 'baz': 'nug'})
-            self.assertEqual(db['foo'], 'bar')
-            self.assertEqual(db['baz'], 'nug')
+            self.assertEqual(db['foo'], b'bar')
+            self.assertEqual(db['baz'], b'nug')
 
     def test_byte_strings(self):
         byte_data = [
@@ -204,21 +202,6 @@ class TestKeyValueStorage(BaseTestCase):
             for k, v in byte_data:
                 w = db.fetch(k)
                 self.assertTrue(isinstance(w, bytes))
-                self.assertEqual(w, v)
-
-    def test_unicode_strings(self):
-        unicode_data = [
-            (u('k\xe4se'), u('sp\xe4tzle')),
-            (u('kn\xf6dli'), u('br\xf6tli')),
-            (u('w\xfcrstel'), u('s\xfclzli'))]
-        for db in (self.db, self.file_db):
-            for k, v in unicode_data:
-                db.store(k, v)
-            for k, v in unicode_data:
-                w = db.fetch(k)
-                self.assertTrue(isinstance(w, str))
-                if str is bytes:
-                    w = w.decode('utf-8')
                 self.assertEqual(w, v)
 
 
@@ -238,7 +221,7 @@ class TestTransaction(BaseTestCase):
             raise Exception('intentional exception raised')
 
         _test_success('k1', 'v1')
-        self.assertEqual(self.file_db['k1'], 'v1')
+        self.assertEqual(self.file_db['k1'], b'v1')
 
         self.assertRaises(Exception , lambda: _test_failure('k2', 'v2'))
         self.assertRaises(KeyError, lambda: self.file_db['k2'])
@@ -247,10 +230,10 @@ class TestTransaction(BaseTestCase):
         with self.file_db.transaction():
             self.file_db['foo'] = 'bar'
 
-        self.assertEqual(self.file_db['foo'], 'bar')
+        self.assertEqual(self.file_db['foo'], b'bar')
 
         with self.file_db.transaction():
-            self.file_db['baz'] = 'nug'
+            self.file_db['baz'] = b'nug'
             self.file_db.rollback()
 
         self.assertRaises(KeyError, lambda: self.file_db['baz'])
@@ -274,7 +257,7 @@ class TestCursor(BaseTestCase):
     def assertIndex(self, cursor, idx):
         self.assertTrue(cursor.is_valid())
         self.assertEqual(cursor.key(), 'k%d' % idx)
-        self.assertEqual(cursor.value(), str(idx))
+        self.assertEqual(cursor.value(), str(idx).encode('utf-8'))
 
     def test_cursor_basic(self):
         cursor = self.db.cursor()
@@ -315,19 +298,19 @@ class TestCursor(BaseTestCase):
             cursor.reset()
             results = [item for item in cursor]
             self.assertEqual(results, [
-                ('k0', '0'),
-                ('k1', '1'),
-                ('k2', '2'),
-                ('k3', '3'),
-                ('k5', '5'),
-                ('k6', '6'),
-                ('k7', '7'),
-                ('k8', '8'),
-                ('k9', '9'),
+                ('k0', b'0'),
+                ('k1', b'1'),
+                ('k2', b'2'),
+                ('k3', b'3'),
+                ('k5', b'5'),
+                ('k6', b'6'),
+                ('k7', b'7'),
+                ('k8', b'8'),
+                ('k9', b'9'),
             ])
 
             cursor.seek('k5')
-            self.assertEqual(cursor.value(), '5')
+            self.assertEqual(cursor.value(), b'5')
             keys = [key for key, _ in cursor]
             self.assertEqual(keys, ['k5', 'k6', 'k7', 'k8', 'k9'])
 
@@ -381,18 +364,18 @@ class TestJx9(BaseTestCase):
             vm.execute()
             self.assertEqual(vm['huey_id'], 0)
             self.assertEqual(vm['mickey_id'], 1)
-            self.assertEqual(vm['something'], 'hello world')
+            self.assertEqual(vm['something'], b'hello world')
 
             users = vm['users']
             self.assertEqual(users, [
-                {'__id': 0, 'age': 3, 'username': 'huey'},
-                {'__id': 1, 'age': 5, 'username': 'mickey'},
+                {'__id': 0, 'age': 3, 'username': b'huey'},
+                {'__id': 1, 'age': 5, 'username': b'mickey'},
             ])
 
             nested = vm['nested']
             self.assertEqual(nested, {
                 'k1': {'foo': [1, 2, 3]},
-                'k2': ['v2', ['v3', 'v4']]})
+                'k2': [b'v2', [b'v3', b'v4']]})
 
     def test_setting_values(self):
         script = """
@@ -402,8 +385,8 @@ class TestJx9(BaseTestCase):
             $users = db_fetch_all($collection);
         """
         values = [
-            {'username': 'hubie', 'color': 'white'},
-            {'username': 'michael', 'color': 'black'},
+            {'username': b'hubie', 'color': b'white'},
+            {'username': b'michael', 'color': b'black'},
         ]
 
         with self.db.vm(script) as vm:
@@ -412,8 +395,8 @@ class TestJx9(BaseTestCase):
 
             users = vm['users']
             self.assertEqual(users, [
-                {'username': 'hubie', 'color': 'white', '__id': 0},
-                {'username': 'michael', 'color': 'black', '__id': 1},
+                {'username': b'hubie', 'color': b'white', '__id': 0},
+                {'username': b'michael', 'color': b'black', '__id': 1},
             ])
 
 
@@ -460,29 +443,29 @@ class TestCollection(BaseTestCase):
         self.assertEqual(users.store({'username': 'huey'}), 0)
         self.assertEqual(users.fetch(users.last_record_id()), {
             '__id': 0,
-            'username': 'huey'})
+            'username': b'huey'})
 
-        self.assertEqual(users.store({'username': u('mickey')}), 1)
+        self.assertEqual(users.store({'username': 'mickey'}), 1)
         self.assertEqual(users.fetch(users.last_record_id()), {
             '__id': 1,
-            'username': u('mickey')})
+            'username': b'mickey'})
 
         user_list = users.all()
         self.assertEqual(user_list, [
-            {'__id': 0, 'username': 'huey'},
-            {'__id': 1, 'username': 'mickey'},
+            {'__id': 0, 'username': b'huey'},
+            {'__id': 1, 'username': b'mickey'},
         ])
 
         users.delete(1)
-        self.assertEqual(users[0], {'__id': 0, 'username': 'huey'})
+        self.assertEqual(users[0], {'__id': 0, 'username': b'huey'})
         self.assertTrue(users[1] is None)
 
         ret = users.update(0, {'color': 'white', 'name': 'hueybear'})
         self.assertTrue(ret)
         self.assertEqual(users[0], {
             '__id': 0,
-            'color': 'white',
-            'name': 'hueybear',
+            'color': b'white',
+            'name': b'hueybear',
         })
 
         ret = users.update(1, {'name': 'zaizee'})
@@ -490,7 +473,7 @@ class TestCollection(BaseTestCase):
         self.assertTrue(users[1] is None)
 
         self.assertEqual(users.all(), [
-            {'__id': 0, 'color': 'white', 'name': 'hueybear'},
+            {'__id': 0, 'color': b'white', 'name': b'hueybear'},
         ])
 
     def test_basic_operations_mem(self):
@@ -507,9 +490,9 @@ class TestCollection(BaseTestCase):
         self.assertEqual(len(users), 0)
 
         user_data = [
-            {'name': 'charlie', 'activities': ['coding', 'reading']},
-            {'name': 'huey', 'activities': ['playing', 'sleeping']},
-            {'name': 'mickey', 'activities': ['sleeping', 'hunger']}]
+            {'name': b'charlie', 'activities': [b'coding', b'reading']},
+            {'name': b'huey', 'activities': [b'playing', b'sleeping']},
+            {'name': b'mickey', 'activities': [b'sleeping', b'hunger']}]
 
         users.store(user_data)
         self.assertEqual(len(users), 3)
@@ -525,18 +508,19 @@ class TestCollection(BaseTestCase):
         self.assertEqual(len(users), 4)
 
         record = users.fetch_current()
-        self.assertEqual(record['name'], 'charlie')
+        self.assertEqual(record['name'], b'charlie')
 
         self.assertEqual(users.fetch(3), {
-            'name': 'leslie',
-            'activities': ['reading', 'surgery'],
+            'name': b'leslie',
+            'activities': [b'reading', b'surgery'],
             '__id': 3})
 
         users.delete(0)
         users.delete(2)
         users.delete(3)
         self.assertEqual(users.all(), [
-            {'name': 'huey', 'activities': ['playing', 'sleeping'], '__id': 1}
+            {'name': b'huey', 'activities': [b'playing', b'sleeping'],
+             '__id': 1}
         ])
 
         self.assertTrue(users[99] is None)
@@ -547,7 +531,7 @@ class TestCollection(BaseTestCase):
         self.assertEqual(users.store({u('key'): u('value')}), 0)
         self.assertEqual(users.fetch(users.last_record_id()), {
             '__id': 0,
-            'key': 'value',
+            'key': b'value',
         })
 
     def test_filtering(self):
@@ -571,8 +555,8 @@ class TestCollection(BaseTestCase):
         for i in range(1, 10):
             kv.store({'k%d' % i: 'v%d' % i})
 
-        filtered = kv.filter(lambda obj: obj.get('k1') == 'v1')
-        self.assertEqual(filtered, [{'__id': 0, 'k1': 'v1'}])
+        filtered = kv.filter(lambda obj: obj.get('k1') == b'v1')
+        self.assertEqual(filtered, [{'__id': 0, 'k1': b'v1'}])
 
     def test_odd_values_mem(self):
         self._test_odd_values(self.db)
@@ -606,7 +590,7 @@ class TestCollection(BaseTestCase):
 
         res = coll.fetch(coll.last_record_id())
         self.assertEqual(res, {
-            'a': 'A',
+            'a': b'A',
             'b': 2,
             'c': 3.1,
             'd': True,
