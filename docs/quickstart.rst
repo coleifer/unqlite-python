@@ -65,7 +65,7 @@ For finer-grained record traversal, you can use cursors.
     ...     cursor.seek('k2')
     ...     print cursor.value()
     ...
-    2
+    2XXXX
 
     >>> with db.cursor() as cursor:
     ...     cursor.seek('k0')
