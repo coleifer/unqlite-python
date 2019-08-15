@@ -3,13 +3,13 @@
 API Documentation
 =================
 
-.. py:class:: UnQLite([database=':mem:'[, flags=UNQLITE_OPEN_CREATE[, open_database=True]])
+.. py:class:: UnQLite([filename=':mem:'[, flags=UNQLITE_OPEN_CREATE[, open_database=True]])
 
     The :py:class:`UnQLite` object provides a pythonic interface for interacting
     with `UnQLite databases <http://unqlite.symisc.net/>`_. UnQLite is a lightweight,
     embedded NoSQL database and JSON document store.
 
-    :param str database: The path to the database file.
+    :param str filename: The path to the database file.
     :param int flags: How the database file should be opened.
     :param bool open_database: When set to ``True``, the database will be opened automatically when the class is instantiated. If set to ``False`` you will need to manually call :py:meth:`~UnQLite.open`.
 
