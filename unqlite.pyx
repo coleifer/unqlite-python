@@ -271,21 +271,25 @@ cdef extern from "src/unqlite.h":
     cdef int UNQLITE_VM_CONFIG_EXTRACT_OUTPUT = 13  # TWO ARGUMENTS: const void **ppOut, unsigned int *pOutputLen
 
 
-cdef bint IS_PY3K = sys.version_info[0] == 3
-
-cdef inline bytes encode(obj):
-    cdef bytes result
-    if PyUnicode_Check(obj):
-        result = PyUnicode_AsUTF8String(obj)
-    elif PyBytes_Check(obj):
-        result = <bytes>obj
-    elif obj is None:
+cdef inline bytes encode(key):
+    cdef bytes bkey
+    if PyUnicode_Check(key):
+        bkey = PyUnicode_AsUTF8String(key)
+    elif PyBytes_Check(key):
+        bkey = <bytes>key
+    elif key is None:
         return None
-    elif IS_PY3K:
-        result = PyUnicode_AsUTF8String(str(obj))
     else:
-        result = bytes(obj)
-    return result
+        bkey = PyUnicode_AsUTF8String(unicode(key))
+    return bkey
+
+
+cdef dict EXC_MAP = {
+    UNQLITE_NOMEM: MemoryError,
+    UNQLITE_NOTIMPLEMENTED: NotImplementedError,
+    UNQLITE_NOTFOUND: KeyError,
+    UNQLITE_NOOP: NotImplementedError,
+}
 
 
 class UnQLiteError(Exception):
@@ -327,7 +331,7 @@ cdef class UnQLite(object):
         else:
             self.encoded_filename = encode(filename)
         self.flags = flags
-        self.is_memory = filename == ':mem:'
+        self.is_memory = self.encoded_filename == b':mem:'
         self.open_database = open_database
         if self.open_database:
             self.open()
@@ -473,24 +477,14 @@ cdef class UnQLite(object):
             raise self._build_exception_for_error(result)
 
     cdef _build_exception_for_error(self, int status):
-        cdef dict exc_map
+        cdef bytes message
 
-        exc_map = {
-            UNQLITE_NOMEM: MemoryError,
-            UNQLITE_NOTIMPLEMENTED: NotImplementedError,
-            UNQLITE_NOTFOUND: KeyError,
-            UNQLITE_NOOP: NotImplementedError,
-        }
-
-        if status in exc_map:
-            exc_klass = exc_map[status]
-            if status == UNQLITE_NOTFOUND:
-                message = 'key not found'
-            else:
-                message = self._get_last_error()
-            return exc_klass(message)
+        exc_class = EXC_MAP.get(status, UnQLiteError)
+        if status == UNQLITE_NOTFOUND:
+            message = b'key not found'
         else:
-            return UnQLiteError(self._get_last_error(), status)
+            message = self._get_last_error()
+        return exc_class(message.decode('utf8'))
 
     cdef _get_last_error(self):
         cdef int ret
@@ -864,6 +858,7 @@ cdef class VM(object):
         """Close and release the virtual machine."""
         self.encoded_names.clear()
         unqlite_vm_release(self.vm)
+        self.vm = <unqlite_vm *>0
 
     def __enter__(self):
         self.compile()
@@ -976,7 +971,7 @@ cdef class Context(object):
         cdef bytes encoded_value
 
         if isinstance(python_value, unicode):
-            encoded_value = python_value.encode('utf-8')
+            encoded_value = encode(python_value)
             unqlite_value_string(ptr, encoded_value, -1)
         elif isinstance(python_value, bytes):
             unqlite_value_string(ptr, python_value, -1)
@@ -988,13 +983,12 @@ cdef class Context(object):
         elif isinstance(python_value, dict):
             for key, value in python_value.items():
                 if not isinstance(key, basestring):
-                    key = str(key)
-                if isinstance(key, unicode):
-                    key = key.encode('utf-8')
+                    key = unicode(key)
+                encoded_value = encode(key)
                 item_ptr = self.create_value(value)
                 unqlite_array_add_strkey_elem(
                     ptr,
-                    <const char *>key,
+                    <const char *>encoded_value,
                     item_ptr)
                 self.release_value(item_ptr)
         elif isinstance(python_value, bool):
@@ -1203,7 +1197,7 @@ cdef python_to_unqlite_value(VM vm, unqlite_value *ptr, python_value):
     cdef bytes encoded_value
 
     if isinstance(python_value, unicode):
-        encoded_value = python_value.encode('utf-8')
+        encoded_value = encode(python_value)
         unqlite_value_string(ptr, encoded_value, -1)
     elif isinstance(python_value, bytes):
         unqlite_value_string(ptr, python_value, -1)
@@ -1215,13 +1209,12 @@ cdef python_to_unqlite_value(VM vm, unqlite_value *ptr, python_value):
     elif isinstance(python_value, dict):
         for key, value in python_value.items():
             if not isinstance(key, basestring):
-                key = str(key)
-            if isinstance(key, unicode):
-                key = key.encode('utf-8')
+                key = unicode(key)
+            encoded_value = encode(key)
             item_ptr = vm.create_value(value)
             unqlite_array_add_strkey_elem(
                 ptr,
-                <const char *>key,
+                <const char *>encoded_value,
                 item_ptr)
             vm.release_value(item_ptr)
     elif isinstance(python_value, bool):
