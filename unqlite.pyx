@@ -1,3 +1,4 @@
+# cython: language_level=3
 # Python library for working with UnQLite databases.
 #      _
 #     /.)
@@ -270,6 +271,18 @@ cdef extern from "src/unqlite.h":
     cdef int UNQLITE_VM_CONFIG_ARGV_ENTRY = 12  # ONE ARGUMENT: const char *zValue
     cdef int UNQLITE_VM_CONFIG_EXTRACT_OUTPUT = 13  # TWO ARGUMENTS: const void **ppOut, unsigned int *pOutputLen
 
+
+cdef inline unicode decode(key):
+    cdef unicode ukey
+    if PyBytes_Check(key):
+        ukey = key.decode('utf-8')
+    elif PyUnicode_Check(key):
+        ukey = <unicode>key
+    elif key is None:
+        return None
+    else:
+        ukey = unicode(key)
+    return ukey
 
 cdef inline bytes encode(key):
     cdef bytes bkey
@@ -982,8 +995,6 @@ cdef class Context(object):
                 self.release_value(item_ptr)
         elif isinstance(python_value, dict):
             for key, value in python_value.items():
-                if not isinstance(key, basestring):
-                    key = unicode(key)
                 encoded_value = encode(key)
                 item_ptr = self.create_value(value)
                 unqlite_array_add_strkey_elem(
@@ -1033,7 +1044,7 @@ cdef class Collection(object):
 
     def __init__(self, UnQLite unqlite, basestring name):
         self.unqlite = unqlite
-        self.name = name
+        self.name = decode(name)
 
     def _execute(self, basestring script, **kwargs):
         cdef VM vm
@@ -1181,7 +1192,11 @@ cdef unqlite_value_to_python(unqlite_value *ptr):
             <void *>json_array)
         return json_array
     elif unqlite_value_is_string(ptr):
-        return unqlite_value_to_string(ptr, NULL)
+        bytestring = unqlite_value_to_string(ptr, NULL)
+        try:
+            return decode(bytestring)
+        except UnicodeDecodeError:
+            return bytestring
     elif unqlite_value_is_int(ptr):
         return unqlite_value_to_int64(ptr)
     elif unqlite_value_is_float(ptr):
@@ -1208,8 +1223,6 @@ cdef python_to_unqlite_value(VM vm, unqlite_value *ptr, python_value):
             vm.release_value(item_ptr)
     elif isinstance(python_value, dict):
         for key, value in python_value.items():
-            if not isinstance(key, basestring):
-                key = unicode(key)
             encoded_value = encode(key)
             item_ptr = vm.create_value(value)
             unqlite_array_add_strkey_elem(
@@ -1235,8 +1248,4 @@ cdef int unqlite_value_to_dict(unqlite_value *key, unqlite_value *value, void *u
     cdef dict accum
     accum = <dict>user_data
     pkey = unqlite_value_to_python(key)
-    try:
-        pkey = pkey.decode('utf-8')
-    except UnicodeDecodeError:
-        pass
     accum[pkey] = unqlite_value_to_python(value)

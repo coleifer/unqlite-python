@@ -4,19 +4,6 @@ import unittest
 
 
 try:
-    long
-except NameError:  # does not exist in Python 3
-    long = int
-
-
-def u(string, encoding='latin-1'):
-    """Surrogate for Unicode literals which are missing in Python 3.0-3.2"""
-    if isinstance(string, bytes):
-        string = string.decode(encoding)
-    return string
-
-
-try:
     from unqlite import UnQLite
 except ImportError:
     sys.stderr.write('Unable to import `unqlite`. Make sure it is properly '
@@ -364,18 +351,18 @@ class TestJx9(BaseTestCase):
             vm.execute()
             self.assertEqual(vm['huey_id'], 0)
             self.assertEqual(vm['mickey_id'], 1)
-            self.assertEqual(vm['something'], b'hello world')
+            self.assertEqual(vm['something'], 'hello world')
 
             users = vm['users']
             self.assertEqual(users, [
-                {'__id': 0, 'age': 3, 'username': b'huey'},
-                {'__id': 1, 'age': 5, 'username': b'mickey'},
+                {'__id': 0, 'age': 3, 'username': 'huey'},
+                {'__id': 1, 'age': 5, 'username': 'mickey'},
             ])
 
             nested = vm['nested']
             self.assertEqual(nested, {
                 'k1': {'foo': [1, 2, 3]},
-                'k2': [b'v2', [b'v3', b'v4']]})
+                'k2': ['v2', ['v3', 'v4']]})
 
     def test_setting_values(self):
         script = """
@@ -385,8 +372,8 @@ class TestJx9(BaseTestCase):
             $users = db_fetch_all($collection);
         """
         values = [
-            {'username': b'hubie', 'color': b'white'},
-            {'username': b'michael', 'color': b'black'},
+            {'username': 'hubie', 'color': 'white'},
+            {'username': 'michael', 'color': 'black'},
         ]
 
         with self.db.vm(script) as vm:
@@ -395,8 +382,8 @@ class TestJx9(BaseTestCase):
 
             users = vm['users']
             self.assertEqual(users, [
-                {'username': b'hubie', 'color': b'white', '__id': 0},
-                {'username': b'michael', 'color': b'black', '__id': 1},
+                {'username': 'hubie', 'color': 'white', '__id': 0},
+                {'username': 'michael', 'color': 'black', '__id': 1},
             ])
 
 
@@ -423,7 +410,7 @@ class TestCursorSilentError(BaseTestCase):
 class TestUtils(BaseTestCase):
     def test_random(self):
         ri = self.db.random_int()
-        self.assertTrue(isinstance(ri, (int, long)))
+        self.assertTrue(isinstance(ri, int))
 
         rs = self.db.random_string(10)
         self.assertEqual(len(rs), 10)
@@ -443,29 +430,29 @@ class TestCollection(BaseTestCase):
         self.assertEqual(users.store({'username': 'huey'}), 0)
         self.assertEqual(users.fetch(users.last_record_id()), {
             '__id': 0,
-            'username': b'huey'})
+            'username': 'huey'})
 
         self.assertEqual(users.store({'username': 'mickey'}), 1)
         self.assertEqual(users.fetch(users.last_record_id()), {
             '__id': 1,
-            'username': b'mickey'})
+            'username': 'mickey'})
 
         user_list = users.all()
         self.assertEqual(user_list, [
-            {'__id': 0, 'username': b'huey'},
-            {'__id': 1, 'username': b'mickey'},
+            {'__id': 0, 'username': 'huey'},
+            {'__id': 1, 'username': 'mickey'},
         ])
 
         users.delete(1)
-        self.assertEqual(users[0], {'__id': 0, 'username': b'huey'})
+        self.assertEqual(users[0], {'__id': 0, 'username': 'huey'})
         self.assertTrue(users[1] is None)
 
         ret = users.update(0, {'color': 'white', 'name': 'hueybear'})
         self.assertTrue(ret)
         self.assertEqual(users[0], {
             '__id': 0,
-            'color': b'white',
-            'name': b'hueybear',
+            'color': 'white',
+            'name': 'hueybear',
         })
 
         ret = users.update(1, {'name': 'zaizee'})
@@ -473,7 +460,7 @@ class TestCollection(BaseTestCase):
         self.assertTrue(users[1] is None)
 
         self.assertEqual(users.all(), [
-            {'__id': 0, 'color': b'white', 'name': b'hueybear'},
+            {'__id': 0, 'color': 'white', 'name': 'hueybear'},
         ])
 
     def test_basic_operations_mem(self):
@@ -490,9 +477,9 @@ class TestCollection(BaseTestCase):
         self.assertEqual(len(users), 0)
 
         user_data = [
-            {'name': b'charlie', 'activities': [b'coding', b'reading']},
-            {'name': b'huey', 'activities': [b'playing', b'sleeping']},
-            {'name': b'mickey', 'activities': [b'sleeping', b'hunger']}]
+            {'name': 'charlie', 'activities': ['coding', 'reading']},
+            {'name': 'huey', 'activities': ['playing', 'sleeping']},
+            {'name': 'mickey', 'activities': ['sleeping', 'hunger']}]
 
         users.store(user_data)
         self.assertEqual(len(users), 3)
@@ -508,18 +495,18 @@ class TestCollection(BaseTestCase):
         self.assertEqual(len(users), 4)
 
         record = users.fetch_current()
-        self.assertEqual(record['name'], b'charlie')
+        self.assertEqual(record['name'], 'charlie')
 
         self.assertEqual(users.fetch(3), {
-            'name': b'leslie',
-            'activities': [b'reading', b'surgery'],
+            'name': 'leslie',
+            'activities': ['reading', 'surgery'],
             '__id': 3})
 
         users.delete(0)
         users.delete(2)
         users.delete(3)
         self.assertEqual(users.all(), [
-            {'name': b'huey', 'activities': [b'playing', b'sleeping'],
+            {'name': 'huey', 'activities': ['playing', 'sleeping'],
              '__id': 1}
         ])
 
@@ -528,10 +515,10 @@ class TestCollection(BaseTestCase):
     def test_unicode_key(self):
         users = self.db.collection('users')
         users.create()
-        self.assertEqual(users.store({u('key'): u('value')}), 0)
+        self.assertEqual(users.store({'key\u2020': 'value\u2019'}), 0)
         self.assertEqual(users.fetch(users.last_record_id()), {
             '__id': 0,
-            'key': b'value',
+            'key\u2020': 'value\u2019',
         })
 
     def test_filtering(self):
@@ -555,8 +542,8 @@ class TestCollection(BaseTestCase):
         for i in range(1, 10):
             kv.store({'k%d' % i: 'v%d' % i})
 
-        filtered = kv.filter(lambda obj: obj.get('k1') == b'v1')
-        self.assertEqual(filtered, [{'__id': 0, 'k1': b'v1'}])
+        filtered = kv.filter(lambda obj: obj.get('k1') == 'v1')
+        self.assertEqual(filtered, [{'__id': 0, 'k1': 'v1'}])
 
     def test_odd_values_mem(self):
         self._test_odd_values(self.db)
@@ -586,16 +573,23 @@ class TestCollection(BaseTestCase):
             'c': 3.1,
             'd': True,
             'e': False,
-            'f': 0}), 0)
+            'f': 0,
+            'g': u'\u2020',
+            'h': [0, 1.5, True, None, u'\u2019', [1, 2], {'x': 'yz'}],
+            'i': {'foo': 'bar', 'baz': 2},
+        }), 0)
 
         res = coll.fetch(coll.last_record_id())
         self.assertEqual(res, {
-            'a': b'A',
+            'a': 'A',
             'b': 2,
             'c': 3.1,
             'd': True,
             'e': False,
             'f': 0,
+            'g': u'\u2020',
+            'h': [0, 1.5, True, None, u'\u2019', [1, 2], {'x': 'yz'}],
+            'i': {'foo': 'bar', 'baz': 2},
             '__id': 0})
         self.assertTrue(isinstance(res['d'], bool))
         self.assertTrue(isinstance(res['e'], bool))
