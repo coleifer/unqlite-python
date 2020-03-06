@@ -20,8 +20,8 @@ UnQLite can be used as a key/value store.
 .. code-block:: pycon
 
     >>> db['foo'] = 'bar'  # Use as a key/value store.
-    >>> print db['foo']
-    bar
+    >>> db['foo']  # The key/value deals in byte-strings.
+    b'bar'
 
     >>> for i in range(4):
     ...     db['k%s' % i] = str(i)
@@ -35,14 +35,15 @@ UnQLite can be used as a key/value store.
 
     >>> db.append('k2', 'XXXX')
     >>> db['k2']
-    '2XXXX'
+    b'2XXXX'
 
-The database can also be iterated through directly:
+The database can also be iterated through directly. Note that keys are decoded
+while values are left as bytestrings.
 
 .. code-block:: pycon
 
     >>> [item for item in db]
-    [('foo', 'bar'), ('k0', '0'), ('k1', '1'), ('k2', '2XXXX')]
+    [('foo', b'bar'), ('k0', b'0'), ('k1', b'1'), ('k2', b'2XXXX')]
 
 UnQLite databases support common ``dict`` APIs, such as :py:meth:`~UnQLite.keys`, :py:meth:`~UnQLite.values`, :py:meth:`~UnQLite.items`, and :py:meth:`~UnQLite.update`.
 
@@ -55,7 +56,7 @@ For finer-grained record traversal, you can use cursors.
 
     >>> with db.cursor() as cursor:
     ...     for key, value in cursor:
-    ...         print key, '=>', value
+    ...         print(key, '=>', value.decode('utf8'))
     ...
     k0 => 0
     k1 => 1
@@ -63,15 +64,15 @@ For finer-grained record traversal, you can use cursors.
 
     >>> with db.cursor() as cursor:
     ...     cursor.seek('k2')
-    ...     print cursor.value()
+    ...     print(cursor.value())
     ...
-    2XXXX
+    b'2XXXX'
 
     >>> with db.cursor() as cursor:
     ...     cursor.seek('k0')
     ...     print list(cursor.fetch_until('k2', include_stop_key=False))
     ...
-    [('k0', '0'), ('k1', '1')]
+    [('k0', b'0'), ('k1', b'1')]
 
 For more information, see the :py:class:`Cursor` API documentation.
 
@@ -81,6 +82,8 @@ Document store features
 In my opinion the most interesting feature of UnQLite is its JSON document store. The `Jx9 scripting language <http://unqlite.org/jx9.html>`_ is used to interact with the document store, and it is a wacky mix of C, JavaScript and PHP.
 
 Interacting with the document store basically consists of creating a Jx9 script (you might think of it as an imperative SQL query), compiling it, and then executing it.
+
+.. note:: As of v0.8.0 the document store and collections APIs treat all strings as unicode.
 
 .. code-block:: pycon
 
@@ -173,7 +176,7 @@ The easiest way to create a transaction is with the context manager:
     ...     db['k2'] = 'v2'
     ...
     >>> db['k1']
-    'v1'
+    b'v1'
 
 You can also use the transaction decorator which will wrap a function call in a transaction and commit upon successful execution (rolling back if an exception occurs).
 
@@ -194,7 +197,7 @@ You can also use the transaction decorator which will wrap a function call in a 
       File "<stdin>", line 5, in save_value
     Exception: uh-oh
     >>> db['k3']
-    'v3'
+    b'v3'
 
 For finer-grained control you can call :py:meth:`~UnQLite.begin`, :py:meth:`~UnQLite.rollback` and :py:meth:`~UnQLite.commit` manually.
 
@@ -205,4 +208,4 @@ For finer-grained control you can call :py:meth:`~UnQLite.begin`, :py:meth:`~UnQ
     >>> db.commit()
     True
     >>> db['k3']
-    'v3-xx'
+    b'v3-xx'

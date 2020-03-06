@@ -26,16 +26,11 @@ UnQLite-Python features:
 * Supports key/value operations, cursors, and transactions using Pythonic APIs.
 * Support for Jx9 scripting.
 * APIs for working with Jx9 JSON document collections.
-* Supports both Python 2 and Python 3.
-
-The previous version (0.2.0) of `unqlite-python` utilized `ctypes` to wrap the UnQLite C library. By switching to Cython, key/value, cursor and Jx9 collection operations are an order of magnitude faster. In particular, filtering collections using user-defined Python functions is now *much*, *much* more performant.
 
 Links:
 
 * [unqlite-python documentation](https://unqlite-python.readthedocs.io/)
 * [UnQLite's C API](http://unqlite.symisc.net/c_api.html)
-
-If you like UnQLite, you might also want to check out [Vedis](http://vedis.symisc.net), an embedded key/value database modeled after Redis (python bindings: [vedis-python](https://vedis-python.readthedocs.io)).
 
 ## Installation
 
@@ -60,8 +55,8 @@ UnQLite can be used as a key/value store.
 
 ```pycon
 >>> db['foo'] = 'bar'  # Use as a key/value store.
->>> print db['foo']
-bar
+>>> db['foo']  # The key/value store deals in byte-strings.
+b'bar'
 
 >>> for i in range(4):
 ...     db['k%s' % i] = str(i)
@@ -75,14 +70,15 @@ False
 
 >>> db.append('k2', 'XXXX')
 >>> db['k2']
-'2XXXX'
+b'2XXXX'
 ```
 
-The database can also be iterated through directly:
+The database can also be iterated through directly. Note that keys are decoded
+while values are left as bytestrings.
 
 ```pycon
 >>> [item for item in db]
-[('foo', 'bar'), ('k0', '0'), ('k1', '1'), ('k2', '2XXXX')]
+[('foo', b'bar'), ('k0', b'0'), ('k1', b'1'), ('k2', b'2XXXX')]
 ```
 
 ### Cursors
@@ -93,7 +89,7 @@ For finer-grained record traversal, you can use cursors.
 >>> with db.cursor() as cursor:
 ...     cursor.seek('k0')
 ...     for key, value in cursor:
-...         print key, '=>', value
+...         print(key, '=>', value.decode('utf8'))
 ...
 k0 => 0
 k1 => 1
@@ -101,15 +97,15 @@ k2 => 2XXXX
 
 >>> with db.cursor() as cursor:
 ...     cursor.seek('k2')
-...     print cursor.value()
+...     print(cursor.value())
 ...
-2
+b'2XXXX'
 
 >>> with db.cursor() as cursor:
 ...     cursor.seek('k0')
-...     print list(cursor.fetch_until('k2', include_stop_key=False))
+...     print(list(cursor.fetch_until('k2', include_stop_key=False)))
 ...
-[('k0', '0'), ('k1', '1')]
+[('k0', b'0'), ('k1', b'1')]
 ```
 
 There are many different ways of interacting with cursors, which are described in the [Cursor API documentation](https://unqlite-python.readthedocs.io/en/latest/api.html#Cursor).
@@ -117,6 +113,9 @@ There are many different ways of interacting with cursors, which are described i
 ### Document store features
 
 In my opinion the most interesting feature of UnQLite is its JSON document store. The [Jx9 scripting language](http://unqlite.org/jx9.html) is used to interact with the document store, and it is a wacky mix of PHP and maybe JavaScript (?).
+
+**Note**: as of v0.8.0 the document store and collections APIs treat all
+strings as unicode.
 
 Interacting with the document store basically consists of creating a Jx9 script (you might think of it as an imperative SQL query), compiling it, and then executing it.
 
@@ -208,7 +207,7 @@ The easiest way to create a transaction is with the context manager:
 ...     db['k2'] = 'v2'
 ...
 >>> db['k1']
-'v1'
+b'v1'
 ```
 
 You can also use the transaction decorator which will wrap a function call in a transaction and commit upon successful execution (rolling back if an exception occurs).
@@ -229,7 +228,7 @@ Traceback (most recent call last):
   File "<stdin>", line 5, in save_value
 Exception: uh-oh
 >>> db['k3']
-'v3'
+b'v3'
 ```
 
 For finer-grained control you can call `db.begin()`, `db.rollback()` and `db.commit()` manually:
@@ -240,7 +239,7 @@ For finer-grained control you can call `db.begin()`, `db.rollback()` and `db.com
 >>> db.commit()
 True
 >>> db['k3']
-'v3-xx'
+b'v3-xx'
 ```
 
 -------------------------------------------
