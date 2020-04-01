@@ -492,12 +492,15 @@ cdef class UnQLite(object):
     cdef _build_exception_for_error(self, int status):
         cdef bytes message
 
-        exc_class = EXC_MAP.get(status, UnQLiteError)
         if status == UNQLITE_NOTFOUND:
             message = b'key not found'
         else:
             message = self._get_last_error()
-        return exc_class(message.decode('utf8'))
+
+        if status in EXC_MAP:
+            return EXC_MAP[status](message.decode('utf8'))
+        else:
+            return UnQLiteError(message.decode('utf8'), status)
 
     cdef _get_last_error(self):
         cdef int ret
