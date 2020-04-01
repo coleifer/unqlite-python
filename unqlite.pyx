@@ -497,7 +497,7 @@ cdef class UnQLite(object):
             message = b'key not found'
         else:
             message = self._get_last_error()
-        return exc_class(message.decode('utf8'))
+        return exc_class(message.decode('utf8'), status)
 
     cdef _get_last_error(self):
         cdef int ret
