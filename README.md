@@ -165,13 +165,16 @@ True
 
 You can use the ``store()`` method to add one or many records. To add a single record just pass in a python ``dict``. To add multiple records, pass in a list of dicts. Records can be fetched and deleted by ID.
 
+By default, the ID of the last-stored record is returned. At the time of
+writing, IDs start at 0, so when inserting 3 records the last-id is 2:
+
 ```pycon
 >>> users.store([
 ...     {'name': 'Charlie', 'color': 'green'},
 ...     {'name': 'Huey', 'color': 'white'},
 ...     {'name': 'Mickey', 'color': 'black'}])
-True
->>> users.store({'name': 'Leslie', 'color': 'also green'})
+2
+>>> users.store({'name': 'Leslie', 'color': 'also green'}, return_id=False)
 True
 
 >>> users.fetch(0)  # Fetch the first record.
