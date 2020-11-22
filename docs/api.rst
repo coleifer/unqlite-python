@@ -649,12 +649,49 @@ API Documentation
         [{'__id': 1, 'color': 'white', 'name': 'Baby Huey'},
          {'__id': 2, 'color': 'black', 'name': 'Mickey'}]
 
+        >>> for user in users:
+        ...     print(user)
+        {'__id': 1, 'color': 'white', 'name': 'Baby Huey'}
+        {'__id': 2, 'color': 'black', 'name': 'Mickey'}
+
         >>> users.filter(lambda obj: obj['name'].startswith('B'))
         [{'__id': 1, 'color': 'white', 'name': 'Baby Huey'}]
 
     .. py:method:: all()
 
         Return a list containing all records in the collection.
+
+        As of 0.9.0, it is also possible to iterate the collection using a
+        Python iterable. See :py:meth:`~Collection.iterator`.
+
+    .. py:method:: iterator()
+
+        Return a :py:class:`CollectionIterator` for iterating over the records
+        in the collection.
+
+        .. code-block:: pycon
+
+            >>> reg = db.collection('register')
+            >>> reg.create()
+            >>> reg.store([{'key': 'k0'}, {'key': 'k1'}, {'key': 'k2'}])
+
+            >>> it = reg.iterator()
+            >>> for row in it:
+            ...     print(row)
+            {'__id': 0, 'key': 'k0'}
+            {'__id': 1, 'key': 'k1'}
+            {'__id': 2, 'key': 'k2'}
+
+            >>> list(it)  # We can re-use the iterator.
+            [{'__id': 0, 'key': 'k0'},
+             {'__id': 1, 'key': 'k1'},
+             {'__id': 2, 'key': 'k2'}]
+
+            >>> for row in reg:  # Iterating over collection is fine, too.
+            ...     print(row)
+            {'__id': 0, 'key': 'k0'}
+            {'__id': 1, 'key': 'k1'}
+            {'__id': 2, 'key': 'k2'}
 
     .. py:method:: filter(filter_fn)
 
@@ -699,6 +736,11 @@ API Documentation
     .. py:method:: __len__()
 
         Return the number of records in the collection.
+
+    .. py:method:: __iter__()
+
+        Return a :py:class:`CollectionIterator` for iterating over the records
+        in the collection.
 
     .. py:method:: fetch(record_id)
 
@@ -783,3 +825,14 @@ API Documentation
     .. py:method:: fetch_current()
 
         Fetch the record pointed to by the collection cursor.
+
+        ..warning::
+            This method does not work as intended as the VM is reset for each
+            script execution.
+
+
+.. py:class:: CollectionIterator(Collection)
+
+    Python iterator that returns rows from a collection. This class should not
+    be instantiated directly, but via :py:meth:`Collection.iterator` or
+    implicitly by iterating directly over a :py:class:`Collection`.

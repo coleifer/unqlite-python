@@ -537,6 +537,19 @@ class TestCollection(BaseTestCase):
         self.assertEqual(users.current_record_id(), users.current_record_id())
         self.assertEqual(users.fetch_current(), {'__id': 0, 'username': 'u0'})
 
+    def test_iter_collection(self):
+        reg = self.db.collection('reg')
+        reg.create()
+        reg.store([{'k': j} for j in range(10)])
+
+        # We can iterate over the collection.
+        self.assertEqual([r['k'] for r in reg], list(range(10)))
+
+        # We can also obtain a dedicated iterator and use it multiple times.
+        it = reg.iterator()
+        for x in range(10):
+            self.assertEqual([r['k'] for r in it], list(range(10)))
+
     def test_unicode_key(self):
         users = self.db.collection('users')
         users.create()

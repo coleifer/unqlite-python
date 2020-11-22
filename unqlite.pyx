@@ -840,6 +840,7 @@ cdef class VM(object):
     """Jx9 virtual-machine interface."""
     cdef UnQLite unqlite
     cdef unqlite_vm *vm
+    cdef readonly bint need_reset
     cdef readonly code
     cdef readonly bytes encoded_code
     cdef set encoded_names
@@ -867,14 +868,25 @@ cdef class VM(object):
 
     cpdef execute(self):
         """Execute the compiled Jx9 script."""
+        if not self.vm:
+            raise UnQLiteError('Jx9 script must be compiled before executing.')
+
         self.unqlite.check_call(unqlite_vm_exec(self.vm))
         self.encoded_names.clear()
+
+    cpdef reset(self):
+        if not self.vm:
+            raise UnQLiteError('Jx9 script has not been compiled.')
+
+        self.unqlite.check_call(unqlite_vm_reset(self.vm))
+        return True
 
     cpdef close(self):
         """Close and release the virtual machine."""
         self.encoded_names.clear()
-        unqlite_vm_release(self.vm)
-        self.vm = <unqlite_vm *>0
+        if self.vm:
+            unqlite_vm_release(self.vm)
+            self.vm = <unqlite_vm *>0
 
     def __enter__(self):
         self.compile()
@@ -1174,6 +1186,52 @@ cdef class Collection(object):
 
     def error_log(self):
         return self._simple_execute('$ret = db_errlog();')
+
+    def iterator(self):
+        return CollectionIterator(self)
+
+    def __iter__(self):
+        return iter(CollectionIterator(self))
+
+
+cdef class CollectionIterator(object):
+    cdef:
+        VM vm
+        UnQLite unqlite
+        bint done
+        public Collection collection
+
+    def __init__(self, Collection collection):
+        self.collection = collection
+        self.unqlite = self.collection.unqlite
+        self.vm = None
+        self.done = True
+
+    def __iter__(self):
+        if self.vm is not None:
+            self.vm.close()
+
+        script = '$row = db_fetch($collection)'
+        self.vm = VM(self.unqlite, script)
+        self.vm.compile()
+        self.vm['collection'] = self.collection.name
+        self.done = False
+        return self
+
+    def __next__(self):
+        if self.done:
+            raise StopIteration
+
+        self.vm.execute()
+        row = self.vm['row']
+        if row is None:
+            self.done = True
+            self.vm.close()
+            self.vm = None
+            raise StopIteration
+
+        self.vm.reset()
+        return row
 
 
 cdef unqlite_value_to_python(unqlite_value *ptr):
