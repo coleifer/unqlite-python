@@ -512,6 +512,31 @@ class TestCollection(BaseTestCase):
 
         self.assertTrue(users[99] is None)
 
+    def test_fetch_current(self):
+        users = self.db.collection('users')
+        users.create()
+        users.store({'username': 'u0'})
+        self.assertEqual(users.fetch(users.last_record_id()), {
+            '__id': 0,
+            'username': 'u0'})
+
+        users.store({'username': 'u1'})
+        self.assertEqual(users.fetch(users.last_record_id()), {
+            '__id': 1,
+            'username': 'u1'})
+        # Store does not overwrite, even if we specify an ID.
+        users.store({'__id': 1, 'username': 'ux'})
+        self.assertEqual(users.fetch(users.last_record_id()), {
+            '__id': 2,
+            'username': 'ux'})
+
+        self.assertEqual(len(users), 3)
+
+        # This should increment the cursor but since we are re-creating the VM
+        # every time, it does not.
+        self.assertEqual(users.current_record_id(), users.current_record_id())
+        self.assertEqual(users.fetch_current(), {'__id': 0, 'username': 'u0'})
+
     def test_unicode_key(self):
         users = self.db.collection('users')
         users.create()
