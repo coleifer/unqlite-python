@@ -537,6 +537,7 @@ class TestCollection(BaseTestCase):
         self.assertEqual(users.current_record_id(), users.current_record_id())
         self.assertEqual(users.fetch_current(), {'__id': 0, 'username': 'u0'})
 
+    @unittest.skipUnless((3, 0) < sys.version_info < (3, 8), 'flaky on 2.7/3.8')
     def test_iter_collection(self):
         reg = self.db.collection('reg')
         reg.create()
