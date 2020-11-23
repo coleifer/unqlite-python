@@ -872,7 +872,6 @@ cdef class VM(object):
             raise UnQLiteError('Jx9 script must be compiled before executing.')
 
         self.unqlite.check_call(unqlite_vm_exec(self.vm))
-        self.encoded_names.clear()
 
     cpdef reset(self):
         if not self.vm:

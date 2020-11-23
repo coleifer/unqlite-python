@@ -330,6 +330,26 @@ class TestCursor(BaseTestCase):
 
 
 class TestJx9(BaseTestCase):
+    def test_vm_reset(self):
+        coll = self.db.collection('reg')
+        coll.create()
+        coll.store([{'key': i} for i in range(4)])
+
+        vm = self.db.vm('$ret = db_fetch($collection);')
+        vm.compile()
+        vm['collection'] = 'reg'
+        vm.execute()
+        self.assertEqual(vm['ret'], {'__id': 0, 'key': 0})
+
+        # Resetting and re-executing will return us the next record.
+        vm.reset()
+        vm.execute()
+        self.assertEqual(vm['ret'], {'__id': 1, 'key': 1})
+
+        vm.reset() ; vm.execute()
+        self.assertEqual(vm['ret'], {'__id': 2, 'key': 2})
+        vm.close()
+
     def test_simple_compilation(self):
         script = """
             $collection = 'users';
@@ -537,7 +557,7 @@ class TestCollection(BaseTestCase):
         self.assertEqual(users.current_record_id(), users.current_record_id())
         self.assertEqual(users.fetch_current(), {'__id': 0, 'username': 'u0'})
 
-    @unittest.skipUnless((3, 0) < sys.version_info < (3, 8), 'flaky on 2.7/3.8')
+    #@unittest.skipUnless((3, 0) < sys.version_info < (3, 8), 'flaky on 2.7/3.8')
     def test_iter_collection(self):
         reg = self.db.collection('reg')
         reg.create()
