@@ -557,7 +557,6 @@ class TestCollection(BaseTestCase):
         self.assertEqual(users.current_record_id(), users.current_record_id())
         self.assertEqual(users.fetch_current(), {'__id': 0, 'username': 'u0'})
 
-    #@unittest.skipUnless((3, 0) < sys.version_info < (3, 8), 'flaky on 2.7/3.8')
     def test_iter_collection(self):
         reg = self.db.collection('reg')
         reg.create()
@@ -570,6 +569,19 @@ class TestCollection(BaseTestCase):
         it = reg.iterator()
         for x in range(10):
             self.assertEqual([r['k'] for r in it], list(range(10)))
+
+    def test_independent_iterators(self):
+        reg = self.db.collection('reg')
+        reg.create()
+        reg.store([{'k': j} for j in range(3)])
+
+        i1 = iter(reg.iterator())
+        self.assertEqual(next(i1), {'__id': 0, 'k': 0})
+        self.assertEqual(next(i1), {'__id': 1, 'k': 1})
+        i2 = iter(reg.iterator())
+        self.assertEqual(next(i2), {'__id': 0, 'k': 0})
+        self.assertEqual(next(i1), {'__id': 2, 'k': 2})
+        self.assertRaises(StopIteration, lambda: next(i1))
 
     def test_unicode_key(self):
         users = self.db.collection('users')
