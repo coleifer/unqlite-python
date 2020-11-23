@@ -1231,6 +1231,7 @@ cdef class CollectionIterator(object):
             raise StopIteration
 
         self.vm.reset()
+        self.vm['collection'] = self.collection.name
         return row
 
 

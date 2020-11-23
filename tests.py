@@ -537,14 +537,15 @@ class TestCollection(BaseTestCase):
         self.assertEqual(users.current_record_id(), users.current_record_id())
         self.assertEqual(users.fetch_current(), {'__id': 0, 'username': 'u0'})
 
-    @unittest.skipUnless((3, 0) < sys.version_info < (3, 8), 'flaky on 2.7/3.8')
     def test_iter_collection(self):
         reg = self.db.collection('reg')
         reg.create()
         reg.store([{'k': j} for j in range(10)])
 
         # We can iterate over the collection.
-        self.assertEqual([r['k'] for r in reg], list(range(10)))
+        iter_items = [r['k'] for r in reg]
+        self.assertEqual(len(iter_items), 10)
+        self.assertEqual(iter_items, list(range(10)))
 
         # We can also obtain a dedicated iterator and use it multiple times.
         it = reg.iterator()
