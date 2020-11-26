@@ -483,6 +483,13 @@ class TestCollection(BaseTestCase):
             {'__id': 0, 'color': 'white', 'name': 'hueybear'},
         ])
 
+        ret = users.store({'name': 'new'})
+        self.assertTrue(ret > 0)
+
+        self.assertEqual(users[ret], {'name': 'new', '__id': ret})
+        users[ret] = {'name': 'new-x', 'data': 123}
+        self.assertEqual(users[ret], {'name': 'new-x', 'data': 123, '__id': ret})
+
     def test_basic_operations_mem(self):
         self._test_basic_operations(self.db)
 

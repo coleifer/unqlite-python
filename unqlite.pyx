@@ -1183,6 +1183,9 @@ cdef class Collection(object):
     def __getitem__(self, record_id):
         return self.fetch(record_id)
 
+    def __setitem__(self, record_id, record):
+        self.update(record_id, record)
+
     def error_log(self):
         return self._simple_execute('$ret = db_errlog();')
 
