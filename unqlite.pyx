@@ -1026,11 +1026,10 @@ cdef class Context(object):
             unqlite_value_null(ptr)
 
 
-cdef object py_filter_fn = None
-
 cdef int py_filter_wrapper(unqlite_context *context, int nargs, unqlite_value **values):
     cdef int i
     cdef list converted = []
+    cdef object callback = <object>unqlite_context_user_data(context)
     cdef Context context_wrapper = Context()
 
     context_wrapper.set_context(context)
@@ -1039,7 +1038,7 @@ cdef int py_filter_wrapper(unqlite_context *context, int nargs, unqlite_value **
         converted.append(unqlite_value_to_python(values[i]))
 
     try:
-        ret = py_filter_fn(*converted)
+        ret = callback(*converted)
     except KeyError:
         context_wrapper.push_result(False)
     except Exception:
@@ -1089,19 +1088,17 @@ cdef class Collection(object):
         Filter the records in the collection using the provided Python
         callback.
         """
-        cdef unqlite_filter_fn filter_callback
+        cdef unqlite_filter_fn filter_callback = py_filter_wrapper
         cdef VM vm
-        global py_filter_fn
+        cdef void *cb_pointer = <void *>filter_fn
 
         script = '$ret = db_fetch_all($collection, _filter_fn)'
         with VM(self.unqlite, script) as vm:
-            py_filter_fn = filter_fn
-            filter_callback = py_filter_wrapper
             unqlite_create_function(
                 vm.vm,
                 '_filter_fn',
                 filter_callback,
-                NULL)
+                cb_pointer)
             vm['collection'] = self.name
             vm.execute()
             ret = vm['ret']

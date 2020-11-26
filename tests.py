@@ -615,13 +615,26 @@ class TestCollection(BaseTestCase):
             {'__id': 11, 'val': 11},
         ])
 
+        filtered = values.filter(lambda obj: obj['val'] == 3 or obj['val'] == 5)
+        self.assertEqual(filtered, [
+            {'__id': 3, 'val': 3},
+            {'__id': 5, 'val': 5}])
+
         kv = self.db.collection('kv')
         kv.create()
         for i in range(1, 10):
-            kv.store({'k%d' % i: 'v%d' % i})
+            kv.store({'k%d' % i: 'v%d' % i, 'data': i})
 
         filtered = kv.filter(lambda obj: obj.get('k1') == 'v1')
-        self.assertEqual(filtered, [{'__id': 0, 'k1': 'v1'}])
+        self.assertEqual(filtered, [{'__id': 0, 'k1': 'v1', 'data': 1}])
+
+        def filter_cb(obj):
+            return obj['data'] % 3 == 0
+        filtered = kv.filter(filter_cb)
+        self.assertEqual(filtered, [
+            {'__id': 2, 'k3': 'v3', 'data': 3},
+            {'__id': 5, 'k6': 'v6', 'data': 6},
+            {'__id': 8, 'k9': 'v9', 'data': 9}])
 
     def test_odd_values_mem(self):
         self._test_odd_values(self.db)
