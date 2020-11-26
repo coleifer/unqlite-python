@@ -332,7 +332,7 @@ class TestCursor(BaseTestCase):
 class TestJx9(BaseTestCase):
     def test_vm_reset(self):
         coll = self.db.collection('reg')
-        coll.create()
+        self.assertTrue(coll.create())
         coll.store([{'key': i} for i in range(4)])
 
         vm = self.db.vm('$ret = db_fetch($collection);')
@@ -445,7 +445,10 @@ class TestCollection(BaseTestCase):
 
     def _test_basic_crud(self, db):
         users = db.collection('users')
-        users.create()
+        self.assertFalse(users.creation_date())  # No creation date yet.
+        self.assertTrue(users.create())
+        self.assertFalse(users.create())  # Collection exists, not created.
+        self.assertTrue(users.creation_date() != False)
 
         self.assertEqual(users.store({'username': 'huey'}), 0)
         self.assertEqual(users.fetch(users.last_record_id()), {
@@ -499,8 +502,9 @@ class TestCollection(BaseTestCase):
     def _test_basic_operations(self, db):
         users = db.collection('users')
         self.assertFalse(users.exists())
-        users.create()
+        self.assertTrue(users.create())
         self.assertTrue(users.exists())
+        self.assertFalse(users.create())
         self.assertEqual(len(users), 0)
 
         user_data = [
@@ -539,9 +543,44 @@ class TestCollection(BaseTestCase):
 
         self.assertTrue(users[99] is None)
 
+        # Drop collection and ensure does not exist.
+        self.assertTrue(users.drop())
+        self.assertFalse(users.exists())
+        self.assertFalse(users.drop())
+
+    def test_schema_mem(self):
+        self._test_schema(self.db)
+
+    def test_schema_file(self):
+        self._test_schema(self.file_db)
+
+    def _test_schema(self, db):
+        # The schema does not appear to be enforced in any way by the library,
+        # and is for metadata only.
+        users = self.db.collection('users')
+
+        # Non-existant collection or unset schema both return None.
+        self.assertTrue(users.get_schema() is None)
+        self.assertTrue(users.create())
+        self.assertTrue(users.get_schema() is None)
+
+        schema = {
+            'username': 'string',
+            'uid': 'integer',
+            'admin': 'boolean'}
+        self.assertTrue(users.set_schema(schema))
+        self.assertEqual(users.get_schema(), schema)
+
+        # Store a conforming and non-conforming record.
+        u1 = users.store({'username': 'u1', 'uid': 1, 'admin': False})
+        u2 = users.store({'username': 2, 'uid': '2', 'admin': None})
+        self.assertEqual(users.all(), [
+            {'__id': u1, 'username': 'u1', 'uid': 1, 'admin': False},
+            {'__id': u2, 'username': 2, 'uid': '2', 'admin': None}])
+
     def test_fetch_current(self):
         users = self.db.collection('users')
-        users.create()
+        self.assertTrue(users.create())
         users.store({'username': 'u0'})
         self.assertEqual(users.fetch(users.last_record_id()), {
             '__id': 0,
@@ -566,7 +605,7 @@ class TestCollection(BaseTestCase):
 
     def test_iter_collection(self):
         reg = self.db.collection('reg')
-        reg.create()
+        self.assertTrue(reg.create())
         reg.store([{'k': j} for j in range(10)])
 
         # We can iterate over the collection.
@@ -579,7 +618,7 @@ class TestCollection(BaseTestCase):
 
     def test_independent_iterators(self):
         reg = self.db.collection('reg')
-        reg.create()
+        self.assertTrue(reg.create())
         reg.store([{'k': j} for j in range(3)])
 
         i1 = iter(reg.iterator())
@@ -592,7 +631,7 @@ class TestCollection(BaseTestCase):
 
     def test_unicode_key(self):
         users = self.db.collection('users')
-        users.create()
+        self.assertTrue(users.create())
         self.assertEqual(users.store({'key\u2020': 'value\u2019'}), 0)
         self.assertEqual(users.fetch(users.last_record_id()), {
             '__id': 0,
@@ -601,7 +640,7 @@ class TestCollection(BaseTestCase):
 
     def test_filtering(self):
         values = self.db.collection('values')
-        values.create()
+        self.assertTrue(values.create())
         value_data = [{'val': i} for i in range(20)]
         values.store(value_data)
         self.assertEqual(len(values), 20)
@@ -621,7 +660,7 @@ class TestCollection(BaseTestCase):
             {'__id': 5, 'val': 5}])
 
         kv = self.db.collection('kv')
-        kv.create()
+        self.assertTrue(kv.create())
         for i in range(1, 10):
             kv.store({'k%d' % i: 'v%d' % i, 'data': i})
 
@@ -644,19 +683,19 @@ class TestCollection(BaseTestCase):
 
     def _test_odd_values(self, db):
         coll = db.collection('testing')
-        coll.create()
+        self.assertTrue(coll.create())
         coll.store({1: 2})
         res = coll.fetch(coll.last_record_id())
         self.assertEqual(res, [2, 0])
 
-        coll.drop()
+        self.assertTrue(coll.drop())
 
         # Try storing in non-existent collection?
         self.assertRaises(ValueError, lambda: coll.store({'f': 'f'}))
 
     def test_data_type_integrity(self):
         coll = self.db.collection('testing')
-        coll.create()
+        self.assertTrue(coll.create())
 
         self.assertEqual(coll.store({
             'a': 'A',

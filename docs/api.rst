@@ -562,6 +562,20 @@ API Documentation
                 {'username': 'mickey', 'color': 'black', '__id': 1},
             ]  # prints `True`
 
+    When using the VM outside of a context-manager, the following steps
+    should be followed:
+
+    1. instantiate :py:class:`VM` with a Jx9 script.
+    2. call :py:meth:`VM.compile` to compile the script.
+    3. optional: set one or more values to pass to the Jx9 script using
+       :py:meth:`VM.set_value` or :py:meth:`VM.set_values`.
+    4. call :py:meth:`VM.execute` to execute the script.
+    5. optional: read one or more values back from the VM context, for
+       example a return value for a function call, using :py:meth:`VM.get_value`.
+    6. call :py:meth:`VM.reset` and return to step 4 if you intend to
+       re-execute the script, or call :py:meth:`VM.close` to free the VM
+       and associated resources.
+
     .. py:method:: execute()
 
         Execute the compiled Jx9 script.
@@ -587,6 +601,14 @@ API Documentation
         :param value: Value to pass in to the scope of the Jx9 script, which should be either a string, int, float, bool, list, dict, or None (basically a valid JSON type).
 
         Set the value of a Jx9 variable. You can also use dictionary-style assignment to set the value.
+
+    .. py:method:: set_values(mapping)
+
+        :param dict mapping: Dictionary of name to value to pass in to the Jx9
+            script. This method is short-hand for making multiple calls
+            to :py:meth:`~VM.set_value`.
+
+        Set multiple Jx9 variables.
 
     .. py:method:: get_value(name)
 
@@ -659,15 +681,15 @@ API Documentation
 
     .. py:method:: all()
 
-        Return a list containing all records in the collection.
+        :returns: list containing all records in the collection.
 
         As of 0.9.0, it is also possible to iterate the collection using a
         Python iterable. See :py:meth:`~Collection.iterator`.
 
     .. py:method:: iterator()
 
-        Return a :py:class:`CollectionIterator` for iterating over the records
-        in the collection.
+        :returns: :py:class:`CollectionIterator` for iterating over the records
+            in the collection.
 
         .. code-block:: pycon
 
@@ -700,6 +722,9 @@ API Documentation
         the record, and return a boolean value indicating whether the record
         should be returned.
 
+        :param filter_fn: callable that accepts record and returns boolean.
+        :returns: list of matching records.
+
         Example:
 
         .. code-block:: pycon
@@ -713,13 +738,36 @@ API Documentation
 
         Create the collection if it does not exist.
 
+        :returns: true on success, false if collection already exists.
+
     .. py:method:: drop()
 
         Drop the collection, deleting all records.
 
+        :returns: true on success, false if collection does not exist.
+
     .. py:method:: exists()
 
         :returns: boolean value indicating whether the collection exists.
+
+    .. py:method:: creation_date()
+
+        :returns: the timestamp the collection was created (if exists) or None.
+
+    .. py:method:: set_schema([_schema=None[, **kwargs]])
+
+        Set the schema metadata associated with the collection. The schema is
+        **not enforced by the database engine**, and is for metadata purposes.
+
+        :param dict _schema: a mapping of field-name to data-type, or
+        :param kwargs: key/value mapping of field to data-type.
+        :returns: true on success, false on failure.
+
+    .. py:method:: get_schema()
+
+        Get the schema metadata associated with the collection.
+
+        :returns: mapping of field-name to data-type on success, or None.
 
     .. py:method:: last_record_id()
 
@@ -797,6 +845,14 @@ API Documentation
             True
             >>> users.fetch(users.last_record_id())
             {'__id': 0, 'name': 'Chuck'}
+
+        You can also use dictionary-style assignment using the record ID:
+
+        .. code-block:: pycon
+
+            >>> users[0] = {'name': 'Charles'}  # Can also use item assignment by id.
+            >>> users[0]
+            {'__id': 0, 'name': 'Charles'}
 
     .. py:method:: delete(record_id)
 

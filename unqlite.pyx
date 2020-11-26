@@ -957,6 +957,10 @@ cdef class VM(object):
     def __setitem__(self, name, value):
         self.set_value(name, value)
 
+    cpdef set_values(self, dict data):
+        for key, value in data.items():
+            self.set_value(key, value)
+
 
 cdef class Context(object):
     cdef unqlite_context *context
@@ -1063,16 +1067,14 @@ cdef class Collection(object):
         cdef VM vm
         with VM(self.unqlite, script) as vm:
             vm['collection'] = self.name
-            for key, value in kwargs.items():
-                vm[key] = value
+            vm.set_values(kwargs)
             vm.execute()
 
     def _simple_execute(self, basestring script, **kwargs):
         cdef VM vm
         with VM(self.unqlite, script) as vm:
             vm['collection'] = self.name
-            for key, value in kwargs.items():
-                vm[key] = value
+            vm.set_values(kwargs)
             vm.execute()
             try:
                 return vm['ret']
@@ -1115,12 +1117,15 @@ cdef class Collection(object):
         Note: this does not create a new JSON document, this method is
         used to create the collection itself.
         """
-        self._execute('if (!db_exists($collection)) {db_create($collection);}')
+        return self._simple_execute('if (!db_exists($collection)) { '
+                                    '$ret = db_create($collection); } '
+                                    'else { $ret = false; }')
 
     def drop(self):
         """Drop the collection and all associated records."""
-        self._execute('if (db_exists($collection)) { '
-                      'db_drop_collection($collection); }')
+        return self._simple_execute('if (db_exists($collection)) { '
+                                    '$ret = db_drop_collection($collection); }'
+                                    'else { $ret = false; }')
 
     def exists(self):
         """Return boolean indicating whether the collection exists."""
@@ -1137,6 +1142,18 @@ cdef class Collection(object):
 
     def reset_cursor(self):
         self._execute('db_reset_record_cursor($collection);')
+
+    def creation_date(self):
+        return self._simple_execute('$ret = db_creation_date($collection);')
+
+    def set_schema(self, _schema=None, **kwargs):
+        schema = _schema or {}
+        if kwargs: schema.update(kwargs)
+        return self._simple_execute(
+            '$ret = db_set_schema($collection, $schema);', schema=schema)
+
+    def get_schema(self):
+        return self._simple_execute('$ret = db_get_schema($collection);')
 
     def __len__(self):
         """Return the number of records in the document collection."""
