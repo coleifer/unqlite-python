@@ -1716,8 +1716,12 @@ struct SyBlob
 #define SyBlobDataAt(BLOB, OFFT)	 ((void *)(&((char *)(BLOB)->pBlob)[OFFT]))
 #define SyBlobGetAllocator(BLOB) ((BLOB)->pAllocator)
 
+#ifndef SXMEM_POOL_INCR
 #define SXMEM_POOL_INCR			3
+#endif
+#ifndef SXMEM_POOL_NBUCKETS
 #define SXMEM_POOL_NBUCKETS		12
+#endif
 #define SXMEM_BACKEND_MAGIC	0xBAC3E67D
 #define SXMEM_BACKEND_CORRUPT(BACKEND)	(BACKEND == 0 || BACKEND->nMagic != SXMEM_BACKEND_MAGIC)
 
@@ -54093,7 +54097,9 @@ static int unixOpen(
   ** a file-descriptor on the directory too. The first time unixSync()
   ** is called the directory file descriptor will be fsync()ed and close()d.
   */
+#ifndef UNQLITE_DISABLE_DIRSYNC
   int isOpenDirectory = isCreate;
+#endif
   const char *zName = zPath;
 
   SyZero(p,sizeof(unixFile));
@@ -54141,6 +54147,7 @@ static int unixOpen(
     unlink(zName);
   }
 
+#ifndef UNQLITE_DISABLE_DIRSYNC
   if( isOpenDirectory ){
     rc = openDirectory(zPath, &dirfd);
     if( rc!=UNQLITE_OK ){
@@ -54152,6 +54159,7 @@ static int unixOpen(
       goto open_finished;
     }
   }
+#endif
 
 #ifdef FD_CLOEXEC
   fcntl(fd, F_SETFD, fcntl(fd, F_GETFD, 0) | FD_CLOEXEC);
