@@ -10,6 +10,13 @@ unqlite-python
 
 Fast Python bindings for `UnQLite <http://unqlite.org/>`_, a lightweight, embedded NoSQL database and JSON document store.
 
+.. warning::
+    Read the issue tracker for `this database <https://github.com/symisc/unqlite/issues/>`_
+    before considering using it. UnQLite has not seen any meaningful development
+    since 2014. It is **strongly** recommended that you use `Sqlite <https://www.sqlite.org/>`_.
+    Sqlite has robust support for `json <https://www.sqlite.org/json1.html>`_ and is
+    actively developed and maintained.
+
 UnQLite features:
 
 * Embedded, zero-conf database

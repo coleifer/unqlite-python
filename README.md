@@ -5,7 +5,10 @@ Fast Python bindings for [UnQLite](http://unqlite.org/), a lightweight, embedded
 ### Please note
 
 **Read the issue tracker for [this database](https://github.com/symisc/unqlite/issues/)**
-before considering using it.
+before considering using it. UnQLite has not seen any meaningful development
+since 2014. It is **strongly** recommended that you use [Sqlite](https://www.sqlite.org/).
+Sqlite has robust support for [json](https://www.sqlite.org/json1.html) and is
+actively developed and maintained.
 
 ### Features
 
