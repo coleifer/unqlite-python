@@ -21,6 +21,8 @@ else:
 library_source = ['src/unqlite.c']
 unqlite_extension = Extension(
     'unqlite',
+    define_macros=[('UNQLITE_ENABLE_THREADS', '1')],
+    libraries=['pthread'],
     sources=[python_source] + library_source)
 
 setup(

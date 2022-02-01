@@ -50,8 +50,8 @@ cdef extern from "src/unqlite.h":
 
     # Transactions.
     cdef int unqlite_begin(unqlite *pDb)
-    cdef int unqlite_commit(unqlite *pDb)
-    cdef int unqlite_rollback(unqlite *pDb)
+    cdef int unqlite_commit(unqlite *pDb) nogil
+    cdef int unqlite_rollback(unqlite *pDb) nogil
 
     # Key/Value store.
     cdef int unqlite_kv_store(unqlite *pDb, const void *pKey, int nKeyLen, const void *pData, unqlite_int64 nDataLen)
@@ -75,7 +75,7 @@ cdef extern from "src/unqlite.h":
     cdef int unqlite_kv_cursor_reset(unqlite_kv_cursor *pCursor)
 
     # Jx9.
-    cdef int unqlite_compile(unqlite *pDb,const char *zJx9, int nByte, unqlite_vm **ppOut)
+    cdef int unqlite_compile(unqlite *pDb,const char *zJx9, int nByte, unqlite_vm **ppOut) nogil
     cdef int unqlite_compile_file(unqlite *pDb,const char *zPath,unqlite_vm **ppOut)
     cdef int unqlite_vm_config(unqlite_vm *pVm,int iOp,...)
     cdef int unqlite_vm_exec(unqlite_vm *pVm)
@@ -168,6 +168,7 @@ cdef extern from "src/unqlite.h":
 
     # Library info.
     cdef const char * unqlite_lib_version()
+    cdef int unqlite_lib_config(int nConfigOp, ...)
 
     # Constant values (http://unqlite.org/c_api_const.html).
     cdef int SXRET_OK = 0
@@ -239,6 +240,10 @@ cdef extern from "src/unqlite.h":
     cdef int UNQLITE_CONFIG_KV_ENGINE = 4
     cdef int UNQLITE_CONFIG_DISABLE_AUTO_COMMIT = 5
     cdef int UNQLITE_CONFIG_GET_KV_NAME = 6
+
+    # unqlite_lib_config flags.
+    cdef int UNQLITE_LIB_CONFIG_THREAD_LEVEL_SINGLE = 4
+    cdef int UNQLITE_LIB_CONFIG_THREAD_LEVEL_MULTI = 5
 
     # Open mode flags.
     cdef int UNQLITE_OPEN_READONLY = 0x00000001
@@ -337,7 +342,9 @@ cdef class UnQLite(object):
             unqlite_close(self.database)
 
     def __init__(self, filename=':mem:', flags=UNQLITE_OPEN_CREATE,
-                 open_database=True):
+                 open_database=True, thread_safe=True):
+        if thread_safe:
+            unqlite_lib_config(UNQLITE_LIB_CONFIG_THREAD_LEVEL_MULTI)
         self.filename = filename
         if isinstance(filename, unicode):
             self.encoded_filename = fsencode(filename)
@@ -528,14 +535,20 @@ cdef class UnQLite(object):
         """Commit current transaction. Only works for file-based databases."""
         if self.is_memory: return False
 
-        self.check_call(unqlite_commit(self.database))
+        cdef int rc
+        with nogil:
+            rc = unqlite_commit(self.database)
+        self.check_call(rc)
         return True
 
     cpdef rollback(self):
         """Rollback current transaction. Only works for file-based databases."""
         if self.is_memory: return False
 
-        self.check_call(unqlite_rollback(self.database))
+        cdef int rc
+        with nogil:
+            rc = unqlite_rollback(self.database)
+        self.check_call(rc)
         return True
 
     def transaction(self):
@@ -860,17 +873,23 @@ cdef class VM(object):
     cpdef compile(self):
         """Compile the Jx9 script."""
         self.encoded_names.clear()
-        self.unqlite.check_call(unqlite_compile(
-            self.unqlite.database,
-            <const char *>self.encoded_code,
-            -1,
-            &self.vm))
+        cdef int rc
+        cdef const char *code = <const char *>self.encoded_code
+        with nogil:
+            unqlite_compile(
+                self.unqlite.database,
+                code,
+                -1,
+                &self.vm)
+        self.unqlite.check_call(rc)
 
     cpdef execute(self):
         """Execute the compiled Jx9 script."""
         if not self.vm:
             raise UnQLiteError('Jx9 script must be compiled before executing.')
 
+        # Cannot release GIL here as the Jx9 script may invoke python-side code
+        # like user-defined functions or filters.
         self.unqlite.check_call(unqlite_vm_exec(self.vm))
 
     cpdef reset(self):
