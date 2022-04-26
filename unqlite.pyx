@@ -29,7 +29,7 @@ except ImportError:
         _fsencoding = _getfsencoding()
     fsencode = lambda s: s.encode(_fsencoding)
 
-cdef extern from "src/unqlite.h":
+cdef extern from "src/unqlite.h" nogil:
     struct unqlite
     struct unqlite_kv_cursor
 
@@ -50,8 +50,8 @@ cdef extern from "src/unqlite.h":
 
     # Transactions.
     cdef int unqlite_begin(unqlite *pDb)
-    cdef int unqlite_commit(unqlite *pDb) nogil
-    cdef int unqlite_rollback(unqlite *pDb) nogil
+    cdef int unqlite_commit(unqlite *pDb)
+    cdef int unqlite_rollback(unqlite *pDb)
 
     # Key/Value store.
     cdef int unqlite_kv_store(unqlite *pDb, const void *pKey, int nKeyLen, const void *pData, unqlite_int64 nDataLen)
@@ -75,7 +75,7 @@ cdef extern from "src/unqlite.h":
     cdef int unqlite_kv_cursor_reset(unqlite_kv_cursor *pCursor)
 
     # Jx9.
-    cdef int unqlite_compile(unqlite *pDb,const char *zJx9, int nByte, unqlite_vm **ppOut) nogil
+    cdef int unqlite_compile(unqlite *pDb,const char *zJx9, int nByte, unqlite_vm **ppOut)
     cdef int unqlite_compile_file(unqlite *pDb,const char *zPath,unqlite_vm **ppOut)
     cdef int unqlite_vm_config(unqlite_vm *pVm,int iOp,...)
     cdef int unqlite_vm_exec(unqlite_vm *pVm)
@@ -138,13 +138,6 @@ cdef extern from "src/unqlite.h":
     cdef int unqlite_value_is_resource(unqlite_value *pVal)
     cdef int unqlite_value_is_empty(unqlite_value *pVal)
 
-    # JSON Array/Object Management Interfaces
-    cdef unqlite_value * unqlite_array_fetch(unqlite_value *pArray, const char *zKey, int nByte)
-    cdef int unqlite_array_walk(unqlite_value *pArray, int (*xWalk)(unqlite_value *, unqlite_value *, void *), void *pUserData)
-    cdef int unqlite_array_add_elem(unqlite_value *pArray, unqlite_value *pKey, unqlite_value *pValue)
-    cdef int unqlite_array_add_strkey_elem(unqlite_value *pArray, const char *zKey, unqlite_value *pValue)
-    cdef int unqlite_array_count(unqlite_value *pArray)
-
     # Call Context Handling Interfaces
     cdef int unqlite_context_output(unqlite_context *pCtx, const char *zString, int nLen)
     cdef int unqlite_context_output_format(unqlite_context *pCtx,const char *zFormat, ...)
@@ -157,10 +150,6 @@ cdef extern from "src/unqlite.h":
     cdef void * unqlite_context_peek_aux_data(unqlite_context *pCtx)
     cdef unsigned int unqlite_context_result_buf_length(unqlite_context *pCtx)
     cdef const char * unqlite_function_name(unqlite_context *pCtx)
-
-    # Foreign functions.
-    cdef int unqlite_create_function(unqlite_vm *pVm,const char *zName,int (*xFunc)(unqlite_context *,int,unqlite_value **),void *pUserData)
-    cdef int unqlite_delete_function(unqlite_vm *pVm, const char *zName)
 
     # Misc utils.
     cdef int unqlite_util_random_string(unqlite *pDb, char *zBuf, unsigned int buf_size)
@@ -275,6 +264,19 @@ cdef extern from "src/unqlite.h":
     cdef int UNQLITE_VM_CONFIG_IO_STREAM = 11  # ONE ARGUMENT: const unqlite_io_stream *pStream
     cdef int UNQLITE_VM_CONFIG_ARGV_ENTRY = 12  # ONE ARGUMENT: const char *zValue
     cdef int UNQLITE_VM_CONFIG_EXTRACT_OUTPUT = 13  # TWO ARGUMENTS: const void **ppOut, unsigned int *pOutputLen
+
+# Function groups that may require the GIL.
+cdef extern from "src/unqlite.h":
+    # JSON Array/Object Management Interfaces
+    cdef unqlite_value * unqlite_array_fetch(unqlite_value *pArray, const char *zKey, int nByte)
+    cdef int unqlite_array_walk(unqlite_value *pArray, int (*xWalk)(unqlite_value *, unqlite_value *, void *), void *pUserData)
+    cdef int unqlite_array_add_elem(unqlite_value *pArray, unqlite_value *pKey, unqlite_value *pValue)
+    cdef int unqlite_array_add_strkey_elem(unqlite_value *pArray, const char *zKey, unqlite_value *pValue)
+    cdef int unqlite_array_count(unqlite_value *pArray)
+
+    # Foreign functions.
+    cdef int unqlite_create_function(unqlite_vm *pVm,const char *zName,int (*xFunc)(unqlite_context *,int,unqlite_value **),void *pUserData)
+    cdef int unqlite_delete_function(unqlite_vm *pVm, const char *zName)
 
 
 cdef inline unicode decode(key):
@@ -535,20 +537,14 @@ cdef class UnQLite(object):
         """Commit current transaction. Only works for file-based databases."""
         if self.is_memory: return False
 
-        cdef int rc
-        with nogil:
-            rc = unqlite_commit(self.database)
-        self.check_call(rc)
+        self.check_call(unqlite_commit(self.database))
         return True
 
     cpdef rollback(self):
         """Rollback current transaction. Only works for file-based databases."""
         if self.is_memory: return False
 
-        cdef int rc
-        with nogil:
-            rc = unqlite_rollback(self.database)
-        self.check_call(rc)
+        self.check_call(unqlite_rollback(self.database))
         return True
 
     def transaction(self):
@@ -873,15 +869,12 @@ cdef class VM(object):
     cpdef compile(self):
         """Compile the Jx9 script."""
         self.encoded_names.clear()
-        cdef int rc
         cdef const char *code = <const char *>self.encoded_code
-        with nogil:
-            unqlite_compile(
-                self.unqlite.database,
-                code,
-                -1,
-                &self.vm)
-        self.unqlite.check_call(rc)
+        self.unqlite.check_call(unqlite_compile(
+            self.unqlite.database,
+            code,
+            -1,
+            &self.vm))
 
     cpdef execute(self):
         """Execute the compiled Jx9 script."""

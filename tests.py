@@ -1,3 +1,4 @@
+import gc
 import os
 import sys
 import unittest
@@ -15,6 +16,7 @@ except ImportError:
 class BaseTestCase(unittest.TestCase):
     def setUp(self):
         super(BaseTestCase, self).setUp()
+        gc.collect()
         self.db = UnQLite()
         self._filename = 'test.db'
         self.file_db = UnQLite(self._filename)
