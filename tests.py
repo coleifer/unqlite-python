@@ -1,6 +1,8 @@
 import gc
 import os
+import random
 import sys
+import threading
 import unittest
 
 
@@ -436,6 +438,32 @@ class TestUtils(BaseTestCase):
 
         rs = self.db.random_string(10)
         self.assertEqual(len(rs), 10)
+
+
+class TestMultiThreaded(BaseTestCase):
+    def test_mt(self):
+        # Multiple writers or reserved locks are not allowed, so we have to do
+        # writes single-threaded.
+        nrows = 1000
+        nthreads = 32
+
+        db = self.file_db
+        with db.transaction():
+            for i in range(nrows):
+                db.store('k%063d' % i, 'v%0255d' % i)
+
+        def cb(n):
+            db = UnQLite(self._filename)
+            indices = list(range(n))
+            random.shuffle(indices)
+            for i in indices:
+                self.assertEqual(db.fetch('k%063d' % i), b'v%0255d' % i)
+            db.close()
+
+        threads = [threading.Thread(target=cb, args=(nrows,))
+                   for i in range(nthreads)]
+        for t in threads: t.start()
+        for t in threads: t.join()
 
 
 class TestCollection(BaseTestCase):
