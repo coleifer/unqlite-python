@@ -617,8 +617,11 @@ cdef class UnQLite(object):
         except KeyError:
             pass
         else:
-            for item in cursor.fetch_until(end_key, include_end_key):
-                yield item
+            try:
+                for item in cursor.fetch_until(end_key, include_end_key):
+                    yield item
+            except StopIteration:
+                return
 
     def __len__(self):
         """
@@ -836,13 +839,13 @@ cdef class Cursor(object):
             if key == stop_key:
                 if include_stop_key:
                     yield (key, value)
-                raise StopIteration
+                return
             else:
                 yield (key, value)
 
 
 # Foreign function callback signature.
-ctypedef int (*unqlite_filter_fn)(unqlite_context *, int, unqlite_value **)
+ctypedef int (*unqlite_filter_fn)(unqlite_context *, int, unqlite_value **) noexcept
 
 
 cdef class VM(object):
@@ -1042,7 +1045,7 @@ cdef class Context(object):
             unqlite_value_null(ptr)
 
 
-cdef int py_filter_wrapper(unqlite_context *context, int nargs, unqlite_value **values):
+cdef int py_filter_wrapper(unqlite_context *context, int nargs, unqlite_value **values) noexcept:
     cdef int i
     cdef list converted = []
     cdef object callback = <object>unqlite_context_user_data(context)
@@ -1328,12 +1331,12 @@ cdef python_to_unqlite_value(VM vm, unqlite_value *ptr, python_value):
     else:
         unqlite_value_null(ptr)
 
-cdef int unqlite_value_to_list(unqlite_value *key, unqlite_value *value, void *user_data):
+cdef int unqlite_value_to_list(unqlite_value *key, unqlite_value *value, void *user_data) noexcept:
     cdef list accum
     accum = <list>user_data
     accum.append(unqlite_value_to_python(value))
 
-cdef int unqlite_value_to_dict(unqlite_value *key, unqlite_value *value, void *user_data):
+cdef int unqlite_value_to_dict(unqlite_value *key, unqlite_value *value, void *user_data) noexcept:
     cdef dict accum
     accum = <dict>user_data
     pkey = unqlite_value_to_python(key)
