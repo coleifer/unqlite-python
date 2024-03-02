@@ -50,7 +50,7 @@ jobs:
           # so there is no way to pass this in directly.
           # This would require modifying cython's setup.py to look for these flags
           # in env vars.
-          CIBW_BEFORE_BUILD: "pip install -r requirements.txt"
+          CIBW_BEFORE_BUILD: "pip install Cython"
           # CIBW_BEFORE_BUILD: "python setup.py build_ext --inplace"
           CIBW_BUILD: ${{ matrix.python }}-${{ matrix.buildplat[1] }}
           CIBW_ENVIRONMENT: CFLAGS='-O3 -g0 -mtune=generic -pipe -fPIC' LDFLAGS='-fPIC'
