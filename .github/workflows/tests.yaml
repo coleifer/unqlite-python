@@ -1,4 +1,4 @@
-name: test Builder
+name: test_build
 on:
   workflow_dispatch
 
@@ -8,36 +8,51 @@ concurrency:
 
 jobs:
   build_wheels:
-    name: Build ${{ matrix.python }}-${{ matrix.os }}-${{ matrix.cibw_archs }}
-    runs-on: ${{ matrix.cibw_archs || matrix.os }}
-    defaults:
-      run:
-        shell: bash
+    name: Build ${{ matrix.python }}-${{ matrix.buildplat[1] }}
+    runs-on: ${{ matrix.buildplat[0] }}
     strategy:
+      # Ensure that a wheel builder finishes even if another fails
       fail-fast: false
       matrix:
-        python: [cp38]
-        # python: [cp38, cp39, cp310, cp311]
-        os: [ubuntu-20.04, windows-latest, macos-11]
-        include:
-          - os: ubuntu-20.04
-          - os: windows-latest
-          - os: macos-11
+        # Github Actions doesn't support pairing matrix values together, let's improvise
+        # https://github.com/github/feedback/discussions/7835#discussioncomment-1769026
+        buildplat:
+          - [ubuntu-latest, manylinux_x86_64]
+          - [ubuntu-latest, musllinux_x86_64]
+          - [macos-latest, macosx_x86_64]
+          - [windows-latest, win_amd64]
+          - [windows-2019, win32]
+        python: ["cp38", "cp39", "cp310", "cp311"]
+        # python: ["cp38"]
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
     
-      - name: Build/Test/Package
+      - name: Cache cibuild
+        id: cache-npm
+        uses: actions/cache@v3
         env:
-          CIBW_ARCHS: ${{ matrix.cibw_archs }}
-          CIBW_BUILD: ${{matrix.python}}-*
-          CIBW_BUILD_VERBOSITY: 1
-          # containerized Linux builds require explicit CIBW_ENVIRONMENT
+          cache-name: cache-cibuilds
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: /var/lib/docker/
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - name: Build wheels
+        uses: pypa/cibuildwheel@v2.16.5
+        env:
+          # TODO: Build Cython with the compile-all flag?
+          # Unfortunately, there is no way to modify cibuildwheel's build command
+          # so there is no way to pass this in directly.
+          # This would require modifying cython's setup.py to look for these flags
+          # in env vars.
+          CIBW_BEFORE_BUILD: "pip install -r requirements.txt"
+          # CIBW_BEFORE_BUILD: "python setup.py build_ext --inplace"
+          CIBW_BUILD: ${{ matrix.python }}-${{ matrix.buildplat[1] }}
           CIBW_ENVIRONMENT: CFLAGS='-O3 -g0 -mtune=generic -pipe -fPIC' LDFLAGS='-fPIC'
           CIBW_TEST_REQUIRES: pytest
           CIBW_TEST_COMMAND: pytest {package}/tests
-        run: |
-          pip install -U --user cibuildwheel
-          python -m cibuildwheel --platform auto --output-dir dist .
-
-
