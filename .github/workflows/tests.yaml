@@ -1,21 +1,48 @@
-name: Tests
-on: [push]
+name: test Builder
+on:
+  workflow_dispatch
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
 jobs:
-  tests:
-    name: ${{ matrix.python-version }}
-    runs-on: ubuntu-latest
+  build_wheels:
+    name: Build ${{ matrix.python }}-${{ matrix.os }}-${{ matrix.cibw_archs }}
+    runs-on: ${{ matrix.cibw_archs || matrix.os }}
+    defaults:
+      run:
+        shell: bash
     strategy:
       fail-fast: false
       matrix:
-        python-version: [3.7, "3.10", "3.11"]
+        python: [cp38]
+        # python: [cp38, cp39, cp310, cp311]
+        os: [ubuntu-20.04, windows-latest, macos-11]
+        include:
+          - os: ubuntu-20.04
+            cibw_archs: "x86_64"
+          - os: ubuntu-20.04
+            cibw_archs: "aarch64"
+          - os: windows-latest
+            cibw_archs: "auto"
+          - os: macos-11
+            cibw_archs: "x86_64 universal2 arm64"
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-        with:
-          python-version: ${{ matrix.python-version }}
-      - name: pip deps
+      - name: Checkout
+        uses: actions/checkout@v3
+    
+      - name: Build/Test/Package
+        env:
+          CIBW_ARCHS: ${{ matrix.cibw_archs }}
+          CIBW_BUILD: ${{matrix.python}}-*
+          CIBW_BUILD_VERBOSITY: 1
+          # containerized Linux builds require explicit CIBW_ENVIRONMENT
+          CIBW_ENVIRONMENT: CFLAGS='-O3 -g0 -mtune=generic -pipe -fPIC' LDFLAGS='-fPIC'
+          CIBW_TEST_REQUIRES: pytest
+          CIBW_TEST_COMMAND: pytest {package}/tests
         run: |
-          pip install cython
-          python setup.py build_ext -i
-      - name: runtests
-        run: python tests.py
+          pip install -U --user cibuildwheel
+          python -m cibuildwheel --platform auto --output-dir dist .
+
+
