@@ -21,11 +21,8 @@ jobs:
         os: [ubuntu-20.04, windows-latest, macos-11]
         include:
           - os: ubuntu-20.04
-            cibw_archs: "x86_64"
           - os: windows-latest
-            cibw_archs: "auto"
           - os: macos-11
-            cibw_archs: "universal2"
     steps:
       - name: Checkout
         uses: actions/checkout@v3
