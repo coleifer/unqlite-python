@@ -35,7 +35,7 @@ setup(
     name='medspacy_test_unqlite',
     version='0.9.6',
     description='Fast Python bindings for the UnQLite embedded NoSQL database.',
-    author=['Charles Leifer','medspacy']
+    author=['Charles Leifer','medspacy'],
     author_email='',
     url='https://github.com/medspacy/unqlite-python',
     license='MIT',
