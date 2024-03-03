@@ -65,3 +65,59 @@ jobs:
           name: ${{ matrix.python }}-${{ startsWith(matrix.buildplat[1], 'macosx') && 'macosx' || matrix.buildplat[1] }}
           path: ./wheelhouse/*.whl
 
+  build_sdist:
+    name: Build sdist
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout quicksectx
+        uses: actions/checkout@v3
+      # Used to push the built wheels
+      - uses: actions/setup-python@v4
+        with:
+          # Build sdist on lowest supported Python
+          python-version: '3.8.x'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build sdist
+        run: |
+          python setup.py sdist
+      - uses: actions/upload-artifact@v3
+        with:
+          name: sdist
+          path: ./dist/*.tar.gz
+
+  upload_pypi:
+    needs: [build_wheels, build_sdist]
+    runs-on: ubuntu-latest
+    # upload to PyPI on every tag starting with 'v'
+#    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    # alternatively, to publish when a GitHub Release is created, use the following rule:
+    # if: github.event_name == 'release' && github.event.action == 'published'
+    steps:
+      - uses: actions/setup-python@v4
+      - name: Install dependencies
+        run: |
+          pip install twine
+
+      - uses: actions/download-artifact@v3
+        with:
+          path: dist
+
+      - name: check downloaded
+        run: |
+          mv ./dist/**/* ./dist/
+          rm -rf dist/cp*
+          rm -rf dist/sdist
+          ls -R
+
+      - name: Build and publish
+        run: |
+          twine upload --skip-existing --verbose dist/*
+        env:
+#          TWINE_REPOSITORY: testpypi   # uncomment this line for test
+#         need to add Pypi token in secrets under the github repo's setting
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
