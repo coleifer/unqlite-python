@@ -2,8 +2,21 @@ name: test_build
 on:
   push:
     branches: [ master ]
+    paths:
+      - 'src/**'
+      - 'tests/**'
+      - 'docs/**'
+      - './*.py'
+      - './*.pyx'
   pull_request:
     branches: [ master ]
+    paths:
+      - 'src/**'
+      - 'tests/**'
+      - 'docs/**'
+      - './*.py'
+      - './*.pyx
+
 
 
 concurrency:
