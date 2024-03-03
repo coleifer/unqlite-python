@@ -2,7 +2,10 @@
 
 Fast Python bindings for [UnQLite](http://unqlite.org/), a lightweight, embedded NoSQL database and JSON document store.
 
+This is a forked version from [coleifer/unqlite-python](https://github.com/coleifer/unqlite-python) for better handling installation issues.
+
 ### Please note
+
 
 **Read the issue tracker for [this database](https://github.com/symisc/unqlite/issues/)**
 before considering using it. UnQLite has not seen any meaningful development

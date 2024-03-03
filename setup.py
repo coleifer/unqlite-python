@@ -32,12 +32,12 @@ unqlite_extension = Extension(
     sources=[python_source] + library_source)
 
 setup(
-    name='unqlite',
+    name='medspacy_test_unqlite',
     version='0.9.6',
     description='Fast Python bindings for the UnQLite embedded NoSQL database.',
-    author='Charles Leifer',
+    author=['Charles Leifer','medspacy']
     author_email='',
-    url='https://github.com/coleifer/unqlite-python',
+    url='https://github.com/medspacy/unqlite-python',
     license='MIT',
     #install_requires=['Cython'],
     #setup_requires=['cython'],
