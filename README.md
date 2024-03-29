@@ -2,7 +2,7 @@
 
 Fast Python bindings for [UnQLite](http://unqlite.org/), a lightweight, embedded NoSQL database and JSON document store.
 
-This is a forked version from [coleifer/unqlite-python](https://github.com/coleifer/unqlite-python) for better handling installation issues.
+This is a forked version from [coleifer/unqlite-python](https://github.com/coleifer/unqlite-python) for better handling installation issues. The source codes are identical, but we use workflow to pre-compile different versions for environments and release to pypi.org with these pre-compiled wheel files.
 
 ### Please note
 
@@ -40,9 +40,9 @@ Links:
 
 ## Installation
 
-You can install unqlite using `pip`.
+You can install medspacy-unqlite using `pip`.
 
-    pip install unqlite
+    pip install medspacy-unqlite
 
 ## Basic usage
 
