@@ -410,7 +410,7 @@ cdef class UnQLite(object):
         self.check_call(unqlite_kv_store(
             self.database,
             <const char *>encoded_key,
-            -1,
+            len(encoded_key),
             <const char *>encoded_value,
             len(encoded_value)))
 
