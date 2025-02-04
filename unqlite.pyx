@@ -423,7 +423,7 @@ cdef class UnQLite(object):
         self.check_call(unqlite_kv_fetch(
             self.database,
             <const char *>encoded_key,
-            -1,
+            len(encoded_key),
             <void *>0,
             &buf_size))
 
@@ -432,7 +432,7 @@ cdef class UnQLite(object):
             self.check_call(unqlite_kv_fetch(
                 self.database,
                 <const char *>encoded_key,
-                -1,
+                len(encoded_key),
                 <void *>buf,
                 &buf_size))
             value = buf[:buf_size]
@@ -445,7 +445,7 @@ cdef class UnQLite(object):
         cdef bytes encoded_key = encode(key)
 
         self.check_call(unqlite_kv_delete(
-            self.database, <char *>encoded_key, -1))
+            self.database, <char *>encoded_key, len(encoded_key)))
 
     cpdef append(self, key, value):
         """Append to the value stored in the given key."""
@@ -455,7 +455,7 @@ cdef class UnQLite(object):
         self.check_call(unqlite_kv_append(
             self.database,
             <const char *>encoded_key,
-            -1,
+            len(encoded_key),
             <const char *>encoded_value,
             len(encoded_value)))
 
@@ -468,7 +468,7 @@ cdef class UnQLite(object):
         ret = unqlite_kv_fetch(
             self.database,
             <const char *>encoded_key,
-            -1,
+            len(encoded_key),
             <void *>0,
             &buf_size)
         if ret == UNQLITE_NOTFOUND:
@@ -731,7 +731,7 @@ cdef class Cursor(object):
         self.unqlite.check_call(unqlite_kv_cursor_seek(
             self.cursor,
             <char *>encoded_key,
-            -1,
+            len(encoded_key),
             flags))
 
     cpdef first(self):
