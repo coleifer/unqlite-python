@@ -7,7 +7,7 @@ import unittest
 
 
 try:
-    from unqlite import UnQLite
+    from unqlite import UnQLite, UnQLiteError
 except ImportError:
     sys.stderr.write('Unable to import `unqlite`. Make sure it is properly '
                      'installed.\n')
@@ -186,14 +186,28 @@ class TestKeyValueStorage(BaseTestCase):
         byte_data = [
             (b'k\xe4se', b'sp\xe4tzle'),
             (b'kn\xf6dli', b'br\xf6tli'),
-            (b'w\xfcrstel', b's\xfclzli')]
+            (b'w\xfcrstel', b's\xfclzli'),
+            (b'\x01\x00\x00\x00', b'little-endian-4-byte-255'),
+            (b'\x00\x01\x00\x00', b'little-endian-4-byte-256'),
+            ]
         for db in (self.db, self.file_db):
             for k, v in byte_data:
-                db.store(k, v)
+                try:
+                    db.store(k, v)
+                except UnQLiteError as e:
+                    e.args = (f"Empty key {k!r}: {e}",) + e.args[1:]
+                    raise e
             for k, v in byte_data:
                 w = db.fetch(k)
-                self.assertTrue(isinstance(w, bytes))
-                self.assertEqual(w, v)
+                self.assertTrue(
+                    isinstance(w, bytes),
+                    msg=f"Fetch result for key {k} is not bytes: got {type(w)}"
+                )
+                self.assertEqual(
+                    w,
+                    v,
+                    msg=f"Mismatch for key {k}: expected {v} got {w}"
+                )
 
 
 class TestTransaction(BaseTestCase):
