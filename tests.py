@@ -199,15 +199,8 @@ class TestKeyValueStorage(BaseTestCase):
                     raise e
             for k, v in byte_data:
                 w = db.fetch(k)
-                self.assertTrue(
-                    isinstance(w, bytes),
-                    msg=f"Fetch result for key {k} is not bytes: got {type(w)}"
-                )
-                self.assertEqual(
-                    w,
-                    v,
-                    msg=f"Mismatch for key {k}: expected {v} got {w}"
-                )
+                self.assertTrue(isinstance(w, bytes))
+                self.assertEqual(w, v)
 
 
 class TestTransaction(BaseTestCase):
