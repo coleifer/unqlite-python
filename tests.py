@@ -195,7 +195,7 @@ class TestKeyValueStorage(BaseTestCase):
                 try:
                     db.store(k, v)
                 except UnQLiteError as e:
-                    e.args = (f"{k!r}: {e}") + e.args[1:]
+                    e.args = f"{k!r}: {e}"
                     raise e
             for k, v in byte_data:
                 w = db.fetch(k)
