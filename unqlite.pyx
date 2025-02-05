@@ -412,7 +412,8 @@ cdef class UnQLite(object):
             <const char *>encoded_key,
             len(encoded_key),
             <const char *>encoded_value,
-            len(encoded_value)))
+            len(encoded_value)
+        ))
 
     cpdef fetch(self, key):
         """Retrieve value at given key. Raises `KeyError` if key not found."""
@@ -425,7 +426,8 @@ cdef class UnQLite(object):
             <const char *>encoded_key,
             len(encoded_key),
             <void *>0,
-            &buf_size))
+            &buf_size
+        ))
 
         try:
             buf = <char *>malloc(buf_size)
@@ -434,7 +436,8 @@ cdef class UnQLite(object):
                 <const char *>encoded_key,
                 len(encoded_key),
                 <void *>buf,
-                &buf_size))
+                &buf_size
+            ))
             value = buf[:buf_size]
             return value
         finally:
@@ -445,7 +448,10 @@ cdef class UnQLite(object):
         cdef bytes encoded_key = encode(key)
 
         self.check_call(unqlite_kv_delete(
-            self.database, <char *>encoded_key, len(encoded_key)))
+            self.database,
+            <char *>encoded_key,
+            len(encoded_key)
+        ))
 
     cpdef append(self, key, value):
         """Append to the value stored in the given key."""
@@ -457,7 +463,8 @@ cdef class UnQLite(object):
             <const char *>encoded_key,
             len(encoded_key),
             <const char *>encoded_value,
-            len(encoded_value)))
+            len(encoded_value)
+        ))
 
     cpdef exists(self, key):
         cdef bytes encoded_key = encode(key)
@@ -470,7 +477,8 @@ cdef class UnQLite(object):
             <const char *>encoded_key,
             len(encoded_key),
             <void *>0,
-            &buf_size)
+            &buf_size
+        )
         if ret == UNQLITE_NOTFOUND:
             return False
         elif ret == UNQLITE_OK:
@@ -732,7 +740,8 @@ cdef class Cursor(object):
             self.cursor,
             <char *>encoded_key,
             len(encoded_key),
-            flags))
+            flags
+        ))
 
     cpdef first(self):
         """Set cursor to the first record in the database."""
