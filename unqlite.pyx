@@ -410,7 +410,7 @@ cdef class UnQLite(object):
         self.check_call(unqlite_kv_store(
             self.database,
             <const char *>encoded_key,
-            len(encoded_key),
+            len(encoded_key), # to test the null-byte key prefix problem, revert this line to "-1,"
             <const char *>encoded_value,
             len(encoded_value)
         ))
