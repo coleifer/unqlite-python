@@ -11,8 +11,6 @@
 # Thanks to buaabyl for pyUnQLite, whose source-code this library is based on.
 # ASCII art designed by "pils".
 from cpython.bytes cimport PyBytes_Check
-from cpython.string cimport PyString_AsStringAndSize
-from cpython.string cimport PyString_FromStringAndSize
 from cpython.unicode cimport PyUnicode_AsUTF8String
 from cpython.unicode cimport PyUnicode_Check
 from libc.stdlib cimport free, malloc
