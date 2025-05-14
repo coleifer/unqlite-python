@@ -11,8 +11,6 @@
 # Thanks to buaabyl for pyUnQLite, whose source-code this library is based on.
 # ASCII art designed by "pils".
 from cpython.bytes cimport PyBytes_Check
-from cpython.string cimport PyString_AsStringAndSize
-from cpython.string cimport PyString_FromStringAndSize
 from cpython.unicode cimport PyUnicode_AsUTF8String
 from cpython.unicode cimport PyUnicode_Check
 from libc.stdlib cimport free, malloc
@@ -410,7 +408,7 @@ cdef class UnQLite(object):
         self.check_call(unqlite_kv_store(
             self.database,
             <const char *>encoded_key,
-            -1,
+            len(encoded_key),
             <const char *>encoded_value,
             len(encoded_value)))
 
@@ -423,7 +421,7 @@ cdef class UnQLite(object):
         self.check_call(unqlite_kv_fetch(
             self.database,
             <const char *>encoded_key,
-            -1,
+            len(encoded_key),
             <void *>0,
             &buf_size))
 
@@ -432,7 +430,7 @@ cdef class UnQLite(object):
             self.check_call(unqlite_kv_fetch(
                 self.database,
                 <const char *>encoded_key,
-                -1,
+                len(encoded_key),
                 <void *>buf,
                 &buf_size))
             value = buf[:buf_size]
@@ -445,7 +443,7 @@ cdef class UnQLite(object):
         cdef bytes encoded_key = encode(key)
 
         self.check_call(unqlite_kv_delete(
-            self.database, <char *>encoded_key, -1))
+            self.database, <char *>encoded_key, len(encoded_key)))
 
     cpdef append(self, key, value):
         """Append to the value stored in the given key."""
@@ -455,7 +453,7 @@ cdef class UnQLite(object):
         self.check_call(unqlite_kv_append(
             self.database,
             <const char *>encoded_key,
-            -1,
+            len(encoded_key),
             <const char *>encoded_value,
             len(encoded_value)))
 
@@ -468,7 +466,7 @@ cdef class UnQLite(object):
         ret = unqlite_kv_fetch(
             self.database,
             <const char *>encoded_key,
-            -1,
+            len(encoded_key),
             <void *>0,
             &buf_size)
         if ret == UNQLITE_NOTFOUND:
@@ -731,7 +729,7 @@ cdef class Cursor(object):
         self.unqlite.check_call(unqlite_kv_cursor_seek(
             self.cursor,
             <char *>encoded_key,
-            -1,
+            len(encoded_key),
             flags))
 
     cpdef first(self):
@@ -876,7 +874,7 @@ cdef class VM(object):
         self.unqlite.check_call(unqlite_compile(
             self.unqlite.database,
             code,
-            -1,
+            len(self.encoded_code),
             &self.vm))
 
     cpdef execute(self):
@@ -1018,9 +1016,9 @@ cdef class Context(object):
 
         if isinstance(python_value, unicode):
             encoded_value = encode(python_value)
-            unqlite_value_string(ptr, encoded_value, -1)
+            unqlite_value_string(ptr, encoded_value, len(encoded_value))
         elif isinstance(python_value, bytes):
-            unqlite_value_string(ptr, python_value, -1)
+            unqlite_value_string(ptr, python_value, len(python_value))
         elif isinstance(python_value, (list, tuple)):
             for item in python_value:
                 item_ptr = self.create_value(item)
@@ -1037,7 +1035,7 @@ cdef class Context(object):
                 self.release_value(item_ptr)
         elif isinstance(python_value, bool):
             unqlite_value_bool(ptr, python_value)
-        elif isinstance(python_value, (int, long)):
+        elif isinstance(python_value, int):
             unqlite_value_int64(ptr, python_value)
         elif isinstance(python_value, float):
             unqlite_value_double(ptr, python_value)
@@ -1305,9 +1303,9 @@ cdef python_to_unqlite_value(VM vm, unqlite_value *ptr, python_value):
 
     if isinstance(python_value, unicode):
         encoded_value = encode(python_value)
-        unqlite_value_string(ptr, encoded_value, -1)
+        unqlite_value_string(ptr, encoded_value, len(encoded_value))
     elif isinstance(python_value, bytes):
-        unqlite_value_string(ptr, python_value, -1)
+        unqlite_value_string(ptr, python_value, len(python_value))
     elif isinstance(python_value, (list, tuple)):
         for item in python_value:
             item_ptr = vm.create_value(item)
@@ -1324,7 +1322,7 @@ cdef python_to_unqlite_value(VM vm, unqlite_value *ptr, python_value):
             vm.release_value(item_ptr)
     elif isinstance(python_value, bool):
         unqlite_value_bool(ptr, python_value)
-    elif isinstance(python_value, (int, long)):
+    elif isinstance(python_value, int):
         unqlite_value_int64(ptr, python_value)
     elif isinstance(python_value, float):
         unqlite_value_double(ptr, python_value)

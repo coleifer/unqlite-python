@@ -186,7 +186,10 @@ class TestKeyValueStorage(BaseTestCase):
         byte_data = [
             (b'k\xe4se', b'sp\xe4tzle'),
             (b'kn\xf6dli', b'br\xf6tli'),
-            (b'w\xfcrstel', b's\xfclzli')]
+            (b'w\xfcrstel', b's\xfclzli'),
+            (b'\x01\x00\x00\x00', b'le1'),
+            (b'\x00\x01\x00\x00', b'le2'),
+        ]
         for db in (self.db, self.file_db):
             for k, v in byte_data:
                 db.store(k, v)
