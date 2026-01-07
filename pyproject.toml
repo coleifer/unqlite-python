@@ -1,2 +1,25 @@
 [build-system]
 requires = ["setuptools", "wheel", "cython"]
+
+[project]
+name = "unqlite"
+version = "1.0.0"
+description = "fast bindings for the unqlite embedded database"
+readme = "README.md"
+authors = [
+    { name = "Charles Leifer", email = "coleifer@gmail.com" }
+]
+classifiers = [
+    "Programming Language :: Python :: 2",
+    "Programming Language :: Python :: 3",
+    "Topic :: Database :: Database Engines/Servers",
+    "Topic :: Software Development :: Embedded Systems",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.urls]
+Repository = "https://github.com/coleifer/unqlite-python"
+Documentation = "https://unqlite-python.readthedocs.io/"
+
+[tool.setuptools]
+py-modules = ["unqlite"]

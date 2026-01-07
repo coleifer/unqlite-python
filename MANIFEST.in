@@ -9,4 +9,4 @@ recursive-include docs *
 
 global-exclude *.pyc
 global-exclude *.o
-global-exclude *.so.0.1
+global-exclude *.so*
