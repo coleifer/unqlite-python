@@ -10,10 +10,19 @@
 #
 # Thanks to buaabyl for pyUnQLite, whose source-code this library is based on.
 # ASCII art designed by "pils".
+from cpython.buffer cimport PyBUF_SIMPLE
+from cpython.buffer cimport PyObject_CheckBuffer
+from cpython.buffer cimport PyObject_GetBuffer
+from cpython.buffer cimport PyBuffer_Release
+from cpython.buffer cimport Py_buffer
 from cpython.bytes cimport PyBytes_Check
-from cpython.unicode cimport PyUnicode_AsUTF8String
+from cpython.bytes cimport PyBytes_AS_STRING
+from cpython.bytes cimport PyBytes_GET_SIZE
+from cpython.mem cimport PyMem_Free
+from cpython.mem cimport PyMem_Malloc
 from cpython.unicode cimport PyUnicode_Check
-from libc.stdlib cimport free, malloc
+from cpython.unicode cimport PyUnicode_AsUTF8String
+from cpython.unicode cimport PyUnicode_DecodeUTF8
 
 import sys
 try:
@@ -278,28 +287,50 @@ cdef extern from "src/unqlite.h":
 
 
 cdef inline unicode decode(key):
-    cdef unicode ukey
     if PyBytes_Check(key):
-        ukey = key.decode('utf-8')
+        return PyUnicode_DecodeUTF8(
+            PyBytes_AS_STRING(key),
+            PyBytes_GET_SIZE(key),
+            NULL)
     elif PyUnicode_Check(key):
-        ukey = <unicode>key
+        return <unicode>key
     elif key is None:
         return None
-    else:
-        ukey = unicode(key)
-    return ukey
+
+    cdef Py_buffer view
+
+    if PyObject_CheckBuffer(key):
+        PyObject_GetBuffer(key, &view, PyBUF_SIMPLE)
+        try:
+            return PyUnicode_DecodeUTF8(<const char*>view.buf, view.len, NULL)
+        finally:
+            PyBuffer_Release(&view)
+
+    cdef unicode ukey = str(key)
+    return PyUnicode_DecodeUTF8(
+        PyBytes_AS_STRING(PyUnicode_AsUTF8String(ukey)),
+        PyBytes_GET_SIZE(PyUnicode_AsUTF8String(ukey)),
+        NULL)
+
 
 cdef inline bytes encode(key):
-    cdef bytes bkey
     if PyUnicode_Check(key):
-        bkey = PyUnicode_AsUTF8String(key)
+        return PyUnicode_AsUTF8String(key)
     elif PyBytes_Check(key):
-        bkey = <bytes>key
+        return <bytes>key
     elif key is None:
         return None
-    else:
-        bkey = PyUnicode_AsUTF8String(unicode(key))
-    return bkey
+
+    cdef Py_buffer view
+
+    if PyObject_CheckBuffer(key):
+        PyObject_GetBuffer(key, &view, PyBUF_SIMPLE)
+        try:
+            return PyBytes_AS_STRING((<char*>view.buf))[:view.len]
+        finally:
+            PyBuffer_Release(&view)
+
+    return PyUnicode_AsUTF8String(str(key))
 
 
 cdef dict EXC_MAP = {
@@ -426,7 +457,7 @@ cdef class UnQLite(object):
             &buf_size))
 
         try:
-            buf = <char *>malloc(buf_size)
+            buf = <char *>PyMem_Malloc(buf_size)
             self.check_call(unqlite_kv_fetch(
                 self.database,
                 <const char *>encoded_key,
@@ -436,7 +467,7 @@ cdef class UnQLite(object):
             value = buf[:buf_size]
             return value
         finally:
-            free(buf)
+            PyMem_Free(buf)
 
     cpdef delete(self, key):
         """Delete the value stored at the given key."""
@@ -653,12 +684,12 @@ cdef class UnQLite(object):
     cpdef random_string(self, int nbytes):
         """Generate a random string of given length."""
         cdef char *buf
-        buf = <char *>malloc(nbytes * sizeof(char))
+        buf = <char *>PyMem_Malloc(nbytes * sizeof(char))
         try:
             unqlite_util_random_string(self.database, buf, nbytes)
             return bytes(buf[:nbytes])
         finally:
-            free(buf)
+            PyMem_Free(buf)
 
     cpdef int random_int(self):
         """Generate a random integer."""
@@ -776,7 +807,7 @@ cdef class Cursor(object):
             unqlite_kv_cursor_key(self.cursor, <void *>0, &buf_size))
 
         try:
-            buf = <char *>malloc(buf_size * sizeof(char))
+            buf = <char *>PyMem_Malloc(buf_size * sizeof(char))
             unqlite_kv_cursor_key(
                 self.cursor,
                 <char *>buf,
@@ -788,7 +819,7 @@ cdef class Cursor(object):
             except UnicodeDecodeError:
                 return key
         finally:
-            free(buf)
+            PyMem_Free(buf)
 
     cpdef value(self):
         """Retrieve the value at the cursor's current location."""
@@ -799,7 +830,7 @@ cdef class Cursor(object):
             unqlite_kv_cursor_data(self.cursor, <void *>0, &buf_size))
 
         try:
-            buf = <char *>malloc(buf_size * sizeof(char))
+            buf = <char *>PyMem_Malloc(buf_size * sizeof(char))
             unqlite_kv_cursor_data(
                 self.cursor,
                 <char *>buf,
@@ -808,7 +839,7 @@ cdef class Cursor(object):
             value = buf[:buf_size]
             return value
         finally:
-            free(buf)
+            PyMem_Free(buf)
 
     cpdef delete(self):
         """Delete the record at the cursor's current location."""
