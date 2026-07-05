@@ -1,3 +1,4 @@
+import array
 import gc
 import os
 import random
@@ -66,6 +67,29 @@ class TestKeyValueStorage(BaseTestCase):
 
             self.assertTrue('k1' in db)
             self.assertFalse('k2' in db)
+
+    def test_buffer_keys_and_values(self):
+        # Buffer-protocol objects must round-trip by length, preserving
+        # embedded NUL bytes, whether used as keys or values.
+        value = bytearray(b'abc\x00def')
+        key = bytearray(b'ka\x00kb')
+        for db in (self.db, self.file_db):
+            db.store('k1', value)
+            self.assertEqual(db.fetch('k1'), bytes(value))
+
+            db.store(key, 'v1')
+            self.assertEqual(db.fetch(bytes(key)), b'v1')
+            self.assertEqual(db.fetch(key), b'v1')
+            self.assertTrue(db.exists(key))
+            db.delete(key)
+            self.assertFalse(db.exists(key))
+
+            # Buffers with no NUL-termination guarantee.
+            db.store('k2', array.array('B', [65] * 32))
+            self.assertEqual(db.fetch('k2'), b'A' * 32)
+
+            db.store('k3', memoryview(b'mv\x00data'))
+            self.assertEqual(db.fetch('k3'), b'mv\x00data')
 
     def test_append(self):
         self.db['k1'] = 'v1'
@@ -390,6 +414,13 @@ class TestJx9(BaseTestCase):
             self.assertEqual(nested, {
                 'k1': {'foo': [1, 2, 3]},
                 'k2': ['v2', ['v3', 'v4']]})
+
+    def test_embedded_nul_string_value(self):
+        # Jx9 string values containing NUL bytes round-trip by length.
+        with self.db.vm('$out = $in;') as vm:
+            vm['in'] = b'a\x00b'
+            vm.execute()
+            self.assertEqual(vm['out'], 'a\x00b')
 
     def test_setting_values(self):
         script = """

@@ -306,11 +306,7 @@ cdef inline unicode decode(key):
         finally:
             PyBuffer_Release(&view)
 
-    cdef unicode ukey = str(key)
-    return PyUnicode_DecodeUTF8(
-        PyBytes_AS_STRING(PyUnicode_AsUTF8String(ukey)),
-        PyBytes_GET_SIZE(PyUnicode_AsUTF8String(ukey)),
-        NULL)
+    return str(key)
 
 
 cdef inline bytes encode(key):
@@ -326,7 +322,9 @@ cdef inline bytes encode(key):
     if PyObject_CheckBuffer(key):
         PyObject_GetBuffer(key, &view, PyBUF_SIMPLE)
         try:
-            return PyBytes_AS_STRING((<char*>view.buf))[:view.len]
+            # Slicing with an explicit length (PyBytes_FromStringAndSize)
+            # preserves embedded NULs and never reads past view.len.
+            return (<const char *>view.buf)[:view.len]
         finally:
             PyBuffer_Release(&view)
 
@@ -427,8 +425,7 @@ cdef class UnQLite(object):
             self.database,
             UNQLITE_CONFIG_DISABLE_AUTO_COMMIT)
         if ret != UNQLITE_OK:
-            raise NotImplementedError('Error disabling autocommit for '
-                                      'in-memory database.')
+            raise NotImplementedError('Error disabling autocommit.')
         return True
 
     cpdef store(self, key, value):
@@ -458,6 +455,8 @@ cdef class UnQLite(object):
 
         try:
             buf = <char *>PyMem_Malloc(buf_size)
+            if not buf:
+                raise MemoryError
             self.check_call(unqlite_kv_fetch(
                 self.database,
                 <const char *>encoded_key,
@@ -685,6 +684,8 @@ cdef class UnQLite(object):
         """Generate a random string of given length."""
         cdef char *buf
         buf = <char *>PyMem_Malloc(nbytes * sizeof(char))
+        if not buf:
+            raise MemoryError
         try:
             unqlite_util_random_string(self.database, buf, nbytes)
             return bytes(buf[:nbytes])
@@ -808,6 +809,8 @@ cdef class Cursor(object):
 
         try:
             buf = <char *>PyMem_Malloc(buf_size * sizeof(char))
+            if not buf:
+                raise MemoryError
             unqlite_kv_cursor_key(
                 self.cursor,
                 <char *>buf,
@@ -831,6 +834,8 @@ cdef class Cursor(object):
 
         try:
             buf = <char *>PyMem_Malloc(buf_size * sizeof(char))
+            if not buf:
+                raise MemoryError
             unqlite_kv_cursor_data(
                 self.cursor,
                 <char *>buf,
@@ -1297,6 +1302,9 @@ cdef class CollectionIterator(object):
 cdef unqlite_value_to_python(unqlite_value *ptr):
     cdef list json_array
     cdef dict json_object
+    cdef const char *buf
+    cdef int nbytes
+    cdef bytes bytestring
 
     if unqlite_value_is_json_object(ptr):
         json_object = {}
@@ -1313,7 +1321,8 @@ cdef unqlite_value_to_python(unqlite_value *ptr):
             <void *>json_array)
         return json_array
     elif unqlite_value_is_string(ptr):
-        bytestring = unqlite_value_to_string(ptr, NULL)
+        buf = unqlite_value_to_string(ptr, &nbytes)
+        bytestring = buf[:nbytes]
         try:
             return decode(bytestring)
         except UnicodeDecodeError:
