@@ -9,6 +9,7 @@ import unittest
 
 try:
     from unqlite import UnQLite
+    from unqlite import UnQLiteError
 except ImportError:
     sys.stderr.write('Unable to import `unqlite`. Make sure it is properly '
                      'installed.\n')
@@ -463,6 +464,69 @@ class TestCursorSilentError(BaseTestCase):
         self.assertEqual(
             len([k for k in db]),
             len([k for k in db]))
+
+
+class TestLifetimeSafety(BaseTestCase):
+    def test_cursor_requires_open_database(self):
+        db = UnQLite(open_database=False)
+        self.assertRaises(UnQLiteError, db.cursor)
+
+    def test_cursor_closed_database(self):
+        self.db['k1'] = 'v1'
+        cursor = self.db.cursor()
+        cursor.first()
+        self.db.close()
+
+        self.assertRaises(UnQLiteError, cursor.first)
+        self.assertRaises(UnQLiteError, cursor.key)
+        self.assertRaises(UnQLiteError, cursor.is_valid)
+        self.assertRaises(UnQLiteError, lambda: next(iter(cursor)))
+
+        # Reopening does not resurrect the stale cursor.
+        self.db.open()
+        self.assertRaises(UnQLiteError, cursor.first)
+        del cursor  # Must not crash.
+        gc.collect()
+
+    def test_closed_database_operations(self):
+        self.db.close()
+        self.assertRaises(UnQLiteError, self.db.store, 'k1', 'v1')
+        self.assertRaises(UnQLiteError, self.db.fetch, 'k1')
+
+    def test_vm_requires_compile(self):
+        vm = self.db.vm('$x = 1;')
+        self.assertRaises(UnQLiteError, vm.execute)
+        self.assertRaises(UnQLiteError, vm.reset)
+        self.assertRaises(UnQLiteError, vm.set_value, 'x', 2)
+        self.assertRaises(UnQLiteError, vm.get_value, 'x')
+
+    def test_vm_closed_database(self):
+        vm = self.db.vm('$x = 1;')
+        vm.compile()
+        self.db.close()
+
+        self.assertRaises(UnQLiteError, vm.execute)
+        self.assertRaises(UnQLiteError, vm.set_value, 'x', 2)
+        vm.close()  # Must not crash: unqlite_close() released the VM.
+        del vm
+        gc.collect()
+
+    def test_vm_recompile_and_dealloc(self):
+        vm = self.db.vm('$x = 1;')
+        vm.compile()
+        vm.compile()  # Recompiling releases the previous VM.
+        vm.execute()
+        self.assertEqual(vm['x'], 1)
+        del vm  # Dealloc without close() must release cleanly.
+        gc.collect()
+
+    def test_bytes_filename_and_collection_name(self):
+        db = UnQLite(b':mem:')
+        db['k1'] = 'v1'
+        self.assertEqual(db['k1'], b'v1')
+        coll = db.collection(b'reg')
+        self.assertTrue(coll.create())
+        db.close()
 
 
 class TestUtils(BaseTestCase):

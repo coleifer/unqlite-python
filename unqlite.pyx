@@ -340,7 +340,7 @@ cdef dict EXC_MAP = {
 
 
 class UnQLiteError(Exception):
-    def __init__(self, msg, errno):
+    def __init__(self, msg, errno=None):
         self.errno = errno
         self.error_message = msg
         super(UnQLiteError, self).__init__(msg)
@@ -356,15 +356,19 @@ cdef class UnQLite(object):
     cdef unqlite *database
     cdef readonly bint is_memory
     cdef readonly bint is_open
-    cdef readonly basestring filename
+    cdef readonly object filename
     cdef readonly bytes encoded_filename
     cdef readonly int flags
     cdef bint open_database
+    # Incremented on close() so cursors/VMs can detect a stale handle, even
+    # if the database is subsequently reopened.
+    cdef unsigned int generation
 
     def __cinit__(self):
         self.database = <unqlite *>0
         self.is_memory = False
         self.is_open = False
+        self.generation = 0
 
     def __dealloc__(self):
         if self.is_open:
@@ -401,11 +405,18 @@ cdef class UnQLite(object):
 
     def close(self):
         """Close database connection."""
+        cdef int ret
+
         if not self.is_open: return False
 
-        self.check_call(unqlite_close(self.database))
+        # unqlite_close() releases the handle (and all of its outstanding
+        # cursors and VMs) even on error, so mark the connection closed
+        # before raising.
+        ret = unqlite_close(self.database)
         self.is_open = False
         self.database = <unqlite *>0
+        self.generation += 1
+        self.check_call(ret)
         return True
 
     def __enter__(self):
@@ -528,16 +539,22 @@ cdef class UnQLite(object):
 
     cdef _build_exception_for_error(self, int status):
         cdef bytes message
+        cdef unicode error_message
 
         if status == UNQLITE_NOTFOUND:
             message = b'key not found'
         else:
             message = self._get_last_error()
 
-        if status in EXC_MAP:
-            return EXC_MAP[status](message.decode('utf8'))
+        if message is None:
+            error_message = 'unspecified error, status=%d' % status
         else:
-            return UnQLiteError(message.decode('utf8'), status)
+            error_message = message.decode('utf-8', 'replace')
+
+        if status in EXC_MAP:
+            return EXC_MAP[status](error_message)
+        else:
+            return UnQLiteError(error_message, status)
 
     cdef _get_last_error(self):
         cdef int ret
@@ -727,14 +744,28 @@ cdef class Cursor(object):
     cdef UnQLite unqlite
     cdef unqlite_kv_cursor *cursor
     cdef bint consumed
+    cdef unsigned int generation
 
-    def __cinit__(self, unqlite):
+    def __cinit__(self, UnQLite unqlite):
         self.unqlite = unqlite
         self.cursor = <unqlite_kv_cursor *>0
-        unqlite_kv_cursor_init(self.unqlite.database, &self.cursor)
+        self.unqlite.check_call(
+            unqlite_kv_cursor_init(self.unqlite.database, &self.cursor))
+        self.generation = unqlite.generation
 
     def __dealloc__(self):
-        unqlite_kv_cursor_release(self.unqlite.database, self.cursor)
+        # unqlite_close() releases all of a database's outstanding cursors,
+        # so only release here while the original handle is still alive.
+        if self.cursor and self.unqlite is not None and \
+                self.unqlite.is_open and \
+                self.unqlite.generation == self.generation:
+            unqlite_kv_cursor_release(self.unqlite.database, self.cursor)
+
+    cdef check_cursor(self):
+        if self.cursor == <unqlite_kv_cursor *>0 or \
+                not self.unqlite.is_open or \
+                self.unqlite.generation != self.generation:
+            raise UnQLiteError('Cannot use cursor with closed database.')
 
     def __enter__(self):
         self.reset()
@@ -745,6 +776,7 @@ cdef class Cursor(object):
 
     cpdef reset(self):
         """Reset the cursor's position."""
+        self.check_cursor()
         unqlite_kv_cursor_reset(self.cursor)
 
     cpdef seek(self, key, int flags=UNQLITE_CURSOR_MATCH_EXACT):
@@ -758,6 +790,7 @@ cdef class Cursor(object):
         """
         cdef bytes encoded_key = encode(key)
 
+        self.check_cursor()
         self.unqlite.check_call(unqlite_kv_cursor_seek(
             self.cursor,
             <char *>encoded_key,
@@ -766,15 +799,18 @@ cdef class Cursor(object):
 
     cpdef first(self):
         """Set cursor to the first record in the database."""
+        self.check_cursor()
         self.unqlite.check_call(unqlite_kv_cursor_first_entry(self.cursor))
 
     cpdef last(self):
         """Set cursor to the last record in the database."""
+        self.check_cursor()
         self.unqlite.check_call(unqlite_kv_cursor_last_entry(self.cursor))
 
     cpdef next_entry(self):
         """Move cursor to the next entry."""
         cdef int ret
+        self.check_cursor()
         ret = unqlite_kv_cursor_next_entry(self.cursor)
         if ret != UNQLITE_OK:
             raise StopIteration
@@ -782,6 +818,7 @@ cdef class Cursor(object):
     cpdef previous_entry(self):
         """Move cursor to the previous entry."""
         cdef int ret
+        self.check_cursor()
         ret = unqlite_kv_cursor_prev_entry(self.cursor)
         if ret != UNQLITE_OK:
             raise StopIteration
@@ -791,6 +828,7 @@ cdef class Cursor(object):
         Return a boolean value indicating whether the cursor is currently
         pointing to a valid record.
         """
+        self.check_cursor()
         if unqlite_kv_cursor_valid_entry(self.cursor):
             return True
         return False
@@ -804,6 +842,7 @@ cdef class Cursor(object):
         cdef char *buf
         cdef int buf_size
 
+        self.check_cursor()
         self.unqlite.check_call(
             unqlite_kv_cursor_key(self.cursor, <void *>0, &buf_size))
 
@@ -829,6 +868,7 @@ cdef class Cursor(object):
         cdef char *buf
         cdef unqlite_int64 buf_size
 
+        self.check_cursor()
         self.unqlite.check_call(
             unqlite_kv_cursor_data(self.cursor, <void *>0, &buf_size))
 
@@ -848,6 +888,7 @@ cdef class Cursor(object):
 
     cpdef delete(self):
         """Delete the record at the cursor's current location."""
+        self.check_cursor()
         self.unqlite.check_call(unqlite_kv_cursor_delete_entry(self.cursor))
 
     def __next__(self):
@@ -856,6 +897,7 @@ cdef class Cursor(object):
         if self.consumed:
             raise StopIteration
 
+        self.check_cursor()
         try:
             key = self.key()
             value = self.value()
@@ -890,6 +932,7 @@ cdef class VM(object):
     cdef readonly code
     cdef readonly bytes encoded_code
     cdef set encoded_names
+    cdef unsigned int generation
 
     def __cinit__(self, UnQLite unqlite, code):
         self.unqlite = unqlite
@@ -899,12 +942,25 @@ cdef class VM(object):
         self.encoded_names = set()
 
     def __dealloc__(self):
-        # For some reason, calling unqlite_vm_release() here always causes a
-        # segfault.
-        pass
+        # unqlite_close() releases all of a database's outstanding VMs, so
+        # only release here while the original handle is still alive --
+        # releasing a dead VM is a use-after-free.
+        if self.vm and self.unqlite is not None and \
+                self.unqlite.is_open and \
+                self.unqlite.generation == self.generation:
+            unqlite_vm_release(self.vm)
+
+    cdef check_vm(self):
+        if not self.vm:
+            raise UnQLiteError('Jx9 script must be compiled first.')
+        if not self.unqlite.is_open or \
+                self.unqlite.generation != self.generation:
+            raise UnQLiteError('Cannot use Jx9 VM with closed database.')
 
     cpdef compile(self):
         """Compile the Jx9 script."""
+        if self.vm:
+            self.close()
         self.encoded_names.clear()
         cdef const char *code = <const char *>self.encoded_code
         self.unqlite.check_call(unqlite_compile(
@@ -912,20 +968,18 @@ cdef class VM(object):
             code,
             len(self.encoded_code),
             &self.vm))
+        self.generation = self.unqlite.generation
 
     cpdef execute(self):
         """Execute the compiled Jx9 script."""
-        if not self.vm:
-            raise UnQLiteError('Jx9 script must be compiled before executing.')
+        self.check_vm()
 
         # Cannot release GIL here as the Jx9 script may invoke python-side code
         # like user-defined functions or filters.
         self.unqlite.check_call(unqlite_vm_exec(self.vm))
 
     cpdef reset(self):
-        if not self.vm:
-            raise UnQLiteError('Jx9 script has not been compiled.')
-
+        self.check_vm()
         self.unqlite.check_call(unqlite_vm_reset(self.vm))
         return True
 
@@ -933,7 +987,9 @@ cdef class VM(object):
         """Close and release the virtual machine."""
         self.encoded_names.clear()
         if self.vm:
-            unqlite_vm_release(self.vm)
+            if self.unqlite.is_open and \
+                    self.unqlite.generation == self.generation:
+                unqlite_vm_release(self.vm)
             self.vm = <unqlite_vm *>0
 
     def __enter__(self):
@@ -970,6 +1026,8 @@ cdef class VM(object):
         cdef unqlite_value *ptr
         cdef bytes encoded_name = encode(name)
 
+        self.check_vm()
+
         # since Jx9 does not make a private copy of the name,
         # we need to keep it alive by adding it to a set
         self.encoded_names.add(encoded_name)
@@ -991,6 +1049,8 @@ cdef class VM(object):
         """
         cdef unqlite_value *ptr
         cdef bytes encoded_name = encode(name)
+
+        self.check_vm()
 
         ptr = unqlite_vm_extract_variable(self.vm, <const char *>encoded_name)
         if not ptr:
@@ -1108,7 +1168,7 @@ cdef class Collection(object):
     cdef UnQLite unqlite
     cdef basestring name
 
-    def __init__(self, UnQLite unqlite, basestring name):
+    def __init__(self, UnQLite unqlite, name):
         self.unqlite = unqlite
         self.name = decode(name)
 
