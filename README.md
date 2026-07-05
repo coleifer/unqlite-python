@@ -74,6 +74,14 @@ False
 >>> db.append('k2', 'XXXX')
 >>> db['k2']
 b'2XXXX'
+
+>>> db.get('k2')  # Like dict.get() -- returns None if not found.
+b'2XXXX'
+>>> db.get('missing', 'n/a')
+'n/a'
+
+>>> list(db.match_prefix('k'))  # Iterate keys matching a prefix (O(n) scan).
+[('k0', b'0'), ('k1', b'1'), ('k2', b'2XXXX')]
 ```
 
 The database can also be iterated through directly. Note that keys are decoded

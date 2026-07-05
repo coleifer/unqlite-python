@@ -92,6 +92,23 @@ class TestKeyValueStorage(BaseTestCase):
             db.store('k3', memoryview(b'mv\x00data'))
             self.assertEqual(db.fetch('k3'), b'mv\x00data')
 
+    def test_get_default(self):
+        for db in (self.db, self.file_db):
+            db['k1'] = 'v1'
+            self.assertEqual(db.get('k1'), b'v1')
+            self.assertIsNone(db.get('kx'))
+            self.assertEqual(db.get('kx', 'missing'), 'missing')
+
+    def test_match_prefix(self):
+        for db in (self.db, self.file_db):
+            db.update({'aa': '1', 'ab': '2', 'abc': '3', 'b': '4'})
+            self.assertEqual(dict(db.match_prefix('a')),
+                             {'aa': b'1', 'ab': b'2', 'abc': b'3'})
+            self.assertEqual(dict(db.match_prefix('ab')),
+                             {'ab': b'2', 'abc': b'3'})
+            self.assertEqual(dict(db.match_prefix('abc')), {'abc': b'3'})
+            self.assertEqual(list(db.match_prefix('zz')), [])
+
     def test_append(self):
         self.db['k1'] = 'v1'
         self.db.append('k1', 'V1')
@@ -464,6 +481,31 @@ class TestCursorSilentError(BaseTestCase):
         self.assertEqual(
             len([k for k in db]),
             len([k for k in db]))
+
+
+class TestConfig(BaseTestCase):
+    def test_kv_engine(self):
+        self.assertEqual(self.db.kv_engine(), 'mem')
+        self.assertEqual(self.file_db.kv_engine(), 'hash')
+
+    def test_max_page_cache(self):
+        self.file_db.set_max_page_cache(512)
+        self.file_db['k1'] = 'v1'
+        self.assertEqual(self.file_db['k1'], b'v1')
+
+    def test_vm_output(self):
+        with self.db.vm('print "hello"; print " world";') as vm:
+            vm.execute()
+            self.assertEqual(vm.output(), 'hello world')
+
+    def test_jx9_compile_error(self):
+        vm = self.db.vm('$x = ;')
+        self.assertRaises(UnQLiteError, vm.compile)
+        try:
+            vm.compile()
+        except UnQLiteError as exc:
+            # The exception should carry the Jx9 compile-error log.
+            self.assertTrue('rror' in str(exc) or 'ynta' in str(exc))
 
 
 class TestLifetimeSafety(BaseTestCase):

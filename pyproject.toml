@@ -10,7 +10,6 @@ authors = [
     { name = "Charles Leifer", email = "coleifer@gmail.com" }
 ]
 classifiers = [
-    "Programming Language :: Python :: 2",
     "Programming Language :: Python :: 3",
     "Topic :: Database :: Database Engines/Servers",
     "Topic :: Software Development :: Embedded Systems",
