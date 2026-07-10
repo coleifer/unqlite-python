@@ -940,15 +940,15 @@ cdef class Cursor(object):
             raise StopIteration
 
         self.check_cursor()
-        try:
-            key = self.key()
-            value = self.value()
-        except Exception:
+        if not unqlite_kv_cursor_valid_entry(self.cursor):
+            self.consumed = True
             raise StopIteration
-        else:
-            ret = unqlite_kv_cursor_next_entry(self.cursor)
-            if ret != UNQLITE_OK:
-                self.consumed = True
+
+        key = self.key()
+        value = self.value()
+        ret = unqlite_kv_cursor_next_entry(self.cursor)
+        if ret != UNQLITE_OK:
+            self.consumed = True
 
         return (key, value)
 
