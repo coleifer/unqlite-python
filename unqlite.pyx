@@ -985,8 +985,7 @@ cdef class VM(object):
 
     def __dealloc__(self):
         # unqlite_close() releases all of a database's outstanding VMs, so
-        # only release here while the original handle is still alive --
-        # releasing a dead VM is a use-after-free.
+        # only release here while the original handle is still alive.
         if self.vm and self.unqlite is not None and \
                 self.unqlite.is_open and \
                 self.unqlite.generation == self.generation:
@@ -1111,10 +1110,9 @@ cdef class VM(object):
         ptr = unqlite_vm_extract_variable(self.vm, <const char *>encoded_name)
         if not ptr:
             raise KeyError(name)
-        try:
-            return unqlite_value_to_python(ptr)
-        finally:
-            self.release_value(ptr)
+        # The extracted value is owned by the VM (not a copy) and is freed
+        # when the VM is released.
+        return unqlite_value_to_python(ptr)
 
     def __getitem__(self, name):
         return self.get_value(name)
