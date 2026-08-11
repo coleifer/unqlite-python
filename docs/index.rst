@@ -8,7 +8,7 @@ unqlite-python
 
 .. image:: http://media.charlesleifer.com/blog/photos/unqlite-python-logo.png
 
-Fast Python bindings for `UnQLite <http://unqlite.org/>`_, a lightweight, embedded NoSQL database and JSON document store.
+Fast Python bindings for `UnQLite <https://unqlite.symisc.net/index.html>`_, a lightweight, embedded NoSQL database and JSON document store.
 
 .. warning::
     Read the issue tracker for `this database <https://github.com/symisc/unqlite/issues/>`_

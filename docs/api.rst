@@ -6,7 +6,7 @@ API Documentation
 .. py:class:: UnQLite([filename=':mem:'[, flags=UNQLITE_OPEN_CREATE[, open_database=True]])
 
     The :py:class:`UnQLite` object provides a pythonic interface for interacting
-    with `UnQLite databases <http://unqlite.symisc.net/>`_. UnQLite is a lightweight,
+    with `UnQLite databases <https://unqlite.symisc.net/>`_. UnQLite is a lightweight,
     embedded NoSQL database and JSON document store.
 
     :param str filename: The path to the database file.
@@ -87,7 +87,7 @@ API Documentation
         * ``UNQLITE_OPEN_IN_MEMORY``
         * ``UNQLITE_OPEN_MMAP``
 
-        Detailed descriptions of these flags can be found in the `unqlite_open docs <http://unqlite.org/c_api/unqlite_open.html>`_.
+        Detailed descriptions of these flags can be found in the `unqlite_open docs <https://unqlite.symisc.net/c_api/unqlite_open.html>`_.
 
     .. py:method:: close()
 
@@ -487,7 +487,7 @@ API Documentation
         Advance the cursor to the given key using the comparison method
         described in the flags.
 
-        A detailed description of alternate flags and their usage can be found in the `unqlite_kv_cursor docs <http://unqlite.org/c_api/unqlite_kv_cursor.html>`_.
+        A detailed description of alternate flags and their usage can be found in the `unqlite_kv_cursor docs <https://unqlite.symisc.net/c_api/unqlite_kv_cursor.html>`_.
 
         Usage:
 
@@ -572,7 +572,7 @@ API Documentation
 
     VM instances should not be instantiated directly, but created by calling :py:meth:`UnQLite.vm`.
 
-    .. note:: For information on Jx9 scripting, see the `Jx9 docs <http://unqlite.org/jx9.html>`_.
+    .. note:: For information on Jx9 scripting, see the `Jx9 docs <https://unqlite.symisc.net/jx9.html>`_.
 
     Example of passing values into a Jx9 script prior to execution, then extracting values afterwards:
 

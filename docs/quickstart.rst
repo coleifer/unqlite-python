@@ -79,7 +79,7 @@ For more information, see the :py:class:`Cursor` API documentation.
 Document store features
 -----------------------
 
-In my opinion the most interesting feature of UnQLite is its JSON document store. The `Jx9 scripting language <http://unqlite.org/jx9.html>`_ is used to interact with the document store, and it is a wacky mix of C, JavaScript and PHP.
+In my opinion the most interesting feature of UnQLite is its JSON document store. The `Jx9 scripting language <https://unqlite.symisc.net/jx9.html>`_ is used to interact with the document store, and it is a wacky mix of C, JavaScript and PHP.
 
 Interacting with the document store basically consists of creating a Jx9 script (you might think of it as an imperative SQL query), compiling it, and then executing it.
 

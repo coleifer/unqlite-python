@@ -1,6 +1,6 @@
 ![](http://media.charlesleifer.com/blog/photos/unqlite-python-logo.png)
 
-Fast Python bindings for [UnQLite](http://unqlite.org/), a lightweight, embedded NoSQL database and JSON document store.
+Fast Python bindings for [UnQLite](https://unqlite.symisc.net/), a lightweight, embedded NoSQL database and JSON document store.
 
 ### Please note
 
@@ -33,7 +33,7 @@ UnQLite-Python features:
 Links:
 
 * [unqlite-python documentation](https://unqlite-python.readthedocs.io/)
-* [UnQLite's C API](http://unqlite.symisc.net/c_api.html)
+* [UnQLite's C API](https://unqlite.symisc.net/c_api.html)
 
 ## Installation
 
@@ -123,7 +123,7 @@ There are many different ways of interacting with cursors, which are described i
 
 ### Document store features
 
-In my opinion the most interesting feature of UnQLite is its JSON document store. The [Jx9 scripting language](http://unqlite.org/jx9.html) is used to interact with the document store, and it is a wacky mix of PHP and maybe JavaScript (?).
+In my opinion the most interesting feature of UnQLite is its JSON document store. The [Jx9 scripting language](https://unqlite.symisc.net/jx9.html) is used to interact with the document store, and it is a wacky mix of PHP and maybe JavaScript (?).
 
 **Note**: as of v0.8.0 the document store and collections APIs treat all
 strings as unicode.
